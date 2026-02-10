@@ -1,0 +1,17 @@
+poi_id,poi_name,is_instagram_worthy,golden_hour_rating,best_photo_spots,best_photo_time,iconic_shot_description,night_photography,selfie_friendly,drone_allowed,tripod_allowed,photo_restrictions,crowd_for_photos,photography_tips
+POI_001,Colosseum,TRUE,5,"Main entrance;View from Palatine Hill;Through the arches;Night illumination",Early morning before 9am or sunset,"Wide angle from Piazza del Colosseo with fountain",TRUE,TRUE,FALSE,TRUE,"No flash inside;No professional equipment without permit",crowded,"Arrive at opening for empty shots;Sunset from Palatine Hill is stunning"
+POI_002,Trevi Fountain,TRUE,3,"Front view;Side angle;From Vicus Caprarius",Late night (after 11pm) or early morning 6am,"Classic front shot with full fountain visible",TRUE,TRUE,FALSE,TRUE,None,crowded,"Night shots are magical;Nearly impossible to get empty during day"
+POI_003,Da Enzo al 29,TRUE,2,"Outdoor terrace;Pasta close-up;Street view",Golden hour for terrace,"Cacio e pepe pasta shot",FALSE,TRUE,FALSE,TRUE,"Ask permission for other diners",empty,"Food photos in natural light;Terrace has great ambiance"
+POI_004,Vatican Museums,TRUE,4,"Sistine Chapel;Spiral staircase;St Peters from dome;Raphael Rooms",Early morning first entry,"Sistine Chapel ceiling (no photos officially allowed)",FALSE,TRUE,FALSE,FALSE,"No photos in Sistine Chapel;No flash anywhere;No tripods",crowded,"Spiral staircase is most Instagrammable;Book early entry"
+POI_005,Aventine Keyhole,TRUE,5,"Through the keyhole;Garden path;Orange garden nearby",Sunset for golden light,"St Peters dome perfectly framed through keyhole",FALSE,TRUE,FALSE,TRUE,None,moderate,"Short queue;Quick shot;Combine with Orange Garden sunset"
+,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+GOLDEN HOUR RATING (1-5):,,,,,,,,,,,,,,
+"5 = Must visit at golden hour (sunset/sunrise transforms it)",,,,,,,,,,,,,,
+"4 = Significantly better at golden hour",,,,,,,,,,,,,,
+"3 = Nice at golden hour but good anytime",,,,,,,,,,,,,,
+"2 = Lighting doesn't matter much",,,,,,,,,,,,,,
+"1 = Indoor/lighting controlled",,,,,,,,,,,,,,
+,,,,,,,,,,,,,,
+"crowd_for_photos: empty, moderate, crowded",,,,,,,,,,,,,,
+"best_photo_spots: Separate multiple with semicolon (;)",,,,,,,,,,,,,,

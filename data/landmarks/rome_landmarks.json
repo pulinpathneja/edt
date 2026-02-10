@@ -1,0 +1,167 @@
+[
+  {
+    "id": "rome_colosseum",
+    "name": "Colosseum",
+    "category": "monument",
+    "latitude": 41.8902,
+    "longitude": 12.4922,
+    "description": "Iconic ancient Roman amphitheater, symbol of Rome.",
+    "duration_minutes": 120,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "rome_vatican",
+    "name": "Vatican Museums",
+    "category": "museum",
+    "latitude": 41.9065,
+    "longitude": 12.4536,
+    "description": "World's greatest art collection including Sistine Chapel.",
+    "duration_minutes": 240,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "rome_stpeters",
+    "name": "St. Peter's Basilica",
+    "category": "church",
+    "latitude": 41.9022,
+    "longitude": 12.4539,
+    "description": "Largest church in the world, masterpiece of Renaissance architecture.",
+    "duration_minutes": 120,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "rome_pantheon",
+    "name": "Pantheon",
+    "category": "monument",
+    "latitude": 41.8986,
+    "longitude": 12.4769,
+    "description": "Best-preserved ancient Roman building with iconic dome.",
+    "duration_minutes": 60,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "rome_trevifountain",
+    "name": "Trevi Fountain",
+    "category": "monument",
+    "latitude": 41.9009,
+    "longitude": 12.4833,
+    "description": "Baroque masterpiece, throw a coin to return to Rome.",
+    "duration_minutes": 30,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "rome_romanforum",
+    "name": "Roman Forum",
+    "category": "monument",
+    "latitude": 41.8925,
+    "longitude": 12.4853,
+    "description": "Ancient ruins of Rome's political and commercial center.",
+    "duration_minutes": 120,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "rome_palatinehill",
+    "name": "Palatine Hill",
+    "category": "monument",
+    "latitude": 41.8892,
+    "longitude": 12.4875,
+    "description": "Legendary birthplace of Rome with imperial palace ruins.",
+    "duration_minutes": 90,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "rome_spanishsteps",
+    "name": "Spanish Steps",
+    "category": "monument",
+    "latitude": 41.9060,
+    "longitude": 12.4828,
+    "description": "Iconic 135-step stairway, perfect for people watching.",
+    "duration_minutes": 45,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "rome_borghese",
+    "name": "Borghese Gallery",
+    "category": "museum",
+    "latitude": 41.9142,
+    "longitude": 12.4921,
+    "description": "Bernini sculptures and Caravaggio paintings in a stunning villa.",
+    "duration_minutes": 120,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "rome_villaborghese",
+    "name": "Villa Borghese Gardens",
+    "category": "park",
+    "latitude": 41.9145,
+    "longitude": 12.4852,
+    "description": "Rome's Central Park - beautiful gardens and lake.",
+    "duration_minutes": 90,
+    "must_see": false,
+    "family_friendly": true
+  },
+  {
+    "id": "rome_castelsantangelo",
+    "name": "Castel Sant'Angelo",
+    "category": "monument",
+    "latitude": 41.9031,
+    "longitude": 12.4663,
+    "description": "Former papal fortress with panoramic views of Rome.",
+    "duration_minutes": 90,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "rome_piazzanavona",
+    "name": "Piazza Navona",
+    "category": "attraction",
+    "latitude": 41.8992,
+    "longitude": 12.4731,
+    "description": "Baroque square with Bernini's Fountain of Four Rivers.",
+    "duration_minutes": 45,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "rome_campofiori",
+    "name": "Campo de' Fiori",
+    "category": "attraction",
+    "latitude": 41.8956,
+    "longitude": 12.4722,
+    "description": "Lively market square, great for food and atmosphere.",
+    "duration_minutes": 60,
+    "must_see": false,
+    "family_friendly": true
+  },
+  {
+    "id": "rome_trastevere",
+    "name": "Trastevere Neighborhood",
+    "category": "attraction",
+    "latitude": 41.8894,
+    "longitude": 12.4700,
+    "description": "Charming cobblestone streets, best for evening walks.",
+    "duration_minutes": 120,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "rome_sistinechapel",
+    "name": "Sistine Chapel",
+    "category": "church",
+    "latitude": 41.9029,
+    "longitude": 12.4545,
+    "description": "Michelangelo's ceiling masterpiece - included in Vatican Museums.",
+    "duration_minutes": 60,
+    "must_see": true,
+    "family_friendly": true
+  }
+]

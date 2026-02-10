@@ -1,0 +1,17 @@
+poi_id,poi_name,cuisine_type,meal_types,dietary_vegetarian,dietary_vegan,dietary_gluten_free,dietary_halal,dietary_kosher,outdoor_seating,reservation_difficulty,wait_time_without_reservation,tasting_menu_available,wine_pairing_available,local_specialties,michelin_stars,avg_meal_duration_minutes,price_range_lunch,price_range_dinner,tipping_expected,tip_percentage,best_dishes,avoid_dishes,dietary_notes
+REST_001,Da Enzo al 29,"Roman;Italian","lunch;dinner",TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,4,45,FALSE,TRUE,"Cacio e Pepe;Carbonara;Gricia;Amatriciana",0,75,25-35,35-50,TRUE,10,"Cacio e Pepe;Tonnarelli;Supplì","Skip desserts","Can accommodate gluten-free pasta on request"
+REST_002,Roscioli Salumeria,"Italian;Deli","lunch;dinner",TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,5,60,TRUE,TRUE,"Carbonara;Cured meats;Cheese selection",0,90,40-60,60-90,TRUE,10,"Carbonara;Cheese plate;Cured meat selection","None","Extensive gluten-free options"
+REST_003,Pizzarium,Pizza,lunch,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE,2,15,FALSE,FALSE,"Pizza al taglio;Supplì",0,30,10-20,15-25,FALSE,0,"Any seasonal pizza;Potato pizza","None","Vegan options available;GF crust available"
+REST_004,Armando al Pantheon,"Roman;Italian","lunch;dinner",TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,5,No walk-ins,TRUE,TRUE,"Traditional Roman dishes",0,90,40-55,55-80,TRUE,10,"Rigatoni con pajata;Coda alla vaccinara","Tourist menu items","Book 2-3 weeks ahead"
+,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+RESERVATION DIFFICULTY (1-5):,,,,,,,,,,,,,,,,,,,,,,,,
+"1 = Walk-in always available",,,,,,,,,,,,,,,,,,,,,,,,
+"2 = Easy to book same day",,,,,,,,,,,,,,,,,,,,,,,,
+"3 = Book 2-3 days ahead",,,,,,,,,,,,,,,,,,,,,,,,
+"4 = Book 1 week ahead",,,,,,,,,,,,,,,,,,,,,,,,
+"5 = Book 2+ weeks ahead / Very difficult",,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,
+"meal_types: breakfast, brunch, lunch, dinner, late_night",,,,,,,,,,,,,,,,,,,,,,,,
+"cuisine_type: Separate multiple with semicolon",,,,,,,,,,,,,,,,,,,,,,,,
+"local_specialties: Signature dishes to highlight",,,,,,,,,,,,,,,,,,,,,,,,

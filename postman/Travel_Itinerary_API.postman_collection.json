@@ -1,0 +1,798 @@
+{
+  "info": {
+    "name": "Travel Itinerary API",
+    "description": "Complete API collection for the Travel Itinerary Generator.\n\nEndpoints for:\n- Cities & Neighborhoods\n- Landmarks\n- POIs (Points of Interest)\n- Travel Time Calculation\n- Itinerary Generation\n- Recommendations\n- Personas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "travel-itinerary"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    },
+    {
+      "key": "gcp_url",
+      "value": "https://edt-api-xxxxxxx.run.app",
+      "type": "string"
+    },
+    {
+      "key": "api_version",
+      "value": "v1",
+      "type": "string"
+    },
+    {
+      "key": "poi_id",
+      "value": "00000000-0000-0000-0000-000000000000",
+      "type": "string"
+    },
+    {
+      "key": "itinerary_id",
+      "value": "00000000-0000-0000-0000-000000000000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "item": [
+        {
+          "name": "Root",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/",
+              "host": ["{{base_url}}"],
+              "path": [""]
+            },
+            "description": "Get API info and status"
+          }
+        },
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/health",
+              "host": ["{{base_url}}"],
+              "path": ["health"]
+            },
+            "description": "Health check endpoint"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cities",
+      "item": [
+        {
+          "name": "List All Cities",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/cities/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "cities", ""]
+            },
+            "description": "Get all available cities with their bounding boxes, neighborhoods, and landmark counts."
+          }
+        },
+        {
+          "name": "Get City Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/cities/paris",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "cities", "paris"]
+            },
+            "description": "Get details for a specific city including neighborhoods and bounding box."
+          }
+        },
+        {
+          "name": "Create New City",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dubai\",\n  \"country\": \"UAE\",\n  \"currency\": \"AED\",\n  \"min_lon\": 55.10,\n  \"min_lat\": 25.05,\n  \"max_lon\": 55.35,\n  \"max_lat\": 25.30,\n  \"neighborhoods\": [\n    {\n      \"name\": \"Downtown Dubai\",\n      \"lat\": 25.1972,\n      \"lon\": 55.2744,\n      \"vibes\": [\"luxury\", \"shopping\", \"photography\"],\n      \"best_for\": [\"couple\", \"family\", \"business\"]\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/cities/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "cities", ""]
+            },
+            "description": "Add a new city to the database with bounding box and neighborhoods."
+          }
+        },
+        {
+          "name": "Get City Neighborhoods",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/cities/rome/neighborhoods",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "cities", "rome", "neighborhoods"]
+            },
+            "description": "Get all neighborhoods for a specific city."
+          }
+        },
+        {
+          "name": "Recommend Neighborhoods",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"city\": \"paris\",\n  \"group_type\": \"honeymoon\",\n  \"vibes\": [\"romantic\", \"cultural\", \"foodie\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/cities/neighborhoods/recommend",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "cities", "neighborhoods", "recommend"]
+            },
+            "description": "Get neighborhood recommendations based on persona (group type and vibes)."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Landmarks",
+      "item": [
+        {
+          "name": "Get City Landmarks",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/landmarks/paris?method=auto&limit=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "landmarks", "paris"],
+              "query": [
+                {
+                  "key": "method",
+                  "value": "auto",
+                  "description": "Data source: auto, file, wikidata"
+                },
+                {
+                  "key": "limit",
+                  "value": "20",
+                  "description": "Max landmarks to return"
+                }
+              ]
+            },
+            "description": "Get landmarks for a city. Auto mode tries file first, then Wikidata."
+          }
+        },
+        {
+          "name": "Get Landmarks from Wikidata",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/landmarks/rome?method=wikidata&limit=15",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "landmarks", "rome"],
+              "query": [
+                {
+                  "key": "method",
+                  "value": "wikidata"
+                },
+                {
+                  "key": "limit",
+                  "value": "15"
+                }
+              ]
+            },
+            "description": "Fetch landmarks directly from Wikidata SPARQL endpoint."
+          }
+        },
+        {
+          "name": "Generate Landmarks",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"city\": \"Barcelona\",\n  \"country\": \"Spain\",\n  \"method\": \"auto\",\n  \"limit\": 15\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/landmarks/generate",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "landmarks", "generate"]
+            },
+            "description": "Generate landmarks for a city using specified method (auto, file, wikidata, llm)."
+          }
+        },
+        {
+          "name": "Add Landmark",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Catacombs of Paris\",\n  \"category\": \"attraction\",\n  \"latitude\": 48.8339,\n  \"longitude\": 2.3325,\n  \"description\": \"Underground ossuaries holding remains of 6 million people\",\n  \"duration_minutes\": 90,\n  \"must_see\": false,\n  \"family_friendly\": false,\n  \"family_only\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/landmarks/paris",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "landmarks", "paris"]
+            },
+            "description": "Add a new landmark to a city's landmark file."
+          }
+        },
+        {
+          "name": "Delete Landmark",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/landmarks/paris/paris_13",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "landmarks", "paris", "paris_13"]
+            },
+            "description": "Delete a landmark from a city's landmark file."
+          }
+        }
+      ]
+    },
+    {
+      "name": "POIs",
+      "item": [
+        {
+          "name": "List POIs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/pois/?city=Rome&skip=0&limit=50",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "pois", ""],
+              "query": [
+                {
+                  "key": "city",
+                  "value": "Rome"
+                },
+                {
+                  "key": "skip",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "50"
+                }
+              ]
+            },
+            "description": "List POIs with optional city filter."
+          }
+        },
+        {
+          "name": "Get POI by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/pois/{{poi_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "pois", "{{poi_id}}"]
+            },
+            "description": "Get a specific POI by ID with scores and attributes."
+          }
+        },
+        {
+          "name": "Create POI",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Trattoria Da Luigi\",\n  \"description\": \"Authentic Roman cuisine in Trastevere\",\n  \"latitude\": 41.8894,\n  \"longitude\": 12.4700,\n  \"address\": \"Via della Scala 23, Rome\",\n  \"neighborhood\": \"Trastevere\",\n  \"city\": \"Rome\",\n  \"country\": \"Italy\",\n  \"category\": \"restaurant\",\n  \"subcategory\": \"trattoria\",\n  \"typical_duration_minutes\": 90,\n  \"best_time_of_day\": \"evening\",\n  \"cost_level\": 3,\n  \"avg_cost_per_person\": 35.00\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/pois/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "pois", ""]
+            },
+            "description": "Create a new POI with automatic embedding generation."
+          }
+        },
+        {
+          "name": "Update POI",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Updated description for the POI\",\n  \"cost_level\": 4,\n  \"typical_duration_minutes\": 120\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/pois/{{poi_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "pois", "{{poi_id}}"]
+            },
+            "description": "Partially update a POI. Only include fields to update."
+          }
+        },
+        {
+          "name": "Delete POI",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/pois/{{poi_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "pois", "{{poi_id}}"]
+            },
+            "description": "Delete a POI by ID."
+          }
+        },
+        {
+          "name": "Update POI Persona Scores",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"score_family\": 0.8,\n  \"score_kids\": 0.7,\n  \"score_couple\": 0.9,\n  \"score_honeymoon\": 0.95,\n  \"score_solo\": 0.6,\n  \"score_friends\": 0.75,\n  \"score_seniors\": 0.5,\n  \"score_business\": 0.3,\n  \"score_adventure\": 0.2,\n  \"score_relaxation\": 0.85,\n  \"score_cultural\": 0.4,\n  \"score_foodie\": 0.95,\n  \"score_nightlife\": 0.7,\n  \"score_nature\": 0.1,\n  \"score_shopping\": 0.3,\n  \"score_photography\": 0.6,\n  \"score_wellness\": 0.4,\n  \"score_romantic\": 0.9\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/pois/{{poi_id}}/scores",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "pois", "{{poi_id}}", "scores"]
+            },
+            "description": "Update persona matching scores for a POI (0.0 to 1.0 scale)."
+          }
+        },
+        {
+          "name": "Update POI Attributes",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"is_kid_friendly\": true,\n  \"is_pet_friendly\": false,\n  \"is_wheelchair_accessible\": true,\n  \"requires_reservation\": true,\n  \"requires_advance_booking_days\": 0,\n  \"is_indoor\": true,\n  \"is_outdoor\": false,\n  \"physical_intensity\": 1,\n  \"typical_crowd_level\": 3,\n  \"is_hidden_gem\": false,\n  \"is_must_see\": false,\n  \"instagram_worthy\": true,\n  \"weather_dependent\": false,\n  \"rain_suitable\": true,\n  \"best_in_evening\": true,\n  \"sunset_worthy\": false\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/pois/{{poi_id}}/attributes",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "pois", "{{poi_id}}", "attributes"]
+            },
+            "description": "Update practical attributes for a POI (accessibility, weather, timing)."
+          }
+        },
+        {
+          "name": "Generate Embeddings for All POIs",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/pois/generate-embeddings",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "pois", "generate-embeddings"]
+            },
+            "description": "Generate embeddings for all POIs that don't have one. Uses BGE-small-en-v1.5 model."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Travel Time",
+      "item": [
+        {
+          "name": "Estimate Travel Time",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"origin\": {\n    \"latitude\": 48.8584,\n    \"longitude\": 2.2945\n  },\n  \"destination\": {\n    \"latitude\": 48.8606,\n    \"longitude\": 2.3376\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/travel/estimate",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "travel", "estimate"]
+            },
+            "description": "Calculate travel time between two points.\n\nReturns walking time, transit time, and recommended mode."
+          }
+        },
+        {
+          "name": "Quick Distance (GET)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/travel/distance?lat1=48.8584&lon1=2.2945&lat2=48.8606&lon2=2.3376",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "travel", "distance"],
+              "query": [
+                {
+                  "key": "lat1",
+                  "value": "48.8584"
+                },
+                {
+                  "key": "lon1",
+                  "value": "2.2945"
+                },
+                {
+                  "key": "lat2",
+                  "value": "48.8606"
+                },
+                {
+                  "key": "lon2",
+                  "value": "2.3376"
+                }
+              ]
+            },
+            "description": "Quick distance calculation using GET parameters."
+          }
+        },
+        {
+          "name": "Multi-Point Route",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"points\": [\n    {\"latitude\": 48.8584, \"longitude\": 2.2945},\n    {\"latitude\": 48.8606, \"longitude\": 2.3376},\n    {\"latitude\": 48.8530, \"longitude\": 2.3499},\n    {\"latitude\": 48.8867, \"longitude\": 2.3431}\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/travel/route",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "travel", "route"]
+            },
+            "description": "Calculate travel time for a multi-point route."
+          }
+        },
+        {
+          "name": "Optimize Route Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"points\": [\n    {\"latitude\": 48.8584, \"longitude\": 2.2945},\n    {\"latitude\": 48.8606, \"longitude\": 2.3376},\n    {\"latitude\": 48.8530, \"longitude\": 2.3499},\n    {\"latitude\": 48.8867, \"longitude\": 2.3431}\n  ],\n  \"start_index\": 0\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/travel/optimize",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "travel", "optimize"]
+            },
+            "description": "Optimize route order to minimize total travel distance using nearest-neighbor algorithm."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Itinerary",
+      "item": [
+        {
+          "name": "Generate Itinerary",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"trip_request\": {\n    \"destination_city\": \"Paris\",\n    \"start_date\": \"2025-06-15\",\n    \"end_date\": \"2025-06-19\",\n    \"group_type\": \"honeymoon\",\n    \"group_size\": 2,\n    \"has_kids\": false,\n    \"has_seniors\": false,\n    \"vibes\": [\"romantic\", \"cultural\", \"foodie\"],\n    \"budget_level\": 4,\n    \"pacing\": \"slow\"\n  },\n  \"must_include_pois\": [],\n  \"exclude_pois\": []\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/itinerary/generate",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "itinerary", "generate"]
+            },
+            "description": "Generate a personalized itinerary using the RAG pipeline.\n\nPacing: slow (2-3/day), moderate (4-5/day), fast (6-7/day)"
+          }
+        },
+        {
+          "name": "List Itineraries",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/itinerary/?skip=0&limit=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "itinerary", ""],
+              "query": [
+                {
+                  "key": "skip",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                },
+                {
+                  "key": "user_id",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            },
+            "description": "List all saved itineraries with pagination."
+          }
+        },
+        {
+          "name": "Get Itinerary by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/itinerary/{{itinerary_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "itinerary", "{{itinerary_id}}"]
+            },
+            "description": "Get a specific itinerary by ID with days and items."
+          }
+        },
+        {
+          "name": "Delete Itinerary",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/itinerary/{{itinerary_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "itinerary", "{{itinerary_id}}"]
+            },
+            "description": "Delete an itinerary by ID."
+          }
+        },
+        {
+          "name": "List Trip Requests",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/itinerary/requests/?skip=0&limit=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "itinerary", "requests", ""],
+              "query": [
+                {
+                  "key": "skip",
+                  "value": "0"
+                },
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            },
+            "description": "List all trip requests."
+          }
+        },
+        {
+          "name": "Get Trip Request by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/itinerary/requests/{{request_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "itinerary", "requests", "{{request_id}}"]
+            },
+            "description": "Get a specific trip request by ID."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Recommendations",
+      "item": [
+        {
+          "name": "First Level Recommendations",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"destination_city\": \"Rome\",\n  \"start_date\": \"2025-07-01\",\n  \"end_date\": \"2025-07-05\",\n  \"group_type\": \"family\",\n  \"group_size\": 4,\n  \"has_kids\": true,\n  \"kids_ages\": [8, 12],\n  \"has_seniors\": false,\n  \"vibes\": [\"cultural\", \"nature\", \"adventure\"],\n  \"budget_level\": 3,\n  \"pacing\": \"moderate\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/recommendations/first-level",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "recommendations", "first-level"]
+            },
+            "description": "Get first-level POI recommendations based on trip request.\n\nReturns scored POIs ranked by persona match."
+          }
+        },
+        {
+          "name": "Get Neighborhood Recommendations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/recommendations/neighborhoods/rome",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "recommendations", "neighborhoods", "rome"]
+            },
+            "description": "Get neighborhood recommendations for a city."
+          }
+        },
+        {
+          "name": "Get City Recommendations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/recommendations/cities",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "recommendations", "cities"]
+            },
+            "description": "Get recommended cities based on preferences."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Personas",
+      "item": [
+        {
+          "name": "Get Persona Config",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/personas/config",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "personas", "config"]
+            },
+            "description": "Get all persona configuration including group types, vibes, and pacing options."
+          }
+        },
+        {
+          "name": "List Persona Templates",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/personas/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "personas", ""]
+            },
+            "description": "Get all available persona templates."
+          }
+        },
+        {
+          "name": "Get Persona Template",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/personas/honeymoon",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "personas", "honeymoon"]
+            },
+            "description": "Get details for a specific persona template."
+          }
+        },
+        {
+          "name": "Create Persona Template",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"backpacker\",\n  \"display_name\": \"Backpacker\",\n  \"description\": \"Budget-conscious adventure traveler\",\n  \"default_vibes\": [\"adventure\", \"nature\", \"cultural\"],\n  \"preferred_cost_level\": 2,\n  \"preferred_pacing\": \"fast\",\n  \"vibe_weights\": {\n    \"adventure\": 0.9,\n    \"nature\": 0.8,\n    \"cultural\": 0.7,\n    \"foodie\": 0.5\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/personas/",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "personas", ""]
+            },
+            "description": "Create a new persona template."
+          }
+        },
+        {
+          "name": "Update Persona Template",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Updated description\",\n  \"preferred_cost_level\": 3\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/personas/backpacker",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "personas", "backpacker"]
+            },
+            "description": "Update an existing persona template."
+          }
+        },
+        {
+          "name": "Delete Persona Template",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/{{api_version}}/personas/backpacker",
+              "host": ["{{base_url}}"],
+              "path": ["api", "{{api_version}}", "personas", "backpacker"]
+            },
+            "description": "Delete a persona template."
+          }
+        }
+      ]
+    }
+  ]
+}

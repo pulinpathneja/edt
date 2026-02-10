@@ -1,0 +1,12 @@
+poi_id,name,description,latitude,longitude,address,neighborhood,category,subcategory,typical_duration_minutes,best_time_of_day,cost_level,avg_cost_per_person,currency,requires_reservation,reservation_lead_days,source,notes
+POI_001,Colosseum,"Ancient Roman amphitheater, iconic landmark of Rome",41.8902,12.4922,"Piazza del Colosseo, 1",Colosseo,attraction,historical_site,90,morning,3,16.00,EUR,TRUE,7,manual,"Book online to skip lines"
+POI_002,Trevi Fountain,"Baroque fountain, throw a coin for good luck",41.9009,12.4833,"Piazza di Trevi",Centro Storico,attraction,monument,30,evening,1,0.00,EUR,FALSE,0,manual,"Best at night when lit up"
+POI_003,Da Enzo al 29,"Traditional Roman trattoria in Trastevere",41.8894,12.4700,"Via dei Vascellari, 29",Trastevere,restaurant,trattoria,75,evening,3,35.00,EUR,TRUE,3,manual,"Famous for cacio e pepe"
+,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,
+Instructions:,,,,,,,,,,,,,,,,
+"- poi_id: Unique identifier (POI_001, POI_002, etc.)",,,,,,,,,,,,,,,,
+"- category: attraction, restaurant, cafe, activity, shopping, nightlife",,,,,,,,,,,,,,,,
+"- subcategory: museum, church, historical_site, trattoria, pizzeria, gelateria, bar, etc.",,,,,,,,,,,,,,,,
+"- best_time_of_day: morning, afternoon, evening, night, any",,,,,,,,,,,,,,,,
+"- cost_level: 1 (free) to 5 (luxury)",,,,,,,,,,,,,,,,

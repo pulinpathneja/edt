@@ -1,0 +1,14 @@
+poi_id,poi_name,score_family,score_kids,score_couple,score_honeymoon,score_solo,score_friends,score_seniors,score_business,score_cultural,score_foodie,score_romantic,score_adventure,score_relaxation,score_nightlife,score_shopping,score_nature,score_photography,score_wellness,family_pros,family_cons,couple_pros,couple_cons,solo_pros,solo_cons,seniors_pros,seniors_cons
+POI_001,Colosseum,0.75,0.65,0.85,0.80,0.90,0.85,0.60,0.50,0.98,0.20,0.70,0.40,0.30,0.10,0.10,0.20,0.95,0.10,"Educational for kids;Fascinating history","Lots of walking;Hot in summer","Romantic sunset views;Iconic photos","Very crowded midday","Easy to explore alone;Audio guides available","None","Historical significance","Extensive walking;Steep stairs"
+POI_002,Trevi Fountain,0.80,0.75,0.95,0.95,0.85,0.90,0.85,0.40,0.80,0.30,0.95,0.20,0.50,0.60,0.30,0.10,0.98,0.10,"Magical for kids;Coin tossing tradition","Crowded","Very romantic;Make a wish together","Pickpockets;Crowded","Great for photos","Crowded","Beautiful;No walking required","Crowded;Standing only"
+POI_003,Da Enzo al 29,0.70,0.50,0.90,0.85,0.75,0.85,0.80,0.60,0.70,0.98,0.85,0.20,0.70,0.30,0.10,0.10,0.70,0.20,"Authentic Roman food","No kids menu;Small space","Intimate setting;Excellent pasta","Long wait times","Great solo dining at bar","May wait alone","Classic cuisine;Comfortable seating","Can be loud"
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+SCORING GUIDE:,,,,,,,,,,,,,,,,,,,,,,,,,,
+"0.9-1.0: Perfect fit (specifically designed for this group)",,,,,,,,,,,,,,,,,,,,,,,,,,
+"0.7-0.8: Great fit (highly recommended)",,,,,,,,,,,,,,,,,,,,,,,,,,
+"0.5-0.6: Neutral (works for most)",,,,,,,,,,,,,,,,,,,,,,,,,,
+"0.3-0.4: Not ideal (but acceptable)",,,,,,,,,,,,,,,,,,,,,,,,,,
+"0.0-0.2: Poor fit (avoid for this group)",,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,
+PROS/CONS: Separate multiple items with semicolon (;),,,,,,,,,,,,,,,,,,,,,,,,,,

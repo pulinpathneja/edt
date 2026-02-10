@@ -1,0 +1,33 @@
+FIELD_TYPE,FIELD_NAME,VALID_VALUES,DESCRIPTION
+CATEGORY,category,"attraction,restaurant,cafe,activity,shopping,nightlife,accommodation",Main POI category
+SUBCATEGORY,attraction_subcategory,"museum,church,historical_site,monument,park,garden,viewpoint,fountain,palace,ruins,gallery",Attraction types
+SUBCATEGORY,restaurant_subcategory,"trattoria,pizzeria,osteria,ristorante,fine_dining,casual_dining,street_food,food_hall",Restaurant types
+SUBCATEGORY,cafe_subcategory,"cafe,gelateria,pasticceria,bar,coffee_shop",Cafe types
+SUBCATEGORY,activity_subcategory,"walking_tour,cooking_class,wine_tasting,bike_tour,boat_tour,workshop,experience",Activity types
+SUBCATEGORY,shopping_subcategory,"market,boutique,department_store,antique_shop,bookstore,souvenir_shop",Shopping types
+SUBCATEGORY,nightlife_subcategory,"wine_bar,cocktail_bar,rooftop_bar,pub,club,live_music",Nightlife types
+,,,
+GROUP_TYPE,group_type,"family,kids,couple,honeymoon,solo,friends,seniors,business",Traveler group types
+VIBE,vibe,"cultural,foodie,romantic,adventure,relaxation,nightlife,shopping,nature,photography,wellness",Travel vibes/interests
+,,,
+TIME,best_time_of_day,"morning,afternoon,evening,night,any",Best time to visit
+TIME,meal_type,"breakfast,brunch,lunch,dinner,late_night",Meal service times
+SEASON,season,"spring,summer,fall,winter",Seasons
+MONTH,month,"1,2,3,4,5,6,7,8,9,10,11,12",Month numbers (1=January)
+,,,
+PACING,pacing,"slow,moderate,fast",Travel pace preference
+CROWD,crowd_level,"1,2,3,4,5","1=Empty, 5=Very Crowded"
+PHYSICAL,physical_intensity,"1,2,3,4,5","1=Sedentary, 5=Strenuous"
+COST,cost_level,"1,2,3,4,5","1=Free/Budget, 5=Luxury"
+NOISE,noise_level,"1,2,3,4,5","1=Silent, 5=Very Loud"
+TOURIST,tourist_ratio,"1,2,3,4,5","1=Locals Only, 5=All Tourists"
+PHOTO,golden_hour_rating,"1,2,3,4,5","1=Doesn't matter, 5=Must visit at sunset"
+PHOTO,crowd_for_photos,"empty,moderate,crowded",How crowded for photography
+,,,
+BOOLEAN,boolean_fields,"TRUE,FALSE",Yes/No fields
+,,,
+ATMOSPHERE,atmosphere_tags,"historic,romantic,lively,quiet,authentic,touristy,modern,traditional,cozy,elegant,casual,family-friendly,upscale,bohemian,artistic,spiritual,peaceful,energetic,intimate,grand",Atmosphere descriptors (can select multiple)
+,,,
+CURRENCY,currency,"EUR,USD,GBP",Currency codes
+,,,
+NEIGHBORHOOD,rome_neighborhoods,"Centro Storico,Trastevere,Vatican City,Testaccio,Monti,Aventine,Prati,Villa Borghese,Colosseo,San Lorenzo,Parioli,EUR,Garbatella,Ostiense",Rome neighborhoods

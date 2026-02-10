@@ -1,0 +1,17 @@
+poi_id,poi_name,score_spring,score_summer,score_fall,score_winter,best_months,avoid_months,weather_dependent,rain_suitable,heat_sensitive,cold_sensitive,is_indoor,is_outdoor,sunset_worthy,best_in_morning,best_in_evening,night_visit_possible,seasonal_closure,spring_notes,summer_notes,fall_notes,winter_notes
+POI_001,Colosseum,0.95,0.60,0.95,0.75,"4,5,9,10","7,8",TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,,"Perfect weather;Book ahead for Easter","Very hot;Visit before 9am only","Beautiful light;Fewer crowds","Mild weather;Less crowded"
+POI_002,Trevi Fountain,0.90,0.85,0.90,0.80,,,FALSE,TRUE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,,"Pleasant evenings","Crowded but fine","Romantic atmosphere","Magical at Christmas"
+POI_003,Da Enzo al 29,0.95,0.90,0.95,0.70,,,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,TRUE,,"Outdoor seating opens","Great terrace dining","Cozy atmosphere","Indoor only;Very cozy"
+POI_004,Villa Borghese,0.95,0.80,0.98,0.60,"4,5,9,10,11","12,1,2",TRUE,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,FALSE,,"Cherry blossoms;Perfect picnic weather","Hot midday;Early morning best","Fall foliage;Stunning colors","Cold;Gardens less appealing"
+POI_005,Rooftop Bar XYZ,0.85,0.98,0.80,0.20,"5,6,7,8,9",,"TRUE",FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,FALSE,TRUE,TRUE,"Closed December-March","Opens for season","Peak time;Book ahead","Last weeks of season","CLOSED"
+,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+SCORING GUIDE (0.0 - 1.0):,,,,,,,,,,,,,,,,,,,,,,
+"0.9-1.0: Perfect season for this POI",,,,,,,,,,,,,,,,,,,,,,
+"0.7-0.8: Good season, recommended",,,,,,,,,,,,,,,,,,,,,,
+"0.5-0.6: Acceptable, some limitations",,,,,,,,,,,,,,,,,,,,,,
+"0.3-0.4: Not ideal, consider alternatives",,,,,,,,,,,,,,,,,,,,,,
+"0.0-0.2: Avoid this season",,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,
+"best_months/avoid_months: Comma-separated month numbers (1=Jan, 12=Dec)",,,,,,,,,,,,,,,,,,,,,,
+"Boolean fields: TRUE or FALSE",,,,,,,,,,,,,,,,,,,,,,

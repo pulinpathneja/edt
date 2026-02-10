@@ -1,0 +1,134 @@
+[
+  {
+    "id": "bcn_sagrada",
+    "name": "Sagrada Familia",
+    "category": "church",
+    "latitude": 41.4036,
+    "longitude": 2.1744,
+    "description": "Gaudi's unfinished masterpiece, iconic Barcelona landmark.",
+    "duration_minutes": 120,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "bcn_parkguell",
+    "name": "Park Güell",
+    "category": "park",
+    "latitude": 41.4145,
+    "longitude": 2.1527,
+    "description": "Whimsical Gaudi park with colorful mosaics and city views.",
+    "duration_minutes": 120,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "bcn_casabatllo",
+    "name": "Casa Batlló",
+    "category": "museum",
+    "latitude": 41.3916,
+    "longitude": 2.1650,
+    "description": "Gaudi's fantastical house with dragon-scale roof.",
+    "duration_minutes": 90,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "bcn_casaamila",
+    "name": "Casa Milà (La Pedrera)",
+    "category": "museum",
+    "latitude": 41.3953,
+    "longitude": 2.1619,
+    "description": "Gaudi's wave-like apartment building with rooftop warriors.",
+    "duration_minutes": 90,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "bcn_ramblas",
+    "name": "La Rambla",
+    "category": "attraction",
+    "latitude": 41.3809,
+    "longitude": 2.1735,
+    "description": "Famous pedestrian boulevard from Plaça Catalunya to the sea.",
+    "duration_minutes": 60,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "bcn_gothic",
+    "name": "Gothic Quarter",
+    "category": "attraction",
+    "latitude": 41.3833,
+    "longitude": 2.1777,
+    "description": "Medieval labyrinth of narrow streets and hidden plazas.",
+    "duration_minutes": 120,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "bcn_boqueria",
+    "name": "La Boqueria Market",
+    "category": "attraction",
+    "latitude": 41.3816,
+    "longitude": 2.1719,
+    "description": "Vibrant food market, feast for all senses.",
+    "duration_minutes": 60,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "bcn_picasso",
+    "name": "Picasso Museum",
+    "category": "museum",
+    "latitude": 41.3851,
+    "longitude": 2.1808,
+    "description": "Extensive collection of Picasso's early works.",
+    "duration_minutes": 120,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "bcn_barceloneta",
+    "name": "Barceloneta Beach",
+    "category": "attraction",
+    "latitude": 41.3795,
+    "longitude": 2.1894,
+    "description": "City's most popular beach with seafood restaurants.",
+    "duration_minutes": 120,
+    "must_see": false,
+    "family_friendly": true
+  },
+  {
+    "id": "bcn_montjuic",
+    "name": "Montjuïc Castle",
+    "category": "monument",
+    "latitude": 41.3636,
+    "longitude": 2.1661,
+    "description": "Hilltop fortress with panoramic harbor views.",
+    "duration_minutes": 90,
+    "must_see": false,
+    "family_friendly": true
+  },
+  {
+    "id": "bcn_campnou",
+    "name": "Camp Nou Stadium",
+    "category": "attraction",
+    "latitude": 41.3809,
+    "longitude": 2.1228,
+    "description": "FC Barcelona's legendary home stadium.",
+    "duration_minutes": 120,
+    "must_see": false,
+    "family_friendly": true
+  },
+  {
+    "id": "bcn_cathedral",
+    "name": "Barcelona Cathedral",
+    "category": "church",
+    "latitude": 41.3840,
+    "longitude": 2.1762,
+    "description": "Gothic cathedral with peaceful cloister and geese.",
+    "duration_minutes": 60,
+    "must_see": true,
+    "family_friendly": true
+  }
+]

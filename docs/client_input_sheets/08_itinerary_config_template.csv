@@ -1,0 +1,40 @@
+CONFIG_TYPE,CONFIG_KEY,CONFIG_VALUE,DESCRIPTION,OPTIONS,DEFAULT
+PACING,slow_activities_per_day,3,Number of main activities for slow pace,"2-4",3
+PACING,slow_meal_duration_minutes,90,Meal duration for slow pace,"60-120",90
+PACING,slow_buffer_minutes,60,Buffer between activities for slow pace,"30-90",60
+PACING,slow_max_walking_km,3,Maximum walking per day for slow pace,"2-5",3
+PACING,moderate_activities_per_day,5,Number of main activities for moderate pace,"4-6",5
+PACING,moderate_meal_duration_minutes,60,Meal duration for moderate pace,"45-75",60
+PACING,moderate_buffer_minutes,30,Buffer between activities for moderate pace,"20-45",30
+PACING,moderate_max_walking_km,6,Maximum walking per day for moderate pace,"5-8",6
+PACING,fast_activities_per_day,7,Number of main activities for fast pace,"6-8",7
+PACING,fast_meal_duration_minutes,45,Meal duration for fast pace,"30-60",45
+PACING,fast_buffer_minutes,15,Buffer between activities for fast pace,"10-30",15
+PACING,fast_max_walking_km,10,Maximum walking per day for fast pace,"8-12",10
+,,,,,
+DAY_STRUCTURE,breakfast_start_time,08:00,Earliest breakfast time,06:00-10:00,08:00
+DAY_STRUCTURE,lunch_start_time,12:30,Ideal lunch start time,12:00-14:00,12:30
+DAY_STRUCTURE,dinner_start_time,19:30,Ideal dinner start time,19:00-21:00,19:30
+DAY_STRUCTURE,day_end_time,22:00,Latest activity end time,21:00-23:00,22:00
+DAY_STRUCTURE,siesta_enabled,TRUE,Include afternoon rest (1-2 hours),TRUE/FALSE,TRUE
+DAY_STRUCTURE,siesta_start_time,14:00,Siesta/rest start time,13:30-15:00,14:00
+,,,,,
+SUMMER_ADJUSTMENTS,summer_breakfast_start,07:30,Earlier start in summer to avoid heat,06:30-08:30,07:30
+SUMMER_ADJUSTMENTS,summer_midday_break_start,12:00,Extended midday break start,11:30-13:00,12:00
+SUMMER_ADJUSTMENTS,summer_midday_break_end,16:00,Extended midday break end,15:00-17:00,16:00
+SUMMER_ADJUSTMENTS,summer_dinner_start,20:30,Later dinner in summer,20:00-21:30,20:30
+SUMMER_ADJUSTMENTS,summer_day_end,23:00,Later end in summer,22:00-24:00,23:00
+,,,,,
+WINTER_ADJUSTMENTS,winter_breakfast_start,08:30,Later start in winter,08:00-09:30,08:30
+WINTER_ADJUSTMENTS,winter_dinner_start,19:00,Earlier dinner in winter,18:30-20:00,19:00
+WINTER_ADJUSTMENTS,winter_day_end,21:00,Earlier end in winter,20:00-22:00,21:00
+,,,,,
+SCORING_WEIGHTS,group_weight,0.30,Weight for group type matching,0.0-1.0,0.30
+SCORING_WEIGHTS,vibe_weight,0.30,Weight for vibe matching,0.0-1.0,0.30
+SCORING_WEIGHTS,similarity_weight,0.15,Weight for semantic similarity,0.0-1.0,0.15
+SCORING_WEIGHTS,practical_weight,0.10,Weight for practical constraints,0.0-1.0,0.10
+SCORING_WEIGHTS,season_weight,0.15,Weight for seasonality matching,0.0-1.0,0.15
+,,,,,
+DISTANCE,max_walking_between_pois_meters,800,Maximum walking between consecutive POIs,"500-1500",800
+DISTANCE,prefer_cluster_radius_meters,500,Prefer POIs within this radius of each other,"300-800",500
+DISTANCE,restaurant_search_radius_meters,400,Search for restaurants within this radius,"200-600",400

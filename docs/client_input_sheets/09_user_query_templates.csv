@@ -1,0 +1,26 @@
+query_id,query_template,group_type,vibes,pacing,season_context,budget,duration,special_constraints,description
+Q001,"Plan a {duration}-day romantic getaway in {city} for our honeymoon in {month}",honeymoon,"romantic,foodie,photography",slow,summer,luxury,5-7 days,,Classic honeymoon query
+Q002,"We're a family with {kid_ages} year old kids visiting {city} for {duration} days. What should we do?",family,"cultural,relaxation",moderate,any,mid-range,3-5 days,kid_friendly,Family with kids
+Q003,"Solo trip to {city} for {duration} days. I love food and want to explore like a local",solo,"foodie,cultural,adventure",fast,any,budget,3-4 days,,Solo foodie explorer
+Q004,"Planning a girls trip to {city}! We want great food, Instagram spots, and fun nightlife",friends,"nightlife,foodie,photography,shopping",fast,summer,mid-range,3-4 days,,Friends group trip
+Q005,"My parents (in their 70s) are visiting {city}. Need a relaxed itinerary with minimal walking",seniors,"cultural,relaxation",slow,spring/fall,mid-range,4-5 days,wheelchair_accessible;limited_mobility,Senior travelers
+Q006,"Quick 48-hour business trip to {city}. Show me the highlights efficiently",business,"cultural,foodie",fast,any,flexible,2 days,,Business traveler
+Q007,"We want a slow-paced cultural immersion in {city}. Art museums, history, local traditions",couple,"cultural,photography",slow,any,mid-range,5-7 days,,Cultural deep dive
+Q008,"Adventure seekers visiting {city}! Looking for unique experiences off the beaten path",friends,"adventure,nature,photography",fast,spring/fall,mid-range,4-5 days,,Adventure seekers
+Q009,"Celebrating our 25th anniversary in {city}. Make it special and romantic",couple,"romantic,foodie,relaxation",slow,any,luxury,4-5 days,,Anniversary celebration
+Q010,"Wellness retreat in {city}. Spas, yoga, healthy food, peaceful spots",solo,"wellness,relaxation,nature",slow,any,luxury,5-7 days,,Wellness focused
+Q011,"Visiting {city} in August with kids. Need indoor activities to escape the heat",family,"cultural,relaxation",moderate,summer,mid-range,4-5 days,avoid_heat;kid_friendly,Summer family (heat conscious)
+Q012,"Budget backpacker in {city} for a week. Free attractions and cheap eats please!",solo,"cultural,adventure,foodie",fast,any,budget,7 days,budget_conscious,Budget traveler
+Q013,"Luxury honeymoon in {city}. Michelin restaurants, exclusive experiences, best suites",honeymoon,"romantic,foodie,relaxation",slow,any,luxury,5-7 days,fine_dining,Luxury honeymoon
+Q014,"We're photographers visiting {city}. Best sunrise/sunset spots and iconic views",couple,"photography,cultural",moderate,spring/fall,mid-range,4-5 days,,Photography focused
+Q015,"Christmas market trip to {city} in December. Festive vibes and winter experiences",couple,"cultural,shopping,romantic",moderate,winter,mid-range,3-4 days,winter_activities,Winter/holiday trip
+Q016,"Vegetarian couple visiting {city}. Need restaurants with good veggie options",couple,"foodie,cultural",moderate,any,mid-range,4-5 days,vegetarian,Dietary restriction
+Q017,"Bachelor party in {city}! Nightlife, fun activities, good food",friends,"nightlife,adventure,foodie",fast,summer,mid-range,3 days,,Bachelor party
+Q018,"Retirement trip to {city}. We have all the time in the world, show us everything",seniors,"cultural,foodie,relaxation,photography",slow,spring/fall,luxury,10-14 days,,Extended senior trip
+Q019,"Visiting {city} with my 5-year-old. Fun activities that will keep her engaged",family,"relaxation,cultural",slow,any,mid-range,3-4 days,kid_friendly;age_5,Young child focus
+Q020,"Day trip to {city}. Only have 8 hours, what are the absolute must-sees?",any,"cultural,photography",fast,any,any,1 day,,Day trip
+Q021,"Art lover's guide to {city}. Every museum, gallery, and street art spot",solo,"cultural,photography",moderate,any,mid-range,5-7 days,,Art focused
+Q022,"We hate tourist traps. Show us the real {city} that locals love",couple,"foodie,cultural,adventure",moderate,any,mid-range,4-5 days,hidden_gems_only,Anti-tourist
+Q023,"Rainy day backup plan for {city}. What if weather is bad?",any,"cultural,shopping,foodie",moderate,any,any,1 day,indoor_only,Weather contingency
+Q024,"Sunset chasing in {city}. Best rooftop bars and evening viewpoints",couple,"photography,romantic,nightlife",slow,summer,mid-range,3-4 days,sunset_worthy,Sunset focused
+Q025,"Food tour of {city}. Every local specialty, market, and hidden gem restaurant",solo,"foodie,cultural",moderate,any,mid-range,4-5 days,,Food tour

@@ -1,0 +1,17 @@
+poi_id,poi_name,wheelchair_accessible,wheelchair_partial,elevator_available,accessible_restroom,stroller_friendly,is_kid_friendly,min_recommended_age,max_recommended_age,has_play_area,kids_menu,baby_changing,physical_intensity,walking_required_meters,stairs_count,seating_available,accessibility_notes,family_notes
+POI_001,Colosseum,TRUE,FALSE,TRUE,TRUE,FALSE,TRUE,6,,FALSE,FALSE,FALSE,3,800,150,FALSE,"Elevator to first tier only;Ground floor fully accessible","Kids under 6 may find it tiring"
+POI_002,Trevi Fountain,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,0,,FALSE,FALSE,FALSE,1,50,0,FALSE,"Fully accessible;Crowded can be challenging","Great for all ages;Watch kids near water"
+POI_003,Da Enzo al 29,FALSE,TRUE,FALSE,TRUE,FALSE,TRUE,0,,FALSE,FALSE,FALSE,1,0,3,TRUE,"3 steps at entrance;Inside is accessible","No kids menu but will accommodate"
+POI_004,Vatican Museums,TRUE,FALSE,TRUE,TRUE,TRUE,TRUE,5,,FALSE,TRUE,TRUE,3,2000,200,TRUE,"Wheelchair route available;Very long walking distances","Stroller rental available;Kids 5+ recommended"
+POI_005,Aventine Keyhole,TRUE,FALSE,FALSE,FALSE,TRUE,TRUE,3,,FALSE,FALSE,FALSE,2,300,30,FALSE,"Path is accessible;Keyhole viewing is standing only","Fun for kids;Quick visit"
+,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+PHYSICAL INTENSITY SCALE:,,,,,,,,,,,,,,,,,,
+"1 = Sedentary (sitting, minimal movement)",,,,,,,,,,,,,,,,,,
+"2 = Light (some walking, mostly flat)",,,,,,,,,,,,,,,,,,
+"3 = Moderate (significant walking, some stairs)",,,,,,,,,,,,,,,,,,
+"4 = Active (lots of walking, hills, stairs)",,,,,,,,,,,,,,,,,,
+"5 = Strenuous (hiking, climbing, physical activity)",,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,
+"Boolean fields: TRUE or FALSE",,,,,,,,,,,,,,,,,,
+"Age fields: Leave blank if no restriction",,,,,,,,,,,,,,,,,,

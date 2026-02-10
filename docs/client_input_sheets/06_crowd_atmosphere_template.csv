@@ -1,0 +1,18 @@
+poi_id,poi_name,typical_crowd_level,peak_crowd_times,quiet_times,noise_level,atmosphere,dress_code,tourist_ratio,is_hidden_gem,is_must_see,is_tourist_trap,local_favorite,vibe_description,avoid_if
+POI_001,Colosseum,5,"10am-2pm;Weekends;Summer","Early morning 8:30am;Winter weekdays;Late afternoon",3,"historic;awe-inspiring;educational","Casual;Comfortable shoes",5,FALSE,TRUE,FALSE,FALSE,"Iconic ancient wonder that takes your breath away despite crowds","You dislike crowds;Very hot days"
+POI_002,Trevi Fountain,5,"11am-11pm;All summer;Weekends","6am-8am;After midnight",4,"romantic;bustling;magical at night","Casual;Watch for pickpockets",5,FALSE,TRUE,FALSE,FALSE,"Magical baroque fountain, romantic despite the crowds","Seeking quiet;Pickpocket anxiety"
+POI_003,Da Enzo al 29,4,"7pm-9pm;Weekends","Late lunch 2-3pm;Early dinner 6pm",3,"authentic;cozy;lively","Smart casual",2,FALSE,FALSE,FALSE,TRUE,"Genuine Roman trattoria loved by locals and foodies","Vegetarian;Impatient with queues"
+POI_004,Testaccio Market,2,"Saturday morning;Sunday","Weekday mornings",3,"local;authentic;foodie paradise","Casual",1,TRUE,FALSE,FALSE,TRUE,"Real Roman market where locals shop, incredible food stalls","Tourist experience seekers"
+POI_005,Aventine Keyhole,3,"Sunset;Weekends","Weekday mornings",1,"peaceful;romantic;unique","Casual",4,TRUE,TRUE,FALSE,FALSE,"Secret garden with iconic peek at St Peters - unique and romantic","Very short attention span"
+,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+CROWD LEVEL (1-5):,,,,,,,,,,,,,,,,
+"1 = Empty (you'll likely be alone)",,,,,,,,,,,,,,,,
+"2 = Quiet (few people, peaceful)",,,,,,,,,,,,,,,,
+"3 = Moderate (noticeable but comfortable)",,,,,,,,,,,,,,,,
+"4 = Busy (crowded but manageable)",,,,,,,,,,,,,,,,
+"5 = Very Crowded (expect queues and crowds)",,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,
+NOISE LEVEL (1-5): 1=Silent to 5=Very Loud,,,,,,,,,,,,,,,,
+TOURIST RATIO (1-5): 1=Locals only to 5=All tourists,,,,,,,,,,,,,,,,
+"atmosphere: Separate tags with semicolon (;)",,,,,,,,,,,,,,,,

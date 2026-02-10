@@ -1,0 +1,17 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        options:
+          map: false
+          when: false
+          from_json: true
+          to_json: true
+      json_serializable:
+        options:
+          explicit_to_json: true
+          include_if_null: false
+      riverpod_generator:
+        options:
+          provider_name_prefix: ""
+          provider_family_name_prefix: ""

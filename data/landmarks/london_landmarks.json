@@ -1,0 +1,156 @@
+[
+  {
+    "id": "london_bigben",
+    "name": "Big Ben & Parliament",
+    "category": "monument",
+    "latitude": 51.5007,
+    "longitude": -0.1246,
+    "description": "Iconic clock tower and Houses of Parliament.",
+    "duration_minutes": 60,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "london_tower",
+    "name": "Tower of London",
+    "category": "monument",
+    "latitude": 51.5081,
+    "longitude": -0.0759,
+    "description": "Historic castle with Crown Jewels and Beefeaters.",
+    "duration_minutes": 180,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "london_towerbridge",
+    "name": "Tower Bridge",
+    "category": "monument",
+    "latitude": 51.5055,
+    "longitude": -0.0754,
+    "description": "Iconic Victorian bridge with glass walkway.",
+    "duration_minutes": 60,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "london_buckingham",
+    "name": "Buckingham Palace",
+    "category": "palace",
+    "latitude": 51.5014,
+    "longitude": -0.1419,
+    "description": "Royal residence, famous for Changing of the Guard.",
+    "duration_minutes": 90,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "london_westminster",
+    "name": "Westminster Abbey",
+    "category": "church",
+    "latitude": 51.4994,
+    "longitude": -0.1273,
+    "description": "Gothic abbey for royal coronations and weddings.",
+    "duration_minutes": 120,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "london_british",
+    "name": "British Museum",
+    "category": "museum",
+    "latitude": 51.5194,
+    "longitude": -0.1270,
+    "description": "World-class museum with Rosetta Stone and mummies. Free!",
+    "duration_minutes": 240,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "london_stpauls",
+    "name": "St. Paul's Cathedral",
+    "category": "church",
+    "latitude": 51.5138,
+    "longitude": -0.0984,
+    "description": "Wren's masterpiece with whispering gallery dome.",
+    "duration_minutes": 120,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "london_eye",
+    "name": "London Eye",
+    "category": "attraction",
+    "latitude": 51.5033,
+    "longitude": -0.1196,
+    "description": "Giant observation wheel with panoramic city views.",
+    "duration_minutes": 60,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "london_hydepark",
+    "name": "Hyde Park",
+    "category": "park",
+    "latitude": 51.5073,
+    "longitude": -0.1657,
+    "description": "Royal park with Serpentine lake and Speaker's Corner.",
+    "duration_minutes": 90,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "london_national",
+    "name": "National Gallery",
+    "category": "museum",
+    "latitude": 51.5089,
+    "longitude": -0.1283,
+    "description": "World-class art collection in Trafalgar Square. Free!",
+    "duration_minutes": 180,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "london_tate",
+    "name": "Tate Modern",
+    "category": "museum",
+    "latitude": 51.5076,
+    "longitude": -0.0994,
+    "description": "Modern art in converted power station. Free!",
+    "duration_minutes": 150,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "london_coventgarden",
+    "name": "Covent Garden",
+    "category": "attraction",
+    "latitude": 51.5117,
+    "longitude": -0.1240,
+    "description": "Historic market with street performers and shops.",
+    "duration_minutes": 90,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "london_borough",
+    "name": "Borough Market",
+    "category": "attraction",
+    "latitude": 51.5055,
+    "longitude": -0.0910,
+    "description": "London's oldest food market - foodie paradise.",
+    "duration_minutes": 90,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "london_natural",
+    "name": "Natural History Museum",
+    "category": "museum",
+    "latitude": 51.4967,
+    "longitude": -0.1764,
+    "description": "Dinosaurs and blue whale skeleton. Free!",
+    "duration_minutes": 180,
+    "must_see": true,
+    "family_friendly": true
+  }
+]

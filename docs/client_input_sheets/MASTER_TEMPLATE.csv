@@ -1,0 +1,47 @@
+SHEET: ALL_POI_ATTRIBUTES_COMBINED
+This is a master template showing ALL fields. Copy to Google Sheets and use Data Validation for dropdowns.
+
+=== SECTION 1: CORE IDENTIFICATION (Required) ===
+poi_id,name,description,latitude,longitude,address,neighborhood,city,category,subcategory
+
+=== SECTION 2: TIMING & COST (Required) ===
+typical_duration_minutes,best_time_of_day,cost_level,avg_cost_per_person,currency,requires_reservation,reservation_lead_days
+
+=== SECTION 3: GROUP SCORES 0.0-1.0 (Required) ===
+score_family,score_kids,score_couple,score_honeymoon,score_solo,score_friends,score_seniors,score_business
+
+=== SECTION 4: VIBE SCORES 0.0-1.0 (Required) ===
+score_cultural,score_foodie,score_romantic,score_adventure,score_relaxation,score_nightlife,score_shopping,score_nature,score_photography,score_wellness
+
+=== SECTION 5: SEASON SCORES 0.0-1.0 (Required) ===
+score_spring,score_summer,score_fall,score_winter,best_months,avoid_months
+
+=== SECTION 6: WEATHER SENSITIVITY ===
+weather_dependent,rain_suitable,heat_sensitive,cold_sensitive,is_indoor,is_outdoor
+
+=== SECTION 7: TIME SENSITIVITY ===
+best_in_morning,best_in_evening,sunset_worthy,night_visit_possible,seasonal_closure
+
+=== SECTION 8: ACCESSIBILITY ===
+wheelchair_accessible,stroller_friendly,is_kid_friendly,min_recommended_age,physical_intensity,walking_required_meters,stairs_count,seating_available
+
+=== SECTION 9: CROWD & ATMOSPHERE ===
+typical_crowd_level,peak_crowd_times,quiet_times,noise_level,tourist_ratio,is_hidden_gem,is_must_see,is_tourist_trap,local_favorite
+
+=== SECTION 10: INSTAGRAM/PHOTOGRAPHY ===
+is_instagram_worthy,golden_hour_rating,best_photo_spots,best_photo_time,iconic_shot_description,photo_restrictions,crowd_for_photos
+
+=== SECTION 11: PROS/CONS (Separate with semicolon) ===
+family_pros,family_cons,couple_pros,couple_cons,solo_pros,solo_cons,seniors_pros,seniors_cons
+
+=== SECTION 12: DINING SPECIFIC (Restaurants only) ===
+cuisine_type,meal_types,dietary_vegetarian,dietary_vegan,dietary_gluten_free,outdoor_seating,reservation_difficulty,local_specialties,best_dishes
+
+=== SECTION 13: SEASONAL NOTES ===
+spring_notes,summer_notes,fall_notes,winter_notes
+
+=== COMPLETE HEADER ROW (Copy this for your sheet) ===
+poi_id,name,description,latitude,longitude,address,neighborhood,city,category,subcategory,typical_duration_minutes,best_time_of_day,cost_level,avg_cost_per_person,currency,requires_reservation,reservation_lead_days,score_family,score_kids,score_couple,score_honeymoon,score_solo,score_friends,score_seniors,score_business,score_cultural,score_foodie,score_romantic,score_adventure,score_relaxation,score_nightlife,score_shopping,score_nature,score_photography,score_wellness,score_spring,score_summer,score_fall,score_winter,best_months,avoid_months,weather_dependent,rain_suitable,heat_sensitive,cold_sensitive,is_indoor,is_outdoor,best_in_morning,best_in_evening,sunset_worthy,night_visit_possible,seasonal_closure,wheelchair_accessible,stroller_friendly,is_kid_friendly,min_recommended_age,physical_intensity,walking_required_meters,stairs_count,seating_available,typical_crowd_level,peak_crowd_times,quiet_times,noise_level,tourist_ratio,is_hidden_gem,is_must_see,is_tourist_trap,local_favorite,is_instagram_worthy,golden_hour_rating,best_photo_spots,best_photo_time,iconic_shot_description,photo_restrictions,crowd_for_photos,family_pros,family_cons,couple_pros,couple_cons,solo_pros,solo_cons,seniors_pros,seniors_cons,cuisine_type,meal_types,dietary_vegetarian,dietary_vegan,dietary_gluten_free,outdoor_seating,reservation_difficulty,local_specialties,best_dishes,spring_notes,summer_notes,fall_notes,winter_notes
+
+=== SAMPLE ROW ===
+POI_001,Colosseum,"Ancient Roman amphitheater, iconic landmark",41.8902,12.4922,"Piazza del Colosseo, 1",Colosseo,Rome,attraction,historical_site,90,morning,3,16.00,EUR,TRUE,7,0.75,0.65,0.85,0.80,0.90,0.85,0.60,0.50,0.98,0.20,0.70,0.40,0.30,0.10,0.10,0.20,0.95,0.10,0.95,0.60,0.95,0.75,"4,5,9,10","7,8",TRUE,FALSE,TRUE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,,TRUE,FALSE,TRUE,6,3,800,150,FALSE,5,"10am-2pm;Weekends","Early morning;Winter",3,5,FALSE,TRUE,FALSE,FALSE,TRUE,5,"Main entrance;Palatine view",Early morning,"Wide angle from piazza","No flash inside",crowded,"Educational;Fascinating","Hot in summer;Lots of walking","Romantic sunset;Iconic","Very crowded midday","Easy solo;Audio guides",,"Historical significance","Extensive walking;Stairs",,,,,,,,,"Perfect weather;Book ahead","Very hot;Visit early only","Beautiful light;Fewer crowds","Mild;Less crowded"

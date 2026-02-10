@@ -1,0 +1,146 @@
+[
+  {
+    "id": "famous_eiffel",
+    "name": "Eiffel Tower",
+    "category": "monument",
+    "latitude": 48.8584,
+    "longitude": 2.2945,
+    "description": "Iconic iron lattice tower, symbol of Paris. Best at sunset.",
+    "duration_minutes": 120,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "famous_louvre",
+    "name": "Louvre Museum",
+    "category": "museum",
+    "latitude": 48.8606,
+    "longitude": 2.3376,
+    "description": "World's largest art museum. Home to Mona Lisa.",
+    "duration_minutes": 240,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "famous_notredame",
+    "name": "Notre-Dame Cathedral",
+    "category": "church",
+    "latitude": 48.853,
+    "longitude": 2.3499,
+    "description": "Medieval Gothic cathedral on Île de la Cité.",
+    "duration_minutes": 60,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "famous_sacrecoeur",
+    "name": "Sacré-Cœur Basilica",
+    "category": "church",
+    "latitude": 48.8867,
+    "longitude": 2.3431,
+    "description": "White-domed basilica with panoramic views of Paris.",
+    "duration_minutes": 90,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "famous_arcdetriomphe",
+    "name": "Arc de Triomphe",
+    "category": "monument",
+    "latitude": 48.8738,
+    "longitude": 2.295,
+    "description": "Iconic triumphal arch at the end of Champs-Élysées.",
+    "duration_minutes": 60,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "famous_versailles",
+    "name": "Palace of Versailles",
+    "category": "palace",
+    "latitude": 48.8049,
+    "longitude": 2.1204,
+    "description": "Opulent royal palace with stunning gardens.",
+    "duration_minutes": 300,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "famous_orsay",
+    "name": "Musée d'Orsay",
+    "category": "museum",
+    "latitude": 48.86,
+    "longitude": 2.3266,
+    "description": "Impressionist masterpieces in a former railway station.",
+    "duration_minutes": 180,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "famous_luxemburg",
+    "name": "Luxembourg Gardens",
+    "category": "park",
+    "latitude": 48.8462,
+    "longitude": 2.3372,
+    "description": "Beautiful formal gardens, perfect for relaxation.",
+    "duration_minutes": 90,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "famous_tuileries",
+    "name": "Tuileries Garden",
+    "category": "park",
+    "latitude": 48.8634,
+    "longitude": 2.3275,
+    "description": "Historic garden between Louvre and Place de la Concorde.",
+    "duration_minutes": 60,
+    "must_see": false,
+    "family_friendly": true
+  },
+  {
+    "id": "famous_pantheon",
+    "name": "Panthéon",
+    "category": "monument",
+    "latitude": 48.8462,
+    "longitude": 2.3464,
+    "description": "Neoclassical mausoleum housing remains of famous French citizens.",
+    "duration_minutes": 90,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "famous_saintechapelle",
+    "name": "Sainte-Chapelle",
+    "category": "church",
+    "latitude": 48.8554,
+    "longitude": 2.345,
+    "description": "Gothic chapel with stunning stained glass windows.",
+    "duration_minutes": 45,
+    "must_see": true,
+    "family_friendly": true
+  },
+  {
+    "id": "famous_moulinrouge",
+    "name": "Moulin Rouge",
+    "category": "attraction",
+    "latitude": 48.8841,
+    "longitude": 2.3322,
+    "description": "Legendary cabaret famous for can-can dance.",
+    "duration_minutes": 150,
+    "must_see": false,
+    "family_friendly": false
+  },
+  {
+    "id": "famous_disneyland",
+    "name": "Disneyland Paris",
+    "category": "attraction",
+    "latitude": 48.8673,
+    "longitude": 2.7839,
+    "description": "Magical theme park for families.",
+    "duration_minutes": 480,
+    "must_see": false,
+    "family_friendly": true,
+    "family_only": true
+  }
+]
