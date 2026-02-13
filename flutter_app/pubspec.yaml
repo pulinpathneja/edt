@@ -1,0 +1,34 @@
+name: edt_app
+description: EDT - Your Travel Companion App
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  http: ^1.2.0
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.0
+  cached_network_image: ^3.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Assets can be added when available
+  # assets:
+  #   - assets/images/
+
+  # Using system fonts (Google Fonts can be added later)
+  # fonts:
+  #   - family: SF Pro Display
+  #     fonts:
+  #       - asset: assets/fonts/SFProDisplay-Regular.otf
