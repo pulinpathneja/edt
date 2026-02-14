@@ -1,0 +1,20 @@
+# Gcloud ignore file - minimal exclusions
+# Allow build/web for deployment
+
+.git
+.gitignore
+.dart_tool
+.idea
+.packages
+*.log
+
+# Exclude source files, we only need the build output
+lib/
+test/
+android/
+ios/
+macos/
+linux/
+windows/
+
+# Include build/web explicitly by NOT listing it

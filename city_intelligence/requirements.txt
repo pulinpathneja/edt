@@ -1,0 +1,14 @@
+# City Intelligence API Dependencies
+
+# Web framework
+fastapi>=0.109.0
+uvicorn>=0.27.0
+
+# HTTP client for async requests
+httpx>=0.27.0
+
+# Data validation
+pydantic>=2.5.0
+
+# For CORS
+starlette>=0.35.0

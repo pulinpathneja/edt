@@ -10,7 +10,8 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# Python lib (not flutter lib)
+/lib/
 lib64/
 parts/
 sdist/
@@ -59,6 +60,11 @@ data/cache/
 data/temp/
 *.pkl
 *.pickle
+
+# Large binary files
+*.fig
+flutter_app/build/
+flutter_app/.dart_tool/
 
 # Credentials (never commit!)
 credentials.json

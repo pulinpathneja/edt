@@ -1,0 +1,64 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv
+venv
+ENV
+env
+*.egg-info
+.eggs
+dist
+build
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# Testing
+.pytest_cache
+.coverage
+htmlcov
+tests/
+
+# Jupyter
+.ipynb_checkpoints
+notebooks/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+data/cache/
+data/temp/
+*.pkl
+*.pickle
+firebase-debug.log
+
+# Documentation (not needed in container)
+docs/
+*.md
+postman/
+
+# Development files
+docker-compose.yml
+travel_itinerary_app/

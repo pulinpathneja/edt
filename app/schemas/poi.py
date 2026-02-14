@@ -151,3 +151,35 @@ class POIWithScoresResponse(POIResponse):
 
     class Config:
         from_attributes = True
+
+
+# ============== Search Schemas ==============
+
+
+class POISearchRequest(BaseModel):
+    """Request schema for semantic POI search."""
+
+    query: str = Field(..., description="Natural language search query", min_length=1)
+    city: Optional[str] = Field(None, description="Filter by city")
+    category: Optional[str] = Field(None, description="Filter by category")
+    cost_level: Optional[int] = Field(None, ge=1, le=5, description="Filter by cost level (1-5)")
+    limit: int = Field(10, ge=1, le=50, description="Maximum number of results")
+
+
+class POISearchResult(POIResponse):
+    """POI search result with relevance score."""
+
+    relevance_score: float = Field(..., ge=0, le=1, description="Semantic similarity score")
+    persona_scores: Optional[POIPersonaScoresResponse] = None
+    attributes: Optional[POIAttributesResponse] = None
+
+    class Config:
+        from_attributes = True
+
+
+class POISearchResponse(BaseModel):
+    """Response for semantic POI search."""
+
+    query: str
+    results: List[POISearchResult]
+    total: int

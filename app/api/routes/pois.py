@@ -14,9 +14,12 @@ from app.schemas.poi import (
     POIWithScoresResponse,
     POIPersonaScoresCreate,
     POIAttributesCreate,
+    POISearchRequest,
+    POISearchResponse,
+    POISearchResult,
 )
 from app.services.data_ingestion.embeddings import EmbeddingService
-from app.core.embeddings import create_poi_description_embedding
+from app.core.embeddings import create_poi_description_embedding, generate_embedding
 
 router = APIRouter()
 
@@ -49,6 +52,88 @@ async def list_pois(
     pois = result.scalars().all()
 
     return pois
+
+
+@router.post("/search", response_model=POISearchResponse)
+async def search_pois(
+    search_request: POISearchRequest,
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    Search POIs using natural language queries with semantic similarity.
+
+    Uses BGE embeddings and pgvector cosine similarity to find relevant POIs.
+    """
+    # Generate embedding for the query
+    query_embedding = generate_embedding(search_request.query)
+
+    # Build the base query with cosine distance
+    # pgvector uses <=> for cosine distance (lower is better)
+    # relevance_score = 1 - distance
+    stmt = (
+        select(
+            POI,
+            (1 - POI.description_embedding.cosine_distance(query_embedding)).label("relevance_score")
+        )
+        .options(
+            selectinload(POI.persona_scores),
+            selectinload(POI.attributes),
+        )
+        .where(POI.description_embedding.isnot(None))
+    )
+
+    # Apply filters
+    if search_request.city:
+        stmt = stmt.where(POI.city.ilike(f"%{search_request.city}%"))
+    if search_request.category:
+        stmt = stmt.where(POI.category.ilike(f"%{search_request.category}%"))
+    if search_request.cost_level:
+        stmt = stmt.where(POI.cost_level == search_request.cost_level)
+
+    # Order by relevance (cosine distance ascending = most similar first)
+    stmt = stmt.order_by(POI.description_embedding.cosine_distance(query_embedding))
+    stmt = stmt.limit(search_request.limit)
+
+    result = await db.execute(stmt)
+    rows = result.all()
+
+    # Convert to response format
+    results = []
+    for poi, relevance_score in rows:
+        result_dict = {
+            "id": poi.id,
+            "name": poi.name,
+            "description": poi.description,
+            "latitude": poi.latitude,
+            "longitude": poi.longitude,
+            "address": poi.address,
+            "neighborhood": poi.neighborhood,
+            "city": poi.city,
+            "country": poi.country,
+            "category": poi.category,
+            "subcategory": poi.subcategory,
+            "typical_duration_minutes": poi.typical_duration_minutes,
+            "best_time_of_day": poi.best_time_of_day,
+            "best_days": poi.best_days,
+            "seasonal_availability": poi.seasonal_availability,
+            "cost_level": poi.cost_level,
+            "avg_cost_per_person": poi.avg_cost_per_person,
+            "cost_currency": poi.cost_currency,
+            "source": poi.source,
+            "source_id": poi.source_id,
+            "created_at": poi.created_at,
+            "updated_at": poi.updated_at,
+            "relevance_score": float(relevance_score) if relevance_score else 0.0,
+            "persona_scores": poi.persona_scores,
+            "attributes": poi.attributes,
+        }
+        results.append(POISearchResult(**result_dict))
+
+    return POISearchResponse(
+        query=search_request.query,
+        results=results,
+        total=len(results),
+    )
 
 
 @router.get("/{poi_id}", response_model=POIWithScoresResponse)
