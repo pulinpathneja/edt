@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.api.routes import pois, personas, itinerary, recommendations, cities, landmarks, travel
+from app.api.routes import pois, personas, itinerary, recommendations, cities, landmarks, travel, country_itinerary
 
 api_router = APIRouter()
 
@@ -11,3 +11,4 @@ api_router.include_router(personas.router, prefix="/personas", tags=["Personas"]
 api_router.include_router(itinerary.router, prefix="/itinerary", tags=["Itinerary"])
 api_router.include_router(recommendations.router, prefix="/recommendations", tags=["Recommendations"])
 api_router.include_router(travel.router, prefix="/travel", tags=["Travel"])
+api_router.include_router(country_itinerary.router, prefix="/country-itinerary", tags=["Country Itinerary"])

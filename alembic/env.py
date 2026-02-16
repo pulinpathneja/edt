@@ -17,6 +17,16 @@ from app.models import (
     ItineraryDay,
     ItineraryItem,
 )
+from app.models.knowledge_graph import (
+    City,
+    Neighborhood,
+    POIRelationship,
+    POICrowdPattern,
+    CityEvent,
+    NeighborhoodConnection,
+    RestaurantDetail,
+    POIAccessibility,
+)
 
 # this is the Alembic Config object
 config = context.config

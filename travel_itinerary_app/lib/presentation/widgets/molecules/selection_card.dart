@@ -36,21 +36,27 @@ class SelectionCard extends StatelessWidget {
         curve: Curves.easeOutCubic,
         padding: const EdgeInsets.all(AppSpacing.md),
         decoration: BoxDecoration(
-          color: isSelected ? color.withOpacity(0.1) : AppColors.surface,
-          borderRadius: BorderRadius.circular(AppSpacing.radiusMD),
+          color: isSelected ? AppColors.gold.withOpacity(0.08) : AppColors.surface,
+          borderRadius: BorderRadius.circular(AppSpacing.radiusLG),
           border: Border.all(
-            color: isSelected ? color : AppColors.border,
-            width: isSelected ? 2 : 1,
+            color: isSelected ? AppColors.gold : AppColors.borderLight,
+            width: isSelected ? 2.5 : 1,
           ),
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: color.withOpacity(0.2),
-                    blurRadius: 8,
+                    color: AppColors.gold.withOpacity(0.18),
+                    blurRadius: 12,
                     offset: const Offset(0, 4),
                   ),
                 ]
-              : null,
+              : [
+                  BoxShadow(
+                    color: AppColors.shadowLight,
+                    blurRadius: 6,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -60,7 +66,7 @@ class SelectionCard extends StatelessWidget {
               duration: const Duration(milliseconds: 200),
               padding: const EdgeInsets.all(AppSpacing.sm),
               decoration: BoxDecoration(
-                color: isSelected ? color.withOpacity(0.15) : AppColors.surfaceVariant,
+                color: isSelected ? AppColors.gold.withOpacity(0.15) : AppColors.surfaceWarm,
                 shape: BoxShape.circle,
               ),
               child: Text(
@@ -78,7 +84,7 @@ class SelectionCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
-                color: isSelected ? color : AppColors.textPrimary,
+                color: isSelected ? AppColors.primary : AppColors.textPrimary,
               ),
               textAlign: TextAlign.center,
             ),
@@ -103,7 +109,7 @@ class SelectionCard extends StatelessWidget {
               const SizedBox(height: AppSpacing.sm),
               Icon(
                 Icons.check_circle,
-                color: color,
+                color: AppColors.gold,
                 size: 20,
               ),
             ],

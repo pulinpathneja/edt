@@ -133,7 +133,7 @@ class _ItineraryViewScreenState extends ConsumerState<ItineraryViewScreen>
           ),
           child: const Icon(Icons.arrow_back, color: AppColors.white),
         ),
-        onPressed: () => context.go(Routes.onboarding),
+        onPressed: () => context.go(Routes.home),
       ),
       actions: [
         IconButton(
@@ -318,7 +318,7 @@ class _ItineraryViewScreenState extends ConsumerState<ItineraryViewScreen>
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.go(Routes.onboarding),
+          onPressed: () => context.go(Routes.home),
         ),
       ),
       body: Center(

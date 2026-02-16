@@ -4,10 +4,13 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../../core/constants/api_constants.dart';
 import '../../config/env/env_config.dart';
 import '../../data/datasources/remote/api_client.dart';
+import '../../data/datasources/remote/country_remote_datasource.dart';
 import '../../data/datasources/remote/itinerary_remote_datasource.dart';
 import '../../data/datasources/remote/persona_remote_datasource.dart';
+import '../../data/repositories/country_repository_impl.dart';
 import '../../data/repositories/itinerary_repository_impl.dart';
 import '../../data/repositories/persona_repository_impl.dart';
+import '../../domain/repositories/country_repository.dart';
 import '../../domain/repositories/itinerary_repository.dart';
 import '../../domain/repositories/persona_repository.dart';
 
@@ -62,9 +65,8 @@ Dio dio(DioRef ref) {
 }
 
 bool _shouldRetry(DioException error) {
-  return error.type == DioExceptionType.connectionTimeout ||
-      error.type == DioExceptionType.receiveTimeout ||
-      (error.response?.statusCode != null &&
+  // Don't retry on connection timeout - fall back to mock data quickly
+  return (error.response?.statusCode != null &&
           error.response!.statusCode! >= 500);
 }
 
@@ -103,4 +105,17 @@ PersonaRepository personaRepository(PersonaRepositoryRef ref) {
 @riverpod
 ItineraryRepository itineraryRepository(ItineraryRepositoryRef ref) {
   return ItineraryRepositoryImpl(ref.watch(itineraryRemoteDataSourceProvider));
+}
+
+/// Country Remote DataSource provider
+@riverpod
+CountryRemoteDataSource countryRemoteDataSource(
+    CountryRemoteDataSourceRef ref) {
+  return CountryRemoteDataSource(ref.watch(apiClientProvider));
+}
+
+/// Country Repository provider
+@riverpod
+CountryRepository countryRepository(CountryRepositoryRef ref) {
+  return CountryRepositoryImpl(ref.watch(countryRemoteDataSourceProvider));
 }

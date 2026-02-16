@@ -40,12 +40,12 @@ class StepIndicator extends StatelessWidget {
                     height: isCurrent ? 32 : 24,
                     decoration: BoxDecoration(
                       color: isCompleted || isCurrent
-                          ? AppColors.primary
+                          ? AppColors.gold
                           : AppColors.surfaceVariant,
                       shape: BoxShape.circle,
                       border: Border.all(
                         color: isCompleted || isCurrent
-                            ? AppColors.primary
+                            ? AppColors.gold
                             : AppColors.border,
                         width: 2,
                       ),
@@ -79,7 +79,7 @@ class StepIndicator extends StatelessWidget {
                         margin: const EdgeInsets.symmetric(horizontal: 4),
                         decoration: BoxDecoration(
                           color: isCompleted
-                              ? AppColors.primary
+                              ? AppColors.gold
                               : AppColors.border,
                           borderRadius: BorderRadius.circular(2),
                         ),
@@ -105,7 +105,7 @@ class StepIndicator extends StatelessWidget {
                     fontSize: 10,
                     fontWeight: isCurrent ? FontWeight.w600 : FontWeight.w400,
                     color: isCurrent
-                        ? AppColors.primary
+                        ? AppColors.gold
                         : AppColors.textTertiary,
                   ),
                   textAlign: TextAlign.center,
@@ -155,7 +155,7 @@ class LinearStepIndicator extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Container(
               decoration: BoxDecoration(
-                color: AppColors.primary,
+                color: AppColors.gold,
                 borderRadius: BorderRadius.circular(2),
               ),
             ),

@@ -13,7 +13,7 @@ class ApiConstants {
   static String itineraryById(String id) => '$apiVersion/itinerary/$id';
 
   // Timeouts (in milliseconds)
-  static const int connectTimeout = 30000;
+  static const int connectTimeout = 5000;
   static const int receiveTimeout = 60000;
   static const int sendTimeout = 30000;
 

@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../colors/app_colors.dart';
 
-/// Application typography system
+/// Warm + Premium typography system
+/// Headings: Playfair Display (elegant serif)
+/// Body: Inter (clean sans-serif)
 class AppTypography {
   const AppTypography._();
 
   static const AppTypography instance = AppTypography._();
 
-  // Use system font as fallback, replace with 'Poppins' after adding font files
-  static const String? fontFamily = null;
+  // Font families via google_fonts
+  static String? fontFamily; // Set dynamically
 
   // Font Weights
   static const FontWeight regular = FontWeight.w400;
@@ -17,111 +20,116 @@ class AppTypography {
   static const FontWeight semiBold = FontWeight.w600;
   static const FontWeight bold = FontWeight.w700;
 
-  // Display Styles (36-57px)
-  TextStyle get displayLarge => const TextStyle(
-        fontFamily: fontFamily,
+  // Helper to get Playfair Display style
+  static TextStyle _playfair({
+    double fontSize = 16,
+    FontWeight fontWeight = FontWeight.w600,
+    double height = 1.25,
+    double letterSpacing = 0,
+    Color color = AppColors.textPrimary,
+  }) {
+    return GoogleFonts.playfairDisplay(
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+      height: height,
+      letterSpacing: letterSpacing,
+      color: color,
+    );
+  }
+
+  // Helper to get Inter style
+  static TextStyle _inter({
+    double fontSize = 14,
+    FontWeight fontWeight = FontWeight.w400,
+    double height = 1.5,
+    double letterSpacing = 0,
+    Color color = AppColors.textPrimary,
+  }) {
+    return GoogleFonts.inter(
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+      height: height,
+      letterSpacing: letterSpacing,
+      color: color,
+    );
+  }
+
+  // Display Styles - Playfair Display (elegant serif)
+  TextStyle get displayLarge => _playfair(
         fontSize: 57,
         fontWeight: bold,
         height: 1.12,
         letterSpacing: -0.25,
-        color: AppColors.textPrimary,
       );
 
-  TextStyle get displayMedium => const TextStyle(
-        fontFamily: fontFamily,
+  TextStyle get displayMedium => _playfair(
         fontSize: 45,
         fontWeight: bold,
         height: 1.16,
-        letterSpacing: 0,
-        color: AppColors.textPrimary,
       );
 
-  TextStyle get displaySmall => const TextStyle(
-        fontFamily: fontFamily,
+  TextStyle get displaySmall => _playfair(
         fontSize: 36,
         fontWeight: semiBold,
         height: 1.22,
-        letterSpacing: 0,
-        color: AppColors.textPrimary,
       );
 
-  // Headline Styles (24-32px)
-  TextStyle get headlineLarge => const TextStyle(
-        fontFamily: fontFamily,
+  // Headline Styles - Playfair Display
+  TextStyle get headlineLarge => _playfair(
         fontSize: 32,
         fontWeight: semiBold,
         height: 1.25,
-        letterSpacing: 0,
-        color: AppColors.textPrimary,
       );
 
-  TextStyle get headlineMedium => const TextStyle(
-        fontFamily: fontFamily,
+  TextStyle get headlineMedium => _playfair(
         fontSize: 28,
         fontWeight: semiBold,
         height: 1.29,
-        letterSpacing: 0,
-        color: AppColors.textPrimary,
       );
 
-  TextStyle get headlineSmall => const TextStyle(
-        fontFamily: fontFamily,
+  TextStyle get headlineSmall => _playfair(
         fontSize: 24,
         fontWeight: semiBold,
         height: 1.33,
-        letterSpacing: 0,
-        color: AppColors.textPrimary,
       );
 
-  // Title Styles (18-22px)
-  TextStyle get titleLarge => const TextStyle(
-        fontFamily: fontFamily,
+  // Title Styles - Inter (clean transition)
+  TextStyle get titleLarge => _inter(
         fontSize: 22,
         fontWeight: semiBold,
         height: 1.27,
-        letterSpacing: 0,
-        color: AppColors.textPrimary,
       );
 
-  TextStyle get titleMedium => const TextStyle(
-        fontFamily: fontFamily,
+  TextStyle get titleMedium => _inter(
         fontSize: 18,
         fontWeight: medium,
         height: 1.33,
         letterSpacing: 0.15,
-        color: AppColors.textPrimary,
       );
 
-  TextStyle get titleSmall => const TextStyle(
-        fontFamily: fontFamily,
+  TextStyle get titleSmall => _inter(
         fontSize: 16,
         fontWeight: medium,
         height: 1.43,
         letterSpacing: 0.1,
-        color: AppColors.textPrimary,
       );
 
-  // Body Styles (14-16px)
-  TextStyle get bodyLarge => const TextStyle(
-        fontFamily: fontFamily,
+  // Body Styles - Inter
+  TextStyle get bodyLarge => _inter(
         fontSize: 16,
         fontWeight: regular,
         height: 1.5,
         letterSpacing: 0.5,
-        color: AppColors.textPrimary,
       );
 
-  TextStyle get bodyMedium => const TextStyle(
-        fontFamily: fontFamily,
+  TextStyle get bodyMedium => _inter(
         fontSize: 14,
         fontWeight: regular,
         height: 1.43,
         letterSpacing: 0.25,
-        color: AppColors.textPrimary,
       );
 
-  TextStyle get bodySmall => const TextStyle(
-        fontFamily: fontFamily,
+  TextStyle get bodySmall => _inter(
         fontSize: 12,
         fontWeight: regular,
         height: 1.33,
@@ -129,18 +137,15 @@ class AppTypography {
         color: AppColors.textSecondary,
       );
 
-  // Label Styles (11-14px)
-  TextStyle get labelLarge => const TextStyle(
-        fontFamily: fontFamily,
+  // Label Styles - Inter
+  TextStyle get labelLarge => _inter(
         fontSize: 14,
         fontWeight: medium,
         height: 1.43,
         letterSpacing: 0.1,
-        color: AppColors.textPrimary,
       );
 
-  TextStyle get labelMedium => const TextStyle(
-        fontFamily: fontFamily,
+  TextStyle get labelMedium => _inter(
         fontSize: 12,
         fontWeight: medium,
         height: 1.33,
@@ -148,8 +153,7 @@ class AppTypography {
         color: AppColors.textSecondary,
       );
 
-  TextStyle get labelSmall => const TextStyle(
-        fontFamily: fontFamily,
+  TextStyle get labelSmall => _inter(
         fontSize: 11,
         fontWeight: medium,
         height: 1.45,
@@ -157,9 +161,8 @@ class AppTypography {
         color: AppColors.textTertiary,
       );
 
-  // Button Text
-  TextStyle get button => const TextStyle(
-        fontFamily: fontFamily,
+  // Button Text - Inter
+  TextStyle get button => _inter(
         fontSize: 14,
         fontWeight: semiBold,
         height: 1.43,
@@ -167,9 +170,8 @@ class AppTypography {
         color: AppColors.textOnPrimary,
       );
 
-  // Caption
-  TextStyle get caption => const TextStyle(
-        fontFamily: fontFamily,
+  // Caption - Inter
+  TextStyle get caption => _inter(
         fontSize: 12,
         fontWeight: regular,
         height: 1.33,

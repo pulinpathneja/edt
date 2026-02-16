@@ -196,12 +196,12 @@ class AppButton extends StatelessWidget {
       elevation: WidgetStateProperty.all(0),
       shape: WidgetStateProperty.all(
         RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSpacing.radiusMD),
+          borderRadius: BorderRadius.circular(AppSpacing.radiusXL),
           side: variant == AppButtonVariant.outline
               ? BorderSide(
                   color: isDisabled
                       ? AppColors.border
-                      : (customColor ?? AppColors.primary),
+                      : (customColor ?? AppColors.gold),
                 )
               : BorderSide.none,
         ),

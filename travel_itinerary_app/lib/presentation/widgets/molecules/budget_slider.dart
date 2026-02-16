@@ -120,11 +120,11 @@ class BudgetSlider extends StatelessWidget {
   Color _getBudgetColor() {
     return switch (value) {
       1 => AppColors.success,
-      2 => const Color(0xFF8BC34A),
-      3 => AppColors.accent,
-      4 => AppColors.secondary,
-      5 => const Color(0xFFFFD700),
-      _ => AppColors.accent,
+      2 => const Color(0xFF7A9E5D),
+      3 => AppColors.primary,
+      4 => AppColors.gold,
+      5 => const Color(0xFFC8A951),
+      _ => AppColors.primary,
     };
   }
 }

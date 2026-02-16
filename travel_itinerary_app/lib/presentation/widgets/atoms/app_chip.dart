@@ -38,8 +38,8 @@ class AppChip extends StatelessWidget {
         ),
         decoration: BoxDecoration(
           color: isSelected
-              ? effectiveColor.withOpacity(0.15)
-              : AppColors.surfaceVariant,
+              ? effectiveColor.withOpacity(0.12)
+              : AppColors.surfaceWarm,
           borderRadius: BorderRadius.circular(AppSpacing.radiusFull),
           border: Border.all(
             color: isSelected ? effectiveColor : AppColors.border,

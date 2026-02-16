@@ -72,7 +72,7 @@ class PacingSelector extends StatelessWidget {
               padding: const EdgeInsets.all(AppSpacing.md),
               decoration: BoxDecoration(
                 color: isSelected
-                    ? AppColors.primary.withOpacity(0.1)
+                    ? AppColors.gold.withOpacity(0.08)
                     : AppColors.surface,
                 borderRadius: BorderRadius.horizontal(
                   left: isFirst
@@ -83,7 +83,7 @@ class PacingSelector extends StatelessWidget {
                       : Radius.zero,
                 ),
                 border: Border.all(
-                  color: isSelected ? AppColors.primary : AppColors.border,
+                  color: isSelected ? AppColors.gold : AppColors.border,
                   width: isSelected ? 2 : 1,
                 ),
               ),
@@ -92,7 +92,7 @@ class PacingSelector extends StatelessWidget {
                   Icon(
                     option.icon,
                     size: 24,
-                    color: isSelected ? AppColors.primary : AppColors.textSecondary,
+                    color: isSelected ? AppColors.gold : AppColors.textSecondary,
                   ),
                   const SizedBox(height: AppSpacing.sm),
                   Text(
@@ -101,6 +101,7 @@ class PacingSelector extends StatelessWidget {
                       fontSize: 14,
                       fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
                       color: isSelected ? AppColors.primary : AppColors.textPrimary,
+                      letterSpacing: 0.1,
                     ),
                     textAlign: TextAlign.center,
                   ),
