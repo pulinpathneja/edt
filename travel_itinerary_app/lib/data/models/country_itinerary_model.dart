@@ -83,7 +83,7 @@ class CountryItineraryModel extends CountryItinerary {
   factory CountryItineraryModel.fromJson(Map<String, dynamic> json) {
     return CountryItineraryModel(
       id: json['id'] as String? ?? '',
-      countryId: json['country_id'] as String? ?? '',
+      countryId: json['country_id'] as String? ?? json['country'] as String? ?? '',
       countryName: json['country_name'] as String? ?? '',
       startDate: json['start_date'] as String? ?? '',
       endDate: json['end_date'] as String? ?? '',
@@ -96,7 +96,11 @@ class CountryItineraryModel extends CountryItinerary {
               ?.map((c) => CityItinerarySummaryModel.fromJson(c as Map<String, dynamic>))
               .toList() ??
           [],
-      generalTips: json['general_tips'] != null ? List<String>.from(json['general_tips']) : null,
+      generalTips: json['general_tips'] != null
+          ? List<String>.from(json['general_tips'])
+          : json['travel_tips'] != null
+              ? List<String>.from(json['travel_tips'])
+              : null,
       createdAt: json['created_at'] as String?,
     );
   }

@@ -43,7 +43,7 @@ class CountrySelectionScreen extends ConsumerWidget {
                 children: [
                   Text(
                     'Choose Your\nDestination',
-                    style: GoogleFonts.playfairDisplay(
+                    style: GoogleFonts.plusJakartaSans(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
                       color: AppColors.textPrimary,
@@ -53,7 +53,7 @@ class CountrySelectionScreen extends ConsumerWidget {
                   const SizedBox(height: 8),
                   Text(
                     'Select a country to start planning your multi-city adventure',
-                    style: GoogleFonts.inter(
+                    style: GoogleFonts.plusJakartaSans(
                       fontSize: 15,
                       color: AppColors.textSecondary,
                       height: 1.4,
@@ -90,7 +90,7 @@ class CountrySelectionScreen extends ConsumerWidget {
           const SizedBox(height: 16),
           Text(
             'No countries available',
-            style: GoogleFonts.playfairDisplay(
+            style: GoogleFonts.plusJakartaSans(
               fontSize: 20,
               fontWeight: FontWeight.w600,
               color: AppColors.textSecondary,
@@ -156,7 +156,7 @@ class CountrySelectionScreen extends ConsumerWidget {
             children: [
               Text(
                 hasSelection ? 'Continue with ${state.selectedCountry!.name}' : 'Select a Country',
-                style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600),
+                style: GoogleFonts.plusJakartaSans(fontSize: 16, fontWeight: FontWeight.w600),
               ),
               if (hasSelection) ...[
                 const SizedBox(width: 8),
@@ -254,7 +254,7 @@ class _CountryCard extends StatelessWidget {
                     children: [
                       Text(
                         country.name,
-                        style: GoogleFonts.playfairDisplay(
+                        style: GoogleFonts.plusJakartaSans(
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
                           color: AppColors.textPrimary,
@@ -263,7 +263,7 @@ class _CountryCard extends StatelessWidget {
                       const SizedBox(height: 4),
                       Text(
                         '${country.cityCount} cities available',
-                        style: GoogleFonts.inter(
+                        style: GoogleFonts.plusJakartaSans(
                           fontSize: 13,
                           color: AppColors.textSecondary,
                         ),
@@ -282,7 +282,7 @@ class _CountryCard extends StatelessWidget {
                                   ),
                                   child: Text(
                                     c.name,
-                                    style: GoogleFonts.inter(
+                                    style: GoogleFonts.plusJakartaSans(
                                       fontSize: 11,
                                       color: AppColors.textSecondary,
                                       fontWeight: FontWeight.w500,

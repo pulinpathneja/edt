@@ -13,6 +13,8 @@ class Settings(BaseSettings):
 
     # Optional APIs
     google_places_api_key: str = ""
+    google_search_api_key: str = ""
+    google_search_cx: str = ""
 
     # Application
     app_name: str = "EDT Itinerary System"

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDT Query Explorer</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #FEF9F2;
+  color: #2C1810;
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(135deg, #2C1810 0%, #4A3228 100%);
+  color: #FEF9F2;
+  padding: 28px 32px;
+}
+.header h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; }
+.header .subtitle { color: #C8A951; font-size: 14px; font-weight: 400; margin-top: 2px; }
+
+.content { max-width: 1100px; margin: 24px auto; padding: 0 32px; }
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(44,24,16,0.08);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.card h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #2C1810; }
+
+/* Search bar */
+.search-container { position: relative; }
+.search-input {
+  width: 100%;
+  padding: 16px 52px 16px 20px;
+  border: 2px solid #E8E0D8;
+  border-radius: 14px;
+  font-size: 16px;
+  color: #2C1810;
+  background: #FEF9F2;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search-input:focus { border-color: #C8A951; box-shadow: 0 0 0 3px rgba(200,169,81,0.15); }
+.search-input::placeholder { color: #B0A090; }
+.search-btn {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #C8A951 0%, #8B6914 100%);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+.search-btn:hover { opacity: 0.9; }
+.search-btn svg { width: 18px; height: 18px; }
+
+/* Options row */
+.options-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.option-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.option-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #7A6B5D;
+}
+
+.chip-group { display: flex; gap: 6px; }
+.chip {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #E8E0D8;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7A6B5D;
+  cursor: pointer;
+  background: #FEF9F2;
+  transition: all 0.2s;
+  user-select: none;
+}
+.chip.active { background: #C8A951; color: #fff; border-color: #C8A951; }
+.chip:hover:not(.active) { border-color: #C8A951; }
+
+.toggle-row { display: flex; align-items: center; gap: 8px; }
+.toggle-label { font-size: 13px; color: #7A6B5D; }
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #E8E0D8;
+  border-radius: 22px;
+  transition: 0.3s;
+}
+.toggle-slider:before {
+  content: "";
+  position: absolute;
+  height: 16px; width: 16px;
+  left: 3px; bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.toggle-switch input:checked + .toggle-slider { background: #C8A951; }
+.toggle-switch input:checked + .toggle-slider:before { transform: translateX(18px); }
+
+/* Example queries */
+.examples-row { margin-top: 14px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.examples-label { font-size: 12px; color: #B0A090; font-weight: 500; }
+.example-chip {
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px dashed #D8CFC4;
+  font-size: 12px;
+  color: #7A6B5D;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s;
+}
+.example-chip:hover { border-color: #C8A951; color: #8B6914; background: #FEF3E0; }
+
+/* Parsed intent card */
+.intent-card {
+  background: #FEF9F2;
+  border-radius: 14px;
+  border: 1px solid #E8E0D8;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: none;
+}
+.intent-card.visible { display: block; }
+.intent-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.intent-title { font-size: 14px; font-weight: 700; color: #7A6B5D; text-transform: uppercase; letter-spacing: 0.5px; }
+.intent-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+.intent-field .field-label { font-size: 11px; font-weight: 600; color: #B0A090; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 3px; }
+.intent-field .field-value { font-size: 14px; font-weight: 600; color: #2C1810; }
+.intent-field .field-value.empty { color: #D0C8BE; font-weight: 400; }
+.intent-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
+.intent-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #E8F5E9;
+  color: #2E7D32;
+  border: 1px solid #A5D6A7;
+}
+.intent-tag.attr { background: #E3F2FD; color: #1565C0; border-color: #90CAF9; }
+
+/* Confidence bar */
+.confidence-container { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+.confidence-label { font-size: 11px; font-weight: 600; color: #7A6B5D; text-transform: uppercase; min-width: 80px; }
+.confidence-bar { flex: 1; height: 8px; background: #E8E0D8; border-radius: 4px; overflow: hidden; max-width: 200px; }
+.confidence-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+.confidence-pct { font-size: 13px; font-weight: 700; color: #8B6914; min-width: 40px; }
+
+/* Results */
+.results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.results-count { font-size: 14px; color: #7A6B5D; }
+.results-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+
+.poi-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #E8E0D8;
+  padding: 20px;
+  transition: box-shadow 0.2s;
+}
+.poi-card:hover { box-shadow: 0 4px 16px rgba(44,24,16,0.1); }
+
+.poi-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; gap: 12px; }
+.poi-name { font-size: 16px; font-weight: 700; color: #2C1810; }
+.poi-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  background: #FEF3E0;
+  color: #8B6914;
+  border: 1px solid #E8D5A8;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.poi-meta { font-size: 12px; color: #7A6B5D; margin-bottom: 10px; display: flex; gap: 16px; flex-wrap: wrap; }
+.poi-description { font-size: 13px; color: #4A3228; line-height: 1.5; margin-bottom: 12px; }
+
+/* Match reasons */
+.match-reasons { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.reason-chip {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.reason-chip.vector { background: #E8F5E9; color: #2E7D32; border: 1px solid #A5D6A7; }
+.reason-chip.category { background: #E3F2FD; color: #1565C0; border: 1px solid #90CAF9; }
+.reason-chip.vibe { background: #F3E5F5; color: #7B1FA2; border: 1px solid #CE93D8; }
+.reason-chip.attribute { background: #FFF3E0; color: #E65100; border: 1px solid #FFCC80; }
+.reason-chip.city { background: #FEF3E0; color: #8B6914; border: 1px solid #E8D5A8; }
+.reason-chip.default { background: #F5F5F5; color: #616161; border: 1px solid #E0E0E0; }
+
+/* Score bars */
+.scores-row { display: flex; gap: 16px; margin-bottom: 10px; flex-wrap: wrap; }
+.score-item { flex: 1; min-width: 140px; }
+.score-label { font-size: 11px; font-weight: 600; color: #7A6B5D; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 4px; display: flex; justify-content: space-between; }
+.score-value { font-weight: 700; color: #8B6914; }
+.score-bar { height: 6px; background: #E8E0D8; border-radius: 3px; overflow: hidden; }
+.score-fill { height: 100%; border-radius: 3px; transition: width 0.5s ease; }
+.score-fill.final { background: linear-gradient(90deg, #C8A951, #8B6914); }
+.score-fill.vector { background: linear-gradient(90deg, #66BB6A, #2E7D32); }
+.score-fill.persona { background: linear-gradient(90deg, #CE93D8, #7B1FA2); }
+
+/* Vibes tags */
+.vibe-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+.vibe-tag {
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  background: #F3E5F5;
+  color: #7B1FA2;
+  border: 1px solid #CE93D8;
+}
+
+/* Related POIs */
+.related-section { margin-top: 10px; padding-top: 10px; border-top: 1px solid #F0E8E0; }
+.related-title { font-size: 11px; font-weight: 600; color: #7A6B5D; text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 6px; }
+.related-list { display: flex; flex-wrap: wrap; gap: 6px; }
+.related-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 11px;
+  background: #FEF9F2;
+  border: 1px solid #E8E0D8;
+  color: #4A3228;
+}
+.related-item .rel-type { font-size: 10px; color: #B0A090; }
+
+/* City insights */
+.insights-section { margin-top: 10px; padding-top: 10px; border-top: 1px solid #F0E8E0; }
+.insight-item {
+  padding: 8px 12px;
+  background: #FEF9F2;
+  border-left: 3px solid #C8A951;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: #4A3228;
+  line-height: 1.4;
+}
+.insight-item .insight-meta { font-size: 10px; color: #B0A090; margin-top: 2px; }
+
+/* Loading & empty states */
+.loading-state { text-align: center; padding: 40px; color: #7A6B5D; }
+.empty-state { text-align: center; padding: 40px; color: #7A6B5D; }
+.error-text { color: #E53935; font-size: 13px; margin-top: 8px; }
+
+.spinner {
+  display: inline-block;
+  width: 20px; height: 20px;
+  border: 2.5px solid #E8E0D8;
+  border-top-color: #C8A951;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Back link */
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #C8A951;
+  text-decoration: none;
+  padding: 12px 0 0 32px;
+}
+.nav-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>EDT Query Explorer</h1>
+  <div class="subtitle">Natural Language Search &mdash; Parse, Search &amp; Explore POIs</div>
+</div>
+
+<a href="/web/pipeline_dashboard.html" class="nav-link">&larr; Pipeline Dashboard</a>
+
+<div class="content">
+
+  <!-- Search card -->
+  <div class="card">
+    <div class="search-container">
+      <input type="text" class="search-input" id="search-input" placeholder="e.g. romantic restaurant in rome, hidden gems in tokyo, cheap street food in osaka...">
+      <button class="search-btn" id="search-btn" onclick="doSearch()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+    </div>
+
+    <div class="options-row">
+      <div class="option-group">
+        <span class="option-label">Limit</span>
+        <div class="chip-group" id="limit-chips">
+          <div class="chip" data-val="5">5</div>
+          <div class="chip active" data-val="10">10</div>
+          <div class="chip" data-val="20">20</div>
+        </div>
+      </div>
+
+      <div class="toggle-row">
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-related">
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label">Include Related POIs</span>
+      </div>
+
+      <div class="toggle-row">
+        <label class="toggle-switch">
+          <input type="checkbox" id="toggle-insights">
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label">Include City Insights</span>
+      </div>
+    </div>
+
+    <div class="examples-row">
+      <span class="examples-label">Try:</span>
+      <button class="example-chip" onclick="fillExample(this)">romantic restaurant in rome</button>
+      <button class="example-chip" onclick="fillExample(this)">hidden gems in tokyo</button>
+      <button class="example-chip" onclick="fillExample(this)">kid-friendly activities in paris</button>
+      <button class="example-chip" onclick="fillExample(this)">cheap street food in osaka</button>
+      <button class="example-chip" onclick="fillExample(this)">best museums in florence</button>
+      <button class="example-chip" onclick="fillExample(this)">rooftop bars in bangkok</button>
+    </div>
+  </div>
+
+  <!-- Parsed intent -->
+  <div class="intent-card" id="intent-card">
+    <div class="intent-header">
+      <span class="intent-title">Parsed Intent</span>
+      <span id="intent-semantic" style="font-size:12px;color:#7A6B5D;font-style:italic"></span>
+    </div>
+    <div class="intent-grid" id="intent-grid"></div>
+    <div class="confidence-container" id="confidence-row">
+      <span class="confidence-label">Confidence</span>
+      <div class="confidence-bar"><div class="confidence-fill" id="confidence-fill"></div></div>
+      <span class="confidence-pct" id="confidence-pct"></span>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div id="results-container"></div>
+
+</div>
+
+<script>
+let searchLimit = 10;
+
+document.addEventListener('DOMContentLoaded', () => {
+  initChips();
+  document.getElementById('search-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') doSearch();
+  });
+});
+
+function initChips() {
+  document.querySelectorAll('#limit-chips .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#limit-chips .chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      searchLimit = parseInt(chip.dataset.val);
+    });
+  });
+}
+
+function fillExample(el) {
+  const input = document.getElementById('search-input');
+  input.value = el.textContent;
+  input.focus();
+  doSearch();
+}
+
+async function doSearch() {
+  const query = document.getElementById('search-input').value.trim();
+  if (!query) return;
+
+  const includeRelated = document.getElementById('toggle-related').checked;
+  const includeInsights = document.getElementById('toggle-insights').checked;
+
+  const container = document.getElementById('results-container');
+  const intentCard = document.getElementById('intent-card');
+  intentCard.classList.remove('visible');
+  container.innerHTML = '<div class="card"><div class="loading-state"><div class="spinner"></div><div style="margin-top:12px">Parsing query &amp; searching...</div></div></div>';
+
+  try {
+    const res = await fetch('/api/v1/query/search', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        query,
+        limit: searchLimit,
+        include_related: includeRelated,
+        include_insights: includeInsights,
+      }),
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.detail || `HTTP ${res.status}`);
+    }
+
+    const data = await res.json();
+    renderIntent(data.parsed_intent);
+    renderResults(data);
+  } catch (e) {
+    container.innerHTML = `<div class="card"><div class="error-text">Search failed: ${esc(e.message)}</div></div>`;
+  }
+}
+
+function renderIntent(intent) {
+  const card = document.getElementById('intent-card');
+  const grid = document.getElementById('intent-grid');
+  const semantic = document.getElementById('intent-semantic');
+
+  semantic.textContent = intent.semantic_query ? `"${intent.semantic_query}"` : '';
+
+  let html = '';
+
+  const fields = [
+    { label: 'City', value: intent.city },
+    { label: 'Country', value: intent.country },
+    { label: 'Category', value: intent.category },
+    { label: 'Subcategory', value: intent.subcategory },
+    { label: 'Neighborhood', value: intent.neighborhood },
+    { label: 'Group Type', value: intent.group_type },
+    { label: 'Near POI', value: intent.near_poi_name },
+    { label: 'Cost Level', value: intent.cost_level ? '$'.repeat(intent.cost_level) : null },
+    { label: 'Time of Day', value: intent.time_of_day },
+  ];
+
+  fields.forEach(f => {
+    if (f.value) {
+      html += `<div class="intent-field"><div class="field-label">${f.label}</div><div class="field-value">${esc(String(f.value))}</div></div>`;
+    }
+  });
+
+  if (intent.vibes && intent.vibes.length) {
+    html += `<div class="intent-field"><div class="field-label">Vibes</div><div class="intent-tags">${intent.vibes.map(v => `<span class="intent-tag">${esc(v)}</span>`).join('')}</div></div>`;
+  }
+
+  if (intent.attributes && intent.attributes.length) {
+    html += `<div class="intent-field"><div class="field-label">Attributes</div><div class="intent-tags">${intent.attributes.map(a => `<span class="intent-tag attr">${esc(a)}</span>`).join('')}</div></div>`;
+  }
+
+  grid.innerHTML = html;
+
+  // Confidence
+  const pct = Math.round(intent.confidence * 100);
+  const fill = document.getElementById('confidence-fill');
+  const pctEl = document.getElementById('confidence-pct');
+  const color = pct >= 70 ? '#4CAF50' : pct >= 40 ? '#FF9800' : '#E53935';
+  fill.style.width = pct + '%';
+  fill.style.background = color;
+  pctEl.textContent = pct + '%';
+  pctEl.style.color = color;
+
+  card.classList.add('visible');
+}
+
+function renderResults(data) {
+  const container = document.getElementById('results-container');
+
+  if (!data.results || data.results.length === 0) {
+    container.innerHTML = '<div class="card"><div class="empty-state">No results found. Try a different query.</div></div>';
+    return;
+  }
+
+  let html = `<div class="card"><div class="results-header"><h3>Results</h3><span class="results-count">${data.total} result${data.total !== 1 ? 's' : ''} for "${esc(data.query)}"</span></div><div class="results-grid">`;
+
+  data.results.forEach(poi => {
+    const cat = poi.category || poi.subcategory || '';
+    const loc = [poi.neighborhood, poi.city, poi.country].filter(Boolean).join(', ');
+    const desc = poi.description || '';
+
+    html += `<div class="poi-card">`;
+
+    // Header
+    html += `<div class="poi-header"><span class="poi-name">${esc(poi.name)}</span>`;
+    if (cat) html += `<span class="poi-badge">${esc(cat)}</span>`;
+    html += `</div>`;
+
+    // Meta
+    const metaParts = [];
+    if (loc) metaParts.push(esc(loc));
+    if (poi.cost_level) metaParts.push('Cost: ' + '$'.repeat(poi.cost_level));
+    if (poi.typical_duration_minutes) metaParts.push(poi.typical_duration_minutes + ' min');
+    if (poi.best_time_of_day) metaParts.push(esc(poi.best_time_of_day));
+    if (metaParts.length) html += `<div class="poi-meta">${metaParts.map(m => `<span>${m}</span>`).join('')}</div>`;
+
+    // Description
+    if (desc) html += `<div class="poi-description">${esc(desc.length > 200 ? desc.substring(0, 200) + '...' : desc)}</div>`;
+
+    // Match reasons
+    if (poi.match_reasons && poi.match_reasons.length) {
+      html += `<div class="match-reasons">`;
+      poi.match_reasons.forEach(r => {
+        const cls = classifyReason(r);
+        html += `<span class="reason-chip ${cls}">${esc(r)}</span>`;
+      });
+      html += `</div>`;
+    }
+
+    // Scores
+    html += `<div class="scores-row">`;
+    html += renderScoreBar('Final', poi.final_score, 'final');
+    html += renderScoreBar('Vector', poi.vector_score, 'vector');
+    html += renderScoreBar('Persona', poi.persona_score, 'persona');
+    html += `</div>`;
+
+    // Matched vibes
+    if (poi.matched_vibes && poi.matched_vibes.length) {
+      html += `<div class="vibe-tags">${poi.matched_vibes.map(v => `<span class="vibe-tag">${esc(v)}</span>`).join('')}</div>`;
+    }
+
+    // Related POIs
+    if (poi.related_pois && poi.related_pois.length) {
+      html += `<div class="related-section"><div class="related-title">Related POIs</div><div class="related-list">`;
+      poi.related_pois.forEach(r => {
+        html += `<span class="related-item">${esc(r.name)} <span class="rel-type">${esc(r.relationship_type)}</span></span>`;
+      });
+      html += `</div></div>`;
+    }
+
+    // City insights
+    if (poi.city_insights && poi.city_insights.length) {
+      html += `<div class="insights-section"><div class="related-title">City Insights</div>`;
+      poi.city_insights.forEach(ins => {
+        html += `<div class="insight-item">${esc(ins.content || ins.title || '')}`;
+        const meta = [ins.source, ins.category].filter(Boolean).join(' / ');
+        if (meta) html += `<div class="insight-meta">${esc(meta)}</div>`;
+        html += `</div>`;
+      });
+      html += `</div>`;
+    }
+
+    html += `</div>`; // close poi-card
+  });
+
+  html += '</div></div>';
+  container.innerHTML = html;
+}
+
+function renderScoreBar(label, score, cls) {
+  const pct = Math.round((score || 0) * 100);
+  return `<div class="score-item"><div class="score-label"><span>${label}</span><span class="score-value">${pct}%</span></div><div class="score-bar"><div class="score-fill ${cls}" style="width:${pct}%"></div></div></div>`;
+}
+
+function classifyReason(reason) {
+  const r = reason.toLowerCase();
+  if (r.includes('vector') || r.includes('semantic') || r.includes('similarity')) return 'vector';
+  if (r.includes('category') || r.includes('type')) return 'category';
+  if (r.includes('vibe') || r.includes('mood') || r.includes('romantic') || r.includes('adventur')) return 'vibe';
+  if (r.includes('hidden') || r.includes('must') || r.includes('instagram') || r.includes('kid') || r.includes('attribute')) return 'attribute';
+  if (r.includes('city') || r.includes('neighborhood') || r.includes('location')) return 'city';
+  return 'default';
+}
+
+function esc(s) {
+  if (!s) return '';
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+</script>
+
+</body>
+</html>

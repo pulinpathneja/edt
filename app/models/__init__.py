@@ -11,6 +11,7 @@ from app.models.knowledge_graph import (
     RestaurantDetail,
     POIAccessibility,
 )
+from app.models.city_insight import CityInsight
 
 __all__ = [
     # Core POI
@@ -33,4 +34,6 @@ __all__ = [
     "NeighborhoodConnection",
     "RestaurantDetail",
     "POIAccessibility",
+    # City Intelligence
+    "CityInsight",
 ]

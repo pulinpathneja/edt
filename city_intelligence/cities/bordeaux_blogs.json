@@ -1,0 +1,19 @@
+{
+  "city_name": "Bordeaux",
+  "country": "France",
+  "collected_at": "2026-02-17T10:32:59.990238",
+  "total_articles": 0,
+  "sources_searched": [
+    "Atlas Obscura",
+    "Lonely Planet",
+    "Rick Steves",
+    "Culture Trip",
+    "Eater",
+    "Nomadic Matt",
+    "Spotted by Locals",
+    "Trekaroo"
+  ],
+  "articles_by_category": {},
+  "articles_by_source": {},
+  "articles": []
+}

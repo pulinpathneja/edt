@@ -27,6 +27,7 @@ from app.models.knowledge_graph import (
     RestaurantDetail,
     POIAccessibility,
 )
+from app.models.city_insight import CityInsight
 
 # this is the Alembic Config object
 config = context.config

@@ -5,20 +5,19 @@ import 'colors/app_colors.dart';
 import 'spacing/app_spacing.dart';
 import 'typography/app_typography.dart';
 
-/// Warm + Premium application theme
+/// Application theme (matching edt-ui/modular-joy-maker design system)
 class AppTheme {
   AppTheme._();
 
-  // Expose colors for context extension access
   static const AppColors colors = AppColors();
 
-  /// Light theme configuration - Warm + Premium
+  /// Light theme configuration
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
 
-      // Color scheme
+      // Color scheme from CSS custom properties
       colorScheme: const ColorScheme.light(
         primary: AppColors.primary,
         onPrimary: AppColors.textOnPrimary,
@@ -28,9 +27,9 @@ class AppTheme {
         onSecondary: AppColors.textOnSecondary,
         secondaryContainer: AppColors.surfaceWarm,
         onSecondaryContainer: AppColors.textPrimary,
-        tertiary: AppColors.gold,
+        tertiary: AppColors.primary,
         onTertiary: AppColors.textOnPrimary,
-        tertiaryContainer: AppColors.goldLight,
+        tertiaryContainer: AppColors.secondary,
         onTertiaryContainer: AppColors.textPrimary,
         error: AppColors.error,
         onError: AppColors.white,
@@ -42,10 +41,9 @@ class AppTheme {
         outlineVariant: AppColors.borderLight,
       ),
 
-      // Scaffold - Warm cream background
       scaffoldBackgroundColor: AppColors.background,
 
-      // App Bar - Clean and warm
+      // App Bar
       appBarTheme: AppBarTheme(
         centerTitle: true,
         elevation: 0,
@@ -61,50 +59,50 @@ class AppTheme {
         titleTextStyle: AppTypography.instance.titleMedium,
       ),
 
-      // Cards - White with warm shadows, large radius
+      // Cards — white with subtle border, 16px radius (--radius = 1rem)
       cardTheme: CardThemeData(
         elevation: 0,
         color: AppColors.surface,
         surfaceTintColor: Colors.transparent,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-          side: const BorderSide(color: AppColors.borderLight),
+          borderRadius: BorderRadius.circular(16),
+          side: BorderSide(color: AppColors.border.withValues(alpha: 0.5)),
         ),
         margin: EdgeInsets.zero,
       ),
 
-      // Elevated Button - Gold accent
+      // Elevated Button — rounded-xl (12px), matching reference primary button
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
           foregroundColor: AppColors.textOnPrimary,
           elevation: 0,
           padding: const EdgeInsets.symmetric(
-            horizontal: 28,
-            vertical: 16,
+            horizontal: 16,
+            vertical: 14,
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(12),
           ),
           textStyle: AppTypography.instance.button,
         ),
       ),
 
-      // Outlined Button
+      // Outlined Button — rounded-xl (12px), border color from --border
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          foregroundColor: AppColors.primary,
+          foregroundColor: AppColors.textPrimary,
           elevation: 0,
           padding: const EdgeInsets.symmetric(
-            horizontal: 28,
-            vertical: 16,
+            horizontal: 16,
+            vertical: 14,
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(24),
+            borderRadius: BorderRadius.circular(12),
           ),
-          side: const BorderSide(color: AppColors.gold),
+          side: const BorderSide(color: AppColors.border, width: 2),
           textStyle: AppTypography.instance.button.copyWith(
-            color: AppColors.primary,
+            color: AppColors.textPrimary,
           ),
         ),
       ),
@@ -118,37 +116,37 @@ class AppTheme {
             vertical: AppSpacing.sm,
           ),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(12),
           ),
         ),
       ),
 
-      // Input Decoration - Warm styling
+      // Input Decoration — rounded-xl (12px), --border / --input
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: AppColors.surfaceWarm,
+        fillColor: AppColors.surfaceVariant,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 20,
           vertical: 16,
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide.none,
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: AppColors.border),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: const BorderSide(color: AppColors.gold, width: 2),
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(color: AppColors.primary, width: 2),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: AppColors.error),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: AppColors.error, width: 2),
         ),
         hintStyle: AppTypography.instance.bodyMedium.copyWith(
@@ -159,10 +157,10 @@ class AppTheme {
         ),
       ),
 
-      // Chip - Warm pill shape
+      // Chip — pill shape with border
       chipTheme: ChipThemeData(
-        backgroundColor: AppColors.surfaceWarm,
-        selectedColor: AppColors.gold.withOpacity(0.20),
+        backgroundColor: AppColors.secondary,
+        selectedColor: AppColors.primary.withValues(alpha: 0.15),
         disabledColor: AppColors.surfaceVariant,
         labelStyle: AppTypography.instance.labelLarge.copyWith(
           color: AppColors.textPrimary,
@@ -171,8 +169,8 @@ class AppTheme {
           color: AppColors.primary,
         ),
         padding: const EdgeInsets.symmetric(
-          horizontal: 12,
-          vertical: 6,
+          horizontal: 10,
+          vertical: 2,
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppSpacing.radiusFull),
@@ -180,31 +178,31 @@ class AppTheme {
         ),
       ),
 
-      // Slider - Gold accents
+      // Slider
       sliderTheme: SliderThemeData(
-        activeTrackColor: AppColors.gold,
+        activeTrackColor: AppColors.primary,
         inactiveTrackColor: AppColors.border,
-        thumbColor: AppColors.gold,
-        overlayColor: AppColors.gold.withOpacity(0.1),
+        thumbColor: AppColors.primary,
+        overlayColor: AppColors.primary.withValues(alpha: 0.1),
         trackHeight: 4,
         thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 12),
         overlayShape: const RoundSliderOverlayShape(overlayRadius: 24),
       ),
 
-      // Bottom Navigation - Premium
+      // Bottom Navigation — glass-strong style
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.surface,
         selectedItemColor: AppColors.primary,
-        unselectedItemColor: AppColors.textTertiary,
+        unselectedItemColor: AppColors.textSecondary,
         type: BottomNavigationBarType.fixed,
         elevation: 8,
       ),
 
-      // Tab Bar - Gold underline
+      // Tab Bar
       tabBarTheme: TabBarThemeData(
         labelColor: AppColors.primary,
-        unselectedLabelColor: AppColors.textTertiary,
-        indicatorColor: AppColors.gold,
+        unselectedLabelColor: AppColors.textSecondary,
+        indicatorColor: AppColors.primary,
         indicatorSize: TabBarIndicatorSize.label,
         labelStyle: AppTypography.instance.labelLarge.copyWith(
           fontWeight: FontWeight.w600,
@@ -219,9 +217,9 @@ class AppTheme {
         space: 0,
       ),
 
-      // Progress Indicator - Gold
+      // Progress Indicator
       progressIndicatorTheme: const ProgressIndicatorThemeData(
-        color: AppColors.gold,
+        color: AppColors.primary,
         linearTrackColor: AppColors.border,
         circularTrackColor: AppColors.border,
       ),
@@ -238,19 +236,19 @@ class AppTheme {
       brightness: Brightness.dark,
 
       colorScheme: const ColorScheme.dark(
-        primary: AppColors.primaryLight,
+        primary: AppColors.darkPrimary,
         onPrimary: AppColors.textOnPrimary,
         primaryContainer: AppColors.primary,
         onPrimaryContainer: AppColors.textOnPrimary,
-        secondary: AppColors.secondary,
-        onSecondary: AppColors.textOnSecondary,
+        secondary: AppColors.darkSecondary,
+        onSecondary: AppColors.darkTextPrimary,
         secondaryContainer: AppColors.primaryDark,
-        onSecondaryContainer: AppColors.goldLight,
-        tertiary: AppColors.gold,
+        onSecondaryContainer: AppColors.darkTextPrimary,
+        tertiary: AppColors.darkPrimary,
         onTertiary: AppColors.textOnPrimary,
         tertiaryContainer: AppColors.primaryDark,
-        onTertiaryContainer: AppColors.goldLight,
-        error: AppColors.error,
+        onTertiaryContainer: AppColors.darkTextPrimary,
+        error: Color(0xFFA31A1A), // HSL(0,63%,40%) dark destructive
         onError: AppColors.white,
         surface: AppColors.darkSurface,
         onSurface: AppColors.darkTextPrimary,
@@ -284,8 +282,8 @@ class AppTheme {
         color: AppColors.darkSurface,
         surfaceTintColor: Colors.transparent,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-          side: const BorderSide(color: AppColors.darkBorder),
+          borderRadius: BorderRadius.circular(16),
+          side: BorderSide(color: AppColors.darkBorder.withValues(alpha: 0.5)),
         ),
         margin: EdgeInsets.zero,
       ),

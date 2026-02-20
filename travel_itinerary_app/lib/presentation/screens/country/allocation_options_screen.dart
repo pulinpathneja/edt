@@ -30,7 +30,7 @@ class AllocationOptionsScreen extends ConsumerWidget {
         ),
         title: Text(
           state.selectedCountry?.name ?? 'Allocations',
-          style: GoogleFonts.playfairDisplay(
+          style: GoogleFonts.plusJakartaSans(
             fontSize: 20,
             fontWeight: FontWeight.w600,
             color: AppColors.textPrimary,
@@ -59,7 +59,7 @@ class AllocationOptionsScreen extends ConsumerWidget {
           const SizedBox(height: 24),
           Text(
             'Crafting your options...',
-            style: GoogleFonts.playfairDisplay(
+            style: GoogleFonts.plusJakartaSans(
               fontSize: 22,
               fontWeight: FontWeight.w600,
               color: AppColors.textPrimary,
@@ -68,7 +68,7 @@ class AllocationOptionsScreen extends ConsumerWidget {
           const SizedBox(height: 8),
           Text(
             'Finding the best city distribution for your trip',
-            style: GoogleFonts.inter(fontSize: 14, color: AppColors.textSecondary),
+            style: GoogleFonts.plusJakartaSans(fontSize: 14, color: AppColors.textSecondary),
           ),
         ],
       ),
@@ -86,7 +86,7 @@ class AllocationOptionsScreen extends ConsumerWidget {
             const SizedBox(height: 16),
             Text(
               'Something went wrong',
-              style: GoogleFonts.playfairDisplay(
+              style: GoogleFonts.plusJakartaSans(
                 fontSize: 22,
                 fontWeight: FontWeight.w600,
                 color: AppColors.textPrimary,
@@ -96,7 +96,7 @@ class AllocationOptionsScreen extends ConsumerWidget {
             Text(
               error,
               textAlign: TextAlign.center,
-              style: GoogleFonts.inter(fontSize: 14, color: AppColors.textSecondary),
+              style: GoogleFonts.plusJakartaSans(fontSize: 14, color: AppColors.textSecondary),
             ),
             const SizedBox(height: 24),
             ElevatedButton.icon(
@@ -123,7 +123,7 @@ class AllocationOptionsScreen extends ConsumerWidget {
             children: [
               Text(
                 'Choose Your Plan',
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.plusJakartaSans(
                   fontSize: 28,
                   fontWeight: FontWeight.w700,
                   color: AppColors.textPrimary,
@@ -132,7 +132,7 @@ class AllocationOptionsScreen extends ConsumerWidget {
               const SizedBox(height: 6),
               Text(
                 '${response.totalDays} days in ${response.countryName}',
-                style: GoogleFonts.inter(
+                style: GoogleFonts.plusJakartaSans(
                   fontSize: 15,
                   color: AppColors.textSecondary,
                 ),
@@ -192,7 +192,7 @@ class AllocationOptionsScreen extends ConsumerWidget {
                 children: [
                   Text(
                     'Generate Itinerary',
-                    style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600),
+                    style: GoogleFonts.plusJakartaSans(fontSize: 16, fontWeight: FontWeight.w600),
                   ),
                   const SizedBox(width: 8),
                   const Icon(Icons.auto_awesome, size: 20),
@@ -257,7 +257,7 @@ class _AllocationOptionCard extends StatelessWidget {
                             children: [
                               Text(
                                 option.name,
-                                style: GoogleFonts.playfairDisplay(
+                                style: GoogleFonts.plusJakartaSans(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w600,
                                   color: AppColors.textPrimary,
@@ -273,7 +273,7 @@ class _AllocationOptionCard extends StatelessWidget {
                                   ),
                                   child: Text(
                                     'Recommended',
-                                    style: GoogleFonts.inter(
+                                    style: GoogleFonts.plusJakartaSans(
                                       fontSize: 10,
                                       fontWeight: FontWeight.w700,
                                       color: AppColors.gold,
@@ -286,7 +286,7 @@ class _AllocationOptionCard extends StatelessWidget {
                           const SizedBox(height: 2),
                           Text(
                             '${option.cityCount} cities · ${option.totalDays} days',
-                            style: GoogleFonts.inter(fontSize: 13, color: AppColors.textSecondary),
+                            style: GoogleFonts.plusJakartaSans(fontSize: 13, color: AppColors.textSecondary),
                           ),
                         ],
                       ),
@@ -316,7 +316,7 @@ class _AllocationOptionCard extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Text(
                   option.description,
-                  style: GoogleFonts.inter(
+                  style: GoogleFonts.plusJakartaSans(
                     fontSize: 13,
                     color: AppColors.textSecondary,
                     height: 1.4,
@@ -339,7 +339,7 @@ class _AllocationOptionCard extends StatelessWidget {
                             width: 80,
                             child: Text(
                               city.cityName,
-                              style: GoogleFonts.inter(
+                              style: GoogleFonts.plusJakartaSans(
                                 fontSize: 13,
                                 fontWeight: FontWeight.w500,
                                 color: AppColors.textPrimary,
@@ -364,7 +364,7 @@ class _AllocationOptionCard extends StatelessWidget {
                           const SizedBox(width: 10),
                           Text(
                             '${city.days}d',
-                            style: GoogleFonts.inter(
+                            style: GoogleFonts.plusJakartaSans(
                               fontSize: 13,
                               fontWeight: FontWeight.w600,
                               color: AppColors.textPrimary,
@@ -400,7 +400,7 @@ class _AllocationOptionCard extends StatelessWidget {
                                     Expanded(
                                       child: Text(
                                         pro,
-                                        style: GoogleFonts.inter(fontSize: 12, color: AppColors.textSecondary, height: 1.3),
+                                        style: GoogleFonts.plusJakartaSans(fontSize: 12, color: AppColors.textSecondary, height: 1.3),
                                       ),
                                     ),
                                   ],
@@ -425,7 +425,7 @@ class _AllocationOptionCard extends StatelessWidget {
                                     Expanded(
                                       child: Text(
                                         con,
-                                        style: GoogleFonts.inter(fontSize: 12, color: AppColors.textSecondary, height: 1.3),
+                                        style: GoogleFonts.plusJakartaSans(fontSize: 12, color: AppColors.textSecondary, height: 1.3),
                                       ),
                                     ),
                                   ],
@@ -471,7 +471,7 @@ class _MatchScoreCircle extends StatelessWidget {
           ),
           Text(
             '$percentage%',
-            style: GoogleFonts.inter(
+            style: GoogleFonts.plusJakartaSans(
               fontSize: 13,
               fontWeight: FontWeight.w700,
               color: AppColors.gold,

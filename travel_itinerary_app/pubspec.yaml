@@ -64,4 +64,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
-  # Fonts loaded via google_fonts package (Playfair Display + Inter)
+  assets:
+    - assets/images/
+
+  # Fonts loaded via google_fonts package (Plus Jakarta Sans)

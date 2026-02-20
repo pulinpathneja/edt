@@ -1,0 +1,177 @@
+{
+  "city_name": "Barcelona",
+  "country": "Spain",
+  "collected_at": "2026-02-16T15:25:32.633170",
+  "total_articles": 7,
+  "sources_searched": [
+    "Atlas Obscura",
+    "Lonely Planet",
+    "Rick Steves",
+    "Culture Trip",
+    "Eater",
+    "Nomadic Matt",
+    "Spotted by Locals",
+    "Trekaroo"
+  ],
+  "articles_by_category": {
+    "hidden_gems": [
+      {
+        "title": "All Places in Barcelona, Spain",
+        "url": "https://www.atlasobscura.com/things-to-do/barcelona-spain/places",
+        "snippet": "rcelona's iconic (but controversial) church is expected to be completed in 2026\u2014a century after the death of its architect. Barcelona, Spain Labyrinth Park of Horta This semi-secret storybook hedge maze is also the oldest garden in the city. Barcelona, Spain Park G\u00fcell Gaud\u00ed's famously flamboyant ar",
+        "source": "Atlas Obscura",
+        "category": "hidden_gems"
+      },
+      {
+        "title": "Sewers of Barcelona",
+        "url": "https://www.atlasobscura.com/places/sewers-of-barcelona",
+        "snippet": "91 Passeig de Sant Joan Barcelona Spain 41.39849, 2.170342 Visit Website Get Directions Nearby Places Explore the Destination Guide Nearby Places Explore the Destination Guide Related Stories and Lists Related Places A labyrinth of ancient tunnels hidden below the city holds the ruins of 2,500...",
+        "source": "Atlas Obscura",
+        "category": "hidden_gems"
+      },
+      {
+        "title": "Bar Marsella in Barcelona",
+        "url": "https://www.atlasobscura.com/places/bar-marsella-barcelona",
+        "snippet": "vibes are forever stuck in the 19th century here. berenicegohel / Atlas Obscura User Welcome to one of Barcelona\u2019s most atmospheric bars. berenicegohel / Atlas Obscura User There are quirky details every which way you look here.",
+        "source": "Atlas Obscura",
+        "category": "hidden_gems"
+      }
+    ],
+    "general": [
+      {
+        "title": "Barcelona travel",
+        "url": "https://www.lonelyplanet.com/destinations/spain/barcelona",
+        "snippet": "verview Founded over 2000 years ago as Roman Barcino, Catalonia\u2019s capital is one of Europe\u2019s most desirable cities \u2013 a sunny, Mediterranean-hugging hub that breezily combines its rich cultural traditions with a forward-thinking, environmentally aware attitude. During Barcelona\u2019s medieval Golden Age,",
+        "source": "Lonely Planet",
+        "category": "general"
+      },
+      {
+        "title": "Barcelona vs Madrid: Which Spanish city should you visit?",
+        "url": "https://www.lonelyplanet.com/articles/barcelona-versus-madrid",
+        "snippet": "sabella Noble champions Barcelona's Mediterranean beauty with golden beaches, while Natalia Diaz makes the case for Madrid's world-class art, cultural treasures and historic sites. Both are magnificent, with distinct appeal. Which Spanish giant would you choose?",
+        "source": "Lonely Planet",
+        "category": "general"
+      },
+      {
+        "title": "Is Barcelona expensive for travelers?",
+        "url": "https://www.lonelyplanet.com/articles/barcelona-on-a-budget",
+        "snippet": "a thriving nightlife and incredible attractions. It's no wonder visitors flock here every year without fail and one visit is never enough. However, all these wonderful things to see and do bring a downside \u2013 budget-busting prices.",
+        "source": "Lonely Planet",
+        "category": "general"
+      },
+      {
+        "title": "Spain travel",
+        "url": "https://www.lonelyplanet.com/destinations/spain",
+        "snippet": "From Madrid to Barcelona , discover flamenco rhythms, sun-drenched beaches, tapas culture and more in our Spain travel guide. Find top attractions and tips.",
+        "source": "Lonely Planet",
+        "category": "general"
+      }
+    ]
+  },
+  "articles_by_source": {
+    "Atlas Obscura": [
+      {
+        "title": "All Places in Barcelona, Spain",
+        "url": "https://www.atlasobscura.com/things-to-do/barcelona-spain/places",
+        "snippet": "rcelona's iconic (but controversial) church is expected to be completed in 2026\u2014a century after the death of its architect. Barcelona, Spain Labyrinth Park of Horta This semi-secret storybook hedge maze is also the oldest garden in the city. Barcelona, Spain Park G\u00fcell Gaud\u00ed's famously flamboyant ar",
+        "source": "Atlas Obscura",
+        "category": "hidden_gems"
+      },
+      {
+        "title": "Sewers of Barcelona",
+        "url": "https://www.atlasobscura.com/places/sewers-of-barcelona",
+        "snippet": "91 Passeig de Sant Joan Barcelona Spain 41.39849, 2.170342 Visit Website Get Directions Nearby Places Explore the Destination Guide Nearby Places Explore the Destination Guide Related Stories and Lists Related Places A labyrinth of ancient tunnels hidden below the city holds the ruins of 2,500...",
+        "source": "Atlas Obscura",
+        "category": "hidden_gems"
+      },
+      {
+        "title": "Bar Marsella in Barcelona",
+        "url": "https://www.atlasobscura.com/places/bar-marsella-barcelona",
+        "snippet": "vibes are forever stuck in the 19th century here. berenicegohel / Atlas Obscura User Welcome to one of Barcelona\u2019s most atmospheric bars. berenicegohel / Atlas Obscura User There are quirky details every which way you look here.",
+        "source": "Atlas Obscura",
+        "category": "hidden_gems"
+      }
+    ],
+    "Lonely Planet": [
+      {
+        "title": "Barcelona travel",
+        "url": "https://www.lonelyplanet.com/destinations/spain/barcelona",
+        "snippet": "verview Founded over 2000 years ago as Roman Barcino, Catalonia\u2019s capital is one of Europe\u2019s most desirable cities \u2013 a sunny, Mediterranean-hugging hub that breezily combines its rich cultural traditions with a forward-thinking, environmentally aware attitude. During Barcelona\u2019s medieval Golden Age,",
+        "source": "Lonely Planet",
+        "category": "general"
+      },
+      {
+        "title": "Barcelona vs Madrid: Which Spanish city should you visit?",
+        "url": "https://www.lonelyplanet.com/articles/barcelona-versus-madrid",
+        "snippet": "sabella Noble champions Barcelona's Mediterranean beauty with golden beaches, while Natalia Diaz makes the case for Madrid's world-class art, cultural treasures and historic sites. Both are magnificent, with distinct appeal. Which Spanish giant would you choose?",
+        "source": "Lonely Planet",
+        "category": "general"
+      },
+      {
+        "title": "Is Barcelona expensive for travelers?",
+        "url": "https://www.lonelyplanet.com/articles/barcelona-on-a-budget",
+        "snippet": "a thriving nightlife and incredible attractions. It's no wonder visitors flock here every year without fail and one visit is never enough. However, all these wonderful things to see and do bring a downside \u2013 budget-busting prices.",
+        "source": "Lonely Planet",
+        "category": "general"
+      },
+      {
+        "title": "Spain travel",
+        "url": "https://www.lonelyplanet.com/destinations/spain",
+        "snippet": "From Madrid to Barcelona , discover flamenco rhythms, sun-drenched beaches, tapas culture and more in our Spain travel guide. Find top attractions and tips.",
+        "source": "Lonely Planet",
+        "category": "general"
+      }
+    ]
+  },
+  "articles": [
+    {
+      "title": "All Places in Barcelona, Spain",
+      "url": "https://www.atlasobscura.com/things-to-do/barcelona-spain/places",
+      "snippet": "rcelona's iconic (but controversial) church is expected to be completed in 2026\u2014a century after the death of its architect. Barcelona, Spain Labyrinth Park of Horta This semi-secret storybook hedge maze is also the oldest garden in the city. Barcelona, Spain Park G\u00fcell Gaud\u00ed's famously flamboyant ar",
+      "source": "Atlas Obscura",
+      "category": "hidden_gems"
+    },
+    {
+      "title": "Sewers of Barcelona",
+      "url": "https://www.atlasobscura.com/places/sewers-of-barcelona",
+      "snippet": "91 Passeig de Sant Joan Barcelona Spain 41.39849, 2.170342 Visit Website Get Directions Nearby Places Explore the Destination Guide Nearby Places Explore the Destination Guide Related Stories and Lists Related Places A labyrinth of ancient tunnels hidden below the city holds the ruins of 2,500...",
+      "source": "Atlas Obscura",
+      "category": "hidden_gems"
+    },
+    {
+      "title": "Bar Marsella in Barcelona",
+      "url": "https://www.atlasobscura.com/places/bar-marsella-barcelona",
+      "snippet": "vibes are forever stuck in the 19th century here. berenicegohel / Atlas Obscura User Welcome to one of Barcelona\u2019s most atmospheric bars. berenicegohel / Atlas Obscura User There are quirky details every which way you look here.",
+      "source": "Atlas Obscura",
+      "category": "hidden_gems"
+    },
+    {
+      "title": "Barcelona travel",
+      "url": "https://www.lonelyplanet.com/destinations/spain/barcelona",
+      "snippet": "verview Founded over 2000 years ago as Roman Barcino, Catalonia\u2019s capital is one of Europe\u2019s most desirable cities \u2013 a sunny, Mediterranean-hugging hub that breezily combines its rich cultural traditions with a forward-thinking, environmentally aware attitude. During Barcelona\u2019s medieval Golden Age,",
+      "source": "Lonely Planet",
+      "category": "general"
+    },
+    {
+      "title": "Barcelona vs Madrid: Which Spanish city should you visit?",
+      "url": "https://www.lonelyplanet.com/articles/barcelona-versus-madrid",
+      "snippet": "sabella Noble champions Barcelona's Mediterranean beauty with golden beaches, while Natalia Diaz makes the case for Madrid's world-class art, cultural treasures and historic sites. Both are magnificent, with distinct appeal. Which Spanish giant would you choose?",
+      "source": "Lonely Planet",
+      "category": "general"
+    },
+    {
+      "title": "Is Barcelona expensive for travelers?",
+      "url": "https://www.lonelyplanet.com/articles/barcelona-on-a-budget",
+      "snippet": "a thriving nightlife and incredible attractions. It's no wonder visitors flock here every year without fail and one visit is never enough. However, all these wonderful things to see and do bring a downside \u2013 budget-busting prices.",
+      "source": "Lonely Planet",
+      "category": "general"
+    },
+    {
+      "title": "Spain travel",
+      "url": "https://www.lonelyplanet.com/destinations/spain",
+      "snippet": "From Madrid to Barcelona , discover flamenco rhythms, sun-drenched beaches, tapas culture and more in our Spain travel guide. Find top attractions and tips.",
+      "source": "Lonely Planet",
+      "category": "general"
+    }
+  ]
+}

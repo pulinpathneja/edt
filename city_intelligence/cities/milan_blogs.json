@@ -1,0 +1,19 @@
+{
+  "city_name": "Milan",
+  "country": "Italy",
+  "collected_at": "2026-02-17T10:24:16.558970",
+  "total_articles": 0,
+  "sources_searched": [
+    "Atlas Obscura",
+    "Lonely Planet",
+    "Rick Steves",
+    "Culture Trip",
+    "Eater",
+    "Nomadic Matt",
+    "Spotted by Locals",
+    "Trekaroo"
+  ],
+  "articles_by_category": {},
+  "articles_by_source": {},
+  "articles": []
+}

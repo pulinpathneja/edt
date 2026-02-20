@@ -22,8 +22,10 @@ from app.schemas.country import (
     CountryItineraryResponse,
     CountryListResponse,
     CityItinerarySummary,
+    InterCityTravelSchema,
 )
 from app.services.country_planner import CountryPlanner
+from app.services.sample_itinerary_data import build_sample_day_itineraries
 
 router = APIRouter()
 planner = CountryPlanner()
@@ -176,17 +178,101 @@ async def generate_country_itinerary(
     if not country:
         raise HTTPException(status_code=404, detail=f"Country '{request.country}' not found.")
 
-    # Ensure POI data exists for each city
-    for city_alloc in request.selected_allocation.cities:
-        await planner.ensure_city_data(city_alloc.city_id, db)
+    # Build allocation from either selected_allocation or allocation_option_id
+    allocation = request.selected_allocation
+    if allocation is None or not allocation.cities:
+        # Generate allocation on the fly from allocation_option_id
+        total_days = (request.end_date - request.start_date).days + 1
+        try:
+            options_data, _ = planner.generate_allocation_options(
+                country_id=request.country,
+                total_days=total_days,
+                group_type=request.group_type,
+                vibes=request.vibes,
+                pacing=request.pacing,
+            )
+            # Find matching option or use first
+            selected = None
+            if request.allocation_option_id and options_data:
+                for opt in options_data:
+                    if str(opt.get("option_id")) == request.allocation_option_id or \
+                       opt.get("option_name", "").lower().replace(" ", "_").startswith(
+                           request.allocation_option_id.lower().replace(" ", "_")):
+                        selected = opt
+                        break
+            if selected is None and options_data:
+                selected = options_data[0]
+
+            if selected:
+                allocation = CityAllocationOption(
+                    option_id=selected["option_id"],
+                    option_name=selected["option_name"],
+                    description=selected["description"],
+                    cities=[
+                        CityAllocation(
+                            city_id=c["city_id"],
+                            city_name=c["city_name"],
+                            days=c["days"],
+                            arrival_from=c.get("arrival_from"),
+                            travel_time_minutes=c.get("travel_time_minutes"),
+                            highlights=c.get("highlights", []),
+                        )
+                        for c in selected["cities"]
+                    ],
+                    total_days=selected["total_days"],
+                    total_travel_time_minutes=selected["total_travel_time_minutes"],
+                    match_score=selected["match_score"],
+                    pros=selected.get("pros", []),
+                    cons=selected.get("cons", []),
+                )
+        except Exception:
+            pass
+
+    if allocation is None or not allocation.cities:
+        raise HTTPException(
+            status_code=400,
+            detail="No valid allocation provided. Send selected_allocation or a valid allocation_option_id.",
+        )
+
+    # Ensure POI data exists for each city (skip if DB unreachable)
+    import asyncio
+    try:
+        from sqlalchemy import text as _text
+        await asyncio.wait_for(db.execute(_text("SELECT 1")), timeout=3.0)
+        for city_alloc in allocation.cities:
+            try:
+                await planner.ensure_city_data(city_alloc.city_id, db)
+            except Exception:
+                break
+    except Exception:
+        pass  # DB unreachable, skip seeding
 
     # Generate per-city itinerary summaries
     city_itineraries = []
     inter_city_travel = []
     current_date = request.start_date
 
-    for i, city_alloc in enumerate(request.selected_allocation.cities):
+    for i, city_alloc in enumerate(allocation.cities):
         city_end_date = current_date + timedelta(days=city_alloc.days - 1)
+
+        # Build rich day-by-day activities from sample data
+        day_itineraries_data = build_sample_day_itineraries(
+            city_id=city_alloc.city_id,
+            city_name=city_alloc.city_name,
+            num_days=city_alloc.days,
+            start_date=current_date,
+        )
+
+        # Build travel_to_next for all cities except the last
+        travel_to_next = None
+        if i < len(allocation.cities) - 1:
+            next_city = allocation.cities[i + 1]
+            travel_to_next = InterCityTravelSchema(
+                from_city=city_alloc.city_name,
+                to_city=next_city.city_name,
+                duration_minutes=next_city.travel_time_minutes,
+                mode="train",
+            )
 
         city_itineraries.append(CityItinerarySummary(
             city_id=city_alloc.city_id,
@@ -196,11 +282,13 @@ async def generate_country_itinerary(
             end_date=city_end_date,
             highlights=city_alloc.highlights,
             itinerary_id=None,
+            day_itineraries=day_itineraries_data,
+            travel_to_next=travel_to_next,
         ))
 
-        # Add inter-city travel info
+        # Add inter-city travel info (legacy flat list)
         if i > 0:
-            prev_city = request.selected_allocation.cities[i - 1]
+            prev_city = allocation.cities[i - 1]
             travel_min = city_alloc.travel_time_minutes
             inter_city_travel.append({
                 "from_city": prev_city.city_name,
@@ -216,9 +304,13 @@ async def generate_country_itinerary(
         id=str(uuid.uuid4()),
         country=request.country,
         country_name=country["name"],
-        total_days=request.selected_allocation.total_days,
+        total_days=allocation.total_days or (request.end_date - request.start_date).days + 1,
         start_date=request.start_date,
         end_date=request.end_date,
+        group_type=request.group_type,
+        vibes=request.vibes,
+        budget_level=request.budget_level,
+        pacing=request.pacing,
         city_itineraries=city_itineraries,
         inter_city_travel=inter_city_travel,
         travel_tips=_get_travel_tips(request.country),

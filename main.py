@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from app.api.routes import api_router
 from app.core.config import get_settings
@@ -25,6 +26,9 @@ app.add_middleware(
 
 # Include API routes
 app.include_router(api_router, prefix="/api/v1")
+
+# Serve web dashboard static files
+app.mount("/web", StaticFiles(directory="app/web", html=True), name="web")
 
 
 @app.get("/")

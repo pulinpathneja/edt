@@ -198,9 +198,26 @@ class OvertureMapsFetcher:
                 scores["score_photography"] = max(scores["score_photography"], 0.90)
                 scores["score_cultural"] = max(scores["score_cultural"], 0.85)
 
+            from app.core.embeddings import create_enriched_poi_embedding_text
+            enriched_desc = create_enriched_poi_embedding_text(
+                name=poi.name,
+                description=f"{poi.name} - {poi.category} in {city_key.title()}",
+                category=main_category,
+                subcategory=subcategory,
+                neighborhood="",
+                city=city_key.title(),
+                persona_scores=scores,
+                attributes={
+                    "is_kid_friendly": scores["score_kids"] > 0.5,
+                    "is_must_see": False,
+                    "is_hidden_gem": False,
+                    "instagram_worthy": scores.get("score_photography", 0.5) > 0.8,
+                },
+            )
+
             processed.append({
                 "name": poi.name,
-                "description": f"{poi.name} - {poi.category} in {city_key.title()}",
+                "description": enriched_desc,
                 "latitude": poi.latitude,
                 "longitude": poi.longitude,
                 "address": poi.address or "",

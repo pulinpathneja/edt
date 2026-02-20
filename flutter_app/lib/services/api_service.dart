@@ -3,6 +3,9 @@ import 'package:http/http.dart' as http;
 import '../models/city.dart';
 import '../models/poi.dart';
 import '../models/itinerary.dart';
+import '../models/country.dart';
+import '../models/allocation.dart';
+import '../models/country_itinerary.dart';
 
 class ApiService {
   // Production API URL (Cloud Run)
@@ -126,6 +129,93 @@ class ApiService {
     );
     _checkResponse(response);
     return Itinerary.fromJson(json.decode(response.body));
+  }
+
+  // ==================== COUNTRY ITINERARY ====================
+
+  Future<List<Country>> getCountries() async {
+    final response = await _client.get(
+      Uri.parse('$baseUrl/api/v1/country-itinerary/countries'),
+      headers: _headers,
+    );
+    _checkResponse(response);
+    final data = json.decode(response.body);
+    return (data['countries'] as List<dynamic>?)
+            ?.map((c) => Country.fromJson(c))
+            .toList() ??
+        [];
+  }
+
+  Future<AllocationResponse> getCityAllocations({
+    required String country,
+    required int totalDays,
+    required String startDate,
+    required String endDate,
+    required String groupType,
+    required List<String> vibes,
+    String pacing = 'moderate',
+    List<String>? mustIncludeCities,
+    List<String>? excludeCities,
+    String? startCity,
+    String? endCity,
+  }) async {
+    final body = {
+      'country': country,
+      'total_days': totalDays,
+      'start_date': startDate,
+      'end_date': endDate,
+      'group_type': groupType,
+      'vibes': vibes,
+      'pacing': pacing,
+      if (mustIncludeCities != null) 'must_include_cities': mustIncludeCities,
+      if (excludeCities != null) 'exclude_cities': excludeCities,
+      if (startCity != null) 'start_city': startCity,
+      if (endCity != null) 'end_city': endCity,
+    };
+
+    final response = await _client.post(
+      Uri.parse('$baseUrl/api/v1/country-itinerary/allocations'),
+      headers: _headers,
+      body: json.encode(body),
+    );
+    _checkResponse(response);
+    return AllocationResponse.fromJson(json.decode(response.body));
+  }
+
+  Future<CountryItinerary> generateCountryItinerary({
+    required String country,
+    required AllocationOption selectedAllocation,
+    required String startDate,
+    required String endDate,
+    required String groupType,
+    int groupSize = 1,
+    required List<String> vibes,
+    int budgetLevel = 3,
+    String pacing = 'moderate',
+    bool hasKids = false,
+    bool hasSeniors = false,
+  }) async {
+    final body = {
+      'country': country,
+      'selected_allocation': selectedAllocation.toJson(),
+      'start_date': startDate,
+      'end_date': endDate,
+      'group_type': groupType,
+      'group_size': groupSize,
+      'vibes': vibes,
+      'budget_level': budgetLevel,
+      'pacing': pacing,
+      'has_kids': hasKids,
+      'has_seniors': hasSeniors,
+    };
+
+    final response = await _client.post(
+      Uri.parse('$baseUrl/api/v1/country-itinerary/generate'),
+      headers: _headers,
+      body: json.encode(body),
+    );
+    _checkResponse(response);
+    return CountryItinerary.fromJson(json.decode(response.body));
   }
 
   // ==================== LANDMARKS ====================

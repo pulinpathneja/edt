@@ -32,8 +32,8 @@ class AllocationOptionModel extends AllocationOption {
 
   factory AllocationOptionModel.fromJson(Map<String, dynamic> json) {
     return AllocationOptionModel(
-      optionId: json['option_id'] as String? ?? '',
-      name: json['name'] as String? ?? '',
+      optionId: json['option_id']?.toString() ?? '',
+      name: json['name'] as String? ?? json['option_name'] as String? ?? '',
       description: json['description'] as String? ?? '',
       matchScore: (json['match_score'] as num?)?.toDouble() ?? 0.0,
       cities: (json['cities'] as List<dynamic>?)
@@ -57,7 +57,7 @@ class AllocationResponseModel extends AllocationResponse {
 
   factory AllocationResponseModel.fromJson(Map<String, dynamic> json) {
     return AllocationResponseModel(
-      countryId: json['country_id'] as String? ?? '',
+      countryId: json['country_id'] as String? ?? json['country'] as String? ?? '',
       countryName: json['country_name'] as String? ?? '',
       totalDays: json['total_days'] as int? ?? 0,
       options: (json['options'] as List<dynamic>?)

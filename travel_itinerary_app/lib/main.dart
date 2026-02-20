@@ -12,7 +12,14 @@ void main() async {
   await Hive.initFlutter();
 
   // Initialize environment configuration
-  EnvConfig.initialize(Environment.development);
+  // Use --dart-define=ENV=production for deployed builds
+  const envStr = String.fromEnvironment('ENV', defaultValue: 'development');
+  final env = switch (envStr) {
+    'production' => Environment.production,
+    'staging' => Environment.staging,
+    _ => Environment.development,
+  };
+  EnvConfig.initialize(env);
 
   runApp(
     const ProviderScope(

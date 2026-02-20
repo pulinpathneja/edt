@@ -3,6 +3,8 @@ City Intelligence Generator
 Combines Reddit data, tour information, and blog resources
 to generate comprehensive city intelligence reports.
 """
+from __future__ import annotations
+
 import asyncio
 import json
 import os
@@ -11,7 +13,10 @@ from datetime import datetime
 from typing import Optional
 from pathlib import Path
 
+import re as _re
+
 from reddit_scraper import collect_city_intelligence, CityRedditData
+from blog_scraper import CityBlogData
 from tours_events import collect_tours_events, CityToursEvents, WebSearchTours
 
 
@@ -159,6 +164,73 @@ class CityIntelligenceGenerator:
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
+    # ------------------------------------------------------------------
+    # Quality helpers
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def _is_question_or_rant(text: str) -> bool:
+        """Return True if *text* looks like a question or rant, not a highlight."""
+        t = text.strip()
+        if t.endswith("?"):
+            return True
+        low = t.lower()
+        # Common meta / rant prefixes
+        for prefix in ("should i", "has anyone", "is it worth", "can i",
+                        "does anyone", "what is", "what are", "how do",
+                        "am i", "rant", "ama", "ask me"):
+            if low.startswith(prefix):
+                return True
+        return False
+
+    @staticmethod
+    def _first_useful_sentence(body: str, min_len: int = 30) -> str:
+        """Return the first non-trivial sentence from *body*."""
+        if not body:
+            return ""
+        for sentence in _re.split(r"(?<=[.!])\s+", body):
+            cleaned = sentence.strip()
+            if len(cleaned) >= min_len and not cleaned.endswith("?"):
+                # Trim to a reasonable highlight length
+                if len(cleaned) > 200:
+                    cut = cleaned[:200].rfind(" ")
+                    cleaned = cleaned[:cut] + "..." if cut > 100 else cleaned[:200] + "..."
+                return cleaned
+        return ""
+
+    def _extract_highlight(self, post) -> str:
+        """Return a highlight string for *post*, preferring title unless it's a question."""
+        if not self._is_question_or_rant(post.title):
+            return post.title
+        # Fall back to first useful sentence in body
+        fb = self._first_useful_sentence(post.selftext)
+        return fb if fb else post.title
+
+    @staticmethod
+    def _extract_tip_from_post(post, interest_keywords: list[str]) -> str:
+        """
+        Pull an actionable sentence from *post* body that matches one of
+        the *interest_keywords*. Returns empty string if nothing suitable.
+        """
+        body = post.selftext or ""
+        if not body:
+            return ""
+        body_lower = body.lower()
+        # Only consider posts whose body mentions at least one keyword
+        if not any(kw in body_lower for kw in interest_keywords):
+            return ""
+        for sentence in _re.split(r"(?<=[.!])\s+", body):
+            s = sentence.strip()
+            if len(s) < 20 or s.endswith("?"):
+                continue
+            s_lower = s.lower()
+            if any(kw in s_lower for kw in interest_keywords):
+                if len(s) > 200:
+                    cut = s[:200].rfind(" ")
+                    s = s[:cut] + "..." if cut > 100 else s[:200] + "..."
+                return s
+        return ""
+
     def _generate_blog_resources(self, city: str) -> dict:
         """Generate blog resource URLs for the city."""
         city_slug = city.lower().replace(" ", "-")
@@ -210,17 +282,23 @@ class CityIntelligenceGenerator:
         relevant_posts.sort(key=lambda x: (x["relevance"], x["score"]), reverse=True)
         insights.recommended_posts = relevant_posts[:10]
 
-        # Extract tips from posts
+        # Extract tips from posts — pull actionable sentences, not verbatim titles
         for post in reddit_data.posts[:50]:
-            post_text = f"{post.title} {post.selftext}".lower()
-            for interest in persona["interests"]:
-                if interest in post_text and len(post.title) < 200:
-                    insights.key_tips.append(post.title)
-                    break
+            tip = self._extract_tip_from_post(post, persona["interests"])
+            if tip and tip not in insights.key_tips:
+                insights.key_tips.append(tip)
+            if len(insights.key_tips) >= 10:
+                break
 
-        # Extract things to avoid
-        for post in reddit_data.categories.get("challenges", [])[:10]:
-            insights.things_to_avoid.append(post.title)
+        # Extract things to avoid — prefer body sentences over raw titles
+        for post in reddit_data.categories.get("safety_challenges", reddit_data.categories.get("challenges", []))[:15]:
+            tip = self._extract_tip_from_post(post, ["avoid", "scam", "careful", "danger", "warning", "don't", "do not", "skip"])
+            if tip and tip not in insights.things_to_avoid:
+                insights.things_to_avoid.append(tip)
+            elif not tip:
+                # Fallback: use title if it's not a question
+                if not self._is_question_or_rant(post.title):
+                    insights.things_to_avoid.append(post.title)
 
         # Match tours
         if persona_id == "foodie":
@@ -241,9 +319,15 @@ class CityIntelligenceGenerator:
         city: str
     ) -> dict:
         """Generate a summary of city intelligence."""
-        # Extract top highlights from Reddit
-        top_posts = sorted(reddit_data.posts, key=lambda x: x.score, reverse=True)[:5]
-        highlights = [p.title for p in top_posts]
+        # Extract top highlights from Reddit — sorted by relevance_score, not raw upvotes
+        top_posts = sorted(reddit_data.posts, key=lambda x: x.relevance_score, reverse=True)[:10]
+        highlights = []
+        for p in top_posts:
+            h = self._extract_highlight(p)
+            if h and h not in highlights:
+                highlights.append(h)
+            if len(highlights) >= 5:
+                break
 
         # Count categories
         category_counts = {cat: len(posts) for cat, posts in reddit_data.categories.items()}
@@ -268,20 +352,20 @@ class CityIntelligenceGenerator:
     async def generate_report(
         self,
         city: str,
+        country: str = "",
         viator_key: str = "",
         gyg_key: str = "",
         eventbrite_token: str = "",
-        save_to_file: bool = True
+        save_to_file: bool = True,
+        reddit_data: Optional[CityRedditData] = None,
+        tours_data: Optional[CityToursEvents] = None,
+        blog_data: Optional[CityBlogData] = None,
     ) -> CityIntelligenceReport:
         """
         Generate a complete city intelligence report.
 
-        Args:
-            city: Name of the city
-            viator_key: Viator API key (optional)
-            gyg_key: GetYourGuide API key (optional)
-            eventbrite_token: Eventbrite token (optional)
-            save_to_file: Whether to save the report to a JSON file
+        Pre-fetched data can be passed via *reddit_data*, *tours_data*, and
+        *blog_data* to avoid duplicate scraping when called from a pipeline.
 
         Returns:
             CityIntelligenceReport object
@@ -292,19 +376,25 @@ class CityIntelligenceGenerator:
 
         report = CityIntelligenceReport(city_name=city)
 
-        # Collect Reddit data
-        print("\n[1/4] Collecting Reddit data...")
-        reddit_data = await collect_city_intelligence(city)
+        # Collect Reddit data (skip if pre-fetched)
+        if reddit_data is None:
+            print("\n[1/4] Collecting Reddit data...")
+            reddit_data = await collect_city_intelligence(city, country=country)
+        else:
+            print("\n[1/4] Using pre-fetched Reddit data.")
         report.reddit_data = reddit_data.to_dict()
 
-        # Collect tours and events
-        print("\n[2/4] Collecting tours and events...")
-        tours_data = await collect_tours_events(
-            city,
-            viator_key=viator_key,
-            gyg_key=gyg_key,
-            eventbrite_token=eventbrite_token
-        )
+        # Collect tours and events (skip if pre-fetched)
+        if tours_data is None:
+            print("\n[2/4] Collecting tours and events...")
+            tours_data = await collect_tours_events(
+                city,
+                viator_key=viator_key,
+                gyg_key=gyg_key,
+                eventbrite_token=eventbrite_token
+            )
+        else:
+            print("\n[2/4] Using pre-fetched tours data.")
         report.tours_events = tours_data.to_dict()
 
         # Generate persona insights
@@ -316,9 +406,11 @@ class CityIntelligenceGenerator:
             report.persona_insights[persona_id] = insights.to_dict()
             print(f"  - {PERSONAS[persona_id]['name']}: {len(insights.recommended_posts)} posts, {len(insights.key_tips)} tips")
 
-        # Generate blog resources
+        # Generate blog resources + merge scraped articles
         print("\n[4/4] Generating blog resources...")
         report.blog_resources = self._generate_blog_resources(city)
+        if blog_data and blog_data.articles:
+            report.blog_resources["scraped_articles"] = [a.to_dict() for a in blog_data.articles]
 
         # Generate search URLs
         report.search_urls = WebSearchTours.get_search_urls(city)
@@ -416,7 +508,10 @@ async def generate_city_report(
     output_dir: str = "city_intelligence/cities",
     viator_key: str = "",
     gyg_key: str = "",
-    eventbrite_token: str = ""
+    eventbrite_token: str = "",
+    reddit_data: Optional[CityRedditData] = None,
+    tours_data: Optional[CityToursEvents] = None,
+    blog_data: Optional[CityBlogData] = None,
 ) -> CityIntelligenceReport:
     """
     Main function to generate a city intelligence report.
@@ -425,12 +520,7 @@ async def generate_city_report(
     Call this function whenever a new city is added to generate
     comprehensive travel intelligence.
 
-    Args:
-        city: Name of the city (e.g., "Toronto", "New York", "Paris")
-        output_dir: Directory to save output files
-        viator_key: Viator API key (optional)
-        gyg_key: GetYourGuide API key (optional)
-        eventbrite_token: Eventbrite token (optional)
+    Pre-fetched data can be supplied to avoid redundant scraping.
 
     Returns:
         CityIntelligenceReport object containing all collected data
@@ -440,7 +530,10 @@ async def generate_city_report(
         city,
         viator_key=viator_key,
         gyg_key=gyg_key,
-        eventbrite_token=eventbrite_token
+        eventbrite_token=eventbrite_token,
+        reddit_data=reddit_data,
+        tours_data=tours_data,
+        blog_data=blog_data,
     )
 
 

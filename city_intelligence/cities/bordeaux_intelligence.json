@@ -1,0 +1,2079 @@
+{
+  "city_name": "Bordeaux",
+  "generated_at": "2026-02-17T10:33:45.227817",
+  "summary": {
+    "city_name": "Bordeaux",
+    "data_sources": {
+      "reddit_posts": 99,
+      "subreddits": [
+        "bordeaux"
+      ],
+      "walking_tours": 0,
+      "food_tours": 0,
+      "free_tours": 0,
+      "events": 0
+    },
+    "category_breakdown": {
+      "things_to_do": 25,
+      "top_posts": 12,
+      "general": 25,
+      "food": 12,
+      "neighborhoods": 9,
+      "budget": 5,
+      "family": 6,
+      "safety_challenges": 3,
+      "pros_cons": 1,
+      "hidden_gems": 1
+    },
+    "top_highlights": [
+      "Bordeaux, France in December",
+      "Pourquoi Bordeaux m\u2019a d\u00e9\u00e7u, compar\u00e9 \u00e0 Paris",
+      "Our 8-day trip to Bordeaux, Loire Valley, and Paris cost $8,500 and we spent a lot on restaurants",
+      "Paris + Lyon + Bordeaux (Toulousse or another city?) \u2013 Itinerary recs for 2 sisters in our late 20s",
+      "Moving to Bordeaux \u2013 Need Advice from Locals or Expats!"
+    ],
+    "has_family_content": true,
+    "has_food_content": true,
+    "has_budget_content": true
+  },
+  "reddit_data": {
+    "city_name": "Bordeaux",
+    "country": "France",
+    "collected_at": "2026-02-17T10:29:44.830206",
+    "total_posts": 99,
+    "subreddits_found": [
+      "bordeaux"
+    ],
+    "categories": {
+      "things_to_do": [
+        {
+          "id": "1pvjc7b",
+          "title": "Bordeaux, France in December",
+          "selftext": "I spent two weeks in Bordeaux this December (for work) and ended up enjoying it a lot! In fact, I think I liked Bordeaux more than Paris. Despite it being December, it was really warm and sunny most days. Daytime temps were often at 18 degrees or more which, according to locals, is not normal but I certainly appreciated it.\n\n\n\nThe city has many large pedestrian and limited-car zones, and many of them had lovely Christmas decorations so the atmosphere was quite nice. The city is very walkable and",
+          "url": "https://www.reddit.com/gallery/1pvjc7b",
+          "subreddit": "travel",
+          "score": 2316,
+          "num_comments": 37,
+          "created_utc": 1766686889.0,
+          "permalink": "https://reddit.com/r/travel/comments/1pvjc7b/bordeaux_france_in_december/",
+          "category": "things_to_do",
+          "relevance_score": 12.0
+        },
+        {
+          "id": "1k2qk1l",
+          "title": "How many days in Paris vs Bordeaux?",
+          "selftext": "Hi everyone, I'm trying to book some flights to France. I want to spend time in Paris, of course, and I have a friend who lives in Bordeaux so I want to go there too.\n\nCurrently I have two options for flying in and flying out. I'm unsure how many days to spend in Paris vs Bordeaux, and which one to prioritise over the other.\n\nEither I can arrive in Paris on Fri 13th June or Tuesday 17th June 2025. I need to leave Paris to go to Dijon and Lyon for two weeks in total for a separate trip on Sun 22n",
+          "url": "https://www.reddit.com/r/ParisTravelGuide/comments/1k2qk1l/how_many_days_in_paris_vs_bordeaux/",
+          "subreddit": "ParisTravelGuide",
+          "score": 2,
+          "num_comments": 11,
+          "created_utc": 1745046611.0,
+          "permalink": "https://reddit.com/r/ParisTravelGuide/comments/1k2qk1l/how_many_days_in_paris_vs_bordeaux/",
+          "category": "things_to_do",
+          "relevance_score": 7.5
+        },
+        {
+          "id": "1q87hzq",
+          "title": "Incoming IAE Bordeaux (La Bastide) student \u2013 looking for accommodation tips, student travel passes &amp; local advice \ud83c\uddeb\ud83c\uddf7",
+          "selftext": "Hi everyone! \ud83d\udc4b\nI\u2019ll be coming to Bordeaux soon for a 1-month dual degree program at IAE Bordeaux \u2013 Institute Finance d\u2019Entreprise, located in Bordeaux Bastide (Right Bank / La Bastide area).\nSince it\u2019s a short stay, I\u2019d really appreciate guidance from locals or students on a few things:\n\ud83c\udfe0 Accommodation (Short-term)\nWhat\u2019s the most common way students book accommodation for 1 month?\nAre platforms like Studapart, Airbnb, Booking, LeBonCoin, Facebook groups reliable for short stays?\nAny student res",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1q87hzq/incoming_iae_bordeaux_la_bastide_student_looking/",
+          "subreddit": "bordeaux",
+          "score": 0,
+          "num_comments": 0,
+          "created_utc": 1767963258.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1q87hzq/incoming_iae_bordeaux_la_bastide_student_looking/",
+          "category": "things_to_do",
+          "relevance_score": 6.0
+        },
+        {
+          "id": "x1gt9l",
+          "title": "What are your favourite things to do in Bordeaux that aren\u2019t traditional \u2018guidebook\u2019 type things?",
+          "selftext": "Hey Guys! Coming to Bordeaux for our second trip in 5 years next month. Last time we came we did all the \u2018standard\u2019 tourist things\u2026city bus tour, the mirror d\u2019eau, Cite du Vin, visiting the monuments etc\u2026.\n\nWhat are your favourite things to do in Bordeaux that your average tourist website will not tell you? Either nice \u2018hidden\u2019 beauty spots, or just general things to do, places to go etc that you would recommend to a couple looking to do some lesser-known things?",
+          "url": "https://www.reddit.com/r/bordeaux/comments/x1gt9l/what_are_your_favourite_things_to_do_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 20,
+          "num_comments": 29,
+          "created_utc": 1661859576.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/x1gt9l/what_are_your_favourite_things_to_do_in_bordeaux/",
+          "category": "things_to_do",
+          "relevance_score": 5.5
+        },
+        {
+          "id": "1mmuy4l",
+          "title": "Romantic / quirky activities in Bordeaux? I need help surprising my boyfriend :)",
+          "selftext": "Hi all! I would love a bit of help in surprising my boyfriend with some fun romantic stuff to to visit and do in Bordeaux. We will be there for four days, end of august, one of which is his birthday.  \n  \nA couple of years back we went to Paris and he surprised me with a visit to a speakeasy behind a fake little supermarket, going to the icebar and some other quirky things, and I really want to turn it around this time and lead him to some cute little spots that make for nice memories.\n\nI alread",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1mmuy4l/romantic_quirky_activities_in_bordeaux_i_need/",
+          "subreddit": "bordeaux",
+          "score": 4,
+          "num_comments": 16,
+          "created_utc": 1754861952.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1mmuy4l/romantic_quirky_activities_in_bordeaux_i_need/",
+          "category": "things_to_do",
+          "relevance_score": 5.5
+        },
+        {
+          "id": "1m8uo5g",
+          "title": "5 days in Bordeaux",
+          "selftext": "My boyfriend and I have decided to book a last minute trip to Bordeaux! Is there anything we MUST see/do while we are there ? \n\nWe love eating and drinking wine so any bar/ restaurant recommendations are greatly appreciated! \n\nAlso I like the sound of the swimming lakes, are they worth a visit or should we take a beach trip day ? \n\nThank you :) ",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1m8uo5g/5_days_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 5,
+          "num_comments": 18,
+          "created_utc": 1753435795.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1m8uo5g/5_days_in_bordeaux/",
+          "category": "things_to_do",
+          "relevance_score": 5.5
+        },
+        {
+          "id": "1bvqtft",
+          "title": "Visiting Bordeaux as urban planner",
+          "selftext": "Hey everyone I hope all of you have a great day!\n\nIn the start of June I will visit Bordeaux with my Uni. Do you guys have recommendations, what to do and what to look at as **urban planners** in the **city center**? Is there a must see? Are there historical city structures that are rare? Where do the people use their free time in the City Center? Where are the spots people meet? Are there cool parks? Is there an underground scene somewhere? Are there some newer Areas? I think you know where I'm",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1bvqtft/visiting_bordeaux_as_urban_planner/",
+          "subreddit": "bordeaux",
+          "score": 10,
+          "num_comments": 8,
+          "created_utc": 1712246245.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1bvqtft/visiting_bordeaux_as_urban_planner/",
+          "category": "things_to_do",
+          "relevance_score": 5.5
+        },
+        {
+          "id": "iheakf",
+          "title": "Student in University of Bordeaux (Talence) in September",
+          "selftext": "Salut \u00e0 tous!\n\nI'm from India l and I will be coming to Bordeaux to study. I'm going to be traveling abroad for my first time and I have so many questions. I hope you can help me!\n\nSim card: I will need to get a sim card, but I keep seeing different information everywhere. How can I get a prepaid sim card with decent mobile data without a French bank account (I will be making one but I believe this will take a while to get done)\n\nCROUS housing: I will be staying at the village 3 residence. If yo",
+          "url": "https://www.reddit.com/r/bordeaux/comments/iheakf/student_in_university_of_bordeaux_talence_in/",
+          "subreddit": "bordeaux",
+          "score": 16,
+          "num_comments": 31,
+          "created_utc": 1598501465.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/iheakf/student_in_university_of_bordeaux_talence_in/",
+          "category": "things_to_do",
+          "relevance_score": 5.5
+        },
+        {
+          "id": "1mlk3c3",
+          "title": "What are the best things to do in Bordeaux?",
+          "selftext": "Looking for some recommendations for sights to see, good bars, restaurants etc? We are coming to Bordeaux 22-29 August so any help appreciated :) Planning to do a wine tour in Saint Emillion and a day at the beach (by bus or train). We are a group of 30 year olds from Scotland. Thanks! ",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1mlk3c3/what_are_the_best_things_to_do_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 1,
+          "num_comments": 5,
+          "created_utc": 1754726764.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1mlk3c3/what_are_the_best_things_to_do_in_bordeaux/",
+          "category": "things_to_do",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "1dcn5wt",
+          "title": "Bordeaux Monday 01.07 - things to do?",
+          "selftext": "Hi there\u00a0r/bordeaux\n\n\n\nI'll be coming through your magnificent city on Monday the 01.07.2024 before leaving the next afternoon.\n\n\n\nDoes anybody have a recommendation on what to do or where to stay for a night (a hostel)? I (M28, Swiss) like music (Punk/Alt/Techno/DnB), alternative art / spaces / culture, skateboarding, MTG &amp; adjacent nerdstuff and STEM.\n\n\n\nI speak French conversationally but your written language is pretty wild, so I'm posting in English. If any Bordeaux local in the know co",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1dcn5wt/bordeaux_monday_0107_things_to_do/",
+          "subreddit": "bordeaux",
+          "score": 6,
+          "num_comments": 0,
+          "created_utc": 1718030517.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1dcn5wt/bordeaux_monday_0107_things_to_do/",
+          "category": "things_to_do",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "bv5z8h",
+          "title": "Things to do in Bordeaux for all ages",
+          "selftext": "I'm going to Bordeaux for a few days in the summer with a 12 year old, a 16 year old and 2 adults and finding stuff to do for all of them is difficult, do you have an reccomendations?",
+          "url": "https://www.reddit.com/r/bordeaux/comments/bv5z8h/things_to_do_in_bordeaux_for_all_ages/",
+          "subreddit": "bordeaux",
+          "score": 6,
+          "num_comments": 11,
+          "created_utc": 1559299448.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/bv5z8h/things_to_do_in_bordeaux_for_all_ages/",
+          "category": "things_to_do",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "1p7k6ic",
+          "title": "French Tech Day BDX tomorrow, anyone ?",
+          "selftext": "Greetings everyone, I'm new in Bordeaux (since last summer) but I haven't go out a lot, so i'm looking to meet new people to hang out and hopefully find some new friends with similar interests, because I will probably live forever in this city :)\n\nTomorrow there will be a free big tech event at Bordeaux, the ticket is free (Hello Asso website), if anyone is interested please send me a message and we can meet there !\n\nA little bit about me  : 26F Indonesian, i live in France since 2018 for study,",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1p7k6ic/french_tech_day_bdx_tomorrow_anyone/",
+          "subreddit": "bordeaux",
+          "score": 6,
+          "num_comments": 6,
+          "created_utc": 1764192768.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1p7k6ic/french_tech_day_bdx_tomorrow_anyone/",
+          "category": "things_to_do",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "1eg1elz",
+          "title": "Arriving in Bordeaux tomorrow...",
+          "selftext": "I apologise in advance for my lack of research... \n\nWe (couple) are arriving in Bordeaux tomorrow morning for two nights followed by 5 nights in Cambes and just wondered if anyone had any \"must-see\" places. \n\nWhilst in Bordeaux Central, I have seen that restaurants Arcada, Son', and Melodie seem to look good. \n\nWe have also booked a bit of a touristy boat tour, which is the aperitif tour for 90 minutes with wine and cheese. \n\nWe generally just like to walk around and take in the atmosphere of th",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1eg1elz/arriving_in_bordeaux_tomorrow/",
+          "subreddit": "bordeaux",
+          "score": 3,
+          "num_comments": 10,
+          "created_utc": 1722365639.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1eg1elz/arriving_in_bordeaux_tomorrow/",
+          "category": "things_to_do",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "f5qit3",
+          "title": "Fun things for kids to do in Bordeaux",
+          "selftext": "Hey all,\n\nMyself, my wife, and our 2 kids (4 years and 10 months) have just moved to Bordeaux for a month. \n\nI was wondering if you have any suggestions on cool things for a 4-year-old to do in and around Bordeaux?\n\nMany thanks!\n\nP.S - If any families in Bordeaux want to meet for cake one day, please do let me know!",
+          "url": "https://www.reddit.com/r/bordeaux/comments/f5qit3/fun_things_for_kids_to_do_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 3,
+          "num_comments": 9,
+          "created_utc": 1582026061.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/f5qit3/fun_things_for_kids_to_do_in_bordeaux/",
+          "category": "things_to_do",
+          "relevance_score": 4.5
+        },
+        {
+          "id": "1t70gv",
+          "title": "American studying in Bordeaux. What are some things that I should make sure to do?",
+          "selftext": "I will be studying in Bordeaux from January to May and am wondering what are some fun things to see or do either in or near Bordeaux?",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1t70gv/american_studying_in_bordeaux_what_are_some/",
+          "subreddit": "bordeaux",
+          "score": 2,
+          "num_comments": 7,
+          "created_utc": 1387400239.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1t70gv/american_studying_in_bordeaux_what_are_some/",
+          "category": "things_to_do",
+          "relevance_score": 4.5
+        },
+        {
+          "id": "1huyohj",
+          "title": "Tram tbm : 120\u20ac d'amende \u00e0 cause d'un pictogramme trompeur, voire contrefait. ",
+          "selftext": "En prenant le tram de Bordeaux pour la premi\u00e8re fois, j'ai remarqu\u00e9 la pr\u00e9sence d'un logo de paiement sans contact sur la borne de validation. Donc, comme dans 100% des villes que je connais (Lyon, Saint-\u00c9tienne, Rennes, Clermont-Ferrand, Grenoble,...), au lieu d'aller chercher un ticket \u00e0 la borne de paiement, j'ai pr\u00e9f\u00e9r\u00e9 utiliser directement ma carte bancaire, quitte \u00e0 ce que \u00e7a me coute quelques dizaines de centimes de plus.\n\n\u00c7a a bip\u00e9 bizarrement, j'\u00e9tais \u00e9puis\u00e9 de mon trajet, d'une douleur",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1huyohj/tram_tbm_120_damende_\u00e0_cause_dun_pictogramme/",
+          "subreddit": "bordeaux",
+          "score": 43,
+          "num_comments": 42,
+          "created_utc": 1736169172.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1huyohj/tram_tbm_120_damende_\u00e0_cause_dun_pictogramme/",
+          "category": "things_to_do",
+          "relevance_score": 4.5
+        },
+        {
+          "id": "1pur2s3",
+          "title": "Upcoming trip to Paris - rate my itinerary",
+          "selftext": "Hi! My husband (34) and I (32) are heading to France very very quick trip. Our itinerary is below.. its pretty low key I think, but would love any suggestions edits / critique / anything!\n\n\\- Dec 31. Arrive in Bordeaux 11AM, lunch (have a resy at Geuleton Bordeaux). Check in to Les Sources &amp; explore the hotel. New Years dinner at Rogue\n\n\\- Jan 1. Pick up at 10AM with Bogdan from Bordeaux Vertigo. We are going to three wineries: Chateau Canon La Gaffeliere, Chateau Guadet, and Chateau du Tail",
+          "url": "https://www.reddit.com/r/ParisTravelGuide/comments/1pur2s3/upcoming_trip_to_paris_rate_my_itinerary/",
+          "subreddit": "ParisTravelGuide",
+          "score": 1,
+          "num_comments": 14,
+          "created_utc": 1766593188.0,
+          "permalink": "https://reddit.com/r/ParisTravelGuide/comments/1pur2s3/upcoming_trip_to_paris_rate_my_itinerary/",
+          "category": "things_to_do",
+          "relevance_score": 4.5
+        },
+        {
+          "id": "w4n25l",
+          "title": "Things to do in Bordeaux?",
+          "selftext": "Hello! Me and my friend are coming to Bordeaux for 5 days in October and I would love some locals ideas on things we should do.",
+          "url": "https://www.reddit.com/r/bordeaux/comments/w4n25l/things_to_do_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 1,
+          "num_comments": 4,
+          "created_utc": 1658426002.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/w4n25l/things_to_do_in_bordeaux/",
+          "category": "things_to_do",
+          "relevance_score": 4.0
+        },
+        {
+          "id": "11wxr0",
+          "title": "Will be in Bordeaux in a week and a half, what are the best things to see and do if I'm only there for a few days?",
+          "selftext": "",
+          "url": "https://www.reddit.com/r/bordeaux/comments/11wxr0/will_be_in_bordeaux_in_a_week_and_a_half_what_are/",
+          "subreddit": "bordeaux",
+          "score": 7,
+          "num_comments": 7,
+          "created_utc": 1350952483.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/11wxr0/will_be_in_bordeaux_in_a_week_and_a_half_what_are/",
+          "category": "things_to_do",
+          "relevance_score": 4.0
+        },
+        {
+          "id": "clqebu",
+          "title": "Driving from Bordeaux to Lyon - must-see places?",
+          "selftext": "Salut! I am planning to drive from Bordeaux to Lyon and I'll have 2 or 3 days. What are the must-see towns/places along the way that I should see? Not much of a hiker, so small towns, ch\u00e2teaux, Roman ruins, quaint villages, etc. are up my alley.  \n\n\nPlease share your recommendations!",
+          "url": "https://www.reddit.com/r/bordeaux/comments/clqebu/driving_from_bordeaux_to_lyon_mustsee_places/",
+          "subreddit": "bordeaux",
+          "score": 0,
+          "num_comments": 1,
+          "created_utc": 1564880742.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/clqebu/driving_from_bordeaux_to_lyon_mustsee_places/",
+          "category": "things_to_do",
+          "relevance_score": 4.0
+        },
+        {
+          "id": "1pobw1k",
+          "title": "Flight logistics",
+          "selftext": "Hi! I would love some advice on our upcoming trip to Paris. \n\nWe booked a flight through Air France (so all on one itinerary) going from the US, landing in Paris at 755am and connecting to Bordeaux leaving at 945. So almost a two hour layover. \n\nCan someone provide some insight into how customs works in Paris? If we check a bag, do we have to go get the bag and then go through customs or do we go through customs in Bordeaux? Typically we\u2019ve just flown direct or connect into a totally different c",
+          "url": "https://www.reddit.com/r/ParisTravelGuide/comments/1pobw1k/flight_logistics/",
+          "subreddit": "ParisTravelGuide",
+          "score": 1,
+          "num_comments": 5,
+          "created_utc": 1765915088.0,
+          "permalink": "https://reddit.com/r/ParisTravelGuide/comments/1pobw1k/flight_logistics/",
+          "category": "things_to_do",
+          "relevance_score": 4.0
+        },
+        {
+          "id": "1ire95j",
+          "title": "Seeking Feedback on Our 2 Month Europe Itinerary",
+          "selftext": "Hi fellow travelers!\n\nMy partner (32F) and I (34M) are in the midst of planning a two-month adventure across Europe and would love some feedback on our itinerary. We know it\u2019s quite packed, but since we live far from Europe, we likely won\u2019t be back for a while, so we want to make the most of it while we\u2019re still young and child-free!\n\nThat said, if you think we\u2019re being too ambitious or haven\u2019t allocated enough time in certain destinations, we\u2019d really appreciate your advice before we start book",
+          "url": "https://www.reddit.com/r/travel/comments/1ire95j/seeking_feedback_on_our_2_month_europe_itinerary/",
+          "subreddit": "travel",
+          "score": 2,
+          "num_comments": 5,
+          "created_utc": 1739776575.0,
+          "permalink": "https://reddit.com/r/travel/comments/1ire95j/seeking_feedback_on_our_2_month_europe_itinerary/",
+          "category": "things_to_do",
+          "relevance_score": 4.0
+        },
+        {
+          "id": "1g04y6b",
+          "title": "In Bordeaux for a month",
+          "selftext": "I\u2019ll be living in the city for a month in November while conducting research for my dissertation. I\u2019m staying in the Saint Pierre area, but traveling throughout to different archives and libraries. \n\nWhat are some of the restaurants, shops, experiences, etc that are must do? I want to make sure I see some of the city and not just stay in my apartment after research! ",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1g04y6b/in_bordeaux_for_a_month/",
+          "subreddit": "bordeaux",
+          "score": 3,
+          "num_comments": 4,
+          "created_utc": 1728515500.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1g04y6b/in_bordeaux_for_a_month/",
+          "category": "things_to_do",
+          "relevance_score": 3.5
+        },
+        {
+          "id": "dv19u1",
+          "title": "Hello! My girlfriend and I are traveling to Bordeaux next weekend and would love any tips on your favorite things to do - we're looking for wine tasting, restaurants (it'll be our 6 month anniversary), night life, museums! Anything goes! Thank you!",
+          "selftext": "",
+          "url": "https://www.reddit.com/r/bordeaux/comments/dv19u1/hello_my_girlfriend_and_i_are_traveling_to/",
+          "subreddit": "bordeaux",
+          "score": 2,
+          "num_comments": 1,
+          "created_utc": 1573516078.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/dv19u1/hello_my_girlfriend_and_i_are_traveling_to/",
+          "category": "things_to_do",
+          "relevance_score": 3.0
+        },
+        {
+          "id": "1klt90r",
+          "title": "Stay overnight in Saint-\u00c9milion or Arcachon",
+          "selftext": "I have a day to spend outside of Bordeaux on my trip to France. I\u2019m planning on doing a winery tour in Saint \u00c9milion and a beach visit in Arcachon. I need some information about general tourist scene of both the places (so that I\u2019ll have more things to do there). And also, which of these places are better to overnight?\n\nI would also like it if it\u2019s female solo traveller friendly.\n\nIt would be my first time there, so some guidance would be appreciated.\n\nThanks in advance :)",
+          "url": "https://www.reddit.com/r/france/comments/1klt90r/stay_overnight_in_saint\u00e9milion_or_arcachon/",
+          "subreddit": "france",
+          "score": 0,
+          "num_comments": 2,
+          "created_utc": 1747160427.0,
+          "permalink": "https://reddit.com/r/france/comments/1klt90r/stay_overnight_in_saint\u00e9milion_or_arcachon/",
+          "category": "things_to_do",
+          "relevance_score": 3.0
+        }
+      ],
+      "top_posts": [
+        {
+          "id": "1nkivox",
+          "title": "Pourquoi Bordeaux m\u2019a d\u00e9\u00e7u, compar\u00e9 \u00e0 Paris",
+          "selftext": "J\u2019ai v\u00e9cu trois ans en \u00cele-de-France avant de m\u2019installer r\u00e9cemment \u00e0 Bordeaux. Mon entourage m\u2019assurait que la vie \u00e0 Bordeaux et dans sa r\u00e9gion \u00e9tait bien meilleure qu\u2019en \u00cele-de-France. Pourtant, apr\u00e8s seulement deux mois ici, je regrette un peu d\u2019avoir fait ce choix.\n\nMon intention n\u2019est pas de critiquer les Bordelais, mais simplement de partager mon ressenti en toute objectivit\u00e9. Je ne suis pas Fran\u00e7ais et je d\u00e9couvre encore les diff\u00e9rentes villes du pays. Bien entendu, chacun a son point de ",
+          "url": "https://www.reddit.com/gallery/1nkivox",
+          "subreddit": "bordeaux",
+          "score": 154,
+          "num_comments": 132,
+          "created_utc": 1758226110.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1nkivox/pourquoi_bordeaux_ma_d\u00e9\u00e7u_compar\u00e9_\u00e0_paris/",
+          "category": "top_posts",
+          "relevance_score": 11.0
+        },
+        {
+          "id": "1pbnpxg",
+          "title": "Went to Bordeaux for the second year in a row, still in love with the city. Here's a bit of my camera roll!",
+          "selftext": "Don't know if this is something from the region or more of a cultural thing but I deeply appreciate the skill the French have to just. Conjure up a bottle of red a piece of cheese from seemingly nowhere. The Christmas market with antiques was lovely and I loved seeing the sellers at lunchtime putting together their tables and eating lunch giving 0 shits about the clients lol\n\nIt's a beautiful city that I deeply cherish and I'm glad I got to see it both during the summer and with the autumnal col",
+          "url": "https://www.reddit.com/gallery/1pbnpxg",
+          "subreddit": "bordeaux",
+          "score": 166,
+          "num_comments": 13,
+          "created_utc": 1764620603.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1pbnpxg/went_to_bordeaux_for_the_second_year_in_a_row/",
+          "category": "top_posts",
+          "relevance_score": 7.5
+        },
+        {
+          "id": "1j37bvz",
+          "title": "Magnifique ch\u00e2teau abandonn\u00e9 pr\u00e8s de Bordeaux",
+          "selftext": "",
+          "url": "https://i.redd.it/fx72wd4hanme1.jpeg",
+          "subreddit": "bordeaux",
+          "score": 465,
+          "num_comments": 26,
+          "created_utc": 1741081949.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1j37bvz/magnifique_ch\u00e2teau_abandonn\u00e9_pr\u00e8s_de_bordeaux/",
+          "category": "top_posts",
+          "relevance_score": 7.0
+        },
+        {
+          "id": "1e7reib",
+          "title": "Meilleur Tik-Tok sur Bordeaux (cringe puissance 1000)",
+          "selftext": "",
+          "url": "https://v.redd.it/t3bzz5ap2ndd1",
+          "subreddit": "bordeaux",
+          "score": 151,
+          "num_comments": 56,
+          "created_utc": 1721466168.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1e7reib/meilleur_tiktok_sur_bordeaux_cringe_puissance_1000/",
+          "category": "top_posts",
+          "relevance_score": 7.0
+        },
+        {
+          "id": "1k99att",
+          "title": "Photos anciennes Bordeaux - autour de 1900",
+          "selftext": "Prise dans un album souvenir",
+          "url": "https://www.reddit.com/gallery/1k99att",
+          "subreddit": "bordeaux",
+          "score": 184,
+          "num_comments": 13,
+          "created_utc": 1745774641.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1k99att/photos_anciennes_bordeaux_autour_de_1900/",
+          "category": "top_posts",
+          "relevance_score": 6.5
+        },
+        {
+          "id": "1j4s64m",
+          "title": "Super id\u00e9e des employ\u00e9s de la librairie Mollat \u00e0 Bordeaux, les \"bookfaces\"",
+          "selftext": "",
+          "url": "https://www.reddit.com/gallery/1j4s64m",
+          "subreddit": "bordeaux",
+          "score": 174,
+          "num_comments": 11,
+          "created_utc": 1741255281.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1j4s64m/super_id\u00e9e_des_employ\u00e9s_de_la_librairie_mollat_\u00e0/",
+          "category": "top_posts",
+          "relevance_score": 6.5
+        },
+        {
+          "id": "1khlwea",
+          "title": "Carte de Bordeaux en 1832",
+          "selftext": "",
+          "url": "https://i.redd.it/7jfv7pk22jze1.jpeg",
+          "subreddit": "bordeaux",
+          "score": 148,
+          "num_comments": 8,
+          "created_utc": 1746696709.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1khlwea/carte_de_bordeaux_en_1832/",
+          "category": "top_posts",
+          "relevance_score": 6.5
+        },
+        {
+          "id": "1fy4bp2",
+          "title": "Bordeaux (May, 2024) - Film: Kodak Gold 200",
+          "selftext": "",
+          "url": "https://www.reddit.com/gallery/1fy4bp2",
+          "subreddit": "bordeaux",
+          "score": 230,
+          "num_comments": 20,
+          "created_utc": 1728296590.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1fy4bp2/bordeaux_may_2024_film_kodak_gold_200/",
+          "category": "top_posts",
+          "relevance_score": 6.0
+        },
+        {
+          "id": "qxoouu",
+          "title": "Un matin brumeux \u00e0 Bordeaux / SONY A7III",
+          "selftext": "",
+          "url": "https://www.reddit.com/gallery/qxoouu",
+          "subreddit": "bordeaux",
+          "score": 186,
+          "num_comments": 8,
+          "created_utc": 1637353357.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/qxoouu/un_matin_brumeux_\u00e0_bordeaux_sony_a7iii/",
+          "category": "top_posts",
+          "relevance_score": 5.5
+        },
+        {
+          "id": "1hqjh6z",
+          "title": "Wagner",
+          "selftext": "Sur le Libourne Bordeaux ce matin",
+          "url": "https://i.redd.it/q77pzocyx7ae1.png",
+          "subreddit": "bordeaux",
+          "score": 641,
+          "num_comments": 264,
+          "created_utc": 1735665945.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1hqjh6z/wagner/",
+          "category": "top_posts",
+          "relevance_score": 4.0
+        },
+        {
+          "id": "1jgsq65",
+          "title": "Vu en ville aujourd\u2019hui",
+          "selftext": "\u00c7a c\u2019est le Bordeaux que j\u2019aime\n",
+          "url": "https://i.redd.it/8005vjje74qe1.jpeg",
+          "subreddit": "bordeaux",
+          "score": 168,
+          "num_comments": 12,
+          "created_utc": 1742594263.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1jgsq65/vu_en_ville_aujourdhui/",
+          "category": "top_posts",
+          "relevance_score": 3.5
+        },
+        {
+          "id": "1elj3wm",
+          "title": "Qu\u2019est-ce que c\u2019est ces trucs \u00e0 c\u00f4t\u00e9 des portes ?",
+          "selftext": "Je les ai vus plusieurs fois pendant mon s\u00e9jour \u00e0 Bordeaux. Ils \u00e9taient toujours par le seuil de porte des bat\u00eements vieux. ",
+          "url": "https://www.reddit.com/gallery/1elj3wm",
+          "subreddit": "bordeaux",
+          "score": 137,
+          "num_comments": 27,
+          "created_utc": 1722954202.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1elj3wm/questce_que_cest_ces_trucs_\u00e0_c\u00f4t\u00e9_des_portes/",
+          "category": "top_posts",
+          "relevance_score": 3.5
+        }
+      ],
+      "general": [
+        {
+          "id": "1fdn5so",
+          "title": "Our 8-day trip to Bordeaux, Loire Valley, and Paris cost $8,500 and we spent a lot on restaurants",
+          "selftext": "# About Us:\n\n29 (me), 34 (husband), 1 dog we are obsessed with. No kids, leaning towards it staying that way but this changes on the daily honestly. Live in Massachusetts\n\n* Me: manager in corporate retail, $130k + 15-35% bonus\n* Husband: manager in tech, $250k base + $90k bonus + variable RSUs (about $750k in 2024)\n\n**PTO:**\n\n* Me: 22 vacation days given outright at beginning of year\n* Husband: Rolling but he has a balance of 20-25ish days right now\n* We used 4 for this trip (over a holiday)\n\n*",
+          "url": "https://www.reddit.com/r/MoneyDiariesACTIVE/comments/1fdn5so/our_8day_trip_to_bordeaux_loire_valley_and_paris/",
+          "subreddit": "MoneyDiariesACTIVE",
+          "score": 127,
+          "num_comments": 43,
+          "created_utc": 1725988271.0,
+          "permalink": "https://reddit.com/r/MoneyDiariesACTIVE/comments/1fdn5so/our_8day_trip_to_bordeaux_loire_valley_and_paris/",
+          "category": "general",
+          "relevance_score": 9.5
+        },
+        {
+          "id": "1nkrbg0",
+          "title": "Paris + Lyon + Bordeaux (Toulousse or another city?) \u2013 Itinerary recs for 2 sisters in our late 20s",
+          "selftext": "Hi! My sister and I (late 20s/early 30s) are heading to France in October and would love itinerary recommendations, especially around restaurants, bars, tours, and fun neighborhoods to wander.\n\nHere\u2019s our rough plan: \n\u2022 Paris \u2013 4 nights (we\u2019re staying in Le Marais) \n\u2022 Lyon \u2013 3 nights \n\u2022 Bordeaux \u2013 3 nights (but open to swapping with another city if people think that\u2019s a better fit)\n\nWhat we\u2019re into: \u2022\tFoodie experiences (we\u2019d love a great food tour and/or bike tour with some history sprinkled in",
+          "url": "https://www.reddit.com/r/Europetravel/comments/1nkrbg0/paris_lyon_bordeaux_toulousse_or_another_city/",
+          "subreddit": "Europetravel",
+          "score": 2,
+          "num_comments": 13,
+          "created_utc": 1758248006.0,
+          "permalink": "https://reddit.com/r/Europetravel/comments/1nkrbg0/paris_lyon_bordeaux_toulousse_or_another_city/",
+          "category": "general",
+          "relevance_score": 9.0
+        },
+        {
+          "id": "1nl7g5c",
+          "title": "Now that the franchise has covered the most requested/\u201cmainstream\u201d settings (Ancient Egypt, Feudal Japan, Ancient Greece, Vikings) what are some times/places you\u2019d like to see in future games?",
+          "selftext": "For me (in no particular order):\n\nRoman Syria. Crisis of the Third Century. 260-272 CE. \n\nMajor locations: Palmyra, Antioch, Ctesiphon.\n\nThis game would have the three cities serving as the main locations with occasional visits to smaller side locations. Picture Mirage\u2018s Baghdad but three cities and their environs in one game. \n\nFrance. Hundred Years War. 1346-1356 CE. \n\nMajor locations: Calais, Bordeaux, Carcassonne, Narbonne. \n\nThis game would be a combination of the large-scale RPGs and small",
+          "url": "https://www.reddit.com/r/assassinscreed/comments/1nl7g5c/now_that_the_franchise_has_covered_the_most/",
+          "subreddit": "assassinscreed",
+          "score": 337,
+          "num_comments": 386,
+          "created_utc": 1758297494.0,
+          "permalink": "https://reddit.com/r/assassinscreed/comments/1nl7g5c/now_that_the_franchise_has_covered_the_most/",
+          "category": "general",
+          "relevance_score": 7.0
+        },
+        {
+          "id": "1i6458h",
+          "title": "Itinerary Input - Bordeaux and Loire",
+          "selftext": "My wife and I will be traveling from the US and are looking for input regarding our plan for seeing Bordeaux, and potentially Loire.\n\nWe will be leaving Paris the 16th of the month, and fly out of Paris the 21st (early afternoon), giving us about 4 full days to see the area. One priority that we have is that we want to visit vineyards and do tastings. The other variable in this is the decision to rent a car or not, which would be great to get input on.\n\nIn my head, this is my itinerary:\n\n16th - ",
+          "url": "https://www.reddit.com/r/FranceTravel/comments/1i6458h/itinerary_input_bordeaux_and_loire/",
+          "subreddit": "FranceTravel",
+          "score": 1,
+          "num_comments": 5,
+          "created_utc": 1737414843.0,
+          "permalink": "https://reddit.com/r/FranceTravel/comments/1i6458h/itinerary_input_bordeaux_and_loire/",
+          "category": "general",
+          "relevance_score": 6.5
+        },
+        {
+          "id": "1lwvkjp",
+          "title": "Discover Bordeaux and beyond: why France\u2019s riverside jewel is a must for cultural travellers",
+          "selftext": "",
+          "url": "https://www.theguardian.com/bordeaux-taste-the-moment/2025/jul/10/why-cultural-travellers-should-visit-bordeaux-and-beyond",
+          "subreddit": "theguardian",
+          "score": 1,
+          "num_comments": 0,
+          "created_utc": 1752201447.0,
+          "permalink": "https://reddit.com/r/theguardian/comments/1lwvkjp/discover_bordeaux_and_beyond_why_frances/",
+          "category": "general",
+          "relevance_score": 6.0
+        },
+        {
+          "id": "1jaoe09",
+          "title": "We are going for 17 days to France - is this a realistic itinerary on a realistic budget?",
+          "selftext": "Hi lovely people! :) My partner and I live in Canada, and we'll be in France in May. We will actually be in Europe to initially visit my family in Valencia, Spain - after that visit, we want to explore France for the first time.\n\n**We're looking for advice and feedback on two things**:\n\n **(1) Itinerary planning** \\- eg is this realistic? should we focus solely on certain regions to truly enjoy France? places we haven't considered, or places we've considered that we could scrap?\n\n**(2) how reali",
+          "url": "https://www.reddit.com/r/Europetravel/comments/1jaoe09/we_are_going_for_17_days_to_france_is_this_a/",
+          "subreddit": "Europetravel",
+          "score": 8,
+          "num_comments": 23,
+          "created_utc": 1741904180.0,
+          "permalink": "https://reddit.com/r/Europetravel/comments/1jaoe09/we_are_going_for_17_days_to_france_is_this_a/",
+          "category": "general",
+          "relevance_score": 5.5
+        },
+        {
+          "id": "niml6h",
+          "title": "Are French clubs bad at football? An in depth analysis.",
+          "selftext": "Are french clubs bad at football?\n\nA couple weeks ago, I saw a map of the clubs having won the champion\u2019s league. \n\n&amp;#x200B;\n\n[CL club winners](https://preview.redd.it/ufprvdunyo071.png?width=832&amp;format=png&amp;auto=webp&amp;s=e3e97ed7571084678f48dc6ff7e9ef17b2adacfe)\n\nAs usual when this kind of map is shared, people were pointing out the comparative lack of winners in France.\n\nThat made me wonder what the reasons for this apparent lack of success were. This is going to be a long post, s",
+          "url": "https://www.reddit.com/r/soccer/comments/niml6h/are_french_clubs_bad_at_football_an_in_depth/",
+          "subreddit": "soccer",
+          "score": 5773,
+          "num_comments": 562,
+          "created_utc": 1621701672.0,
+          "permalink": "https://reddit.com/r/soccer/comments/niml6h/are_french_clubs_bad_at_football_an_in_depth/",
+          "category": "general",
+          "relevance_score": 5.5
+        },
+        {
+          "id": "1ox65f1",
+          "title": "Trip Report: 4.5 Months In Europe and UK - First Time Backpacking",
+          "selftext": "**Background:**\n\nI (19M) just finished a 4.5-month backpacking trip across Europe and the UK (17 countries, 41 locations) with two of my best friends (19F). We did Euro summer and UK autumn/winter. I wanted to share some of my experience and hopefully help people with tips and things I wish I would\u2019ve known before going. This subreddit (among others) helped me a lot when I was planning, so I wanted to give back.\n\nThis trip was planned almost a year in advance \u2014 all accommodation and transport we",
+          "url": "https://www.reddit.com/r/backpacking/comments/1ox65f1/trip_report_45_months_in_europe_and_uk_first_time/",
+          "subreddit": "backpacking",
+          "score": 14,
+          "num_comments": 2,
+          "created_utc": 1763148780.0,
+          "permalink": "https://reddit.com/r/backpacking/comments/1ox65f1/trip_report_45_months_in_europe_and_uk_first_time/",
+          "category": "general",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "151f6i5",
+          "title": "Revisiting Burgundy - A Review of Our June 2023 Trip",
+          "selftext": "My husband and I visited Burgundy in June and had a wonderful experience. This was our second trip there, and it was worth the revisit! I wanted to provide some guidance and tips for not only what we did, but what I would recommend for someone relatively new to wine who is visiting the area for the first time. \n\nQuick note about us: we are part owners of a winery in California (central coast Syrah), advanced wine geeks, and we love to travel the world and taste wine right where it's made. We go ",
+          "url": "https://www.reddit.com/r/wine/comments/151f6i5/revisiting_burgundy_a_review_of_our_june_2023_trip/",
+          "subreddit": "wine",
+          "score": 66,
+          "num_comments": 26,
+          "created_utc": 1689535886.0,
+          "permalink": "https://reddit.com/r/wine/comments/151f6i5/revisiting_burgundy_a_review_of_our_june_2023_trip/",
+          "category": "general",
+          "relevance_score": 4.5
+        },
+        {
+          "id": "bmwy8o",
+          "title": "FM19 YouTube Journeyman Save - Started with no club, coaching badges, past experience, or reputation, and I'm working my way up to the top! Just hit 200 episodes!",
+          "selftext": "Hi!\n\nSince the release of FM19, I have been doing a \"Starting from the bottom\" Journeyman on Youtube, where we began with no club, no reputation, no coaching badges, and no footballing experience, essentially the very lowest that you can begin. From there we try to work our way up to the big time.\n\nVideos go up every day at 5:30pm, with 2 games in each. I show every league game, preferring a slower, more personal journey as opposed to blitzing through season after season.\n\nThe series hit 200 epi",
+          "url": "https://www.reddit.com/r/footballmanagergames/comments/bmwy8o/fm19_youtube_journeyman_save_started_with_no_club/",
+          "subreddit": "footballmanagergames",
+          "score": 93,
+          "num_comments": 23,
+          "created_utc": 1557486638.0,
+          "permalink": "https://reddit.com/r/footballmanagergames/comments/bmwy8o/fm19_youtube_journeyman_save_started_with_no_club/",
+          "category": "general",
+          "relevance_score": 4.5
+        },
+        {
+          "id": "1iw5ved",
+          "title": "West side of France itinerary help: 2 weeks in July - no beaches",
+          "selftext": "Hi: my wife and I\u2019ve seen a lot of France (from Normandy, Alsace, Lyon, Cote D\u2019Azur and lots in between) but want to spend a couple of weeks exploring the western area of France (only been to Bordeaux in that area.) It will be 2 weeks and were thinking of starting in Brittany and make our way to San Sebasti\u00e1n. We love history, sights, wine and are serious foodies. Not beach people but don\u2019t mind strolling a beach town if it\u2019s unmissable. We\u2019re hectic travelers so don\u2019t like sitting around. Do yo",
+          "url": "https://www.reddit.com/r/Europetravel/comments/1iw5ved/west_side_of_france_itinerary_help_2_weeks_in/",
+          "subreddit": "Europetravel",
+          "score": 1,
+          "num_comments": 10,
+          "created_utc": 1740300589.0,
+          "permalink": "https://reddit.com/r/Europetravel/comments/1iw5ved/west_side_of_france_itinerary_help_2_weeks_in/",
+          "category": "general",
+          "relevance_score": 4.5
+        },
+        {
+          "id": "1q7gc6m",
+          "title": "France Travel Guide for First-Time Visitors in 2026",
+          "selftext": "https://preview.redd.it/iqjwmpjuj5cg1.jpg?width=1152&amp;format=pjpg&amp;auto=webp&amp;s=5cb2d4f68a5518dbbc304eafc58585d825383411\n\nFrance is one of the world\u2019s most iconic travel destinations \u2014 a country of romantic cities, world-class cuisine, historic landmarks, breathtaking landscapes, and vibrant culture. Whether you\u2019re planning your first trip from Asia, America, or elsewhere, this guide covers everything you need to know before you go: **the best time to visit France, how to prepare (inclu",
+          "url": "https://www.reddit.com/r/solotraveler/comments/1q7gc6m/france_travel_guide_for_firsttime_visitors_in_2026/",
+          "subreddit": "solotraveler",
+          "score": 2,
+          "num_comments": 0,
+          "created_utc": 1767889753.0,
+          "permalink": "https://reddit.com/r/solotraveler/comments/1q7gc6m/france_travel_guide_for_firsttime_visitors_in_2026/",
+          "category": "general",
+          "relevance_score": 4.0
+        },
+        {
+          "id": "te0eio",
+          "title": "France Road-Trip. Looking for Chateau-Hotels",
+          "selftext": "I was recently in southern Germany and \"stumbled\" onto an old castle that had been converted to a hotel (Schloss Lieser). I loved the experience.\n\nI'll be spending the next month in France and am curious if anyone might have tips on finding hotels/properties like this? I've been able to spot one under the Marriott brand (Hotel de Bourgtheroulde in Rouen); the insides look quite modern though. I've only searched familiar outlets so far.\n\nI'll be doing a loop from Paris through the Bourgogne and C",
+          "url": "https://www.reddit.com/r/travel/comments/te0eio/france_roadtrip_looking_for_chateauhotels/",
+          "subreddit": "travel",
+          "score": 7,
+          "num_comments": 6,
+          "created_utc": 1647272607.0,
+          "permalink": "https://reddit.com/r/travel/comments/te0eio/france_roadtrip_looking_for_chateauhotels/",
+          "category": "general",
+          "relevance_score": 4.0
+        },
+        {
+          "id": "1h1ifc5",
+          "title": "22 Days In France Itinerary ",
+          "selftext": "Like the title says we have booked flights for a 22 day trip to France in June/July looking for recommendations and advice on our itinerary. We have done 3 trips to Paris already so really wanting to explore more of the country (The Wife is bilingual and loves any reason to use her years spent studying French) This time around we will also be bringing our 1.5 year old\n\n  \nOur Rough plan is as follows\n\n1. Spend the first night in Paris since its been a long travel day getting there and train to N",
+          "url": "https://www.reddit.com/r/travel/comments/1h1ifc5/22_days_in_france_itinerary/",
+          "subreddit": "travel",
+          "score": 0,
+          "num_comments": 15,
+          "created_utc": 1732750945.0,
+          "permalink": "https://reddit.com/r/travel/comments/1h1ifc5/22_days_in_france_itinerary/",
+          "category": "general",
+          "relevance_score": 4.0
+        },
+        {
+          "id": "1ikwyom",
+          "title": "Opinion on rough Italy/France Itinerary for trip in October?",
+          "selftext": "My wife and I are planning a 2 week long trip to Italy and France in October, thoughts on the rough itinerary below? And any recs for things to do in these cities? I've done a fair bit of research already on the obvious things to do, but any recommendations are appreciated! We're big foodies and love visiting museums and seeing history for more context. Also we love Halloween but outside of the catacombs we're not expecting much on that front. \n\nDay 1-3: Arrive to Florence in morning, plans to e",
+          "url": "https://www.reddit.com/r/Europetravel/comments/1ikwyom/opinion_on_rough_italyfrance_itinerary_for_trip/",
+          "subreddit": "Europetravel",
+          "score": 3,
+          "num_comments": 8,
+          "created_utc": 1739046938.0,
+          "permalink": "https://reddit.com/r/Europetravel/comments/1ikwyom/opinion_on_rough_italyfrance_itinerary_for_trip/",
+          "category": "general",
+          "relevance_score": 4.0
+        },
+        {
+          "id": "17rmoal",
+          "title": "4-week France itinerary?",
+          "selftext": "Hi there! Will be traveling to France on Christmas and returning late January. This is my current rough itinerary, let me know if there are any glaring red flags/recommended adjustments please!\n\n  \nAt a glance, I am not sure if I may be overstaying in the South. I do not have concrete plans there, just want to explore to be honest, and I will have a car to do so more freely. Should I redistribute a day or so elsewhere?  \n\n\n* Dec 26 - Paris (Studio apt. in Latin Quarter)\n* Dec 27 - Paris\n* Dec 28",
+          "url": "https://www.reddit.com/r/solotravel/comments/17rmoal/4week_france_itinerary/",
+          "subreddit": "solotravel",
+          "score": 6,
+          "num_comments": 17,
+          "created_utc": 1699562980.0,
+          "permalink": "https://reddit.com/r/solotravel/comments/17rmoal/4week_france_itinerary/",
+          "category": "general",
+          "relevance_score": 4.0
+        },
+        {
+          "id": "1bn0kb7",
+          "title": "Itinerary help from Us to France, Spain, and Maybe Andorra?",
+          "selftext": "Traveling with extended family ages 1 to 72. We are  spending 15 or 16 days in country flying into Paris and out of Barcelona\nWe are looking at arriving in Paris at 6 am on a Friday in late May and spending 7 -9 days in 3 cities while moving toward Spain \nIn Spain for 6-8 days visiting Barcelona Costa Brava and possibly Andorra.\n\nIn France we'd either visit Paris Bordeaux and Toulouse or Paris Lyon and Nice/Marseille\nStill discussing route\nPlan on small children playing in water and taking them ",
+          "url": "https://www.reddit.com/r/travel/comments/1bn0kb7/itinerary_help_from_us_to_france_spain_and_maybe/",
+          "subreddit": "travel",
+          "score": 3,
+          "num_comments": 8,
+          "created_utc": 1711327326.0,
+          "permalink": "https://reddit.com/r/travel/comments/1bn0kb7/itinerary_help_from_us_to_france_spain_and_maybe/",
+          "category": "general",
+          "relevance_score": 4.0
+        },
+        {
+          "id": "1nsp5m3",
+          "title": "Relocation Guide For US Expats - Retirees &amp; Families",
+          "selftext": "https://preview.redd.it/yzcfnqon8ysf1.png?width=1080&amp;format=png&amp;auto=webp&amp;s=4b9e4158fcffbf0dffb690db77ab379f8705bbbf\n\n# Overview for US Citizens (Retirees and Families)\n\n# Key Facts for Americans Moving to France\n\n* **Tourist Stay**: 90 days in any 180-day period without visa\n* **Long-term Stay**: Visa required for stays over 90 days\n* **Tax Obligations**: US citizens pay taxes on worldwide income regardless of residence\n* **Double Taxation**: France-US tax treaty provides relief mec",
+          "url": "https://www.reddit.com/r/ExpatsMovingToFrance/comments/1nsp5m3/relocation_guide_for_us_expats_retirees_families/",
+          "subreddit": "ExpatsMovingToFrance",
+          "score": 5,
+          "num_comments": 2,
+          "created_utc": 1759068241.0,
+          "permalink": "https://reddit.com/r/ExpatsMovingToFrance/comments/1nsp5m3/relocation_guide_for_us_expats_retirees_families/",
+          "category": "general",
+          "relevance_score": 3.5
+        },
+        {
+          "id": "11aacwn",
+          "title": "France &amp; Spain- Prehistoric Cave Art",
+          "selftext": "Hi everyone!\n\nI am planning a trip to France and Spain to see some cave paintings. I love learning about prehistoric humans and this is a dream trip for me. I\u2019ve searched a lot in this sub and haven\u2019t found any questions or itineraries like this, hopefully this is not a redundant thread! \n\nSome info: I live in NYC. I\u2019d like to keep this trip under 3k including the flights. This is my first time traveling so I am not sure how realistic that budget is and would also love to hear any recommendation",
+          "url": "https://www.reddit.com/r/travel/comments/11aacwn/france_spain_prehistoric_cave_art/",
+          "subreddit": "travel",
+          "score": 3,
+          "num_comments": 11,
+          "created_utc": 1677190321.0,
+          "permalink": "https://reddit.com/r/travel/comments/11aacwn/france_spain_prehistoric_cave_art/",
+          "category": "general",
+          "relevance_score": 3.5
+        },
+        {
+          "id": "bhl9km",
+          "title": "FM19 YouTube Journeyman Save - Started with no club, coaching badges, past experience, or reputation, and I'm working my way up to the top!",
+          "selftext": "Hi!\n\nSince the release of FM19, I have been doing a \"Starting from the bottom\" Journeyman on Youtube, where we began with no club, no reputation, no coaching badges, and no footballing experience, essentially the very lowest that you can begin. From there we try to work our way up to the big time.\n\nVideos go up every day at 5:30pm, with 2 games in each. I show every league game, preferring a slower, more personal journey as opposed to blitzing through season after season.\n\n[If you are interested",
+          "url": "https://www.reddit.com/r/footballmanagergames/comments/bhl9km/fm19_youtube_journeyman_save_started_with_no_club/",
+          "subreddit": "footballmanagergames",
+          "score": 47,
+          "num_comments": 10,
+          "created_utc": 1556278360.0,
+          "permalink": "https://reddit.com/r/footballmanagergames/comments/bhl9km/fm19_youtube_journeyman_save_started_with_no_club/",
+          "category": "general",
+          "relevance_score": 3.5
+        },
+        {
+          "id": "1jaof02",
+          "title": "We are going for 17 days to France - is this a realistic itinerary on a realistic budget?",
+          "selftext": "Hi lovely people! :) My partner and I live in Canada, and we'll be in France in May. We will actually be in Europe to initially visit my family in Valencia, Spain - after that visit, we want to explore France for the first time.\n\n**We're looking for advice and feedback on two things**:\n\n **(1) Itinerary planning** \\- eg is this realistic? should we focus solely on certain regions to truly enjoy France? places we haven't considered, or places we've considered that we could scrap?\n\n**(2) how reali",
+          "url": "https://www.reddit.com/r/FranceTravel/comments/1jaof02/we_are_going_for_17_days_to_france_is_this_a/",
+          "subreddit": "FranceTravel",
+          "score": 3,
+          "num_comments": 8,
+          "created_utc": 1741904252.0,
+          "permalink": "https://reddit.com/r/FranceTravel/comments/1jaof02/we_are_going_for_17_days_to_france_is_this_a/",
+          "category": "general",
+          "relevance_score": 3.5
+        },
+        {
+          "id": "1hxkarm",
+          "title": "France Recommendations: How to Spend a Week in France",
+          "selftext": "Hi there! My husband and I are planning to travel to France for about a 7-8 days in March, and are looking for some advice. We are flying into Paris, and are planning to end our trip in San Sebastian for 2-3 days after our week in France. We are thinking about making Paris our home base and traveling to a few places from there, but neither of us have been to France before and are looking for advice on how to spend our very limited time in such a multi-dimensional country. Some considerations:\n\n*",
+          "url": "https://www.reddit.com/r/Europetravel/comments/1hxkarm/france_recommendations_how_to_spend_a_week_in/",
+          "subreddit": "Europetravel",
+          "score": 1,
+          "num_comments": 0,
+          "created_utc": 1736449262.0,
+          "permalink": "https://reddit.com/r/Europetravel/comments/1hxkarm/france_recommendations_how_to_spend_a_week_in/",
+          "category": "general",
+          "relevance_score": 3.5
+        },
+        {
+          "id": "1hpkcw8",
+          "title": "Thoughts on My 15-Day France Itinerary?",
+          "selftext": "Hey fellow travelers!\n\nI\u2019ve put together a 15-day itinerary for a trip to France during April End - May 1st Week and would love some feedback. I want to make sure it\u2019s well-balanced and covers the essentials without being too rushed or overly relaxed. Here\u2019s the plan:\n\n* **Day 1**: Arrive in Nice.\n* **Days 2-3**: Explore Nice and the surrounding areas.\n* **Day 4**: Avignon.\n* **Day 5**: Avignon and wineyard tour. \n* **Days 6-8**: Bordeaux and Saint - Emillon\n* **Days 9-13**: Paris and Champagne ",
+          "url": "https://www.reddit.com/r/travel/comments/1hpkcw8/thoughts_on_my_15day_france_itinerary/",
+          "subreddit": "travel",
+          "score": 1,
+          "num_comments": 0,
+          "created_utc": 1735554226.0,
+          "permalink": "https://reddit.com/r/travel/comments/1hpkcw8/thoughts_on_my_15day_france_itinerary/",
+          "category": "general",
+          "relevance_score": 3.5
+        },
+        {
+          "id": "1871bsm",
+          "title": "Any tips / hidden gems in central / western France?",
+          "selftext": "My SO and I are planning out a two week trip to France for our anniversary next March. We're going to stay in Paris for one week (we stayed there for a week for our fifth anniversary in 2019) and then we're going to spend another week visiting the countryside / other, smaller cities. We're currently thinking about taking the train to Bordeaux, renting a car, and then spending the week driving back to Paris. We saw a few things down that way in a YouTube travel guide that looked really awesome. (",
+          "url": "https://www.reddit.com/r/travel/comments/1871bsm/any_tips_hidden_gems_in_central_western_france/",
+          "subreddit": "travel",
+          "score": 1,
+          "num_comments": 3,
+          "created_utc": 1701295181.0,
+          "permalink": "https://reddit.com/r/travel/comments/1871bsm/any_tips_hidden_gems_in_central_western_france/",
+          "category": "general",
+          "relevance_score": 3.0
+        },
+        {
+          "id": "1jcges8",
+          "title": "Working Holiday Recommendations in France",
+          "selftext": "Hi everyone,\n\nAs the title says I'm planning to go on a working holiday this May to France for a year and one of the paperwork the France embassy needs is a travel itinerary (Plan for the whole year). As far I have this.\n\n05/2025 \u2013 07/2025      Arrive in Paris. Complete tasks (bank account, SIM card, etc).\n                     \t            Study French (Main Focus)\n                                    Network through events and language exchanges.\n                                    Start looking",
+          "url": "https://www.reddit.com/r/FranceTravel/comments/1jcges8/working_holiday_recommendations_in_france/",
+          "subreddit": "FranceTravel",
+          "score": 3,
+          "num_comments": 3,
+          "created_utc": 1742111056.0,
+          "permalink": "https://reddit.com/r/FranceTravel/comments/1jcges8/working_holiday_recommendations_in_france/",
+          "category": "general",
+          "relevance_score": 3.0
+        }
+      ],
+      "food": [
+        {
+          "id": "1itbwqd",
+          "title": "Moving to Bordeaux \u2013 Need Advice from Locals or Expats!",
+          "selftext": "Hello everyone,\n\nI\u2019m a 29-year-old male planning to move to Bordeaux for a couple of years. I\u2019ll be attending language school for the first year and a half. Living in France has been a lifelong dream of mine (I\u2019m half Greek, half American), but it never happened\u2014until now. I don't want to stay in the U.S. anymore, even though I have great friends and a life here. I don't even want to come back honestly. If anything I will just move to Greece. But anyways, as a literature major with a minor in ph",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1itbwqd/moving_to_bordeaux_need_advice_from_locals_or/",
+          "subreddit": "bordeaux",
+          "score": 13,
+          "num_comments": 38,
+          "created_utc": 1739987946.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1itbwqd/moving_to_bordeaux_need_advice_from_locals_or/",
+          "category": "food",
+          "relevance_score": 8.5
+        },
+        {
+          "id": "1luncaa",
+          "title": "Considering visiting for a month, tell me about Bordeaux!",
+          "selftext": "Hi! I have the opportunity to travel for a month in October and i'm trying to figure out where I should go. A friend recommended Bordeaux for its beauty and friendliness! I'm hoping to make friends, eat incredible food, go on hikes, and make some unforgettable memories. If I decide to go to France, I will learn as much French as I possibly can in the amount of time remaining. I'd love to hear from people who live there, is it easy to make friends in your mid-20s as an english speaker? I'm from N",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1luncaa/considering_visiting_for_a_month_tell_me_about/",
+          "subreddit": "bordeaux",
+          "score": 3,
+          "num_comments": 6,
+          "created_utc": 1751977904.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1luncaa/considering_visiting_for_a_month_tell_me_about/",
+          "category": "food",
+          "relevance_score": 7.5
+        },
+        {
+          "id": "1nnv0n4",
+          "title": "4 Months in Paris and here are my 2 cents",
+          "selftext": "46M retired, noobie photographer and I've been travelling around France for the last 9 months and 4 months in Paris wanted to say how much appreciate everything. \n\nHere are some advice and stereotypes that I wanted to clear \n\n1. French people are not rude, they're straightforward. If you manage to speak little bit of French like Bonjour, Au revoir etc, they really appreciate it \n\n2. Paris is not France. This is where the stereotype comes from. Like every major city, people are busy and don't hav",
+          "url": "https://www.reddit.com/gallery/1nnv0n4",
+          "subreddit": "ParisTravelGuide",
+          "score": 1403,
+          "num_comments": 171,
+          "created_utc": 1758566941.0,
+          "permalink": "https://reddit.com/r/ParisTravelGuide/comments/1nnv0n4/4_months_in_paris_and_here_are_my_2_cents/",
+          "category": "food",
+          "relevance_score": 7.0
+        },
+        {
+          "id": "1r19foc",
+          "title": "Suggestions for introducing Bordeaux\u2764\ufe0f",
+          "selftext": "heyyy i want to introduce Bordeaux for my english presentation. so what can i say about Bordeaux? Can you give me some advice and information? especially about food culture like i mean local meals. because i'm turk and we turks love food to death. therefore i thought my classmates would love it!!! and also i want to learn about people's lifestyle like how is their personality generally? thankss already\u2661\u2661\u2661",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1r19foc/suggestions_for_introducing_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 1,
+          "num_comments": 2,
+          "created_utc": 1770749470.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1r19foc/suggestions_for_introducing_bordeaux/",
+          "category": "food",
+          "relevance_score": 6.0
+        },
+        {
+          "id": "1l71cjq",
+          "title": "My recommendations for a first time trip to France",
+          "selftext": "Hey everyone. I thought I would share some stuff I\u2019ve picked up from going to France almost every year. I love this country that much..:)) I can remember that my first trip was super overwhelming with Paris traffic, jet lag and a bit confusing metro maps, but now I\u2019ve kind of figured out this system. Summer is definitely a peak for France tourism, so I thought this might help someone heading there for the first time.\n\n* eSIM for France\n\nFirst things first, don\u2019t wait until you're jetlagged and s",
+          "url": "https://www.reddit.com/r/ParisTravelGuide/comments/1l71cjq/my_recommendations_for_a_first_time_trip_to_france/",
+          "subreddit": "ParisTravelGuide",
+          "score": 109,
+          "num_comments": 34,
+          "created_utc": 1749465121.0,
+          "permalink": "https://reddit.com/r/ParisTravelGuide/comments/1l71cjq/my_recommendations_for_a_first_time_trip_to_france/",
+          "category": "food",
+          "relevance_score": 6.0
+        },
+        {
+          "id": "1j7y9q5",
+          "title": "Food in Bordeaux",
+          "selftext": "Hello, I\u2019ve recently moved here in Bordeaux and I\u2019ve been looking for a good wholesome meal here. More of an almost grill house restaurant, with steak, fries, burger and the likes. Or more flavorful meals, not just local food.\n\nMy experience here has been good when it\u2019s local, but I\u2019ve had some bad luck when it came to a burger where the patty was boiled then fried. \n\nI\u2019ve seen Toulouse, Paris and Lyon have these type of restaurants. Does anyone have any recommendations?",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1j7y9q5/food_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 4,
+          "num_comments": 16,
+          "created_utc": 1741612328.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1j7y9q5/food_in_bordeaux/",
+          "category": "food",
+          "relevance_score": 5.5
+        },
+        {
+          "id": "1kwakl7",
+          "title": "Best value 1 Michelin star in Bordeaux",
+          "selftext": "Bonjour, we will be in town next week, and are thinking about trying our first Michelin starred meal. It will likely be lunch, and looking for suggestions on the best value, and if they are worth what seems to be the extra money. I'm sure they are all delicious, and I don't think I'm prepared for a dinner bill. I'm not a foodie per se, so good food at a the most reasonable price is my objective. Merci. ",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1kwakl7/best_value_1_michelin_star_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 8,
+          "num_comments": 12,
+          "created_utc": 1748307555.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1kwakl7/best_value_1_michelin_star_in_bordeaux/",
+          "category": "food",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "1exu4ev",
+          "title": "Best pastries in Bordeaux ",
+          "selftext": "Give your recommendations for the best pastries in Bordeaux. I'm here for the weekend and all I want to do is eat good food and drink good wine. \n",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1exu4ev/best_pastries_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 5,
+          "num_comments": 16,
+          "created_utc": 1724257789.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1exu4ev/best_pastries_in_bordeaux/",
+          "category": "food",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "awk9cp",
+          "title": "Best parts of Bordeaux?",
+          "selftext": "Bonjour,\n\nI am an American who will be in Bordeaux for a week this summer for my honeymoon. What are some things that I must do while I\u2019m here? Specific wine tours, restaurants, museums, parks, etc. We both love wine, food, and are active. Also, neither of us speak French, but are trying to learn basics before we go... how big of an issue will that be? Merci! ",
+          "url": "https://www.reddit.com/r/bordeaux/comments/awk9cp/best_parts_of_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 6,
+          "num_comments": 9,
+          "created_utc": 1551549068.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/awk9cp/best_parts_of_bordeaux/",
+          "category": "food",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "qgbd82",
+          "title": "Hey guys, I'm in bordeaux for a week - I was wondering what are the best medium-priced restaurants for traditional French food? I'm staying in Chartrons, so preferably restaurants in the Chartrons area.",
+          "selftext": "",
+          "url": "https://www.reddit.com/r/bordeaux/comments/qgbd82/hey_guys_im_in_bordeaux_for_a_week_i_was/",
+          "subreddit": "bordeaux",
+          "score": 19,
+          "num_comments": 13,
+          "created_utc": 1635268923.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/qgbd82/hey_guys_im_in_bordeaux_for_a_week_i_was/",
+          "category": "food",
+          "relevance_score": 4.0
+        },
+        {
+          "id": "1g303sw",
+          "title": "Hey, I\u2019m planning to visit Bordeaux this December and will be staying through New Year\u2019s as well. I would love some suggestions for New Year\u2019s Eve events .Additionally, any overall recommendations for the trip, especially places with good local wine ,food  and art would be appreciated! ",
+          "selftext": "",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1g303sw/hey_im_planning_to_visit_bordeaux_this_december/",
+          "subreddit": "bordeaux",
+          "score": 1,
+          "num_comments": 0,
+          "created_utc": 1728854296.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1g303sw/hey_im_planning_to_visit_bordeaux_this_december/",
+          "category": "food",
+          "relevance_score": 3.5
+        },
+        {
+          "id": "1qapmad",
+          "title": "Fine(ish) Dining",
+          "selftext": "Hey everyone!\n\n\u200bI'll be visiting Bordeaux, and while I love a good \u20ac60 tasting menu as much as the next person, my bank account is screaming for some mercy.\n\n\u200bI\u2019m on a mission to find those spots where the quality of the food actually punches way above the price tag. I\u2019m talking about the \"if you know, you know\" places that locals actually frequent.\n\n  \nAny suggestions? \n\n  \nThanks a mil you all \ud83d\ude4f ",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1qapmad/fineish_dining/",
+          "subreddit": "bordeaux",
+          "score": 6,
+          "num_comments": 9,
+          "created_utc": 1768206761.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1qapmad/fineish_dining/",
+          "category": "food",
+          "relevance_score": 3.0
+        }
+      ],
+      "neighborhoods": [
+        {
+          "id": "1d9xrwo",
+          "title": "21 YR Student Moving from the USA to Bordeaux, France \u2013 Seeking Advice on Where to Live and How to Meet People!",
+          "selftext": "Hi Reddit!\n\nI'm a 21-year-old moving from the USA to Bordeaux, France, to pursue my master's degree and work in the wine industry. I'm super excited about this adventure but could really use some advice from those who have been in a similar situation or know Bordeaux well.\n\nHere are a few questions I have:\n\n1. **Where to Live:** Which neighborhoods in Bordeaux would you recommend for a young professional? I'm looking for a place that's safe, lively, and ideally has good access to public transpor",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1d9xrwo/21_yr_student_moving_from_the_usa_to_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 23,
+          "num_comments": 25,
+          "created_utc": 1717720459.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1d9xrwo/21_yr_student_moving_from_the_usa_to_bordeaux/",
+          "category": "neighborhoods",
+          "relevance_score": 8.5
+        },
+        {
+          "id": "1lqyhb8",
+          "title": "Where to stay for a week... Arcachon, Bordeaux or north/south of there?",
+          "selftext": "Hi,\n\nOur family of 5 are travelling to Bordeaux next week and our accommodation plans have suddenly changed, so we need somewhere to stay! We had booked a house an hour to the west of Bordeaux, but circumstances with that house changed at the last minute so we have had to cancel. Now looking at going towards the coast, but where is best? Near Arcachon or further south, Cap Feret and further north, somewhere on the outskirts of Bordeaux?\n\nIdeally like a house in/near a nice town where we can go o",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1lqyhb8/where_to_stay_for_a_week_arcachon_bordeaux_or/",
+          "subreddit": "bordeaux",
+          "score": 0,
+          "num_comments": 7,
+          "created_utc": 1751570774.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1lqyhb8/where_to_stay_for_a_week_arcachon_bordeaux_or/",
+          "category": "neighborhoods",
+          "relevance_score": 5.5
+        },
+        {
+          "id": "1i8qwzp",
+          "title": "Bar and Coffee Shop recommendations in Bordeaux",
+          "selftext": "Hello everyone! I just moved to Bordeaux and will be studying here for a couple of months and wanted to ask if anyone could recommend me any bars and coffee shops in the city?! Thank you :)",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1i8qwzp/bar_and_coffee_shop_recommendations_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 4,
+          "num_comments": 11,
+          "created_utc": 1737707469.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1i8qwzp/bar_and_coffee_shop_recommendations_in_bordeaux/",
+          "category": "neighborhoods",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "10v44i2",
+          "title": "Renting in Bordeaux",
+          "selftext": "Hello,\n\n&amp;#x200B;\n\nI will be coming for 6+ months in Bordeaux starting from 1st of May with my wife. She will be working at CHU  Pellegrin Bordeaux and I would like some info.\n\n&amp;#x200B;\n\nWhich is the best neighborhood to rent? We are looking for something close to Hospital, max 30 minutes commute time. \n\nWhat sites you recommend us to start the research for rent?\n\n&amp;#x200B;\n\nWe are currently in Paris and visits for rent will be hard, do you think we will be able to get a rent in the we",
+          "url": "https://www.reddit.com/r/bordeaux/comments/10v44i2/renting_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 6,
+          "num_comments": 15,
+          "created_utc": 1675682189.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/10v44i2/renting_in_bordeaux/",
+          "category": "neighborhoods",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "1ei86v0",
+          "title": "Best place in Bordeaux ",
+          "selftext": "Hi im going to Bordeaux in a month and looking for places to stay for 3 days. Where is the best area to stay that is pretty safe but busy with restaurants and shops.\n\nMerci! :D",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1ei86v0/best_place_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 0,
+          "num_comments": 6,
+          "created_utc": 1722599903.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1ei86v0/best_place_in_bordeaux/",
+          "category": "neighborhoods",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "14qjkdp",
+          "title": "God I miss this thread! Few question for Bordeaux people",
+          "selftext": "1. For runners, I see there is a Semi-Marathon in November, are there any other races I should look into this summer?\n2. Best day trip for a wine tasting with Bike from Bordeaux (we could consider the train/tram to get out of town if needed). I know St Emilion, but they have mostly red wine and we enjoy more the white one. \n3. I am a lidl fan, but all lidls I've tried so far were poorly stocked and quite small, which is a great lidl in the area. (I stay near Darwin, if that helps).\n4. I might ne",
+          "url": "https://www.reddit.com/r/bordeaux/comments/14qjkdp/god_i_miss_this_thread_few_question_for_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 7,
+          "num_comments": 11,
+          "created_utc": 1688487439.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/14qjkdp/god_i_miss_this_thread_few_question_for_bordeaux/",
+          "category": "neighborhoods",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "vkpyhg",
+          "title": "best area to stay in bordeaux?",
+          "selftext": "I'm visiting alone for two days and want to know where the most ideal area to stay. \n\nI want to stay somewhere nice (obviously) but with good access to other parts of the city where close to transport. \n\nOr any other recommendations. I have seen some beautfiul air bnbs that are outside kf the city centre.\n\nMy first assumption was the centre of the city but I've never travelled before so I wouldn't know if that is a good place to stay.\n\nPlease let me know\n\n\nEDIT: I visited bordeuax and stayed Sou",
+          "url": "https://www.reddit.com/r/bordeaux/comments/vkpyhg/best_area_to_stay_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 4,
+          "num_comments": 6,
+          "created_utc": 1656195689.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/vkpyhg/best_area_to_stay_in_bordeaux/",
+          "category": "neighborhoods",
+          "relevance_score": 4.5
+        },
+        {
+          "id": "x8fzk4",
+          "title": "Less touristic neighborhoods in Bordeaux?",
+          "selftext": "Hi,\n\nWhen I stay in a city, I also like to shop and eat where the immigrants shop and eat. Those areas are usually less touristic and have a different vibe than the central places. \n\nAre there specific neighborhoods in Bordeaux with immigrants from Africa, Asia and or South East Asia? \n\nWould you recommend going to, eating and shopping in those neighborhoods?\n\nThanks!",
+          "url": "https://www.reddit.com/r/bordeaux/comments/x8fzk4/less_touristic_neighborhoods_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 3,
+          "num_comments": 4,
+          "created_utc": 1662583492.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/x8fzk4/less_touristic_neighborhoods_in_bordeaux/",
+          "category": "neighborhoods",
+          "relevance_score": 4.0
+        },
+        {
+          "id": "18i9daa",
+          "title": "Bordeaux Bus Station",
+          "selftext": "Hi all,\n\nI'm going to be arriving late at the Paludate bus station (3am) and then I'm staying in an Ibis hotel a 10 minute walk away.\n\nDo any of you know if there are 24 hour taxis near the station, or would you recommend an Uber? Would it be safe to just walk to the hotel (I'm a woman travelling alone)\n\nAny advice would be appreciated!\n\nThanks",
+          "url": "https://www.reddit.com/r/bordeaux/comments/18i9daa/bordeaux_bus_station/",
+          "subreddit": "bordeaux",
+          "score": 2,
+          "num_comments": 6,
+          "created_utc": 1702562796.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/18i9daa/bordeaux_bus_station/",
+          "category": "neighborhoods",
+          "relevance_score": 3.5
+        }
+      ],
+      "budget": [
+        {
+          "id": "1mmb8qd",
+          "title": "Planning move to Bordeaux",
+          "selftext": "Me &amp; my wife are planning to move to Bordeaux later this year she is not European so we are starting the visa de long sejour process and I have a French passport and speak French but have never actually lived in France but have family in other parts of France. We\u2019re planning to arrive October/November. \nIm researching apartment and the process, I work for a non-French company remotely and which I know will make things more complicated. I\u2019m looking into the best process to get an apartment is",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1mmb8qd/planning_move_to_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 2,
+          "num_comments": 12,
+          "created_utc": 1754806782.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1mmb8qd/planning_move_to_bordeaux/",
+          "category": "budget",
+          "relevance_score": 7.5
+        },
+        {
+          "id": "1cwcuv1",
+          "title": "Work spaces in Bordeaux ",
+          "selftext": "Bonjour !\n\nI'm going to be working remotely in Bordeaux on Thursday and just wondered if there are any designated working spaces or cafes that you would recommend? I just need WiFi and a desk, really. Ideally by the train station or within a reasonably commutable distance to it. A lot of cafes in London don't mind you setting up for a day, as long as you buy some coffees/refreshments throughout the day, but not sure what the culture is in France/Bordeaux for that kind of thing, so please help me",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1cwcuv1/work_spaces_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 2,
+          "num_comments": 4,
+          "created_utc": 1716203059.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1cwcuv1/work_spaces_in_bordeaux/",
+          "category": "budget",
+          "relevance_score": 6.5
+        },
+        {
+          "id": "1e1h3zp",
+          "title": "Help our boy move to Bordeaux! ",
+          "selftext": "Bonjour! My boyfriend is moving to Bordeaux in the next couple of months. I thought I'd drop by and get some much needed guidance from you good folks while he is brushing up on his French. He is going to be in Bordeaux for a year and he wants to stick to a budget of \u20ac1000/month. \n\nThe following are the things we'd love some suggestions about: \n\n1. Accommodation: He wants to live in Talence in a studio or a 1 bedroom apartment. How much is the average rent? What should he keep in mind while renti",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1e1h3zp/help_our_boy_move_to_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 7,
+          "num_comments": 8,
+          "created_utc": 1720789262.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1e1h3zp/help_our_boy_move_to_bordeaux/",
+          "category": "budget",
+          "relevance_score": 5.5
+        },
+        {
+          "id": "7w6ffe",
+          "title": "Renting a bicycle in Bordeaux?",
+          "selftext": "Going to visit a Bordeaux in summer and looking for cheap personal transportation. The bicycle renting is an obvious choice, so I googled a bit and foud out that I need some \"deposit\" of 200 euros for renting a bicycle. It's off the chart price, because one can easily buy a bicycle for that money. Maybe I am dumb as a pine log, but would you kindly explain me how to rent a bicycle in Bordeaux for 2-3 days and how much it will cost me? Other tips are much appreciated, I am really on a budget.",
+          "url": "https://www.reddit.com/r/bordeaux/comments/7w6ffe/renting_a_bicycle_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 4,
+          "num_comments": 8,
+          "created_utc": 1518110673.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/7w6ffe/renting_a_bicycle_in_bordeaux/",
+          "category": "budget",
+          "relevance_score": 4.5
+        },
+        {
+          "id": "5xauyy",
+          "title": "Bordeaux Tour",
+          "selftext": "Hi All\nI am trying to arrange a birthday on a budget in Bordeaux and I'm thinking it would be good to do a tour of some of the sights of the city. Baring in mind cheap or free would be best, wondered if you had any suggestions?\nThanks\nMeghan",
+          "url": "https://www.reddit.com/r/bordeaux/comments/5xauyy/bordeaux_tour/",
+          "subreddit": "bordeaux",
+          "score": 3,
+          "num_comments": 11,
+          "created_utc": 1488554083.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/5xauyy/bordeaux_tour/",
+          "category": "budget",
+          "relevance_score": 4.5
+        }
+      ],
+      "family": [
+        {
+          "id": "1bu2sqf",
+          "title": "University of Bordeaux - IAE Bordeaux",
+          "selftext": "Hello everyone, i just got offered a place at \u201cEuropean business administration\u201d program at IAE Bordeaux, so i got a couple of questions:\n1. How is student life at Bordeaux in comparison to other french cities?\n2. In nightlife/party scene here good and is it centered around some student organizations or are there active clubs not related to students?\n3. Will it be difficult for me to make friends and engage in social activities if I don\u2019t speak french (ofc i am willing to learn french, but it wi",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1bu2sqf/university_of_bordeaux_iae_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 6,
+          "num_comments": 5,
+          "created_utc": 1712074631.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1bu2sqf/university_of_bordeaux_iae_bordeaux/",
+          "category": "family",
+          "relevance_score": 7.0
+        },
+        {
+          "id": "1mfyksy",
+          "title": "Where to stop for lunch and an outing with the family along the route from Toulouse to Southern Bordeaux?",
+          "selftext": "Bonjour! \n\nI\u2019m visiting a small town to the south of Bordeaux with my wife and two young children. We are driving from Toulouse. See link for my route on map. It\u2019s only a two hour drive but we have some time to kill and our girls will need to stretch their legs. Any recommendations for a lunch stop? Restaurants that are kid friendly or notable sights would be awesome! \n\nThank you. \n\nMy route below \n\n\n[picture of my route from Toulouse](https://imgur.com/a/sEwv8bD)",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1mfyksy/where_to_stop_for_lunch_and_an_outing_with_the/",
+          "subreddit": "bordeaux",
+          "score": 1,
+          "num_comments": 0,
+          "created_utc": 1754161715.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1mfyksy/where_to_stop_for_lunch_and_an_outing_with_the/",
+          "category": "family",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "1crmfxy",
+          "title": "rainy day activities Arcachon and Bordeaux",
+          "selftext": "Hi everbody, \n\nmy family and I (age range 18-54) are going to Arcachon (4 days) and Bordeaux (2 days) at the end of may for my mothers birthday. \n\nUnfortunately it looks like it could rain during our whole trip. \n\nWe planned on spending a lot of time outdoors but since that might not be in the cards I wanted to ask whether you have any recommendations for rainy days. \n\nIn general we enjoy more of the beach days, riding a bike, visiting natural reserves, tasting new food, playing games kind of ac",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1crmfxy/rainy_day_activities_arcachon_and_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 5,
+          "num_comments": 8,
+          "created_utc": 1715672206.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1crmfxy/rainy_day_activities_arcachon_and_bordeaux/",
+          "category": "family",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "v2m6qi",
+          "title": "Irish student visiting Bordeaux!",
+          "selftext": "Salut!\n\nI plan to visit Bordeaux from 12 June - 16 June. I am travelling solo, but would like to make some friends. If anyone would like to share some time, feel free to get in touch!\n\nI'm from Northern Ireland, currently studying philosophy in Estonia, and I want to see the amazing architecture of Bordeaux, eat lots of good food, learn some history and of course drink some good wine! I would like to travel to Saint-Emillion for a day also (and maybe some other smaller villages, but I don't know",
+          "url": "https://www.reddit.com/r/bordeaux/comments/v2m6qi/irish_student_visiting_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 10,
+          "num_comments": 8,
+          "created_utc": 1654104069.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/v2m6qi/irish_student_visiting_bordeaux/",
+          "category": "family",
+          "relevance_score": 5.0
+        },
+        {
+          "id": "1crvgol",
+          "title": "Gaelic football in Bordeaux",
+          "selftext": "Hi, I\u2019m Irish and I\u2019ll be working remotely in Bordeaux for July and August. Does anyone know if the Gaelic football club (Bordeaux blanquefort) is still active? I checked their social media but there hasn\u2019t been a post since 2022.",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1crvgol/gaelic_football_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 5,
+          "num_comments": 2,
+          "created_utc": 1715701821.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1crvgol/gaelic_football_in_bordeaux/",
+          "category": "family",
+          "relevance_score": 4.5
+        },
+        {
+          "id": "9dyyaw",
+          "title": "Vineyards in Bordeaux",
+          "selftext": "Hi,\n\nA friend and I are leaving Toulouse tomorrow and heading to Bordeaux, we were wondering if anyone has any suggestions for their favorite vineyards to visit. We are there for two days so any activities or restaurants recommendations are greatly appreciated. Heading to San Sebasti\u00e1n after so tips on that too would be a bonus!\n\nCheers ",
+          "url": "https://www.reddit.com/r/bordeaux/comments/9dyyaw/vineyards_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 4,
+          "num_comments": 17,
+          "created_utc": 1536357318.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/9dyyaw/vineyards_in_bordeaux/",
+          "category": "family",
+          "relevance_score": 4.5
+        }
+      ],
+      "safety_challenges": [
+        {
+          "id": "1iztp31",
+          "title": "Are there no -safe areas of Bordeaux to avoid",
+          "selftext": "Are there non-safe areas to avoid when staying in Bordeaux? Thanks. ",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1iztp31/are_there_no_safe_areas_of_bordeaux_to_avoid/",
+          "subreddit": "bordeaux",
+          "score": 12,
+          "num_comments": 28,
+          "created_utc": 1740698875.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1iztp31/are_there_no_safe_areas_of_bordeaux_to_avoid/",
+          "category": "safety_challenges",
+          "relevance_score": 6.5
+        },
+        {
+          "id": "1hm7mmb",
+          "title": "Spending half a year in Bordeaux - What do I need to know concerning safety?",
+          "selftext": "Hi! \n\nAs I'm still working on my French skills, I'm writing this in English.\n\nStarting in January, I'll be spending half a year in Bordeaux with Erasmus. Because I'm studying biology, I'll have a room in Talence. \n\nI'm from a very safe, small city in Germany and a young woman, so I'm a little concerned (As I would be staying in any other big city, to be honest). I've already read, that it's better to not hang around the main station at night. Are there any other areas I should avoid, at night or",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1hm7mmb/spending_half_a_year_in_bordeaux_what_do_i_need/",
+          "subreddit": "bordeaux",
+          "score": 9,
+          "num_comments": 18,
+          "created_utc": 1735156283.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1hm7mmb/spending_half_a_year_in_bordeaux_what_do_i_need/",
+          "category": "safety_challenges",
+          "relevance_score": 5.5
+        },
+        {
+          "id": "6mo01j",
+          "title": "Best place to live in Bordeaux?",
+          "selftext": "Salut! I'm a Canadian ESL teacher moving to Bordeaux in the fall. I'm wondering if anyone has any conseils on neighbourhoods in Bordeaux. I know in the city I grew up in that I have opinions on just about every quartier! So, I'm hoping someone can tell me their personal favourite area or areas to avoid, or if you have any other details to share it would be appreciated. :) ",
+          "url": "https://www.reddit.com/r/bordeaux/comments/6mo01j/best_place_to_live_in_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 6,
+          "num_comments": 11,
+          "created_utc": 1499796308.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/6mo01j/best_place_to_live_in_bordeaux/",
+          "category": "safety_challenges",
+          "relevance_score": 5.0
+        }
+      ],
+      "pros_cons": [
+        {
+          "id": "1ofsuei",
+          "title": "Planning moving to Bordeaux",
+          "selftext": "First of all I apologise for writing in English, I\u2019m far  to master the French language.\n\n32yo, Portuguese, been living in UK for nearly 8 years and I\u2019ve been thinking about moving to Bordeaux for a while. \n\nIve been working as a flight attendant for the last 4 years and the idea would be to transfer to the base in Bordeaux for a smooth transition since I would at least have a job but lately I\u2019ve been thinking that this might not be a job that I want to do for much longer. \nI\u2019ve been having priv",
+          "url": "https://www.reddit.com/r/bordeaux/comments/1ofsuei/planning_moving_to_bordeaux/",
+          "subreddit": "bordeaux",
+          "score": 5,
+          "num_comments": 15,
+          "created_utc": 1761402302.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/1ofsuei/planning_moving_to_bordeaux/",
+          "category": "pros_cons",
+          "relevance_score": 6.0
+        }
+      ],
+      "hidden_gems": [
+        {
+          "id": "brwrpu",
+          "title": "Visiting Bordeaux for the weekend - Recommendations please",
+          "selftext": "Hi,\n\nI will be visiting Bordeaux for the weekend in early June and would like to get some recommendations from locals with regards to:\n\n* Cafes and Restaurants\n* Bars and Pubs\n* Nightclubs / Live Music\n* Must Sees and Must Avoids \n* Hidden Gems \n* Best wine :)\n\nI was hoping to hire bicycles to get around the city - is this a good idea? \n\n&amp;#x200B;\n\nI look forward to your tips and tricks to getting the most out of the weekend.\n\nThanks!",
+          "url": "https://www.reddit.com/r/bordeaux/comments/brwrpu/visiting_bordeaux_for_the_weekend_recommendations/",
+          "subreddit": "bordeaux",
+          "score": 1,
+          "num_comments": 0,
+          "created_utc": 1558573001.0,
+          "permalink": "https://reddit.com/r/bordeaux/comments/brwrpu/visiting_bordeaux_for_the_weekend_recommendations/",
+          "category": "hidden_gems",
+          "relevance_score": 4.0
+        }
+      ]
+    },
+    "top_posts": [
+      {
+        "id": "1pvjc7b",
+        "title": "Bordeaux, France in December",
+        "selftext": "I spent two weeks in Bordeaux this December (for work) and ended up enjoying it a lot! In fact, I think I liked Bordeaux more than Paris. Despite it being December, it was really warm and sunny most days. Daytime temps were often at 18 degrees or more which, according to locals, is not normal but I certainly appreciated it.\n\n\n\nThe city has many large pedestrian and limited-car zones, and many of them had lovely Christmas decorations so the atmosphere was quite nice. The city is very walkable and",
+        "url": "https://www.reddit.com/gallery/1pvjc7b",
+        "subreddit": "travel",
+        "score": 2316,
+        "num_comments": 37,
+        "created_utc": 1766686889.0,
+        "permalink": "https://reddit.com/r/travel/comments/1pvjc7b/bordeaux_france_in_december/",
+        "category": "things_to_do",
+        "relevance_score": 12.0
+      },
+      {
+        "id": "1nkivox",
+        "title": "Pourquoi Bordeaux m\u2019a d\u00e9\u00e7u, compar\u00e9 \u00e0 Paris",
+        "selftext": "J\u2019ai v\u00e9cu trois ans en \u00cele-de-France avant de m\u2019installer r\u00e9cemment \u00e0 Bordeaux. Mon entourage m\u2019assurait que la vie \u00e0 Bordeaux et dans sa r\u00e9gion \u00e9tait bien meilleure qu\u2019en \u00cele-de-France. Pourtant, apr\u00e8s seulement deux mois ici, je regrette un peu d\u2019avoir fait ce choix.\n\nMon intention n\u2019est pas de critiquer les Bordelais, mais simplement de partager mon ressenti en toute objectivit\u00e9. Je ne suis pas Fran\u00e7ais et je d\u00e9couvre encore les diff\u00e9rentes villes du pays. Bien entendu, chacun a son point de ",
+        "url": "https://www.reddit.com/gallery/1nkivox",
+        "subreddit": "bordeaux",
+        "score": 154,
+        "num_comments": 132,
+        "created_utc": 1758226110.0,
+        "permalink": "https://reddit.com/r/bordeaux/comments/1nkivox/pourquoi_bordeaux_ma_d\u00e9\u00e7u_compar\u00e9_\u00e0_paris/",
+        "category": "top_posts",
+        "relevance_score": 11.0
+      },
+      {
+        "id": "1fdn5so",
+        "title": "Our 8-day trip to Bordeaux, Loire Valley, and Paris cost $8,500 and we spent a lot on restaurants",
+        "selftext": "# About Us:\n\n29 (me), 34 (husband), 1 dog we are obsessed with. No kids, leaning towards it staying that way but this changes on the daily honestly. Live in Massachusetts\n\n* Me: manager in corporate retail, $130k + 15-35% bonus\n* Husband: manager in tech, $250k base + $90k bonus + variable RSUs (about $750k in 2024)\n\n**PTO:**\n\n* Me: 22 vacation days given outright at beginning of year\n* Husband: Rolling but he has a balance of 20-25ish days right now\n* We used 4 for this trip (over a holiday)\n\n*",
+        "url": "https://www.reddit.com/r/MoneyDiariesACTIVE/comments/1fdn5so/our_8day_trip_to_bordeaux_loire_valley_and_paris/",
+        "subreddit": "MoneyDiariesACTIVE",
+        "score": 127,
+        "num_comments": 43,
+        "created_utc": 1725988271.0,
+        "permalink": "https://reddit.com/r/MoneyDiariesACTIVE/comments/1fdn5so/our_8day_trip_to_bordeaux_loire_valley_and_paris/",
+        "category": "general",
+        "relevance_score": 9.5
+      },
+      {
+        "id": "1nkrbg0",
+        "title": "Paris + Lyon + Bordeaux (Toulousse or another city?) \u2013 Itinerary recs for 2 sisters in our late 20s",
+        "selftext": "Hi! My sister and I (late 20s/early 30s) are heading to France in October and would love itinerary recommendations, especially around restaurants, bars, tours, and fun neighborhoods to wander.\n\nHere\u2019s our rough plan: \n\u2022 Paris \u2013 4 nights (we\u2019re staying in Le Marais) \n\u2022 Lyon \u2013 3 nights \n\u2022 Bordeaux \u2013 3 nights (but open to swapping with another city if people think that\u2019s a better fit)\n\nWhat we\u2019re into: \u2022\tFoodie experiences (we\u2019d love a great food tour and/or bike tour with some history sprinkled in",
+        "url": "https://www.reddit.com/r/Europetravel/comments/1nkrbg0/paris_lyon_bordeaux_toulousse_or_another_city/",
+        "subreddit": "Europetravel",
+        "score": 2,
+        "num_comments": 13,
+        "created_utc": 1758248006.0,
+        "permalink": "https://reddit.com/r/Europetravel/comments/1nkrbg0/paris_lyon_bordeaux_toulousse_or_another_city/",
+        "category": "general",
+        "relevance_score": 9.0
+      },
+      {
+        "id": "1itbwqd",
+        "title": "Moving to Bordeaux \u2013 Need Advice from Locals or Expats!",
+        "selftext": "Hello everyone,\n\nI\u2019m a 29-year-old male planning to move to Bordeaux for a couple of years. I\u2019ll be attending language school for the first year and a half. Living in France has been a lifelong dream of mine (I\u2019m half Greek, half American), but it never happened\u2014until now. I don't want to stay in the U.S. anymore, even though I have great friends and a life here. I don't even want to come back honestly. If anything I will just move to Greece. But anyways, as a literature major with a minor in ph",
+        "url": "https://www.reddit.com/r/bordeaux/comments/1itbwqd/moving_to_bordeaux_need_advice_from_locals_or/",
+        "subreddit": "bordeaux",
+        "score": 13,
+        "num_comments": 38,
+        "created_utc": 1739987946.0,
+        "permalink": "https://reddit.com/r/bordeaux/comments/1itbwqd/moving_to_bordeaux_need_advice_from_locals_or/",
+        "category": "food",
+        "relevance_score": 8.5
+      },
+      {
+        "id": "1d9xrwo",
+        "title": "21 YR Student Moving from the USA to Bordeaux, France \u2013 Seeking Advice on Where to Live and How to Meet People!",
+        "selftext": "Hi Reddit!\n\nI'm a 21-year-old moving from the USA to Bordeaux, France, to pursue my master's degree and work in the wine industry. I'm super excited about this adventure but could really use some advice from those who have been in a similar situation or know Bordeaux well.\n\nHere are a few questions I have:\n\n1. **Where to Live:** Which neighborhoods in Bordeaux would you recommend for a young professional? I'm looking for a place that's safe, lively, and ideally has good access to public transpor",
+        "url": "https://www.reddit.com/r/bordeaux/comments/1d9xrwo/21_yr_student_moving_from_the_usa_to_bordeaux/",
+        "subreddit": "bordeaux",
+        "score": 23,
+        "num_comments": 25,
+        "created_utc": 1717720459.0,
+        "permalink": "https://reddit.com/r/bordeaux/comments/1d9xrwo/21_yr_student_moving_from_the_usa_to_bordeaux/",
+        "category": "neighborhoods",
+        "relevance_score": 8.5
+      },
+      {
+        "id": "1luncaa",
+        "title": "Considering visiting for a month, tell me about Bordeaux!",
+        "selftext": "Hi! I have the opportunity to travel for a month in October and i'm trying to figure out where I should go. A friend recommended Bordeaux for its beauty and friendliness! I'm hoping to make friends, eat incredible food, go on hikes, and make some unforgettable memories. If I decide to go to France, I will learn as much French as I possibly can in the amount of time remaining. I'd love to hear from people who live there, is it easy to make friends in your mid-20s as an english speaker? I'm from N",
+        "url": "https://www.reddit.com/r/bordeaux/comments/1luncaa/considering_visiting_for_a_month_tell_me_about/",
+        "subreddit": "bordeaux",
+        "score": 3,
+        "num_comments": 6,
+        "created_utc": 1751977904.0,
+        "permalink": "https://reddit.com/r/bordeaux/comments/1luncaa/considering_visiting_for_a_month_tell_me_about/",
+        "category": "food",
+        "relevance_score": 7.5
+      },
+      {
+        "id": "1mmb8qd",
+        "title": "Planning move to Bordeaux",
+        "selftext": "Me &amp; my wife are planning to move to Bordeaux later this year she is not European so we are starting the visa de long sejour process and I have a French passport and speak French but have never actually lived in France but have family in other parts of France. We\u2019re planning to arrive October/November. \nIm researching apartment and the process, I work for a non-French company remotely and which I know will make things more complicated. I\u2019m looking into the best process to get an apartment is",
+        "url": "https://www.reddit.com/r/bordeaux/comments/1mmb8qd/planning_move_to_bordeaux/",
+        "subreddit": "bordeaux",
+        "score": 2,
+        "num_comments": 12,
+        "created_utc": 1754806782.0,
+        "permalink": "https://reddit.com/r/bordeaux/comments/1mmb8qd/planning_move_to_bordeaux/",
+        "category": "budget",
+        "relevance_score": 7.5
+      },
+      {
+        "id": "1pbnpxg",
+        "title": "Went to Bordeaux for the second year in a row, still in love with the city. Here's a bit of my camera roll!",
+        "selftext": "Don't know if this is something from the region or more of a cultural thing but I deeply appreciate the skill the French have to just. Conjure up a bottle of red a piece of cheese from seemingly nowhere. The Christmas market with antiques was lovely and I loved seeing the sellers at lunchtime putting together their tables and eating lunch giving 0 shits about the clients lol\n\nIt's a beautiful city that I deeply cherish and I'm glad I got to see it both during the summer and with the autumnal col",
+        "url": "https://www.reddit.com/gallery/1pbnpxg",
+        "subreddit": "bordeaux",
+        "score": 166,
+        "num_comments": 13,
+        "created_utc": 1764620603.0,
+        "permalink": "https://reddit.com/r/bordeaux/comments/1pbnpxg/went_to_bordeaux_for_the_second_year_in_a_row/",
+        "category": "top_posts",
+        "relevance_score": 7.5
+      },
+      {
+        "id": "1k2qk1l",
+        "title": "How many days in Paris vs Bordeaux?",
+        "selftext": "Hi everyone, I'm trying to book some flights to France. I want to spend time in Paris, of course, and I have a friend who lives in Bordeaux so I want to go there too.\n\nCurrently I have two options for flying in and flying out. I'm unsure how many days to spend in Paris vs Bordeaux, and which one to prioritise over the other.\n\nEither I can arrive in Paris on Fri 13th June or Tuesday 17th June 2025. I need to leave Paris to go to Dijon and Lyon for two weeks in total for a separate trip on Sun 22n",
+        "url": "https://www.reddit.com/r/ParisTravelGuide/comments/1k2qk1l/how_many_days_in_paris_vs_bordeaux/",
+        "subreddit": "ParisTravelGuide",
+        "score": 2,
+        "num_comments": 11,
+        "created_utc": 1745046611.0,
+        "permalink": "https://reddit.com/r/ParisTravelGuide/comments/1k2qk1l/how_many_days_in_paris_vs_bordeaux/",
+        "category": "things_to_do",
+        "relevance_score": 7.5
+      },
+      {
+        "id": "1bu2sqf",
+        "title": "University of Bordeaux - IAE Bordeaux",
+        "selftext": "Hello everyone, i just got offered a place at \u201cEuropean business administration\u201d program at IAE Bordeaux, so i got a couple of questions:\n1. How is student life at Bordeaux in comparison to other french cities?\n2. In nightlife/party scene here good and is it centered around some student organizations or are there active clubs not related to students?\n3. Will it be difficult for me to make friends and engage in social activities if I don\u2019t speak french (ofc i am willing to learn french, but it wi",
+        "url": "https://www.reddit.com/r/bordeaux/comments/1bu2sqf/university_of_bordeaux_iae_bordeaux/",
+        "subreddit": "bordeaux",
+        "score": 6,
+        "num_comments": 5,
+        "created_utc": 1712074631.0,
+        "permalink": "https://reddit.com/r/bordeaux/comments/1bu2sqf/university_of_bordeaux_iae_bordeaux/",
+        "category": "family",
+        "relevance_score": 7.0
+      },
+      {
+        "id": "1j37bvz",
+        "title": "Magnifique ch\u00e2teau abandonn\u00e9 pr\u00e8s de Bordeaux",
+        "selftext": "",
+        "url": "https://i.redd.it/fx72wd4hanme1.jpeg",
+        "subreddit": "bordeaux",
+        "score": 465,
+        "num_comments": 26,
+        "created_utc": 1741081949.0,
+        "permalink": "https://reddit.com/r/bordeaux/comments/1j37bvz/magnifique_ch\u00e2teau_abandonn\u00e9_pr\u00e8s_de_bordeaux/",
+        "category": "top_posts",
+        "relevance_score": 7.0
+      },
+      {
+        "id": "1e7reib",
+        "title": "Meilleur Tik-Tok sur Bordeaux (cringe puissance 1000)",
+        "selftext": "",
+        "url": "https://v.redd.it/t3bzz5ap2ndd1",
+        "subreddit": "bordeaux",
+        "score": 151,
+        "num_comments": 56,
+        "created_utc": 1721466168.0,
+        "permalink": "https://reddit.com/r/bordeaux/comments/1e7reib/meilleur_tiktok_sur_bordeaux_cringe_puissance_1000/",
+        "category": "top_posts",
+        "relevance_score": 7.0
+      },
+      {
+        "id": "1nnv0n4",
+        "title": "4 Months in Paris and here are my 2 cents",
+        "selftext": "46M retired, noobie photographer and I've been travelling around France for the last 9 months and 4 months in Paris wanted to say how much appreciate everything. \n\nHere are some advice and stereotypes that I wanted to clear \n\n1. French people are not rude, they're straightforward. If you manage to speak little bit of French like Bonjour, Au revoir etc, they really appreciate it \n\n2. Paris is not France. This is where the stereotype comes from. Like every major city, people are busy and don't hav",
+        "url": "https://www.reddit.com/gallery/1nnv0n4",
+        "subreddit": "ParisTravelGuide",
+        "score": 1403,
+        "num_comments": 171,
+        "created_utc": 1758566941.0,
+        "permalink": "https://reddit.com/r/ParisTravelGuide/comments/1nnv0n4/4_months_in_paris_and_here_are_my_2_cents/",
+        "category": "food",
+        "relevance_score": 7.0
+      },
+      {
+        "id": "1nl7g5c",
+        "title": "Now that the franchise has covered the most requested/\u201cmainstream\u201d settings (Ancient Egypt, Feudal Japan, Ancient Greece, Vikings) what are some times/places you\u2019d like to see in future games?",
+        "selftext": "For me (in no particular order):\n\nRoman Syria. Crisis of the Third Century. 260-272 CE. \n\nMajor locations: Palmyra, Antioch, Ctesiphon.\n\nThis game would have the three cities serving as the main locations with occasional visits to smaller side locations. Picture Mirage\u2018s Baghdad but three cities and their environs in one game. \n\nFrance. Hundred Years War. 1346-1356 CE. \n\nMajor locations: Calais, Bordeaux, Carcassonne, Narbonne. \n\nThis game would be a combination of the large-scale RPGs and small",
+        "url": "https://www.reddit.com/r/assassinscreed/comments/1nl7g5c/now_that_the_franchise_has_covered_the_most/",
+        "subreddit": "assassinscreed",
+        "score": 337,
+        "num_comments": 386,
+        "created_utc": 1758297494.0,
+        "permalink": "https://reddit.com/r/assassinscreed/comments/1nl7g5c/now_that_the_franchise_has_covered_the_most/",
+        "category": "general",
+        "relevance_score": 7.0
+      },
+      {
+        "id": "1iztp31",
+        "title": "Are there no -safe areas of Bordeaux to avoid",
+        "selftext": "Are there non-safe areas to avoid when staying in Bordeaux? Thanks. ",
+        "url": "https://www.reddit.com/r/bordeaux/comments/1iztp31/are_there_no_safe_areas_of_bordeaux_to_avoid/",
+        "subreddit": "bordeaux",
+        "score": 12,
+        "num_comments": 28,
+        "created_utc": 1740698875.0,
+        "permalink": "https://reddit.com/r/bordeaux/comments/1iztp31/are_there_no_safe_areas_of_bordeaux_to_avoid/",
+        "category": "safety_challenges",
+        "relevance_score": 6.5
+      },
+      {
+        "id": "1cwcuv1",
+        "title": "Work spaces in Bordeaux ",
+        "selftext": "Bonjour !\n\nI'm going to be working remotely in Bordeaux on Thursday and just wondered if there are any designated working spaces or cafes that you would recommend? I just need WiFi and a desk, really. Ideally by the train station or within a reasonably commutable distance to it. A lot of cafes in London don't mind you setting up for a day, as long as you buy some coffees/refreshments throughout the day, but not sure what the culture is in France/Bordeaux for that kind of thing, so please help me",
+        "url": "https://www.reddit.com/r/bordeaux/comments/1cwcuv1/work_spaces_in_bordeaux/",
+        "subreddit": "bordeaux",
+        "score": 2,
+        "num_comments": 4,
+        "created_utc": 1716203059.0,
+        "permalink": "https://reddit.com/r/bordeaux/comments/1cwcuv1/work_spaces_in_bordeaux/",
+        "category": "budget",
+        "relevance_score": 6.5
+      },
+      {
+        "id": "1k99att",
+        "title": "Photos anciennes Bordeaux - autour de 1900",
+        "selftext": "Prise dans un album souvenir",
+        "url": "https://www.reddit.com/gallery/1k99att",
+        "subreddit": "bordeaux",
+        "score": 184,
+        "num_comments": 13,
+        "created_utc": 1745774641.0,
+        "permalink": "https://reddit.com/r/bordeaux/comments/1k99att/photos_anciennes_bordeaux_autour_de_1900/",
+        "category": "top_posts",
+        "relevance_score": 6.5
+      },
+      {
+        "id": "1j4s64m",
+        "title": "Super id\u00e9e des employ\u00e9s de la librairie Mollat \u00e0 Bordeaux, les \"bookfaces\"",
+        "selftext": "",
+        "url": "https://www.reddit.com/gallery/1j4s64m",
+        "subreddit": "bordeaux",
+        "score": 174,
+        "num_comments": 11,
+        "created_utc": 1741255281.0,
+        "permalink": "https://reddit.com/r/bordeaux/comments/1j4s64m/super_id\u00e9e_des_employ\u00e9s_de_la_librairie_mollat_\u00e0/",
+        "category": "top_posts",
+        "relevance_score": 6.5
+      },
+      {
+        "id": "1khlwea",
+        "title": "Carte de Bordeaux en 1832",
+        "selftext": "",
+        "url": "https://i.redd.it/7jfv7pk22jze1.jpeg",
+        "subreddit": "bordeaux",
+        "score": 148,
+        "num_comments": 8,
+        "created_utc": 1746696709.0,
+        "permalink": "https://reddit.com/r/bordeaux/comments/1khlwea/carte_de_bordeaux_en_1832/",
+        "category": "top_posts",
+        "relevance_score": 6.5
+      }
+    ]
+  },
+  "tours_events": {
+    "city_name": "Bordeaux",
+    "collected_at": "2026-02-17T10:33:43.010369",
+    "walking_tours": [],
+    "food_tours": [],
+    "history_tours": [],
+    "free_tours": [],
+    "events": [],
+    "summary": {
+      "total_tours": 0,
+      "free_tours": 0,
+      "total_events": 0
+    }
+  },
+  "persona_insights": {
+    "solo_traveler": {
+      "persona_name": "Solo Traveler",
+      "description": "Independent travelers exploring alone",
+      "recommended_posts": [],
+      "recommended_tours": [],
+      "key_tips": [
+        "* In the afternoon, we visited 2 more wineries and enjoyed the small group experience, which was fun and social.",
+        "Here\u2019s our rough plan: \n\u2022 Paris \u2013 4 nights (we\u2019re staying in Le Marais) \n\u2022 Lyon \u2013 3 nights \n\u2022 Bordeaux \u2013 3 nights (but open to swapping with another city if people think that\u2019s a better fit)\n\nWhat...",
+        "I\u2019m looking into the best process to get an apartment is it via something like Morning Croissant /Se Loger + garantme ? Or are there better ways for expats?\n\nAlso is 800-1100\u20ac a reasonable budget for...",
+        "My main questions are:\n\n* How many full days in Paris do you need to be able to enjoy it?\n* Should I spend more days in Bordeaux or in Paris? Which of these combinations is the best? (8 days Paris...",
+        "Will it be difficult for me to make friends and engage in social activities if I don\u2019t speak french (ofc i am willing to learn french, but it will take time until i reach a decent level of...",
+        "[Flixbus.com](http://flixbus.com) for cheap bus tickets,\n \n[Ouigo.com](http://ouigo.com) has exchange tickets which are way cheaper than actual price,\n\nDecathlon and Primark for...",
+        "Since it\u2019s a short stay, I\u2019d really appreciate guidance from locals or students on a few things:\n\ud83c\udfe0 Accommodation (Short-term)\nWhat\u2019s the most common way students book accommodation for 1 month?\nAre...",
+        "He is going to be in Bordeaux for a year and he wants to stick to a budget of \u20ac1000/month.",
+        "**We're looking for advice and feedback on two things**:\n\n **(1) Itinerary planning** \\- eg is this realistic? should we focus solely on certain regions to truly enjoy France? places we haven't...",
+        "Does anybody have a recommendation on what to do or where to stay for a night (a hostel)? I (M28, Swiss) like music (Punk/Alt/Techno/DnB), alternative art / spaces / culture, skateboarding, MTG &amp;..."
+      ],
+      "things_to_avoid": [
+        "Are there non-safe areas to avoid when staying in Bordeaux? Thanks.",
+        "Are there any other areas I should avoid, at night or in general? Is it safe to be there, if I'm not alone?\n\nLooking forward to visit Bordeaux!",
+        "So, I'm hoping someone can tell me their personal favourite area or areas to avoid, or if you have any other details to share it would be appreciated."
+      ]
+    },
+    "couple": {
+      "persona_name": "Romantic Couple",
+      "description": "Couples looking for romantic experiences",
+      "recommended_posts": [
+        {
+          "title": "Moving to Bordeaux \u2013 Need Advice from Locals or Expats!",
+          "url": "https://reddit.com/r/bordeaux/comments/1itbwqd/moving_to_bordeaux_need_advice_from_locals_or/",
+          "score": 13,
+          "relevance": 1
+        },
+        {
+          "title": "Bar and Coffee Shop recommendations in Bordeaux",
+          "url": "https://reddit.com/r/bordeaux/comments/1i8qwzp/bar_and_coffee_shop_recommendations_in_bordeaux/",
+          "score": 4,
+          "relevance": 1
+        }
+      ],
+      "recommended_tours": [],
+      "key_tips": [
+        "* Before dinner, we wandered the city center and found a cute bar for drinks ($26.63).",
+        "Here\u2019s our rough plan: \n\u2022 Paris \u2013 4 nights (we\u2019re staying in Le Marais) \n\u2022 Lyon \u2013 3 nights \n\u2022 Bordeaux \u2013 3 nights (but open to swapping with another city if people think that\u2019s a better fit)\n\nWhat...",
+        "I would love a bit of help in surprising my boyfriend with some fun romantic stuff to to visit and do in Bordeaux.",
+        "I'm sure they are all delicious, and I don't think I'm prepared for a dinner bill."
+      ],
+      "things_to_avoid": [
+        "Are there non-safe areas to avoid when staying in Bordeaux? Thanks.",
+        "Are there any other areas I should avoid, at night or in general? Is it safe to be there, if I'm not alone?\n\nLooking forward to visit Bordeaux!",
+        "So, I'm hoping someone can tell me their personal favourite area or areas to avoid, or if you have any other details to share it would be appreciated."
+      ]
+    },
+    "family": {
+      "persona_name": "Family with Kids",
+      "description": "Families traveling with children",
+      "recommended_posts": [
+        {
+          "title": "Our 8-day trip to Bordeaux, Loire Valley, and Paris cost $8,500 and we spent a lot on restaurants",
+          "url": "https://reddit.com/r/MoneyDiariesACTIVE/comments/1fdn5so/our_8day_trip_to_bordeaux_loire_valley_and_paris/",
+          "score": 127,
+          "relevance": 2
+        },
+        {
+          "title": "Where to stop for lunch and an outing with the family along the route from Toulouse to Southern Bordeaux?",
+          "url": "https://reddit.com/r/bordeaux/comments/1mfyksy/where_to_stop_for_lunch_and_an_outing_with_the/",
+          "score": 1,
+          "relevance": 2
+        },
+        {
+          "title": "rainy day activities Arcachon and Bordeaux",
+          "url": "https://reddit.com/r/bordeaux/comments/1crmfxy/rainy_day_activities_arcachon_and_bordeaux/",
+          "score": 5,
+          "relevance": 1
+        },
+        {
+          "title": "Where to stay for a week... Arcachon, Bordeaux or north/south of there?",
+          "url": "https://reddit.com/r/bordeaux/comments/1lqyhb8/where_to_stay_for_a_week_arcachon_bordeaux_or/",
+          "score": 0,
+          "relevance": 1
+        }
+      ],
+      "recommended_tours": [],
+      "key_tips": [
+        "We typically spend another $5k on other things (food, activities, dog care\u2026so much dog care, etc), $1k+ to charity and save $5-6k.",
+        "**Where to Live:** Which neighborhoods in Bordeaux would you recommend for a young professional? I'm looking for a place that's safe, lively, and ideally has good access to public transport.",
+        "I'm really not sure and I've tried to consult with my friend but it's really a matter of figuring out how many days I'll be able to come, and then planning the activities.",
+        "Will it be difficult for me to make friends and engage in social activities if I don\u2019t speak french (ofc i am willing to learn french, but it will take time until i reach a decent level of...",
+        "Are there non-safe areas to avoid when staying in Bordeaux? Thanks.",
+        "Do you guys have recommendations, what to do and what to look at as **urban planners** in the **city center**? Is there a must see? Are there historical city structures that are rare? Where do the...",
+        "I'm from a very safe, small city in Germany and a young woman, so I'm a little concerned (As I would be staying in any other big city, to be honest).",
+        "What are some things that I must do while I\u2019m here? Specific wine tours, restaurants, museums, parks, etc.",
+        "In general we enjoy more of the beach days, riding a bike, visiting natural reserves, tasting new food, playing games kind of activities...but right now I am happy to hear about any activities that..."
+      ],
+      "things_to_avoid": [
+        "Are there non-safe areas to avoid when staying in Bordeaux? Thanks.",
+        "Are there any other areas I should avoid, at night or in general? Is it safe to be there, if I'm not alone?\n\nLooking forward to visit Bordeaux!",
+        "So, I'm hoping someone can tell me their personal favourite area or areas to avoid, or if you have any other details to share it would be appreciated."
+      ]
+    },
+    "budget": {
+      "persona_name": "Budget Traveler",
+      "description": "Cost-conscious travelers",
+      "recommended_posts": [
+        {
+          "title": "Bordeaux Tour",
+          "url": "https://reddit.com/r/bordeaux/comments/5xauyy/bordeaux_tour/",
+          "score": 3,
+          "relevance": 3
+        },
+        {
+          "title": "My recommendations for a first time trip to France",
+          "url": "https://reddit.com/r/ParisTravelGuide/comments/1l71cjq/my_recommendations_for_a_first_time_trip_to_france/",
+          "score": 109,
+          "relevance": 2
+        },
+        {
+          "title": "Help our boy move to Bordeaux! ",
+          "url": "https://reddit.com/r/bordeaux/comments/1e1h3zp/help_our_boy_move_to_bordeaux/",
+          "score": 7,
+          "relevance": 2
+        },
+        {
+          "title": "Renting a bicycle in Bordeaux?",
+          "url": "https://reddit.com/r/bordeaux/comments/7w6ffe/renting_a_bicycle_in_bordeaux/",
+          "score": 4,
+          "relevance": 2
+        },
+        {
+          "title": "4 Months in Paris and here are my 2 cents",
+          "url": "https://reddit.com/r/ParisTravelGuide/comments/1nnv0n4/4_months_in_paris_and_here_are_my_2_cents/",
+          "score": 1403,
+          "relevance": 1
+        },
+        {
+          "title": "Now that the franchise has covered the most requested/\u201cmainstream\u201d settings (Ancient Egypt, Feudal Japan, Ancient Greece, Vikings) what are some times/places you\u2019d like to see in future games?",
+          "url": "https://reddit.com/r/assassinscreed/comments/1nl7g5c/now_that_the_franchise_has_covered_the_most/",
+          "score": 337,
+          "relevance": 1
+        },
+        {
+          "title": "Our 8-day trip to Bordeaux, Loire Valley, and Paris cost $8,500 and we spent a lot on restaurants",
+          "url": "https://reddit.com/r/MoneyDiariesACTIVE/comments/1fdn5so/our_8day_trip_to_bordeaux_loire_valley_and_paris/",
+          "score": 127,
+          "relevance": 1
+        },
+        {
+          "title": "Planning move to Bordeaux",
+          "url": "https://reddit.com/r/bordeaux/comments/1mmb8qd/planning_move_to_bordeaux/",
+          "score": 2,
+          "relevance": 1
+        },
+        {
+          "title": "Work spaces in Bordeaux ",
+          "url": "https://reddit.com/r/bordeaux/comments/1cwcuv1/work_spaces_in_bordeaux/",
+          "score": 2,
+          "relevance": 1
+        }
+      ],
+      "recommended_tours": [],
+      "key_tips": [
+        "* Felt much better post-nap and went out for a 4 PM free walking tour, spending 2.5 hours exploring the city center and learning about Bordeaux.",
+        "1510-1525\n\nCities: Tenochtitlan, Tetzcoco, Tlacopan, Tlaxcala\n\nThis game would lend itself better to the big RPG style where we could travel freely around the Mexico Valley area and its many cities...",
+        "I also have a free day on Monday to do some exploring, so any recommendations for a day trip in Bordeaux would also be welcome.",
+        "* Museums Have Free Days &amp; Late Nights\n\nOne time I accidentally stumbled into the Mus\u00e9e d\u2019Orsay during a free night opening - it was amazing, way less crowded, and I felt very cultured for \u20ac0.",
+        "Do you guys have recommendations, what to do and what to look at as **urban planners** in the **city center**? Is there a must see? Are there historical city structures that are rare? Where do the...",
+        "**Thoughts? Is this a realistic trip to hit ALLLL of these regions/places in one go? Would it be better to stay longer in one region than to try to move onto another so fast?**  \n\n**Also, is it...",
+        "Does anybody have a recommendation on what to do or where to stay for a night (a hostel)? I (M28, Swiss) like music (Punk/Alt/Techno/DnB), alternative art / spaces / culture, skateboarding, MTG &amp;...",
+        "Greetings everyone, I'm new in Bordeaux (since last summer) but I haven't go out a lot, so i'm looking to meet new people to hang out and hopefully find some new friends with similar interests,..."
+      ],
+      "things_to_avoid": [
+        "Are there non-safe areas to avoid when staying in Bordeaux? Thanks.",
+        "Are there any other areas I should avoid, at night or in general? Is it safe to be there, if I'm not alone?\n\nLooking forward to visit Bordeaux!",
+        "So, I'm hoping someone can tell me their personal favourite area or areas to avoid, or if you have any other details to share it would be appreciated."
+      ]
+    },
+    "luxury": {
+      "persona_name": "Luxury Traveler",
+      "description": "Travelers seeking premium experiences",
+      "recommended_posts": [
+        {
+          "title": "Paris + Lyon + Bordeaux (Toulousse or another city?) \u2013 Itinerary recs for 2 sisters in our late 20s",
+          "url": "https://reddit.com/r/Europetravel/comments/1nkrbg0/paris_lyon_bordeaux_toulousse_or_another_city/",
+          "score": 2,
+          "relevance": 1
+        }
+      ],
+      "recommended_tours": [],
+      "key_tips": [
+        "Next, we went to Les Halles de Bacalan (a Spanish food hall) and had tapas and more wine ($45.72).",
+        "I'm going to be working remotely in Bordeaux on Thursday and just wondered if there are any designated working spaces or cafes that you would recommend? I just need WiFi and a desk, really.",
+        "* Watch Out for Tourist Trap Restaurants\n\nIf the menu is in five languages with pictures of spaghetti and burgers \u2013 instant no.",
+        "We will actually be in Europe to initially visit my family in Valencia, Spain - after that visit, we want to explore France for the first time.",
+        "With only 2 winners, they are tied by Belgium, Russia, and Ukraine, and are below Scotland (while still being below England, Spain, Germany, Italy, Portugal, and the Netherland).",
+        "Does anybody have a recommendation on what to do or where to stay for a night (a hostel)? I (M28, Swiss) like music (Punk/Alt/Techno/DnB), alternative art / spaces / culture, skateboarding, MTG &amp;..."
+      ],
+      "things_to_avoid": [
+        "Are there non-safe areas to avoid when staying in Bordeaux? Thanks.",
+        "Are there any other areas I should avoid, at night or in general? Is it safe to be there, if I'm not alone?\n\nLooking forward to visit Bordeaux!",
+        "So, I'm hoping someone can tell me their personal favourite area or areas to avoid, or if you have any other details to share it would be appreciated."
+      ]
+    },
+    "adventure": {
+      "persona_name": "Adventure Seeker",
+      "description": "Active travelers seeking thrills",
+      "recommended_posts": [
+        {
+          "title": "Our 8-day trip to Bordeaux, Loire Valley, and Paris cost $8,500 and we spent a lot on restaurants",
+          "url": "https://reddit.com/r/MoneyDiariesACTIVE/comments/1fdn5so/our_8day_trip_to_bordeaux_loire_valley_and_paris/",
+          "score": 127,
+          "relevance": 3
+        },
+        {
+          "title": "21 YR Student Moving from the USA to Bordeaux, France \u2013 Seeking Advice on Where to Live and How to Meet People!",
+          "url": "https://reddit.com/r/bordeaux/comments/1d9xrwo/21_yr_student_moving_from_the_usa_to_bordeaux/",
+          "score": 23,
+          "relevance": 1
+        },
+        {
+          "title": "Paris + Lyon + Bordeaux (Toulousse or another city?) \u2013 Itinerary recs for 2 sisters in our late 20s",
+          "url": "https://reddit.com/r/Europetravel/comments/1nkrbg0/paris_lyon_bordeaux_toulousse_or_another_city/",
+          "score": 2,
+          "relevance": 1
+        }
+      ],
+      "recommended_tours": [],
+      "key_tips": [
+        "Our room was not in the main hotel but at the back of a gravel garden/outdoor area and was quite strange.",
+        "We planned on spending a lot of time outdoors but since that might not be in the cards I wanted to ask whether you have any recommendations for rainy days."
+      ],
+      "things_to_avoid": [
+        "Are there non-safe areas to avoid when staying in Bordeaux? Thanks.",
+        "Are there any other areas I should avoid, at night or in general? Is it safe to be there, if I'm not alone?\n\nLooking forward to visit Bordeaux!",
+        "So, I'm hoping someone can tell me their personal favourite area or areas to avoid, or if you have any other details to share it would be appreciated."
+      ]
+    },
+    "foodie": {
+      "persona_name": "Food Enthusiast",
+      "description": "Travelers focused on culinary experiences",
+      "recommended_posts": [
+        {
+          "title": "Our 8-day trip to Bordeaux, Loire Valley, and Paris cost $8,500 and we spent a lot on restaurants",
+          "url": "https://reddit.com/r/MoneyDiariesACTIVE/comments/1fdn5so/our_8day_trip_to_bordeaux_loire_valley_and_paris/",
+          "score": 127,
+          "relevance": 3
+        },
+        {
+          "title": "My recommendations for a first time trip to France",
+          "url": "https://reddit.com/r/ParisTravelGuide/comments/1l71cjq/my_recommendations_for_a_first_time_trip_to_france/",
+          "score": 109,
+          "relevance": 2
+        },
+        {
+          "title": "Paris + Lyon + Bordeaux (Toulousse or another city?) \u2013 Itinerary recs for 2 sisters in our late 20s",
+          "url": "https://reddit.com/r/Europetravel/comments/1nkrbg0/paris_lyon_bordeaux_toulousse_or_another_city/",
+          "score": 2,
+          "relevance": 2
+        },
+        {
+          "title": "4 Months in Paris and here are my 2 cents",
+          "url": "https://reddit.com/r/ParisTravelGuide/comments/1nnv0n4/4_months_in_paris_and_here_are_my_2_cents/",
+          "score": 1403,
+          "relevance": 1
+        },
+        {
+          "title": "Considering visiting for a month, tell me about Bordeaux!",
+          "url": "https://reddit.com/r/bordeaux/comments/1luncaa/considering_visiting_for_a_month_tell_me_about/",
+          "score": 3,
+          "relevance": 1
+        },
+        {
+          "title": "Suggestions for introducing Bordeaux\u2764\ufe0f",
+          "url": "https://reddit.com/r/bordeaux/comments/1r19foc/suggestions_for_introducing_bordeaux/",
+          "score": 1,
+          "relevance": 1
+        },
+        {
+          "title": "Best place in Bordeaux ",
+          "url": "https://reddit.com/r/bordeaux/comments/1ei86v0/best_place_in_bordeaux/",
+          "score": 0,
+          "relevance": 1
+        }
+      ],
+      "recommended_tours": [],
+      "key_tips": [
+        "There was a large Christmas market, though I didn't find that so enjoyable - it was very crowded and it's a fenced-off area (due to security) so it felt a bit strange to me.",
+        "My sister and I (late 20s/early 30s) are heading to France in October and would love itinerary recommendations, especially around restaurants, bars, tours, and fun neighborhoods to wander.",
+        "The Christmas market with antiques was lovely and I loved seeing the sellers at lunchtime putting together their tables and eating lunch giving 0 shits about the clients lol\n\nIt's a beautiful city...",
+        "* Watch Out for Tourist Trap Restaurants\n\nIf the menu is in five languages with pictures of spaghetti and burgers \u2013 instant no.",
+        "A couple of years back we went to Paris and he surprised me with a visit to a speakeasy behind a fake little supermarket, going to the icebar and some other quirky things, and I really want to turn...",
+        "Is there anything we MUST see/do while we are there ? \n\nWe love eating and drinking wine so any bar/ restaurant recommendations are greatly appreciated!",
+        "More of an almost grill house restaurant, with steak, fries, burger and the likes.",
+        "We plan to cook a lot if we can find places with stovetops, since we enjoy going to local markets to shop and whatnot.",
+        "Looking for some recommendations for sights to see, good bars, restaurants etc? We are coming to Bordeaux 22-29 August so any help appreciated :) Planning to do a wine tour in Saint Emillion and a...",
+        "Whilst in Bordeaux Central, I have seen that restaurants Arcada, Son', and Melodie seem to look good."
+      ],
+      "things_to_avoid": [
+        "Are there non-safe areas to avoid when staying in Bordeaux? Thanks.",
+        "Are there any other areas I should avoid, at night or in general? Is it safe to be there, if I'm not alone?\n\nLooking forward to visit Bordeaux!",
+        "So, I'm hoping someone can tell me their personal favourite area or areas to avoid, or if you have any other details to share it would be appreciated."
+      ]
+    },
+    "culture": {
+      "persona_name": "Culture & History Buff",
+      "description": "Travelers interested in history and culture",
+      "recommended_posts": [
+        {
+          "title": "Our 8-day trip to Bordeaux, Loire Valley, and Paris cost $8,500 and we spent a lot on restaurants",
+          "url": "https://reddit.com/r/MoneyDiariesACTIVE/comments/1fdn5so/our_8day_trip_to_bordeaux_loire_valley_and_paris/",
+          "score": 127,
+          "relevance": 3
+        },
+        {
+          "title": "21 YR Student Moving from the USA to Bordeaux, France \u2013 Seeking Advice on Where to Live and How to Meet People!",
+          "url": "https://reddit.com/r/bordeaux/comments/1d9xrwo/21_yr_student_moving_from_the_usa_to_bordeaux/",
+          "score": 23,
+          "relevance": 2
+        },
+        {
+          "title": "Paris + Lyon + Bordeaux (Toulousse or another city?) \u2013 Itinerary recs for 2 sisters in our late 20s",
+          "url": "https://reddit.com/r/Europetravel/comments/1nkrbg0/paris_lyon_bordeaux_toulousse_or_another_city/",
+          "score": 2,
+          "relevance": 2
+        },
+        {
+          "title": "Now that the franchise has covered the most requested/\u201cmainstream\u201d settings (Ancient Egypt, Feudal Japan, Ancient Greece, Vikings) what are some times/places you\u2019d like to see in future games?",
+          "url": "https://reddit.com/r/assassinscreed/comments/1nl7g5c/now_that_the_franchise_has_covered_the_most/",
+          "score": 337,
+          "relevance": 1
+        },
+        {
+          "title": "Renting in Bordeaux",
+          "url": "https://reddit.com/r/bordeaux/comments/10v44i2/renting_in_bordeaux/",
+          "score": 6,
+          "relevance": 1
+        },
+        {
+          "title": "Itinerary Input - Bordeaux and Loire",
+          "url": "https://reddit.com/r/FranceTravel/comments/1i6458h/itinerary_input_bordeaux_and_loire/",
+          "score": 1,
+          "relevance": 1
+        }
+      ],
+      "recommended_tours": [],
+      "key_tips": [
+        "By car it's about 45 minutes from the western suburbs of Bordeaux where I was staying, and it's a very popular tourist destination especially in the summer.",
+        "Mon entourage m\u2019assurait que la vie \u00e0 Bordeaux et dans sa r\u00e9gion \u00e9tait bien meilleure qu\u2019en \u00cele-de-France.",
+        "* Felt much better post-nap and went out for a 4 PM free walking tour, spending 2.5 hours exploring the city center and learning about Bordeaux.",
+        "My sister and I (late 20s/early 30s) are heading to France in October and would love itinerary recommendations, especially around restaurants, bars, tours, and fun neighborhoods to wander.",
+        "I'd love to hear from people who live there, is it easy to make friends in your mid-20s as an english speaker? I'm from NYC so I understand tourist/local friction and would be as respectful as...",
+        "Originally, we were thinking of doing more Paris-specific things like sight-seeing the iconic spots, thrift shopping, museums.",
+        "Summer is definitely a peak for France tourism, so I thought this might help someone heading there for the first time.",
+        "Last time we came we did all the \u2018standard\u2019 tourist things\u2026city bus tour, the mirror d\u2019eau, Cite du Vin, visiting the monuments etc\u2026.",
+        "Do you guys have recommendations, what to do and what to look at as **urban planners** in the **city center**? Is there a must see? Are there historical city structures that are rare? Where do the...",
+        "We're not really into fine-dining/adventure stuff, and other than the classic Versailles and some museums in Paris, we're not really attracted to anything tourist-y."
+      ],
+      "things_to_avoid": [
+        "Are there non-safe areas to avoid when staying in Bordeaux? Thanks.",
+        "Are there any other areas I should avoid, at night or in general? Is it safe to be there, if I'm not alone?\n\nLooking forward to visit Bordeaux!",
+        "So, I'm hoping someone can tell me their personal favourite area or areas to avoid, or if you have any other details to share it would be appreciated."
+      ]
+    }
+  },
+  "blog_resources": {
+    "local_experience": [
+      {
+        "name": "Spotted by Locals",
+        "url": "https://www.spottedbylocals.com/bordeaux",
+        "description": "Recommendations from locals only"
+      },
+      {
+        "name": "Atlas Obscura",
+        "url": "https://www.atlasobscura.com/things-to-do/bordeaux",
+        "description": "Hidden gems and unusual places"
+      },
+      {
+        "name": "Culture Trip",
+        "url": "https://theculturetrip.com/search?q=Bordeaux",
+        "description": "Culture, food, and experiences"
+      }
+    ],
+    "food": [
+      {
+        "name": "Eater",
+        "url": "https://www.eater.com/bordeaux",
+        "description": "Restaurant guides and food news"
+      },
+      {
+        "name": "TripAdvisor Restaurants",
+        "url": "https://www.tripadvisor.com/Restaurants-Bordeaux",
+        "description": "Restaurant reviews"
+      }
+    ],
+    "family": [
+      {
+        "name": "Mommy Poppins",
+        "url": "https://mommypoppins.com/search?q=Bordeaux",
+        "description": "Family activities"
+      },
+      {
+        "name": "Trekaroo",
+        "url": "https://www.trekaroo.com/search?utf8=%E2%9C%93&search%5Bq%5D=Bordeaux",
+        "description": "Family travel reviews"
+      }
+    ],
+    "budget": [
+      {
+        "name": "Nomadic Matt",
+        "url": "https://www.nomadicmatt.com/?s=Bordeaux",
+        "description": "Budget travel tips"
+      },
+      {
+        "name": "Budget Your Trip",
+        "url": "https://www.budgetyourtrip.com/search?q=Bordeaux",
+        "description": "Cost breakdowns"
+      }
+    ],
+    "general": [
+      {
+        "name": "Lonely Planet",
+        "url": "https://www.lonelyplanet.com/search?q=Bordeaux",
+        "description": "Comprehensive travel guides"
+      },
+      {
+        "name": "Rick Steves",
+        "url": "https://www.ricksteves.com/europe?searchTerm=Bordeaux",
+        "description": "European travel expertise"
+      },
+      {
+        "name": "Wikitravel",
+        "url": "https://wikitravel.org/en/Bordeaux",
+        "description": "Community travel guide"
+      }
+    ]
+  },
+  "search_urls": {
+    "viator": "https://www.viator.com/searchResults/all?text=Bordeaux+walking+tour",
+    "getyourguide": "https://www.getyourguide.com/s/?q=Bordeaux+walking+tour",
+    "guruwalk": "https://www.guruwalk.com/walks/bordeaux",
+    "freetour": "https://www.freetour.com/search?q=Bordeaux",
+    "airbnb_experiences": "https://www.airbnb.com/s/bordeaux/experiences",
+    "tripadvisor": "https://www.tripadvisor.com/Search?q=Bordeaux+walking+tours",
+    "eventbrite": "https://www.eventbrite.com/d/bordeaux/events/",
+    "meetup": "https://www.meetup.com/find/?keywords=Bordeaux&source=EVENTS"
+  }
+}

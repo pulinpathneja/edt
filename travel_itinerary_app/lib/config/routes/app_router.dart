@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../presentation/screens/onboarding/onboarding_screen.dart';
 import '../../presentation/screens/home/home_screen.dart';
 import '../../presentation/screens/country/country_selection_screen.dart';
 import '../../presentation/screens/country/trip_preferences_screen.dart';
@@ -16,7 +17,8 @@ import '../../presentation/screens/trip_creation/trip_creation_screen.dart';
 class Routes {
   Routes._();
 
-  static const String home = '/';
+  static const String onboarding = '/';
+  static const String home = '/home';
   static const String countrySelect = '/country/select';
   static const String countryPreferences = '/country/preferences';
   static const String countryAllocations = '/country/allocations';
@@ -32,9 +34,20 @@ class Routes {
 /// GoRouter provider
 final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: Routes.home,
+    initialLocation: Routes.onboarding,
     debugLogDiagnostics: true,
     routes: [
+      GoRoute(
+        path: Routes.onboarding,
+        name: 'onboarding',
+        pageBuilder: (context, state) => CustomTransitionPage(
+          key: state.pageKey,
+          child: const OnboardingScreen(),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(opacity: animation, child: child);
+          },
+        ),
+      ),
       GoRoute(
         path: Routes.home,
         name: 'home',
@@ -177,7 +190,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               ),
               const SizedBox(height: 8),
               TextButton(
-                onPressed: () => context.go(Routes.home),
+                onPressed: () => context.go(Routes.onboarding),
                 child: const Text('Go Home'),
               ),
             ],

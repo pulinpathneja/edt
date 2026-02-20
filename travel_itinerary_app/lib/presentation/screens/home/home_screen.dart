@@ -43,7 +43,7 @@ class HomeScreen extends ConsumerWidget {
             const SizedBox(height: AppSpacing.md),
             Text(
               'Unable to load destinations',
-              style: GoogleFonts.playfairDisplay(
+              style: GoogleFonts.plusJakartaSans(
                 fontSize: 22,
                 fontWeight: FontWeight.w600,
                 color: AppColors.textPrimary,
@@ -86,7 +86,7 @@ class HomeScreen extends ConsumerWidget {
                 padding: const EdgeInsets.fromLTRB(20, 28, 20, 12),
                 child: Text(
                   'Explore Countries',
-                  style: GoogleFonts.playfairDisplay(
+                  style: GoogleFonts.plusJakartaSans(
                     fontSize: 22,
                     fontWeight: FontWeight.w600,
                     color: AppColors.textPrimary,
@@ -120,9 +120,9 @@ class HomeScreen extends ConsumerWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Color(0xFFFEF9F2),
-            Color(0xFFFFF5E9),
-            Color(0xFFFFF0E0),
+            AppColors.background,
+            AppColors.surfaceWarm,
+            AppColors.surfaceVariant,
           ],
         ),
       ),
@@ -134,7 +134,7 @@ class HomeScreen extends ConsumerWidget {
             children: [
               Text(
                 'Voyage',
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.plusJakartaSans(
                   fontSize: 28,
                   fontWeight: FontWeight.w700,
                   color: AppColors.primary,
@@ -162,7 +162,7 @@ class HomeScreen extends ConsumerWidget {
           const SizedBox(height: 20),
           Text(
             'Where shall we go?',
-            style: GoogleFonts.playfairDisplay(
+            style: GoogleFonts.plusJakartaSans(
               fontSize: 32,
               fontWeight: FontWeight.w600,
               color: AppColors.textPrimary,
@@ -172,7 +172,7 @@ class HomeScreen extends ConsumerWidget {
           const SizedBox(height: 8),
           Text(
             'Plan your perfect journey with curated itineraries',
-            style: GoogleFonts.inter(
+            style: GoogleFonts.plusJakartaSans(
               fontSize: 15,
               color: AppColors.textSecondary,
               height: 1.4,
@@ -195,8 +195,8 @@ class HomeScreen extends ConsumerWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Color(0xFF8B6914),
-                Color(0xFFC49B38),
+                AppColors.primary,
+                AppColors.primaryLight,
               ],
             ),
             borderRadius: BorderRadius.circular(24),
@@ -230,7 +230,7 @@ class HomeScreen extends ConsumerWidget {
                     ),
                     child: Text(
                       'NEW',
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.plusJakartaSans(
                         fontSize: 11,
                         fontWeight: FontWeight.w700,
                         color: Colors.white,
@@ -243,7 +243,7 @@ class HomeScreen extends ConsumerWidget {
               const SizedBox(height: 20),
               Text(
                 'Multi-City Country Trip',
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.plusJakartaSans(
                   fontSize: 24,
                   fontWeight: FontWeight.w700,
                   color: Colors.white,
@@ -252,7 +252,7 @@ class HomeScreen extends ConsumerWidget {
               const SizedBox(height: 8),
               Text(
                 'Explore multiple cities across a country with smart day allocation and inter-city travel planning.',
-                style: GoogleFonts.inter(
+                style: GoogleFonts.plusJakartaSans(
                   fontSize: 14,
                   color: Colors.white.withOpacity(0.85),
                   height: 1.5,
@@ -263,7 +263,7 @@ class HomeScreen extends ConsumerWidget {
                 children: [
                   Text(
                     'Start Planning',
-                    style: GoogleFonts.inter(
+                    style: GoogleFonts.plusJakartaSans(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
                       color: Colors.white,
@@ -346,7 +346,7 @@ class HomeScreen extends ConsumerWidget {
               const Spacer(),
               Text(
                 country.name,
-                style: GoogleFonts.playfairDisplay(
+                style: GoogleFonts.plusJakartaSans(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
                   color: Colors.white,
@@ -355,7 +355,7 @@ class HomeScreen extends ConsumerWidget {
               const SizedBox(height: 4),
               Text(
                 '${country.cityCount} cities',
-                style: GoogleFonts.inter(
+                style: GoogleFonts.plusJakartaSans(
                   fontSize: 12,
                   color: Colors.white.withOpacity(0.8),
                 ),
@@ -403,7 +403,7 @@ class HomeScreen extends ConsumerWidget {
                   children: [
                     Text(
                       'Single City Trip',
-                      style: GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.plusJakartaSans(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                         color: AppColors.textPrimary,
@@ -412,7 +412,7 @@ class HomeScreen extends ConsumerWidget {
                     const SizedBox(height: 4),
                     Text(
                       'Deep dive into one city with a detailed day-by-day plan',
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.plusJakartaSans(
                         fontSize: 13,
                         color: AppColors.textSecondary,
                         height: 1.4,
@@ -437,7 +437,7 @@ class HomeScreen extends ConsumerWidget {
         children: [
           Text(
             'Quick Start',
-            style: GoogleFonts.playfairDisplay(
+            style: GoogleFonts.plusJakartaSans(
               fontSize: 20,
               fontWeight: FontWeight.w600,
               color: AppColors.textPrimary,
@@ -511,7 +511,7 @@ class _QuickActionCard extends StatelessWidget {
             Text(
               label,
               textAlign: TextAlign.center,
-              style: GoogleFonts.inter(
+              style: GoogleFonts.plusJakartaSans(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
                 color: AppColors.textPrimary,

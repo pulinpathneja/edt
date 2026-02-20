@@ -1,0 +1,35 @@
+# Ignore everything not needed for the backend API
+.git/
+.github/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Frontend apps
+flutter_app/
+travel_itinerary_app/
+edt-mobile/
+edt-ui/
+
+# City intelligence data
+city_intelligence/cities/
+
+# Notebooks
+notebooks/
+
+# Scripts
+scripts/
+
+# Node modules
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# Misc
+*.md
+.env
+.env.*

@@ -47,7 +47,7 @@ class _CitySelectionScreenState extends ConsumerState<CitySelectionScreen> {
                 children: [
                   Text(
                     'Pick a City',
-                    style: GoogleFonts.playfairDisplay(
+                    style: GoogleFonts.plusJakartaSans(
                       fontSize: 32,
                       fontWeight: FontWeight.w700,
                       color: AppColors.textPrimary,
@@ -56,7 +56,7 @@ class _CitySelectionScreenState extends ConsumerState<CitySelectionScreen> {
                   const SizedBox(height: 8),
                   Text(
                     'Choose a city for your single-city deep-dive itinerary',
-                    style: GoogleFonts.inter(
+                    style: GoogleFonts.plusJakartaSans(
                       fontSize: 15,
                       color: AppColors.textSecondary,
                       height: 1.4,
@@ -93,7 +93,7 @@ class _CitySelectionScreenState extends ConsumerState<CitySelectionScreen> {
           const SizedBox(height: 16),
           Text(
             'No cities available',
-            style: GoogleFonts.playfairDisplay(
+            style: GoogleFonts.plusJakartaSans(
               fontSize: 20,
               fontWeight: FontWeight.w600,
               color: AppColors.textSecondary,
@@ -162,7 +162,7 @@ class _CitySelectionScreenState extends ConsumerState<CitySelectionScreen> {
             children: [
               Text(
                 hasSelection ? 'Plan This City' : 'Select a City',
-                style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w600),
+                style: GoogleFonts.plusJakartaSans(fontSize: 16, fontWeight: FontWeight.w600),
               ),
               if (hasSelection) ...[
                 const SizedBox(width: 8),
@@ -252,7 +252,7 @@ class _CityCard extends StatelessWidget {
                     // City name
                     Text(
                       city.name,
-                      style: GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.plusJakartaSans(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
                         color: Colors.white,
@@ -261,7 +261,7 @@ class _CityCard extends StatelessWidget {
                     const SizedBox(height: 2),
                     Text(
                       country.name,
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.plusJakartaSans(
                         fontSize: 12,
                         color: Colors.white.withOpacity(0.75),
                       ),
@@ -274,7 +274,7 @@ class _CityCard extends StatelessWidget {
                         const SizedBox(width: 4),
                         Text(
                           '${city.idealDays}d ideal',
-                          style: GoogleFonts.inter(
+                          style: GoogleFonts.plusJakartaSans(
                             fontSize: 11,
                             color: Colors.white.withOpacity(0.7),
                           ),

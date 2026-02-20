@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDT Pipeline Dashboard</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #FEF9F2;
+  color: #2C1810;
+  min-height: 100vh;
+}
+
+.header {
+  background: linear-gradient(135deg, #2C1810 0%, #4A3228 100%);
+  color: #FEF9F2;
+  padding: 28px 32px;
+}
+.header h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; }
+.header .subtitle { color: #C8A951; font-size: 14px; font-weight: 400; margin-top: 2px; }
+
+.stats-bar {
+  display: flex;
+  gap: 16px;
+  padding: 20px 32px;
+  background: #fff;
+  border-bottom: 1px solid #E8E0D8;
+}
+.stat-card {
+  flex: 1;
+  padding: 16px 20px;
+  background: #FEF9F2;
+  border-radius: 12px;
+  border: 1px solid #E8E0D8;
+}
+.stat-card .label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #7A6B5D;
+  margin-bottom: 4px;
+}
+.stat-card .value { font-size: 28px; font-weight: 700; color: #8B6914; }
+
+.tabs {
+  display: flex;
+  gap: 0;
+  padding: 0 32px;
+  background: #fff;
+  border-bottom: 1px solid #E8E0D8;
+}
+.tab {
+  padding: 14px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #7A6B5D;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+  user-select: none;
+}
+.tab:hover { color: #2C1810; }
+.tab.active { color: #8B6914; border-bottom-color: #C8A951; }
+
+.content { max-width: 1100px; margin: 24px auto; padding: 0 32px; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(44,24,16,0.08);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.card h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #2C1810; }
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7A6B5D;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+select, input[type="text"], input[type="number"] {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #E8E0D8;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #2C1810;
+  background: #FEF9F2;
+  outline: none;
+  transition: border-color 0.2s;
+}
+select:focus, input:focus { border-color: #C8A951; }
+
+.form-row { display: flex; gap: 16px; margin-bottom: 16px; }
+.form-row > div { flex: 1; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-gold {
+  background: linear-gradient(135deg, #C8A951 0%, #8B6914 100%);
+  color: #fff;
+}
+.btn-gold:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-gold:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.slider-container { display: flex; align-items: center; gap: 12px; }
+input[type="range"] {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 6px;
+  border-radius: 3px;
+  background: #E8E0D8;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: #C8A951;
+  cursor: pointer;
+}
+.slider-value { font-size: 16px; font-weight: 700; color: #8B6914; min-width: 45px; text-align: right; }
+
+.status-card {
+  background: #FEF9F2;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 16px;
+  border: 1px solid #E8E0D8;
+  display: none;
+}
+.status-card.visible { display: block; }
+
+.status-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.status-header .dot { width: 10px; height: 10px; border-radius: 50%; background: #C8A951; }
+.status-header .dot.running { animation: pulse 1.2s infinite; }
+.status-header .dot.started { animation: pulse 1.2s infinite; }
+.status-header .dot.completed { background: #4CAF50; }
+.status-header .dot.failed { background: #E53935; }
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+.status-header .status-text { font-weight: 700; font-size: 14px; }
+.status-message { color: #7A6B5D; font-size: 13px; margin-bottom: 8px; }
+.status-details { display: flex; gap: 24px; font-size: 13px; color: #7A6B5D; flex-wrap: wrap; }
+.status-details strong { color: #2C1810; }
+
+.spinner {
+  display: inline-block;
+  width: 16px; height: 16px;
+  border: 2px solid #E8E0D8;
+  border-top-color: #C8A951;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.results-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 16px; }
+
+.poi-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #E8E0D8;
+  padding: 18px 20px;
+  transition: box-shadow 0.2s;
+}
+.poi-card:hover { box-shadow: 0 4px 16px rgba(44,24,16,0.1); }
+
+.poi-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+.poi-name { font-size: 16px; font-weight: 700; color: #2C1810; }
+.poi-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  background: #FEF3E0;
+  color: #8B6914;
+  border: 1px solid #E8D5A8;
+}
+.poi-meta { font-size: 12px; color: #7A6B5D; margin-bottom: 8px; display: flex; gap: 16px; flex-wrap: wrap; }
+.poi-description { font-size: 13px; color: #4A3228; line-height: 1.5; margin-bottom: 10px; }
+
+.relevance-bar-container { display: flex; align-items: center; gap: 10px; }
+.relevance-label { font-size: 11px; font-weight: 600; color: #7A6B5D; text-transform: uppercase; min-width: 70px; }
+.relevance-bar { flex: 1; height: 6px; background: #E8E0D8; border-radius: 3px; overflow: hidden; }
+.relevance-fill { height: 100%; background: linear-gradient(90deg, #C8A951, #8B6914); border-radius: 3px; transition: width 0.5s ease; }
+.relevance-pct { font-size: 13px; font-weight: 700; color: #8B6914; min-width: 40px; text-align: right; }
+
+.empty-state { text-align: center; padding: 40px; color: #7A6B5D; }
+.error-text { color: #E53935; font-size: 13px; margin-top: 8px; }
+
+.chip-group { display: flex; gap: 8px; }
+.chip {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px solid #E8E0D8;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7A6B5D;
+  cursor: pointer;
+  background: #FEF9F2;
+  transition: all 0.2s;
+}
+.chip.active { background: #C8A951; color: #fff; border-color: #C8A951; }
+.chip:hover:not(.active) { border-color: #C8A951; }
+
+.city-stats-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.city-tag {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #FEF3E0;
+  color: #8B6914;
+  border: 1px solid #E8D5A8;
+}
+
+.intel-report { margin-top: 16px; }
+.intel-section { margin-bottom: 16px; }
+.intel-section h4 { font-size: 14px; font-weight: 700; color: #8B6914; margin-bottom: 8px; }
+.intel-highlight {
+  padding: 8px 14px;
+  background: #FEF9F2;
+  border-left: 3px solid #C8A951;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #2C1810;
+  line-height: 1.4;
+}
+.persona-chip {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  background: #E8F5E9;
+  color: #2E7D32;
+  border: 1px solid #A5D6A7;
+  margin: 3px 4px 3px 0;
+}
+.intel-cities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+.intel-city-card {
+  background: #FEF9F2;
+  border: 1px solid #E8E0D8;
+  border-radius: 12px;
+  padding: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.intel-city-card:hover { border-color: #C8A951; box-shadow: 0 2px 8px rgba(44,24,16,0.08); }
+.intel-city-card .name { font-weight: 700; font-size: 14px; color: #2C1810; }
+.intel-city-card .meta { font-size: 11px; color: #7A6B5D; margin-top: 4px; }
+
+.toggle-row { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.toggle-label { font-size: 13px; color: #7A6B5D; }
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #E8E0D8;
+  border-radius: 22px;
+  transition: 0.3s;
+}
+.toggle-slider:before {
+  content: "";
+  position: absolute;
+  height: 16px; width: 16px;
+  left: 3px; bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.toggle-switch input:checked + .toggle-slider { background: #C8A951; }
+.toggle-switch input:checked + .toggle-slider:before { transform: translateX(18px); }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>EDT Pipeline Dashboard</h1>
+  <div class="subtitle">City Intelligence Crawl & Vector Search</div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-card">
+    <div class="label">Total POIs</div>
+    <div class="value" id="stat-total">-</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Cities with POIs</div>
+    <div class="value" id="stat-cities">-</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Intel Reports</div>
+    <div class="value" id="stat-intel">-</div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" data-tab="intel">Crawl City Intelligence</div>
+  <div class="tab" data-tab="query">Query Vector DB</div>
+  <div class="tab" data-tab="poi-crawl">Crawl POIs</div>
+</div>
+
+<div class="content">
+
+  <!-- TAB 1: City Intelligence Crawl -->
+  <div id="panel-intel" class="tab-panel active">
+    <div class="card">
+      <h3>Crawl City Intelligence (Reddit + Blogs + TripAdvisor + Tours)</h3>
+      <p style="font-size:13px;color:#7A6B5D;margin-bottom:16px">
+        Crawls Reddit, travel blogs, and TripAdvisor for local insights, fetches walking tours & events, generates persona-specific recommendations, and stores results to the database.
+      </p>
+      <div class="form-row">
+        <div>
+          <label for="intel-country">Country</label>
+          <select id="intel-country" onchange="onCountryChange()">
+            <option value="">Select country...</option>
+          </select>
+        </div>
+        <div>
+          <label for="intel-city">City</label>
+          <select id="intel-city">
+            <option value="">Select city...</option>
+          </select>
+        </div>
+        <div style="display:flex;align-items:flex-end">
+          <div class="toggle-row" style="margin-bottom:0">
+            <label class="toggle-switch">
+              <input type="checkbox" id="intel-force">
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">Force refresh</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-gold" id="btn-intel" onclick="startIntelCrawl()">Start Crawl</button>
+
+      <div class="status-card" id="intel-status">
+        <div class="status-header">
+          <div class="dot" id="intel-dot"></div>
+          <span class="status-text" id="intel-status-text">Starting...</span>
+          <div class="spinner" id="intel-spinner"></div>
+        </div>
+        <div class="status-message" id="intel-message"></div>
+        <div class="status-details" id="intel-details"></div>
+      </div>
+    </div>
+
+    <!-- Existing Intel Reports -->
+    <div class="card">
+      <h3>Existing Intelligence Reports</h3>
+      <div id="intel-cities-content">
+        <div class="empty-state">Loading...</div>
+      </div>
+    </div>
+
+    <!-- Report viewer -->
+    <div class="card" id="intel-report-card" style="display:none">
+      <h3 id="intel-report-title">City Report</h3>
+      <div id="intel-report-content"></div>
+    </div>
+
+    <!-- DB Insights viewer -->
+    <div class="card" id="intel-insights-card" style="display:none">
+      <h3 id="intel-insights-title">Database Insights</h3>
+      <div class="form-row" style="margin-bottom:12px">
+        <div>
+          <label for="insights-source">Source</label>
+          <select id="insights-source" onchange="reloadInsights()">
+            <option value="">All</option>
+            <option value="reddit">Reddit</option>
+            <option value="tripadvisor">TripAdvisor</option>
+            <option value="blog">Blog</option>
+          </select>
+        </div>
+        <div>
+          <label for="insights-category">Category</label>
+          <select id="insights-category" onchange="reloadInsights()">
+            <option value="">All</option>
+            <option value="things_to_do">Things to Do</option>
+            <option value="food">Food</option>
+            <option value="hidden_gems">Hidden Gems</option>
+            <option value="restaurants">Restaurants</option>
+            <option value="safety_challenges">Safety</option>
+            <option value="neighborhoods">Neighborhoods</option>
+            <option value="budget">Budget</option>
+            <option value="forums">Forums</option>
+          </select>
+        </div>
+      </div>
+      <div id="intel-insights-content"></div>
+    </div>
+  </div>
+
+  <!-- TAB 2: Query Vector DB -->
+  <div id="panel-query" class="tab-panel">
+    <div class="card">
+      <h3>Semantic Search</h3>
+      <div class="form-row">
+        <div style="flex:2">
+          <label for="search-query">Search Query</label>
+          <input type="text" id="search-query" placeholder="e.g. romantic restaurants with a view">
+        </div>
+        <div>
+          <label for="search-city">City</label>
+          <select id="search-city"><option value="">All Cities</option></select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div>
+          <label for="search-category">Category</label>
+          <select id="search-category">
+            <option value="">All Categories</option>
+            <option value="attraction">Attraction</option>
+            <option value="restaurant">Restaurant</option>
+            <option value="shopping">Shopping</option>
+            <option value="nightlife">Nightlife</option>
+            <option value="accommodation">Accommodation</option>
+            <option value="cafe">Cafe</option>
+            <option value="bar">Bar</option>
+            <option value="park">Park</option>
+            <option value="museum">Museum</option>
+          </select>
+        </div>
+        <div>
+          <label>Results Limit</label>
+          <div class="chip-group" id="search-limit-chips">
+            <div class="chip" data-val="5">5</div>
+            <div class="chip active" data-val="10">10</div>
+            <div class="chip" data-val="20">20</div>
+            <div class="chip" data-val="50">50</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-gold" id="btn-search" onclick="doSearch()">Search</button>
+    </div>
+    <div id="search-results"></div>
+  </div>
+
+  <!-- TAB 3: Overture Maps POI Crawl -->
+  <div id="panel-poi-crawl" class="tab-panel">
+
+    <!-- Card 1: Seed Vector Database -->
+    <div class="card">
+      <h3>Seed Vector Database</h3>
+      <p style="font-size:13px;color:#7A6B5D;margin-bottom:16px">
+        Loads seed JSON files (Rome, Paris) and converts sample itinerary data (~24 cities, ~300 POIs) into the vector database with persona scores and embeddings.
+      </p>
+      <div class="form-row">
+        <div>
+          <label for="seed-city">City (optional)</label>
+          <select id="seed-city">
+            <option value="">All Cities</option>
+          </select>
+        </div>
+        <div style="display:flex;align-items:flex-end;gap:20px">
+          <div class="toggle-row" style="margin-bottom:0">
+            <label class="toggle-switch">
+              <input type="checkbox" id="seed-include-json" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">Seed JSONs</span>
+          </div>
+          <div class="toggle-row" style="margin-bottom:0">
+            <label class="toggle-switch">
+              <input type="checkbox" id="seed-include-sample" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">Sample Data</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-gold" id="btn-seed" onclick="startSeedDb()">Seed Database</button>
+
+      <div class="status-card" id="seed-status">
+        <div class="status-header">
+          <div class="dot" id="seed-dot"></div>
+          <span class="status-text" id="seed-status-text">Starting...</span>
+          <div class="spinner" id="seed-spinner"></div>
+        </div>
+        <div class="status-message" id="seed-message"></div>
+        <div class="status-details" id="seed-details"></div>
+      </div>
+    </div>
+
+    <!-- Card 2: Extract POIs from Intelligence -->
+    <div class="card">
+      <h3>Extract POIs from Intelligence</h3>
+      <p style="font-size:13px;color:#7A6B5D;margin-bottom:16px">
+        Converts blog articles and TripAdvisor results from city intelligence data into vector DB POIs with persona scores.
+        <strong>Note:</strong> Run City Intelligence crawl first to populate source data.
+      </p>
+      <div class="form-row">
+        <div>
+          <label for="extract-country">Country</label>
+          <select id="extract-country" onchange="onExtractCountryChange()">
+            <option value="">Select country...</option>
+          </select>
+        </div>
+        <div>
+          <label for="extract-city">City</label>
+          <select id="extract-city">
+            <option value="">Select city...</option>
+          </select>
+        </div>
+        <div style="display:flex;align-items:flex-end;gap:20px">
+          <div class="toggle-row" style="margin-bottom:0">
+            <label class="toggle-switch">
+              <input type="checkbox" id="extract-blogs" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">Blogs</span>
+          </div>
+          <div class="toggle-row" style="margin-bottom:0">
+            <label class="toggle-switch">
+              <input type="checkbox" id="extract-tripadvisor" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">TripAdvisor</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-gold" id="btn-extract" onclick="startCrawlPois()">Extract POIs</button>
+
+      <div class="status-card" id="extract-status">
+        <div class="status-header">
+          <div class="dot" id="extract-dot"></div>
+          <span class="status-text" id="extract-status-text">Starting...</span>
+          <div class="spinner" id="extract-spinner"></div>
+        </div>
+        <div class="status-message" id="extract-message"></div>
+        <div class="status-details" id="extract-details"></div>
+      </div>
+    </div>
+
+    <!-- Card 3: Auto-Discovery Crawl -->
+    <div class="card">
+      <h3>Auto-Discovery Crawl (Multi-Source)</h3>
+      <p style="font-size:13px;color:#7A6B5D;margin-bottom:16px">
+        Searches DuckDuckGo (+ Google if configured) across open web, editorial sources (WikiVoyage, Timeout, Conde Nast, T+L, Yelp), blog sources, and TripAdvisor. Extracts individual POIs from article text and inserts into the vector database.
+      </p>
+      <div class="form-row">
+        <div>
+          <label for="auto-country">Country</label>
+          <select id="auto-country" onchange="onAutoCountryChange()">
+            <option value="">Select country...</option>
+          </select>
+        </div>
+        <div>
+          <label for="auto-city">City</label>
+          <select id="auto-city">
+            <option value="">Select city...</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+          <div class="toggle-row" style="margin-bottom:0">
+            <label class="toggle-switch">
+              <input type="checkbox" id="auto-open-web" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">Open Web</span>
+          </div>
+          <div class="toggle-row" style="margin-bottom:0">
+            <label class="toggle-switch">
+              <input type="checkbox" id="auto-editorial" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">Editorial</span>
+          </div>
+          <div class="toggle-row" style="margin-bottom:0">
+            <label class="toggle-switch">
+              <input type="checkbox" id="auto-blogs" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">Blogs</span>
+          </div>
+          <div class="toggle-row" style="margin-bottom:0">
+            <label class="toggle-switch">
+              <input type="checkbox" id="auto-tripadvisor" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">TripAdvisor</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-gold" id="btn-auto-crawl" onclick="startAutoCrawl()">Start Auto-Discovery</button>
+
+      <div class="status-card" id="auto-crawl-status">
+        <div class="status-header">
+          <div class="dot" id="auto-crawl-dot"></div>
+          <span class="status-text" id="auto-crawl-status-text">Starting...</span>
+          <div class="spinner" id="auto-crawl-spinner"></div>
+        </div>
+        <div class="status-message" id="auto-crawl-message"></div>
+        <div class="status-details" id="auto-crawl-details"></div>
+      </div>
+    </div>
+
+    <!-- Card 4: URL-Based POI Extraction -->
+    <div class="card">
+      <h3>URL-Based POI Extraction</h3>
+      <p style="font-size:13px;color:#7A6B5D;margin-bottom:16px">
+        Paste any travel article URLs (WikiVoyage, Timeout, blog posts, etc.) and extract individual POIs mentioned in each article. One URL per line.
+      </p>
+      <div class="form-row">
+        <div>
+          <label for="url-city">City</label>
+          <select id="url-city">
+            <option value="">Select city...</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-bottom:16px">
+        <label for="url-textarea">URLs (one per line)</label>
+        <textarea id="url-textarea" rows="4" style="width:100%;padding:10px 14px;border:1.5px solid #E8E0D8;border-radius:10px;font-size:14px;color:#2C1810;background:#FEF9F2;outline:none;resize:vertical;font-family:inherit" placeholder="https://www.timeout.com/rome/things-to-do/best-things-to-do-in-rome&#10;https://en.wikivoyage.org/wiki/Rome"></textarea>
+      </div>
+      <button class="btn btn-gold" id="btn-url-crawl" onclick="startUrlCrawl()">Extract POIs</button>
+
+      <div class="status-card" id="url-crawl-status">
+        <div class="status-header">
+          <div class="dot" id="url-crawl-dot"></div>
+          <span class="status-text" id="url-crawl-status-text">Starting...</span>
+          <div class="spinner" id="url-crawl-spinner"></div>
+        </div>
+        <div class="status-message" id="url-crawl-message"></div>
+        <div class="status-details" id="url-crawl-details"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Crawl POIs from Overture Maps</h3>
+      <p style="font-size:13px;color:#7A6B5D;margin-bottom:16px">
+        Fetches POIs from BigQuery (Overture Maps), scores with persona heuristics, embeds with BGE-small, and inserts into pgvector.
+      </p>
+      <div class="form-row">
+        <div>
+          <label for="crawl-city">City</label>
+          <select id="crawl-city"><option value="">Loading cities...</option></select>
+        </div>
+        <div>
+          <label>POI Limit</label>
+          <div class="slider-container">
+            <input type="range" id="crawl-limit" min="100" max="1000" step="50" value="500">
+            <span class="slider-value" id="crawl-limit-val">500</span>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-gold" id="btn-crawl" onclick="startCrawl()">Start Crawl</button>
+
+      <div class="status-card" id="crawl-status">
+        <div class="status-header">
+          <div class="dot" id="crawl-dot"></div>
+          <span class="status-text" id="crawl-status-text">Starting...</span>
+          <div class="spinner" id="crawl-spinner"></div>
+        </div>
+        <div class="status-message" id="crawl-message"></div>
+        <div class="status-details" id="crawl-details"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Database Contents</h3>
+      <div id="city-stats-content">
+        <div class="empty-state">Loading stats...</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const API = '/api/v1/pipeline';
+let searchLimit = 10;
+let pollTimer = null;
+let intelPollTimer = null;
+let seedPollTimer = null;
+let extractPollTimer = null;
+let autoCrawlPollTimer = null;
+let urlCrawlPollTimer = null;
+let countryCityData = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadCities();
+  loadStats();
+  loadIntelCities();
+  loadCountryCityData();
+  initTabs();
+  initSlider();
+  initChips();
+  document.getElementById('search-query').addEventListener('keydown', e => {
+    if (e.key === 'Enter') doSearch();
+  });
+});
+
+function initTabs() {
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+}
+
+function initSlider() {
+  const slider = document.getElementById('crawl-limit');
+  const val = document.getElementById('crawl-limit-val');
+  slider.addEventListener('input', () => { val.textContent = slider.value; });
+}
+
+function initChips() {
+  document.querySelectorAll('#search-limit-chips .chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#search-limit-chips .chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      searchLimit = parseInt(chip.dataset.val);
+    });
+  });
+}
+
+// --- Load data ---
+
+async function loadCities() {
+  try {
+    const res = await fetch(API + '/cities');
+    const cities = await res.json();
+    const crawlSel = document.getElementById('crawl-city');
+    const searchSel = document.getElementById('search-city');
+    const seedSel = document.getElementById('seed-city');
+    const urlCitySel = document.getElementById('url-city');
+    crawlSel.innerHTML = '<option value="">Select a city...</option>';
+    searchSel.innerHTML = '<option value="">All Cities</option>';
+    seedSel.innerHTML = '<option value="">All Cities</option>';
+    urlCitySel.innerHTML = '<option value="">Select city...</option>';
+    const byCountry = {};
+    cities.forEach(c => {
+      if (!byCountry[c.country]) byCountry[c.country] = [];
+      byCountry[c.country].push(c);
+    });
+    for (const [country, list] of Object.entries(byCountry)) {
+      const grp1 = document.createElement('optgroup');
+      grp1.label = country;
+      const grp2 = document.createElement('optgroup');
+      grp2.label = country;
+      const grp3 = document.createElement('optgroup');
+      grp3.label = country;
+      const grp4 = document.createElement('optgroup');
+      grp4.label = country;
+      list.forEach(c => {
+        const name = c.key.charAt(0).toUpperCase() + c.key.slice(1);
+        grp1.appendChild(new Option(name, c.key));
+        grp2.appendChild(new Option(name, name));
+        grp3.appendChild(new Option(name, c.key));
+        grp4.appendChild(new Option(name, name));
+      });
+      crawlSel.appendChild(grp1);
+      searchSel.appendChild(grp2);
+      seedSel.appendChild(grp3);
+      urlCitySel.appendChild(grp4);
+    }
+  } catch (e) {
+    console.error('Failed to load cities:', e);
+  }
+}
+
+async function loadStats() {
+  try {
+    const res = await fetch(API + '/stats');
+    const data = await res.json();
+    document.getElementById('stat-total').textContent = data.total.toLocaleString();
+    document.getElementById('stat-cities').textContent = data.cities.length;
+
+    const container = document.getElementById('city-stats-content');
+    if (data.cities.length === 0) {
+      container.innerHTML = `<div class="empty-state">${data.error ? data.error : 'No POIs in database yet.'}</div>`;
+      return;
+    }
+    data.cities.sort((a, b) => b.count - a.count);
+    let html = '<div class="city-stats-list">';
+    data.cities.forEach(c => {
+      html += `<span class="city-tag">${c.city}: ${c.count.toLocaleString()}</span>`;
+    });
+    html += '</div>';
+    container.innerHTML = html;
+  } catch (e) {
+    document.getElementById('stat-total').textContent = '?';
+    document.getElementById('stat-cities').textContent = '?';
+  }
+}
+
+async function loadIntelCities() {
+  try {
+    const res = await fetch(API + '/intel/cities');
+    const data = await res.json();
+    document.getElementById('stat-intel').textContent = data.total;
+
+    const container = document.getElementById('intel-cities-content');
+    if (data.total === 0) {
+      container.innerHTML = '<div class="empty-state">No intelligence reports yet. Start a crawl above.</div>';
+      return;
+    }
+    let html = '<div class="intel-cities-grid">';
+    data.cities.forEach(c => {
+      html += `<div class="intel-city-card" onclick="viewReport('${c.slug}')">
+        <div class="name">${esc(c.city)}</div>
+        <div class="meta">${c.reddit_posts || 0} Reddit posts</div>
+        ${c.generated_at ? `<div class="meta">${new Date(c.generated_at).toLocaleDateString()}</div>` : ''}
+      </div>`;
+    });
+    html += '</div>';
+    container.innerHTML = html;
+  } catch (e) {
+    document.getElementById('stat-intel').textContent = '?';
+  }
+}
+
+async function loadCountryCityData() {
+  try {
+    const res = await fetch('/api/v1/country-itinerary/countries');
+    const data = await res.json();
+    countryCityData = data.countries || [];
+
+    const countrySelect = document.getElementById('intel-country');
+    const extractCountrySelect = document.getElementById('extract-country');
+    const autoCountrySelect = document.getElementById('auto-country');
+    countrySelect.innerHTML = '<option value="">Select country...</option>';
+    extractCountrySelect.innerHTML = '<option value="">Select country...</option>';
+    autoCountrySelect.innerHTML = '<option value="">Select country...</option>';
+    countryCityData.forEach(c => {
+      countrySelect.appendChild(new Option(c.name, c.id));
+      extractCountrySelect.appendChild(new Option(c.name, c.id));
+      autoCountrySelect.appendChild(new Option(c.name, c.id));
+    });
+  } catch (e) {
+    console.error('Failed to load country/city data:', e);
+  }
+}
+
+function onCountryChange() {
+  const countrySelect = document.getElementById('intel-country');
+  const citySelect = document.getElementById('intel-city');
+  citySelect.innerHTML = '<option value="">Select city...</option>';
+
+  const selectedId = countrySelect.value;
+  if (!selectedId || !countryCityData) return;
+
+  const country = countryCityData.find(c => c.id === selectedId);
+  if (country && country.cities) {
+    country.cities.forEach(city => {
+      citySelect.appendChild(new Option(city.name, city.id));
+    });
+  }
+}
+
+// --- City Intelligence Crawl ---
+
+async function startIntelCrawl() {
+  const citySelect = document.getElementById('intel-city');
+  const countrySelect = document.getElementById('intel-country');
+  const city = citySelect.options[citySelect.selectedIndex]?.text;
+  const country = countrySelect.options[countrySelect.selectedIndex]?.text;
+  if (!city || city === 'Select city...') { alert('Please select a city'); return; }
+  const forceRefresh = document.getElementById('intel-force').checked;
+
+  const btn = document.getElementById('btn-intel');
+  btn.disabled = true;
+
+  const statusCard = document.getElementById('intel-status');
+  statusCard.classList.add('visible');
+  setIntelStatus('running', 'Starting crawl...', '');
+
+  try {
+    const res = await fetch(API + '/intel/crawl', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({city, country, force_refresh: forceRefresh}),
+    });
+    const data = await res.json();
+
+    if (data.error) {
+      setIntelStatus('failed', 'Error', data.error);
+      btn.disabled = false;
+      return;
+    }
+
+    if (data.status === 'exists') {
+      setIntelStatus('completed', data.message, '');
+      btn.disabled = false;
+      // Auto-view the report
+      const slug = city.toLowerCase().replace(/ /g, '_');
+      viewReport(slug);
+      return;
+    }
+
+    pollIntelCrawl(data.task_id);
+  } catch (e) {
+    setIntelStatus('failed', 'Request failed', e.message);
+    btn.disabled = false;
+  }
+}
+
+function pollIntelCrawl(taskId) {
+  if (intelPollTimer) clearInterval(intelPollTimer);
+  intelPollTimer = setInterval(async () => {
+    try {
+      const res = await fetch(API + '/intel/crawl/' + taskId);
+      const data = await res.json();
+      const details = [];
+      if (data.reddit_posts) details.push(`<strong>${data.reddit_posts}</strong> Reddit posts`);
+      if (data.blog_articles) details.push(`<strong>${data.blog_articles}</strong> blog articles`);
+      if (data.tripadvisor_results) details.push(`<strong>${data.tripadvisor_results}</strong> TripAdvisor`);
+      if (data.tours_found) details.push(`<strong>${data.tours_found}</strong> tours`);
+      if (data.db_rows) details.push(`<strong>${data.db_rows}</strong> DB rows`);
+      if (data.duration_seconds) details.push(`<strong>${data.duration_seconds}s</strong>`);
+      if (data.stage && data.stage !== 'Done') details.push(data.stage);
+
+      setIntelStatus(data.status, data.message, details.join(' &middot; '));
+
+      if (data.status === 'completed' || data.status === 'failed') {
+        clearInterval(intelPollTimer);
+        intelPollTimer = null;
+        document.getElementById('btn-intel').disabled = false;
+        loadIntelCities();
+        if (data.status === 'completed') {
+          const slug = data.city.toLowerCase().replace(/ /g, '_');
+          viewReport(slug);
+        }
+      }
+    } catch (e) {
+      console.error('Poll error:', e);
+    }
+  }, 2000);
+}
+
+function setIntelStatus(status, message, detailsHtml) {
+  const dot = document.getElementById('intel-dot');
+  const spinner = document.getElementById('intel-spinner');
+  const text = document.getElementById('intel-status-text');
+  const msg = document.getElementById('intel-message');
+  const details = document.getElementById('intel-details');
+
+  dot.className = 'dot ' + status;
+  spinner.style.display = (status === 'running' || status === 'started') ? 'inline-block' : 'none';
+  text.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+  msg.textContent = message;
+  details.innerHTML = detailsHtml;
+}
+
+async function viewReport(slug) {
+  const reportCard = document.getElementById('intel-report-card');
+  const title = document.getElementById('intel-report-title');
+  const content = document.getElementById('intel-report-content');
+
+  reportCard.style.display = 'block';
+  title.textContent = 'Loading report...';
+  content.innerHTML = '<div class="empty-state"><div class="spinner"></div></div>';
+
+  try {
+    const res = await fetch(API + '/intel/summary/' + slug);
+    const data = await res.json();
+
+    if (data.error) {
+      title.textContent = 'Error';
+      content.innerHTML = `<div class="error-text">${esc(data.error)}</div>`;
+      return;
+    }
+
+    title.textContent = data.city + ' Intelligence Report';
+
+    let html = '';
+
+    // Summary
+    const summary = data.summary || {};
+    if (summary.top_highlights && summary.top_highlights.length) {
+      html += '<div class="intel-section"><h4>Top Highlights</h4>';
+      summary.top_highlights.forEach(h => {
+        html += `<div class="intel-highlight">${esc(h)}</div>`;
+      });
+      html += '</div>';
+    }
+
+    // Personas
+    if (data.personas && data.personas.length) {
+      html += '<div class="intel-section"><h4>Persona Insights Available</h4>';
+      data.personas.forEach(p => {
+        html += `<span class="persona-chip">${esc(p.replace(/_/g, ' '))}</span>`;
+      });
+      html += '</div>';
+    }
+
+    // Data sources
+    const sources = summary.data_sources || {};
+    if (Object.keys(sources).length) {
+      html += '<div class="intel-section"><h4>Data Sources</h4><div class="city-stats-list">';
+      for (const [k, v] of Object.entries(sources)) {
+        html += `<span class="city-tag">${esc(k.replace(/_/g, ' '))}: ${v}</span>`;
+      }
+      html += '</div></div>';
+    }
+
+    // Search URLs
+    if (data.search_urls && Object.keys(data.search_urls).length) {
+      html += '<div class="intel-section"><h4>Search URLs</h4>';
+      for (const [cat, urls] of Object.entries(data.search_urls)) {
+        if (typeof urls === 'object' && !Array.isArray(urls)) {
+          for (const [name, url] of Object.entries(urls)) {
+            html += `<div style="font-size:12px;margin-bottom:4px"><strong>${esc(name)}</strong>: <a href="${esc(url)}" target="_blank" style="color:#8B6914;word-break:break-all">${esc(url).substring(0,60)}...</a></div>`;
+          }
+        }
+      }
+      html += '</div>';
+    }
+
+    if (!html) html = '<div class="empty-state">Report generated but no summary data available.</div>';
+
+    content.innerHTML = html;
+    reportCard.scrollIntoView({behavior: 'smooth'});
+
+    // Also load DB insights for this city
+    loadInsights(slug, '', '');
+  } catch (e) {
+    title.textContent = 'Error';
+    content.innerHTML = `<div class="error-text">Failed to load report: ${e.message}</div>`;
+  }
+}
+
+// --- DB Insights ---
+
+let currentInsightsSlug = '';
+
+async function loadInsights(slug, source, category) {
+  currentInsightsSlug = slug;
+  const card = document.getElementById('intel-insights-card');
+  const title = document.getElementById('intel-insights-title');
+  const content = document.getElementById('intel-insights-content');
+
+  card.style.display = 'block';
+  title.textContent = slug.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) + ' — DB Insights';
+  content.innerHTML = '<div class="empty-state"><div class="spinner"></div></div>';
+
+  let url = API + '/intel/insights/' + slug + '?limit=30';
+  if (source) url += '&source=' + source;
+  if (category) url += '&category=' + category;
+
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    if (data.error) {
+      content.innerHTML = `<div class="error-text">${esc(data.error)}</div>`;
+      return;
+    }
+    if (!data.insights || data.insights.length === 0) {
+      content.innerHTML = '<div class="empty-state">No insights in DB yet. Run a crawl to populate.</div>';
+      return;
+    }
+
+    let html = `<div style="font-size:12px;color:#7A6B5D;margin-bottom:12px">${data.total} result(s)</div><div class="results-grid">`;
+    data.insights.forEach(r => {
+      const srcBadge = r.source === 'reddit' ? '#E3F2FD' : r.source === 'tripadvisor' ? '#E8F5E9' : '#FFF3E0';
+      const srcColor = r.source === 'reddit' ? '#1565C0' : r.source === 'tripadvisor' ? '#2E7D32' : '#E65100';
+      html += `
+        <div class="poi-card">
+          <div class="poi-header">
+            <span class="poi-name" style="font-size:14px">${esc(r.title || '(no title)')}</span>
+            <span class="poi-badge" style="background:${srcBadge};color:${srcColor};border-color:${srcColor}30">${esc(r.source)}</span>
+          </div>
+          <div class="poi-meta">
+            <span>${esc(r.category)}</span>
+            ${r.author ? `<span>${esc(r.author)}</span>` : ''}
+            ${r.rating ? `<span>Rating: ${r.rating}/5</span>` : ''}
+            ${r.relevance_score ? `<span>Relevance: ${r.relevance_score.toFixed(1)}</span>` : ''}
+          </div>
+          ${r.content ? `<div class="poi-description">${esc(r.content.substring(0, 200))}${r.content.length > 200 ? '...' : ''}</div>` : ''}
+          ${r.persona_tags && r.persona_tags.length ? '<div>' + r.persona_tags.map(t => `<span class="persona-chip">${esc(t)}</span>`).join('') + '</div>' : ''}
+          ${r.url ? `<div style="margin-top:6px"><a href="${esc(r.url)}" target="_blank" style="color:#8B6914;font-size:12px">View source</a></div>` : ''}
+        </div>`;
+    });
+    html += '</div>';
+    content.innerHTML = html;
+  } catch (e) {
+    content.innerHTML = `<div class="error-text">Failed to load insights: ${e.message}</div>`;
+  }
+}
+
+function reloadInsights() {
+  if (!currentInsightsSlug) return;
+  const source = document.getElementById('insights-source').value;
+  const category = document.getElementById('insights-category').value;
+  loadInsights(currentInsightsSlug, source, category);
+}
+
+// --- Overture Maps Crawl ---
+
+async function startCrawl() {
+  const city = document.getElementById('crawl-city').value;
+  if (!city) { alert('Please select a city'); return; }
+  const limit = parseInt(document.getElementById('crawl-limit').value);
+
+  const btn = document.getElementById('btn-crawl');
+  btn.disabled = true;
+
+  const statusCard = document.getElementById('crawl-status');
+  statusCard.classList.add('visible');
+  setCrawlStatus('running', 'Starting crawl...', '');
+
+  try {
+    const res = await fetch(API + '/crawl', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({city, limit}),
+    });
+    const data = await res.json();
+    if (data.error) {
+      setCrawlStatus('failed', 'Error', data.error);
+      btn.disabled = false;
+      return;
+    }
+    pollCrawl(data.task_id);
+  } catch (e) {
+    setCrawlStatus('failed', 'Request failed', e.message);
+    btn.disabled = false;
+  }
+}
+
+function pollCrawl(taskId) {
+  if (pollTimer) clearInterval(pollTimer);
+  pollTimer = setInterval(async () => {
+    try {
+      const res = await fetch(API + '/crawl/' + taskId);
+      const data = await res.json();
+      const details = [];
+      if (data.pois_fetched) details.push(`<strong>${data.pois_fetched}</strong> fetched`);
+      if (data.pois_inserted) details.push(`<strong>${data.pois_inserted}</strong> inserted`);
+      if (data.duration_seconds) details.push(`<strong>${data.duration_seconds}s</strong>`);
+
+      setCrawlStatus(data.status, data.message, details.join(' &middot; '));
+
+      if (data.status === 'completed' || data.status === 'failed') {
+        clearInterval(pollTimer);
+        pollTimer = null;
+        document.getElementById('btn-crawl').disabled = false;
+        loadStats();
+      }
+    } catch (e) {
+      console.error('Poll error:', e);
+    }
+  }, 2000);
+}
+
+function setCrawlStatus(status, message, detailsHtml) {
+  const dot = document.getElementById('crawl-dot');
+  const spinner = document.getElementById('crawl-spinner');
+  const text = document.getElementById('crawl-status-text');
+  const msg = document.getElementById('crawl-message');
+  const details = document.getElementById('crawl-details');
+
+  dot.className = 'dot ' + status;
+  spinner.style.display = (status === 'running' || status === 'started') ? 'inline-block' : 'none';
+  text.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+  msg.textContent = message;
+  details.innerHTML = detailsHtml;
+}
+
+// --- Extract country/city dropdown ---
+
+function onExtractCountryChange() {
+  const countrySelect = document.getElementById('extract-country');
+  const citySelect = document.getElementById('extract-city');
+  citySelect.innerHTML = '<option value="">Select city...</option>';
+
+  const selectedId = countrySelect.value;
+  if (!selectedId || !countryCityData) return;
+
+  const country = countryCityData.find(c => c.id === selectedId);
+  if (country && country.cities) {
+    country.cities.forEach(city => {
+      citySelect.appendChild(new Option(city.name, city.id));
+    });
+  }
+}
+
+// --- Seed Database ---
+
+async function startSeedDb() {
+  const city = document.getElementById('seed-city').value || null;
+  const includeJson = document.getElementById('seed-include-json').checked;
+  const includeSample = document.getElementById('seed-include-sample').checked;
+
+  if (!includeJson && !includeSample) { alert('Select at least one data source'); return; }
+
+  const btn = document.getElementById('btn-seed');
+  btn.disabled = true;
+
+  const statusCard = document.getElementById('seed-status');
+  statusCard.classList.add('visible');
+  setSeedStatus('running', 'Starting seed...', '');
+
+  try {
+    const res = await fetch(API + '/seed-db', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({city, include_seed_json: includeJson, include_sample_data: includeSample}),
+    });
+    const data = await res.json();
+    if (data.error) {
+      setSeedStatus('failed', 'Error', data.error);
+      btn.disabled = false;
+      return;
+    }
+    pollSeedDb(data.task_id);
+  } catch (e) {
+    setSeedStatus('failed', 'Request failed', e.message);
+    btn.disabled = false;
+  }
+}
+
+function pollSeedDb(taskId) {
+  if (seedPollTimer) clearInterval(seedPollTimer);
+  seedPollTimer = setInterval(async () => {
+    try {
+      const res = await fetch(API + '/seed-db/' + taskId);
+      const data = await res.json();
+      const details = [];
+      if (data.seed_files_found) details.push(`<strong>${data.seed_files_found}</strong> seed files`);
+      if (data.pois_from_seed_json) details.push(`<strong>${data.pois_from_seed_json}</strong> from JSON`);
+      if (data.sample_pois_converted) details.push(`<strong>${data.sample_pois_converted}</strong> sample converted`);
+      if (data.pois_from_sample) details.push(`<strong>${data.pois_from_sample}</strong> from sample`);
+      if (data.total_inserted) details.push(`<strong>${data.total_inserted}</strong> total inserted`);
+      if (data.duration_seconds) details.push(`<strong>${data.duration_seconds}s</strong>`);
+
+      setSeedStatus(data.status, data.message, details.join(' &middot; '));
+
+      if (data.status === 'completed' || data.status === 'failed') {
+        clearInterval(seedPollTimer);
+        seedPollTimer = null;
+        document.getElementById('btn-seed').disabled = false;
+        loadStats();
+      }
+    } catch (e) {
+      console.error('Seed poll error:', e);
+    }
+  }, 2000);
+}
+
+function setSeedStatus(status, message, detailsHtml) {
+  const dot = document.getElementById('seed-dot');
+  const spinner = document.getElementById('seed-spinner');
+  const text = document.getElementById('seed-status-text');
+  const msg = document.getElementById('seed-message');
+  const details = document.getElementById('seed-details');
+
+  dot.className = 'dot ' + status;
+  spinner.style.display = (status === 'running' || status === 'started') ? 'inline-block' : 'none';
+  text.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+  msg.textContent = message;
+  details.innerHTML = detailsHtml;
+}
+
+// --- Extract POIs from Intelligence ---
+
+async function startCrawlPois() {
+  const citySelect = document.getElementById('extract-city');
+  const countrySelect = document.getElementById('extract-country');
+  const city = citySelect.options[citySelect.selectedIndex]?.text;
+  const country = countrySelect.options[countrySelect.selectedIndex]?.text;
+  if (!city || city === 'Select city...') { alert('Please select a city'); return; }
+
+  const includeBlogs = document.getElementById('extract-blogs').checked;
+  const includeTripadvisor = document.getElementById('extract-tripadvisor').checked;
+  if (!includeBlogs && !includeTripadvisor) { alert('Select at least one source'); return; }
+
+  const btn = document.getElementById('btn-extract');
+  btn.disabled = true;
+
+  const statusCard = document.getElementById('extract-status');
+  statusCard.classList.add('visible');
+  setExtractStatus('running', 'Starting POI extraction...', '');
+
+  try {
+    const res = await fetch(API + '/crawl-pois', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({city, country, include_blogs: includeBlogs, include_tripadvisor: includeTripadvisor}),
+    });
+    const data = await res.json();
+    if (data.error) {
+      setExtractStatus('failed', 'Error', data.error);
+      btn.disabled = false;
+      return;
+    }
+    pollCrawlPois(data.task_id);
+  } catch (e) {
+    setExtractStatus('failed', 'Request failed', e.message);
+    btn.disabled = false;
+  }
+}
+
+function pollCrawlPois(taskId) {
+  if (extractPollTimer) clearInterval(extractPollTimer);
+  extractPollTimer = setInterval(async () => {
+    try {
+      const res = await fetch(API + '/crawl-pois/' + taskId);
+      const data = await res.json();
+      const details = [];
+      if (data.blog_insights_found) details.push(`<strong>${data.blog_insights_found}</strong> blog insights`);
+      if (data.tripadvisor_insights_found) details.push(`<strong>${data.tripadvisor_insights_found}</strong> TA insights`);
+      if (data.blog_pois_inserted) details.push(`<strong>${data.blog_pois_inserted}</strong> blog POIs`);
+      if (data.tripadvisor_pois_inserted) details.push(`<strong>${data.tripadvisor_pois_inserted}</strong> TA POIs`);
+      if (data.total_inserted) details.push(`<strong>${data.total_inserted}</strong> total inserted`);
+      if (data.duration_seconds) details.push(`<strong>${data.duration_seconds}s</strong>`);
+
+      setExtractStatus(data.status, data.message, details.join(' &middot; '));
+
+      if (data.status === 'completed' || data.status === 'failed') {
+        clearInterval(extractPollTimer);
+        extractPollTimer = null;
+        document.getElementById('btn-extract').disabled = false;
+        loadStats();
+      }
+    } catch (e) {
+      console.error('Extract poll error:', e);
+    }
+  }, 2000);
+}
+
+function setExtractStatus(status, message, detailsHtml) {
+  const dot = document.getElementById('extract-dot');
+  const spinner = document.getElementById('extract-spinner');
+  const text = document.getElementById('extract-status-text');
+  const msg = document.getElementById('extract-message');
+  const details = document.getElementById('extract-details');
+
+  dot.className = 'dot ' + status;
+  spinner.style.display = (status === 'running' || status === 'started') ? 'inline-block' : 'none';
+  text.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+  msg.textContent = message;
+  details.innerHTML = detailsHtml;
+}
+
+// --- Auto-Discovery Crawl ---
+
+function onAutoCountryChange() {
+  const countrySelect = document.getElementById('auto-country');
+  const citySelect = document.getElementById('auto-city');
+  citySelect.innerHTML = '<option value="">Select city...</option>';
+
+  const selectedId = countrySelect.value;
+  if (!selectedId || !countryCityData) return;
+
+  const country = countryCityData.find(c => c.id === selectedId);
+  if (country && country.cities) {
+    country.cities.forEach(city => {
+      citySelect.appendChild(new Option(city.name, city.id));
+    });
+  }
+}
+
+async function startAutoCrawl() {
+  const citySelect = document.getElementById('auto-city');
+  const countrySelect = document.getElementById('auto-country');
+  const city = citySelect.options[citySelect.selectedIndex]?.text;
+  const country = countrySelect.options[countrySelect.selectedIndex]?.text;
+  if (!city || city === 'Select city...') { alert('Please select a city'); return; }
+
+  const includeOpenWeb = document.getElementById('auto-open-web').checked;
+  const includeEditorial = document.getElementById('auto-editorial').checked;
+  const includeBlogs = document.getElementById('auto-blogs').checked;
+  const includeTripadvisor = document.getElementById('auto-tripadvisor').checked;
+
+  if (!includeOpenWeb && !includeEditorial && !includeBlogs && !includeTripadvisor) {
+    alert('Select at least one source'); return;
+  }
+
+  const btn = document.getElementById('btn-auto-crawl');
+  btn.disabled = true;
+
+  const statusCard = document.getElementById('auto-crawl-status');
+  statusCard.classList.add('visible');
+  setAutoCrawlStatus('running', 'Starting auto-discovery crawl...', '');
+
+  try {
+    const res = await fetch(API + '/auto-crawl', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        city, country,
+        include_open_web: includeOpenWeb,
+        include_editorial: includeEditorial,
+        include_blogs: includeBlogs,
+        include_tripadvisor: includeTripadvisor,
+      }),
+    });
+    const data = await res.json();
+    if (data.error) {
+      setAutoCrawlStatus('failed', 'Error', data.error);
+      btn.disabled = false;
+      return;
+    }
+    pollAutoCrawl(data.task_id);
+  } catch (e) {
+    setAutoCrawlStatus('failed', 'Request failed', e.message);
+    btn.disabled = false;
+  }
+}
+
+function pollAutoCrawl(taskId) {
+  if (autoCrawlPollTimer) clearInterval(autoCrawlPollTimer);
+  autoCrawlPollTimer = setInterval(async () => {
+    try {
+      const res = await fetch(API + '/auto-crawl/' + taskId);
+      const data = await res.json();
+      const details = [];
+      if (data.stage && data.stage !== 'done' && data.stage !== 'queued') details.push(data.stage);
+      if (data.pois_extracted) details.push(`<strong>${data.pois_extracted}</strong> extracted`);
+      if (data.pois_converted) details.push(`<strong>${data.pois_converted}</strong> converted`);
+      if (data.pois_inserted) details.push(`<strong>${data.pois_inserted}</strong> inserted`);
+      if (data.duration_seconds) details.push(`<strong>${data.duration_seconds}s</strong>`);
+
+      setAutoCrawlStatus(data.status, data.message, details.join(' &middot; '));
+
+      if (data.status === 'completed' || data.status === 'failed') {
+        clearInterval(autoCrawlPollTimer);
+        autoCrawlPollTimer = null;
+        document.getElementById('btn-auto-crawl').disabled = false;
+        loadStats();
+      }
+    } catch (e) {
+      console.error('Auto-crawl poll error:', e);
+    }
+  }, 2000);
+}
+
+function setAutoCrawlStatus(status, message, detailsHtml) {
+  const dot = document.getElementById('auto-crawl-dot');
+  const spinner = document.getElementById('auto-crawl-spinner');
+  const text = document.getElementById('auto-crawl-status-text');
+  const msg = document.getElementById('auto-crawl-message');
+  const details = document.getElementById('auto-crawl-details');
+
+  dot.className = 'dot ' + status;
+  spinner.style.display = (status === 'running' || status === 'started') ? 'inline-block' : 'none';
+  text.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+  msg.textContent = message;
+  details.innerHTML = detailsHtml;
+}
+
+// --- URL-Based POI Extraction ---
+
+async function startUrlCrawl() {
+  const citySelect = document.getElementById('url-city');
+  const city = citySelect.options[citySelect.selectedIndex]?.text;
+  if (!city || city === 'Select city...') { alert('Please select a city'); return; }
+
+  const textarea = document.getElementById('url-textarea');
+  const rawUrls = textarea.value.trim();
+  if (!rawUrls) { alert('Please enter at least one URL'); return; }
+
+  const urls = rawUrls.split('\n').map(u => u.trim()).filter(u => u && u.startsWith('http'));
+  if (urls.length === 0) { alert('No valid URLs found. URLs must start with http:// or https://'); return; }
+
+  const btn = document.getElementById('btn-url-crawl');
+  btn.disabled = true;
+
+  const statusCard = document.getElementById('url-crawl-status');
+  statusCard.classList.add('visible');
+  setUrlCrawlStatus('running', `Starting URL crawl (${urls.length} URLs)...`, '');
+
+  try {
+    const res = await fetch(API + '/url-crawl', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({urls, city}),
+    });
+    const data = await res.json();
+    if (data.error) {
+      setUrlCrawlStatus('failed', 'Error', data.error);
+      btn.disabled = false;
+      return;
+    }
+    pollUrlCrawl(data.task_id);
+  } catch (e) {
+    setUrlCrawlStatus('failed', 'Request failed', e.message);
+    btn.disabled = false;
+  }
+}
+
+function pollUrlCrawl(taskId) {
+  if (urlCrawlPollTimer) clearInterval(urlCrawlPollTimer);
+  urlCrawlPollTimer = setInterval(async () => {
+    try {
+      const res = await fetch(API + '/url-crawl/' + taskId);
+      const data = await res.json();
+      const details = [];
+      if (data.urls_count) details.push(`<strong>${data.urls_count}</strong> URLs`);
+      if (data.pois_extracted) details.push(`<strong>${data.pois_extracted}</strong> extracted`);
+      if (data.pois_converted) details.push(`<strong>${data.pois_converted}</strong> converted`);
+      if (data.pois_inserted) details.push(`<strong>${data.pois_inserted}</strong> inserted`);
+      if (data.duration_seconds) details.push(`<strong>${data.duration_seconds}s</strong>`);
+
+      setUrlCrawlStatus(data.status, data.message, details.join(' &middot; '));
+
+      if (data.status === 'completed' || data.status === 'failed') {
+        clearInterval(urlCrawlPollTimer);
+        urlCrawlPollTimer = null;
+        document.getElementById('btn-url-crawl').disabled = false;
+        loadStats();
+      }
+    } catch (e) {
+      console.error('URL crawl poll error:', e);
+    }
+  }, 2000);
+}
+
+function setUrlCrawlStatus(status, message, detailsHtml) {
+  const dot = document.getElementById('url-crawl-dot');
+  const spinner = document.getElementById('url-crawl-spinner');
+  const text = document.getElementById('url-crawl-status-text');
+  const msg = document.getElementById('url-crawl-message');
+  const details = document.getElementById('url-crawl-details');
+
+  dot.className = 'dot ' + status;
+  spinner.style.display = (status === 'running' || status === 'started') ? 'inline-block' : 'none';
+  text.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+  msg.textContent = message;
+  details.innerHTML = detailsHtml;
+}
+
+// --- Vector Search ---
+
+async function doSearch() {
+  const query = document.getElementById('search-query').value.trim();
+  if (!query) { alert('Please enter a search query'); return; }
+
+  const city = document.getElementById('search-city').value;
+  const category = document.getElementById('search-category').value;
+
+  const btn = document.getElementById('btn-search');
+  btn.disabled = true;
+  btn.textContent = 'Searching...';
+
+  const resultsDiv = document.getElementById('search-results');
+  resultsDiv.innerHTML = '<div class="card"><div class="empty-state"><div class="spinner"></div><br>Generating embedding & searching...</div></div>';
+
+  try {
+    const body = {query, limit: searchLimit};
+    if (city) body.city = city;
+    if (category) body.category = category;
+
+    const res = await fetch(API + '/search', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(body),
+    });
+    const data = await res.json();
+
+    if (data.error) {
+      resultsDiv.innerHTML = `<div class="card"><div class="error-text">Search error: ${esc(data.error)}</div></div>`;
+    } else {
+      renderResults(data);
+    }
+  } catch (e) {
+    resultsDiv.innerHTML = `<div class="card"><div class="error-text">Search failed: ${e.message}</div></div>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Search';
+  }
+}
+
+function renderResults(data) {
+  const div = document.getElementById('search-results');
+  if (!data.results || data.results.length === 0) {
+    div.innerHTML = '<div class="card"><div class="empty-state">No results found. Try a different query or broaden your filters.</div></div>';
+    return;
+  }
+
+  let html = `<div class="card" style="padding-bottom:8px"><h3>${data.total} result${data.total !== 1 ? 's' : ''} for "${esc(data.query)}"</h3><div class="results-grid">`;
+
+  data.results.forEach(poi => {
+    const pct = Math.round((poi.relevance_score || 0) * 100);
+    const cat = poi.category || poi.subcategory || '';
+    const loc = [poi.neighborhood, poi.city, poi.country].filter(Boolean).join(', ');
+    const desc = poi.description || '';
+    const coords = (poi.latitude && poi.longitude)
+      ? `${Number(poi.latitude).toFixed(4)}, ${Number(poi.longitude).toFixed(4)}` : '';
+
+    html += `
+      <div class="poi-card">
+        <div class="poi-header">
+          <span class="poi-name">${esc(poi.name)}</span>
+          ${cat ? `<span class="poi-badge">${esc(cat)}</span>` : ''}
+        </div>
+        <div class="poi-meta">
+          ${loc ? `<span>${esc(loc)}</span>` : ''}
+          ${poi.cost_level ? `<span>Cost: ${'$'.repeat(poi.cost_level)}</span>` : ''}
+          ${poi.typical_duration_minutes ? `<span>${poi.typical_duration_minutes} min</span>` : ''}
+          ${coords ? `<span>${coords}</span>` : ''}
+        </div>
+        ${desc ? `<div class="poi-description">${esc(desc)}</div>` : ''}
+        <div class="relevance-bar-container">
+          <span class="relevance-label">Relevance</span>
+          <div class="relevance-bar"><div class="relevance-fill" style="width:${pct}%"></div></div>
+          <span class="relevance-pct">${pct}%</span>
+        </div>
+      </div>`;
+  });
+
+  html += '</div></div>';
+  div.innerHTML = html;
+}
+
+function esc(s) {
+  if (!s) return '';
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+</script>
+
+</body>
+</html>

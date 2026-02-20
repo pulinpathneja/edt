@@ -35,7 +35,9 @@ This will automatically create the intelligence files.
 
 from .generator import generate_city_report, CityIntelligenceReport, CityIntelligenceGenerator
 from .reddit_scraper import collect_city_intelligence, RedditScraper
+from .blog_scraper import collect_blog_intelligence, BlogScraper
 from .tours_events import collect_tours_events, WebSearchTours
+from .tripadvisor_scraper import collect_tripadvisor_intelligence, TripAdvisorScraper
 
 __all__ = [
     "generate_city_report",
@@ -43,8 +45,12 @@ __all__ = [
     "CityIntelligenceGenerator",
     "collect_city_intelligence",
     "RedditScraper",
+    "collect_blog_intelligence",
+    "BlogScraper",
     "collect_tours_events",
     "WebSearchTours",
+    "collect_tripadvisor_intelligence",
+    "TripAdvisorScraper",
 ]
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"

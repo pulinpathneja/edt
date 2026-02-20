@@ -15,9 +15,9 @@ class EnvConfig {
 
   static String get apiBaseUrl {
     return switch (_environment) {
-      Environment.development => 'http://34.46.220.220:8000',
-      Environment.staging => 'http://34.46.220.220:8000',
-      Environment.production => 'http://34.46.220.220:8000',
+      Environment.development => 'http://localhost:8000',
+      Environment.staging => 'https://edt-api-852352036956.us-central1.run.app',
+      Environment.production => 'https://edt-api-852352036956.us-central1.run.app',
     };
   }
 

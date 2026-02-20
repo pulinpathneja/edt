@@ -57,7 +57,7 @@ class TripPreferencesScreen extends ConsumerWidget {
               child: Center(
                 child: Text(
                   '${state.selectedCountry!.flag} ${state.selectedCountry!.name}',
-                  style: GoogleFonts.inter(
+                  style: GoogleFonts.plusJakartaSans(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                     color: AppColors.textSecondary,
@@ -85,7 +85,7 @@ class TripPreferencesScreen extends ConsumerWidget {
                 children: [
                   Text(
                     _stepTitles[step],
-                    style: GoogleFonts.playfairDisplay(
+                    style: GoogleFonts.plusJakartaSans(
                       fontSize: 28,
                       fontWeight: FontWeight.w700,
                       color: AppColors.textPrimary,
@@ -95,7 +95,7 @@ class TripPreferencesScreen extends ConsumerWidget {
                   const SizedBox(height: 8),
                   Text(
                     _stepSubtitles[step],
-                    style: GoogleFonts.inter(
+                    style: GoogleFonts.plusJakartaSans(
                       fontSize: 14,
                       color: AppColors.textSecondary,
                       height: 1.4,
@@ -145,7 +145,7 @@ class TripPreferencesScreen extends ConsumerWidget {
           children: [
             Text(
               ['Dates', 'Group', 'Vibes', 'Pace & Budget'][step],
-              style: GoogleFonts.inter(
+              style: GoogleFonts.plusJakartaSans(
                 fontSize: 12,
                 fontWeight: FontWeight.w600,
                 color: AppColors.gold,
@@ -153,7 +153,7 @@ class TripPreferencesScreen extends ConsumerWidget {
             ),
             Text(
               'Step ${step + 1} of 4',
-              style: GoogleFonts.inter(
+              style: GoogleFonts.plusJakartaSans(
                 fontSize: 12,
                 color: AppColors.textTertiary,
               ),
@@ -212,7 +212,7 @@ class TripPreferencesScreen extends ConsumerWidget {
                   children: [
                     Text(
                       '${state.totalDays} days',
-                      style: GoogleFonts.playfairDisplay(
+                      style: GoogleFonts.plusJakartaSans(
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
                         color: AppColors.textPrimary,
@@ -220,7 +220,7 @@ class TripPreferencesScreen extends ConsumerWidget {
                     ),
                     Text(
                       'across ${state.selectedCountry?.name ?? 'your trip'}',
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.plusJakartaSans(
                         fontSize: 13,
                         color: AppColors.textSecondary,
                       ),
@@ -281,7 +281,7 @@ class TripPreferencesScreen extends ConsumerWidget {
                     const SizedBox(height: 8),
                     Text(
                       type.$2,
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.plusJakartaSans(
                         fontSize: 14,
                         fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
                         color: isSelected ? AppColors.primary : AppColors.textPrimary,
@@ -289,7 +289,7 @@ class TripPreferencesScreen extends ConsumerWidget {
                     ),
                     Text(
                       type.$4,
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.plusJakartaSans(
                         fontSize: 11,
                         color: AppColors.textTertiary,
                       ),
@@ -305,7 +305,7 @@ class TripPreferencesScreen extends ConsumerWidget {
         // Group size
         Text(
           'Group Size',
-          style: GoogleFonts.inter(
+          style: GoogleFonts.plusJakartaSans(
             fontSize: 16,
             fontWeight: FontWeight.w600,
             color: AppColors.textPrimary,
@@ -324,7 +324,7 @@ class TripPreferencesScreen extends ConsumerWidget {
             const SizedBox(width: 24),
             Text(
               '${state.groupSize}',
-              style: GoogleFonts.playfairDisplay(
+              style: GoogleFonts.plusJakartaSans(
                 fontSize: 36,
                 fontWeight: FontWeight.w600,
                 color: AppColors.textPrimary,
@@ -387,7 +387,7 @@ class TripPreferencesScreen extends ConsumerWidget {
                     const SizedBox(width: 6),
                     Text(
                       vibe.$2,
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.plusJakartaSans(
                         fontSize: 14,
                         fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
                         color: isSelected ? vibeColor : AppColors.textPrimary,
@@ -406,7 +406,7 @@ class TripPreferencesScreen extends ConsumerWidget {
         const SizedBox(height: 16),
         Text(
           '${state.vibes.length}/5 selected',
-          style: GoogleFonts.inter(
+          style: GoogleFonts.plusJakartaSans(
             fontSize: 13,
             color: state.vibes.isNotEmpty ? AppColors.gold : AppColors.textTertiary,
             fontWeight: FontWeight.w500,
@@ -430,7 +430,7 @@ class TripPreferencesScreen extends ConsumerWidget {
         // Pacing
         Text(
           'Travel Pace',
-          style: GoogleFonts.playfairDisplay(
+          style: GoogleFonts.plusJakartaSans(
             fontSize: 20,
             fontWeight: FontWeight.w600,
             color: AppColors.textPrimary,
@@ -464,7 +464,7 @@ class TripPreferencesScreen extends ConsumerWidget {
                         children: [
                           Text(
                             option.$2,
-                            style: GoogleFonts.inter(
+                            style: GoogleFonts.plusJakartaSans(
                               fontSize: 15,
                               fontWeight: FontWeight.w600,
                               color: isSelected ? AppColors.primary : AppColors.textPrimary,
@@ -472,7 +472,7 @@ class TripPreferencesScreen extends ConsumerWidget {
                           ),
                           Text(
                             option.$3,
-                            style: GoogleFonts.inter(fontSize: 12, color: AppColors.textSecondary),
+                            style: GoogleFonts.plusJakartaSans(fontSize: 12, color: AppColors.textSecondary),
                           ),
                         ],
                       ),
@@ -489,7 +489,7 @@ class TripPreferencesScreen extends ConsumerWidget {
         // Budget
         Text(
           'Budget Level',
-          style: GoogleFonts.playfairDisplay(
+          style: GoogleFonts.plusJakartaSans(
             fontSize: 20,
             fontWeight: FontWeight.w600,
             color: AppColors.textPrimary,
@@ -498,7 +498,7 @@ class TripPreferencesScreen extends ConsumerWidget {
         const SizedBox(height: 4),
         Text(
           _budgetLabel(state.budgetLevel),
-          style: GoogleFonts.inter(fontSize: 13, color: AppColors.textSecondary),
+          style: GoogleFonts.plusJakartaSans(fontSize: 13, color: AppColors.textSecondary),
         ),
         const SizedBox(height: 16),
         Row(
@@ -521,7 +521,7 @@ class TripPreferencesScreen extends ConsumerWidget {
                   child: Center(
                     child: Text(
                       '\$' * level,
-                      style: GoogleFonts.inter(
+                      style: GoogleFonts.plusJakartaSans(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
                         color: isActive ? AppColors.gold : AppColors.textTertiary,
@@ -584,7 +584,7 @@ class TripPreferencesScreen extends ConsumerWidget {
                   ),
                   child: Text(
                     'Back',
-                    style: GoogleFonts.inter(fontSize: 15, fontWeight: FontWeight.w600, color: AppColors.textPrimary),
+                    style: GoogleFonts.plusJakartaSans(fontSize: 15, fontWeight: FontWeight.w600, color: AppColors.textPrimary),
                   ),
                 ),
               ),
@@ -616,7 +616,7 @@ class TripPreferencesScreen extends ConsumerWidget {
                   children: [
                     Text(
                       isLastStep ? 'See Options' : 'Continue',
-                      style: GoogleFonts.inter(fontSize: 15, fontWeight: FontWeight.w600),
+                      style: GoogleFonts.plusJakartaSans(fontSize: 15, fontWeight: FontWeight.w600),
                     ),
                     const SizedBox(width: 6),
                     Icon(isLastStep ? Icons.auto_awesome : Icons.arrow_forward, size: 18),

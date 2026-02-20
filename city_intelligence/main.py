@@ -86,7 +86,7 @@ async def run_city_crawl(city: str):
         # Stage 1: Reddit
         generation_status[city]["stage"] = "Crawling Reddit..."
         print("\n[1/3] Crawling Reddit...")
-        reddit_data = await collect_city_intelligence(city)
+        reddit_data = await collect_city_intelligence(city, country="")
         print(f"  Collected {len(reddit_data.posts)} posts from Reddit")
 
         # Stage 2: Tours

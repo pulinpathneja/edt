@@ -3,9 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../colors/app_colors.dart';
 
-/// Warm + Premium typography system
-/// Headings: Playfair Display (elegant serif)
-/// Body: Inter (clean sans-serif)
+/// Modern typography system using Plus Jakarta Sans
+/// (matching edt-ui/modular-joy-maker design system)
 class AppTypography {
   const AppTypography._();
 
@@ -19,16 +18,17 @@ class AppTypography {
   static const FontWeight medium = FontWeight.w500;
   static const FontWeight semiBold = FontWeight.w600;
   static const FontWeight bold = FontWeight.w700;
+  static const FontWeight extraBold = FontWeight.w800;
 
-  // Helper to get Playfair Display style
-  static TextStyle _playfair({
+  // Helper for heading styles
+  static TextStyle _heading({
     double fontSize = 16,
-    FontWeight fontWeight = FontWeight.w600,
+    FontWeight fontWeight = FontWeight.w700,
     double height = 1.25,
     double letterSpacing = 0,
     Color color = AppColors.textPrimary,
   }) {
-    return GoogleFonts.playfairDisplay(
+    return GoogleFonts.plusJakartaSans(
       fontSize: fontSize,
       fontWeight: fontWeight,
       height: height,
@@ -37,15 +37,15 @@ class AppTypography {
     );
   }
 
-  // Helper to get Inter style
-  static TextStyle _inter({
+  // Helper for body styles
+  static TextStyle _body({
     double fontSize = 14,
     FontWeight fontWeight = FontWeight.w400,
     double height = 1.5,
     double letterSpacing = 0,
     Color color = AppColors.textPrimary,
   }) {
-    return GoogleFonts.inter(
+    return GoogleFonts.plusJakartaSans(
       fontSize: fontSize,
       fontWeight: fontWeight,
       height: height,
@@ -54,82 +54,82 @@ class AppTypography {
     );
   }
 
-  // Display Styles - Playfair Display (elegant serif)
-  TextStyle get displayLarge => _playfair(
+  // Display Styles
+  TextStyle get displayLarge => _heading(
         fontSize: 57,
-        fontWeight: bold,
+        fontWeight: extraBold,
         height: 1.12,
         letterSpacing: -0.25,
       );
 
-  TextStyle get displayMedium => _playfair(
+  TextStyle get displayMedium => _heading(
         fontSize: 45,
-        fontWeight: bold,
+        fontWeight: extraBold,
         height: 1.16,
       );
 
-  TextStyle get displaySmall => _playfair(
+  TextStyle get displaySmall => _heading(
         fontSize: 36,
-        fontWeight: semiBold,
+        fontWeight: bold,
         height: 1.22,
       );
 
-  // Headline Styles - Playfair Display
-  TextStyle get headlineLarge => _playfair(
+  // Headline Styles
+  TextStyle get headlineLarge => _heading(
         fontSize: 32,
-        fontWeight: semiBold,
+        fontWeight: bold,
         height: 1.25,
       );
 
-  TextStyle get headlineMedium => _playfair(
+  TextStyle get headlineMedium => _heading(
         fontSize: 28,
-        fontWeight: semiBold,
+        fontWeight: bold,
         height: 1.29,
       );
 
-  TextStyle get headlineSmall => _playfair(
+  TextStyle get headlineSmall => _heading(
         fontSize: 24,
         fontWeight: semiBold,
         height: 1.33,
       );
 
-  // Title Styles - Inter (clean transition)
-  TextStyle get titleLarge => _inter(
+  // Title Styles
+  TextStyle get titleLarge => _body(
         fontSize: 22,
         fontWeight: semiBold,
         height: 1.27,
       );
 
-  TextStyle get titleMedium => _inter(
+  TextStyle get titleMedium => _body(
         fontSize: 18,
         fontWeight: medium,
         height: 1.33,
         letterSpacing: 0.15,
       );
 
-  TextStyle get titleSmall => _inter(
+  TextStyle get titleSmall => _body(
         fontSize: 16,
         fontWeight: medium,
         height: 1.43,
         letterSpacing: 0.1,
       );
 
-  // Body Styles - Inter
-  TextStyle get bodyLarge => _inter(
+  // Body Styles
+  TextStyle get bodyLarge => _body(
         fontSize: 16,
         fontWeight: regular,
         height: 1.5,
         letterSpacing: 0.5,
       );
 
-  TextStyle get bodyMedium => _inter(
+  TextStyle get bodyMedium => _body(
         fontSize: 14,
         fontWeight: regular,
         height: 1.43,
         letterSpacing: 0.25,
       );
 
-  TextStyle get bodySmall => _inter(
+  TextStyle get bodySmall => _body(
         fontSize: 12,
         fontWeight: regular,
         height: 1.33,
@@ -137,15 +137,15 @@ class AppTypography {
         color: AppColors.textSecondary,
       );
 
-  // Label Styles - Inter
-  TextStyle get labelLarge => _inter(
+  // Label Styles
+  TextStyle get labelLarge => _body(
         fontSize: 14,
         fontWeight: medium,
         height: 1.43,
         letterSpacing: 0.1,
       );
 
-  TextStyle get labelMedium => _inter(
+  TextStyle get labelMedium => _body(
         fontSize: 12,
         fontWeight: medium,
         height: 1.33,
@@ -153,7 +153,7 @@ class AppTypography {
         color: AppColors.textSecondary,
       );
 
-  TextStyle get labelSmall => _inter(
+  TextStyle get labelSmall => _body(
         fontSize: 11,
         fontWeight: medium,
         height: 1.45,
@@ -161,8 +161,8 @@ class AppTypography {
         color: AppColors.textTertiary,
       );
 
-  // Button Text - Inter
-  TextStyle get button => _inter(
+  // Button Text
+  TextStyle get button => _body(
         fontSize: 14,
         fontWeight: semiBold,
         height: 1.43,
@@ -170,8 +170,8 @@ class AppTypography {
         color: AppColors.textOnPrimary,
       );
 
-  // Caption - Inter
-  TextStyle get caption => _inter(
+  // Caption
+  TextStyle get caption => _body(
         fontSize: 12,
         fontWeight: regular,
         height: 1.33,

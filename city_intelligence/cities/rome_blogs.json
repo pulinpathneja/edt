@@ -1,0 +1,177 @@
+{
+  "city_name": "Rome",
+  "country": "Italy",
+  "collected_at": "2026-02-16T15:09:53.921242",
+  "total_articles": 7,
+  "sources_searched": [
+    "Atlas Obscura",
+    "Lonely Planet",
+    "Rick Steves",
+    "Culture Trip",
+    "Eater",
+    "Nomadic Matt",
+    "Spotted by Locals",
+    "Trekaroo"
+  ],
+  "articles_by_category": {
+    "hidden_gems": [
+      {
+        "title": "All Places in Rome, Italy",
+        "url": "https://www.atlasobscura.com/things-to-do/rome-italy/places",
+        "snippet": "e, Italy Torre Argentina (Roman Cat Sanctuary) Hundreds of lucky felines haunt the ruins where Caesar was murdered. Rome, Italy Galleria Sciarra This hidden Art Nouveau courtyard is an opulent feast for the eyes. Rome, Italy Quartiere Copped\u00e8 Architectureal fantasy quarter of Rome.",
+        "source": "Atlas Obscura",
+        "category": "hidden_gems"
+      },
+      {
+        "title": "Torre Argentina (Roman Cat Sanctuary) in Rome",
+        "url": "https://www.atlasobscura.com/places/torre-argentina-roman-cat-sanctuary",
+        "snippet": "tta Black/Atlas Obscura Roma Kitty bakeat01 / Atlas Obscura User Lovely Roma kitties bakeat01 / Atlas Obscura User Archimedes / Atlas Obscura User Archimedes / Atlas Obscura User amazing frescoes! mamasafari / Atlas Obscura User mamasafari / Atlas Obscura User mamasafari / Atlas Obscura User gonzalo",
+        "source": "Atlas Obscura",
+        "category": "hidden_gems"
+      },
+      {
+        "title": "Trevi Waterfall in Rome",
+        "url": "https://www.atlasobscura.com/places/trevi-waterfall",
+        "snippet": "bscura User Stone blocks hidden by the vegetation. LatiumMirabile / Atlas Obscura User CAPTION Trevi Waterfall and the small lake. LatiumMirabile / Atlas Obscura User Archaeological remains from different ages are strewn around the waterfall.",
+        "source": "Atlas Obscura",
+        "category": "hidden_gems"
+      },
+      {
+        "title": "Monte Testaccio in Rome",
+        "url": "https://www.atlasobscura.com/places/monte-testaccio",
+        "snippet": "Monte Testaccio This hill made entirely of ancient Roman jars was simply a garbage dump to the people of the time. Rome , Italy",
+        "source": "Atlas Obscura",
+        "category": "hidden_gems"
+      }
+    ],
+    "general": [
+      {
+        "title": "Experience Rome",
+        "url": "https://www.lonelyplanet.com/destinations/italy/rome",
+        "snippet": "dy mix of haunting ruins, awe-inspiring art and vibrant street life, Italy's hot-blooded capital is one of the world's most romantic and charismatic cities. LEARN MORE Save Save your favorites! Sign in to save, get inspo & more Attraction in Vatican City, Borgo & Prati Vatican Museums Discover Save ",
+        "source": "Lonely Planet",
+        "category": "general"
+      },
+      {
+        "title": "10 of the best things to do in Rome",
+        "url": "https://www.lonelyplanet.com/articles/best-things-to-do-in-rome",
+        "snippet": "capital. The biggest challenge on a trip to Rome will be discerning your must-see sights, while also accepting that it's impossible to fit everything into one vacation. There may be historical monuments, museums and ancient sites around every corner, but there's more to this city than standing in th",
+        "source": "Lonely Planet",
+        "category": "general"
+      },
+      {
+        "title": "Centro Storico travel",
+        "url": "https://www.lonelyplanet.com/destinations/italy/rome/centro-storico",
+        "snippet": "tangle of cobbled alleyways, Renaissance palaces, ancient ruins and baroque piazzas, the historic centre is the Rome many come to see. Its theatrical streets teem with boutiques, cafes, trattorias and stylish bars, while market traders and street artists work its vibrant squares. The Pantheon and Pi",
+        "source": "Lonely Planet",
+        "category": "general"
+      }
+    ]
+  },
+  "articles_by_source": {
+    "Atlas Obscura": [
+      {
+        "title": "All Places in Rome, Italy",
+        "url": "https://www.atlasobscura.com/things-to-do/rome-italy/places",
+        "snippet": "e, Italy Torre Argentina (Roman Cat Sanctuary) Hundreds of lucky felines haunt the ruins where Caesar was murdered. Rome, Italy Galleria Sciarra This hidden Art Nouveau courtyard is an opulent feast for the eyes. Rome, Italy Quartiere Copped\u00e8 Architectureal fantasy quarter of Rome.",
+        "source": "Atlas Obscura",
+        "category": "hidden_gems"
+      },
+      {
+        "title": "Torre Argentina (Roman Cat Sanctuary) in Rome",
+        "url": "https://www.atlasobscura.com/places/torre-argentina-roman-cat-sanctuary",
+        "snippet": "tta Black/Atlas Obscura Roma Kitty bakeat01 / Atlas Obscura User Lovely Roma kitties bakeat01 / Atlas Obscura User Archimedes / Atlas Obscura User Archimedes / Atlas Obscura User amazing frescoes! mamasafari / Atlas Obscura User mamasafari / Atlas Obscura User mamasafari / Atlas Obscura User gonzalo",
+        "source": "Atlas Obscura",
+        "category": "hidden_gems"
+      },
+      {
+        "title": "Trevi Waterfall in Rome",
+        "url": "https://www.atlasobscura.com/places/trevi-waterfall",
+        "snippet": "bscura User Stone blocks hidden by the vegetation. LatiumMirabile / Atlas Obscura User CAPTION Trevi Waterfall and the small lake. LatiumMirabile / Atlas Obscura User Archaeological remains from different ages are strewn around the waterfall.",
+        "source": "Atlas Obscura",
+        "category": "hidden_gems"
+      },
+      {
+        "title": "Monte Testaccio in Rome",
+        "url": "https://www.atlasobscura.com/places/monte-testaccio",
+        "snippet": "Monte Testaccio This hill made entirely of ancient Roman jars was simply a garbage dump to the people of the time. Rome , Italy",
+        "source": "Atlas Obscura",
+        "category": "hidden_gems"
+      }
+    ],
+    "Lonely Planet": [
+      {
+        "title": "Experience Rome",
+        "url": "https://www.lonelyplanet.com/destinations/italy/rome",
+        "snippet": "dy mix of haunting ruins, awe-inspiring art and vibrant street life, Italy's hot-blooded capital is one of the world's most romantic and charismatic cities. LEARN MORE Save Save your favorites! Sign in to save, get inspo & more Attraction in Vatican City, Borgo & Prati Vatican Museums Discover Save ",
+        "source": "Lonely Planet",
+        "category": "general"
+      },
+      {
+        "title": "10 of the best things to do in Rome",
+        "url": "https://www.lonelyplanet.com/articles/best-things-to-do-in-rome",
+        "snippet": "capital. The biggest challenge on a trip to Rome will be discerning your must-see sights, while also accepting that it's impossible to fit everything into one vacation. There may be historical monuments, museums and ancient sites around every corner, but there's more to this city than standing in th",
+        "source": "Lonely Planet",
+        "category": "general"
+      },
+      {
+        "title": "Centro Storico travel",
+        "url": "https://www.lonelyplanet.com/destinations/italy/rome/centro-storico",
+        "snippet": "tangle of cobbled alleyways, Renaissance palaces, ancient ruins and baroque piazzas, the historic centre is the Rome many come to see. Its theatrical streets teem with boutiques, cafes, trattorias and stylish bars, while market traders and street artists work its vibrant squares. The Pantheon and Pi",
+        "source": "Lonely Planet",
+        "category": "general"
+      }
+    ]
+  },
+  "articles": [
+    {
+      "title": "All Places in Rome, Italy",
+      "url": "https://www.atlasobscura.com/things-to-do/rome-italy/places",
+      "snippet": "e, Italy Torre Argentina (Roman Cat Sanctuary) Hundreds of lucky felines haunt the ruins where Caesar was murdered. Rome, Italy Galleria Sciarra This hidden Art Nouveau courtyard is an opulent feast for the eyes. Rome, Italy Quartiere Copped\u00e8 Architectureal fantasy quarter of Rome.",
+      "source": "Atlas Obscura",
+      "category": "hidden_gems"
+    },
+    {
+      "title": "Torre Argentina (Roman Cat Sanctuary) in Rome",
+      "url": "https://www.atlasobscura.com/places/torre-argentina-roman-cat-sanctuary",
+      "snippet": "tta Black/Atlas Obscura Roma Kitty bakeat01 / Atlas Obscura User Lovely Roma kitties bakeat01 / Atlas Obscura User Archimedes / Atlas Obscura User Archimedes / Atlas Obscura User amazing frescoes! mamasafari / Atlas Obscura User mamasafari / Atlas Obscura User mamasafari / Atlas Obscura User gonzalo",
+      "source": "Atlas Obscura",
+      "category": "hidden_gems"
+    },
+    {
+      "title": "Trevi Waterfall in Rome",
+      "url": "https://www.atlasobscura.com/places/trevi-waterfall",
+      "snippet": "bscura User Stone blocks hidden by the vegetation. LatiumMirabile / Atlas Obscura User CAPTION Trevi Waterfall and the small lake. LatiumMirabile / Atlas Obscura User Archaeological remains from different ages are strewn around the waterfall.",
+      "source": "Atlas Obscura",
+      "category": "hidden_gems"
+    },
+    {
+      "title": "Monte Testaccio in Rome",
+      "url": "https://www.atlasobscura.com/places/monte-testaccio",
+      "snippet": "Monte Testaccio This hill made entirely of ancient Roman jars was simply a garbage dump to the people of the time. Rome , Italy",
+      "source": "Atlas Obscura",
+      "category": "hidden_gems"
+    },
+    {
+      "title": "Experience Rome",
+      "url": "https://www.lonelyplanet.com/destinations/italy/rome",
+      "snippet": "dy mix of haunting ruins, awe-inspiring art and vibrant street life, Italy's hot-blooded capital is one of the world's most romantic and charismatic cities. LEARN MORE Save Save your favorites! Sign in to save, get inspo & more Attraction in Vatican City, Borgo & Prati Vatican Museums Discover Save ",
+      "source": "Lonely Planet",
+      "category": "general"
+    },
+    {
+      "title": "10 of the best things to do in Rome",
+      "url": "https://www.lonelyplanet.com/articles/best-things-to-do-in-rome",
+      "snippet": "capital. The biggest challenge on a trip to Rome will be discerning your must-see sights, while also accepting that it's impossible to fit everything into one vacation. There may be historical monuments, museums and ancient sites around every corner, but there's more to this city than standing in th",
+      "source": "Lonely Planet",
+      "category": "general"
+    },
+    {
+      "title": "Centro Storico travel",
+      "url": "https://www.lonelyplanet.com/destinations/italy/rome/centro-storico",
+      "snippet": "tangle of cobbled alleyways, Renaissance palaces, ancient ruins and baroque piazzas, the historic centre is the Rome many come to see. Its theatrical streets teem with boutiques, cafes, trattorias and stylish bars, while market traders and street artists work its vibrant squares. The Pantheon and Pi",
+      "source": "Lonely Planet",
+      "category": "general"
+    }
+  ]
+}
