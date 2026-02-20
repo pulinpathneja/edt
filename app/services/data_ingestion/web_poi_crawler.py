@@ -23,13 +23,26 @@ _ci_dir = str(Path(__file__).resolve().parents[3] / "city_intelligence")
 if _ci_dir not in sys.path:
     sys.path.insert(0, _ci_dir)
 
-from blog_scraper import (
-    BLOG_SOURCES,
-    DDG_SEARCH_URL,
-    HEADERS,
-    extract_text_from_html,
-    parse_ddg_results,
-)
+try:
+    from blog_scraper import (
+        BLOG_SOURCES,
+        DDG_SEARCH_URL,
+        HEADERS,
+        extract_text_from_html,
+        parse_ddg_results,
+    )
+except ModuleNotFoundError:
+    # Fallback when city_intelligence package isn't available (e.g. Docker)
+    BLOG_SOURCES: dict = {}
+    DDG_SEARCH_URL = "https://html.duckduckgo.com/html/"
+    HEADERS = {"User-Agent": "Mozilla/5.0"}
+
+    def extract_text_from_html(html: str) -> str:
+        return html
+
+    def parse_ddg_results(html: str) -> list:
+        return []
+
 from app.services.data_ingestion.crawl_to_poi_converter import _TA_SUFFIX_PATTERN
 
 logger = logging.getLogger(__name__)
