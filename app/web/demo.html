@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDT - Live Interactive Demo</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0F172A;
+  --surface: #1E293B;
+  --surface2: #334155;
+  --border: #475569;
+  --text: #F1F5F9;
+  --text2: #94A3B8;
+  --text3: #64748B;
+  --gold: #F59E0B;
+  --gold2: #D97706;
+  --green: #10B981;
+  --green-bg: rgba(16,185,129,0.1);
+  --blue: #3B82F6;
+  --blue-bg: rgba(59,130,246,0.1);
+  --purple: #8B5CF6;
+  --purple-bg: rgba(139,92,246,0.1);
+  --red: #EF4444;
+  --red-bg: rgba(239,68,68,0.1);
+  --pink: #EC4899;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+body {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ─── Hero ─────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 50%, #0F172A 100%);
+  padding: 60px 32px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero h1 { font-size: 36px; font-weight: 800; position: relative; letter-spacing: -1px; }
+.hero .gold { color: var(--gold); }
+.hero .sub { color: var(--text2); font-size: 16px; margin-top: 8px; position: relative; font-weight: 400; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.hero .badges { display: flex; justify-content: center; gap: 10px; margin-top: 20px; flex-wrap: wrap; position: relative; }
+.hero .badge { padding: 5px 14px; border-radius: 20px; font-size: 11px; font-weight: 600; border: 1px solid rgba(245,158,11,0.3); color: var(--gold); background: rgba(245,158,11,0.08); }
+
+/* ─── Device ID Bar ────────────────────────────────── */
+.device-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.device-bar label { color: var(--text2); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+.device-bar code {
+  background: var(--bg);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--gold);
+  border: 1px solid var(--border);
+  flex: 1;
+  min-width: 200px;
+}
+.device-bar .status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--green);
+}
+.device-bar .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* ─── Steps ────────────────────────────────────────── */
+.container { max-width: 1000px; margin: 0 auto; padding: 32px 24px 100px; }
+
+.step {
+  margin-bottom: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.step.active { border-color: var(--gold); }
+.step.done { border-color: var(--green); }
+
+.step-header {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  user-select: none;
+}
+.step-header:hover { background: rgba(255,255,255,0.02); }
+
+.step-num {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  flex-shrink: 0;
+  background: var(--surface2);
+  color: var(--text3);
+  border: 2px solid var(--border);
+  transition: all 0.3s;
+}
+.step.active .step-num { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+.step.done .step-num { background: var(--green); color: white; border-color: var(--green); }
+
+.step-title { font-size: 16px; font-weight: 700; flex: 1; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.step-desc { font-size: 12px; color: var(--text2); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+
+.step-tag {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tag-get { background: var(--blue-bg); color: var(--blue); }
+.tag-post { background: var(--green-bg); color: var(--green); }
+.tag-delete { background: var(--red-bg); color: var(--red); }
+.tag-put { background: var(--purple-bg); color: var(--purple); }
+
+.step-body { padding: 0 24px 24px; display: none; }
+.step.active .step-body, .step.done .step-body { display: block; }
+
+/* ─── Explanation Box ──────────────────────────────── */
+.explain {
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.15);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.6;
+}
+.explain strong { color: var(--gold); font-weight: 600; }
+
+/* ─── API Call Box ─────────────────────────────────── */
+.api-box {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+}
+.api-header {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+.api-method {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+.api-method.get { background: var(--blue-bg); color: var(--blue); }
+.api-method.post { background: var(--green-bg); color: var(--green); }
+.api-method.delete { background: var(--red-bg); color: var(--red); }
+.api-url { color: var(--text2); word-break: break-all; }
+
+.api-body {
+  padding: 14px 16px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.api-body pre {
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text2);
+}
+.api-body pre .key { color: var(--blue); }
+.api-body pre .str { color: var(--green); }
+.api-body pre .num { color: var(--gold); }
+.api-body pre .bool { color: var(--purple); }
+.api-body pre .null { color: var(--text3); }
+
+/* ─── Buttons ──────────────────────────────────────── */
+.btn {
+  padding: 10px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-gold { background: var(--gold); color: var(--bg); }
+.btn-gold:hover:not(:disabled) { background: var(--gold2); }
+.btn-outline { background: transparent; color: var(--text2); border: 1px solid var(--border); }
+.btn-outline:hover:not(:disabled) { border-color: var(--text2); color: var(--text); }
+.btn-red { background: var(--red); color: white; }
+.btn-red:hover:not(:disabled) { background: #DC2626; }
+.btn-green { background: var(--green); color: white; }
+.btn-green:hover:not(:disabled) { background: #059669; }
+
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+
+/* ─── Results ──────────────────────────────────────── */
+.result-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.result-card {
+  background: var(--surface2);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  border: 1px solid var(--border);
+}
+.result-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+.result-card h4 { font-size: 14px; margin-bottom: 4px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+.result-card p { font-size: 12px; color: var(--text2); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.status-success { background: var(--green-bg); color: var(--green); }
+.status-error { background: var(--red-bg); color: var(--red); }
+.status-pending { background: rgba(245,158,11,0.1); color: var(--gold); }
+
+/* ─── Spinner ──────────────────────────────────────── */
+.spinner {
+  width: 18px; height: 18px;
+  border: 2px solid var(--border);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── Timeline ─────────────────────────────────────── */
+.timeline { margin-top: 16px; }
+.timeline-day {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.timeline-day-header {
+  padding: 10px 16px;
+  background: rgba(245,158,11,0.06);
+  border-bottom: 1px solid var(--border);
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.timeline-activity {
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(71,85,105,0.3);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+.timeline-activity:last-child { border-bottom: none; }
+.timeline-time { color: var(--gold); font-size: 12px; font-weight: 600; min-width: 52px; font-family: 'SF Mono', monospace; }
+.timeline-icon { font-size: 18px; }
+.timeline-info { flex: 1; }
+.timeline-name { font-size: 13px; font-weight: 600; }
+.timeline-type { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.5px; }
+.timeline-img { width: 44px; height: 44px; border-radius: 6px; object-fit: cover; }
+
+/* ─── Allocation cards ─────────────────────────────── */
+.alloc-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+.alloc-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.alloc-card:hover { border-color: var(--gold); }
+.alloc-card.selected { border-color: var(--gold); background: rgba(245,158,11,0.04); }
+.alloc-card .match { font-size: 28px; font-weight: 800; color: var(--gold); font-family: -apple-system, sans-serif; }
+.alloc-card .alloc-name { font-size: 15px; font-weight: 700; margin-top: 4px; font-family: -apple-system, sans-serif; }
+.alloc-cities { margin-top: 8px; }
+.alloc-city {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 4px 0; border-bottom: 1px solid rgba(71,85,105,0.2);
+  font-size: 13px; font-family: -apple-system, sans-serif;
+}
+.alloc-city:last-child { border: none; }
+.alloc-days { color: var(--gold); font-weight: 600; font-size: 12px; }
+.alloc-rec {
+  position: absolute; top: 12px; right: 12px;
+  background: var(--gold); color: var(--bg); padding: 2px 8px; border-radius: 8px;
+  font-size: 10px; font-weight: 800; text-transform: uppercase;
+}
+
+/* ─── Responsive ───────────────────────────────────── */
+@media (max-width: 600px) {
+  .hero { padding: 40px 20px 32px; }
+  .hero h1 { font-size: 26px; }
+  .container { padding: 20px 12px 80px; }
+  .step-header { padding: 16px; }
+  .step-body { padding: 0 16px 16px; }
+  .alloc-cards { grid-template-columns: 1fr; }
+  .result-cards { grid-template-columns: 1fr; }
+  .device-bar { padding: 12px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ Hero ═══ -->
+<div class="hero">
+  <h1>EDT <span class="gold">Live Demo</span></h1>
+  <div class="sub">RAG-Based Persona-Driven Travel Itinerary System</div>
+  <div class="badges">
+    <span class="badge">No LLM</span>
+    <span class="badge">pgvector</span>
+    <span class="badge">384-dim Embeddings</span>
+    <span class="badge">FastAPI</span>
+    <span class="badge">Cloud Run</span>
+  </div>
+</div>
+
+<!-- ═══ Device Bar ═══ -->
+<div class="device-bar">
+  <label>X-Device-ID</label>
+  <code id="deviceId">generating...</code>
+  <div class="status"><div class="dot"></div> <span id="connStatus">Connecting...</span></div>
+</div>
+
+<!-- ═══ Steps ═══ -->
+<div class="container">
+
+  <!-- Step 1: Anonymous Session -->
+  <div class="step" id="step1">
+    <div class="step-header" onclick="toggleStep(1)">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Anonymous Session Login</div>
+        <div class="step-desc">No signup needed — device UUID is your identity</div>
+      </div>
+      <span class="step-tag tag-post">POST</span>
+    </div>
+    <div class="step-body">
+      <div class="explain">
+        <strong>How it works:</strong> The app generates a UUID on first launch, stores it in AsyncStorage, and sends it as <strong>X-Device-ID</strong> header on every request. No email, no password, no OAuth. The server creates a DeviceSession record and everything is tied to this anonymous device.
+      </div>
+      <div class="api-box">
+        <div class="api-header">
+          <span class="api-method post">POST</span>
+          <span class="api-url">/api/v1/sessions/register</span>
+        </div>
+        <div class="api-body"><pre id="res1">Click "Register Session" to start</pre></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-gold" onclick="runStep1()" id="btn1">Register Session</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Demo Seed -->
+  <div class="step" id="step2">
+    <div class="step-header" onclick="toggleStep(2)">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Seed Demo Data</div>
+        <div class="step-desc">Pre-populate a trip draft + wishlist landmarks</div>
+      </div>
+      <span class="step-tag tag-post">POST</span>
+    </div>
+    <div class="step-body">
+      <div class="explain">
+        <strong>Demo seed</strong> creates a ready-made trip draft (Italy, 10 days, couple, cultural/romantic/foodie vibes) and adds 4 iconic landmarks to the wishlist — all with images. This simulates a user who started planning but hasn't finished yet.
+      </div>
+      <div class="api-box">
+        <div class="api-header">
+          <span class="api-method post">POST</span>
+          <span class="api-url">/api/v1/demo/seed</span>
+        </div>
+        <div class="api-body"><pre id="res2">Waiting for Step 1...</pre></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-gold" onclick="runStep2()" id="btn2" disabled>Seed Demo Data</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: Get Active Draft -->
+  <div class="step" id="step3">
+    <div class="step-header" onclick="toggleStep(3)">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Resume Trip Draft</div>
+        <div class="step-desc">Fetch the active draft — server remembers where you left off</div>
+      </div>
+      <span class="step-tag tag-get">GET</span>
+    </div>
+    <div class="step-body">
+      <div class="explain">
+        <strong>Auto-resume:</strong> The mobile app calls this endpoint on every launch. If an active draft exists, it shows a "Resume your trip" banner. The draft stores the wizard step, country, dates, vibes, budget — everything needed to pick up exactly where you left off.
+      </div>
+      <div class="api-box">
+        <div class="api-header">
+          <span class="api-method get">GET</span>
+          <span class="api-url">/api/v1/drafts/active</span>
+        </div>
+        <div class="api-body"><pre id="res3">Waiting for Step 2...</pre></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-gold" onclick="runStep3()" id="btn3" disabled>Get Active Draft</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 4: Wishlist -->
+  <div class="step" id="step4">
+    <div class="step-header" onclick="toggleStep(4)">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">View Wishlist</div>
+        <div class="step-desc">Saved landmarks with images, city, and category</div>
+      </div>
+      <span class="step-tag tag-get">GET</span>
+    </div>
+    <div class="step-body">
+      <div class="explain">
+        <strong>Wishlist</strong> stores POIs the user has hearted across all trips. Data is denormalized for instant display — no joins needed. The mobile app uses optimistic UI: the heart toggles instantly, then syncs with the backend.
+      </div>
+      <div class="api-box">
+        <div class="api-header">
+          <span class="api-method get">GET</span>
+          <span class="api-url">/api/v1/wishlist/</span>
+        </div>
+        <div class="api-body"><pre id="res4">Waiting for Step 2...</pre></div>
+      </div>
+      <div id="wishlistCards"></div>
+      <div class="btn-row">
+        <button class="btn btn-gold" onclick="runStep4()" id="btn4" disabled>Load Wishlist</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 5: Country Config -->
+  <div class="step" id="step5">
+    <div class="step-header" onclick="toggleStep(5)">
+      <div class="step-num">5</div>
+      <div>
+        <div class="step-title">Country & City Database</div>
+        <div class="step-desc">Available countries with city metadata for planning</div>
+      </div>
+      <span class="step-tag tag-get">GET</span>
+    </div>
+    <div class="step-body">
+      <div class="explain">
+        <strong>Country config</strong> drives the entire planning pipeline. Each city has min/max days, highlights, vibes, and a priority score. The country planner uses this to allocate days across cities based on user preferences.
+      </div>
+      <div class="api-box">
+        <div class="api-header">
+          <span class="api-method get">GET</span>
+          <span class="api-url">/api/v1/countries</span>
+        </div>
+        <div class="api-body"><pre id="res5">Click to load...</pre></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-gold" onclick="runStep5()" id="btn5">Load Countries</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 6: Allocations -->
+  <div class="step" id="step6">
+    <div class="step-header" onclick="toggleStep(6)">
+      <div class="step-num">6</div>
+      <div>
+        <div class="step-title">Generate City Allocations</div>
+        <div class="step-desc">AI plans how to split days across cities</div>
+      </div>
+      <span class="step-tag tag-post">POST</span>
+    </div>
+    <div class="step-body">
+      <div class="explain">
+        <strong>Country planner</strong> takes the draft's dates, vibes, and pacing, then runs constraint satisfaction to allocate days across Italian cities. It generates 2 options with match scores computed from pgvector persona alignment. <strong>No LLM</strong> — pure algorithmic planning.
+      </div>
+      <div class="api-box">
+        <div class="api-header">
+          <span class="api-method post">POST</span>
+          <span class="api-url">/api/v1/itinerary/plan-country</span>
+        </div>
+        <div class="api-body"><pre id="res6">Waiting for draft...</pre></div>
+      </div>
+      <div id="allocCards"></div>
+      <div class="btn-row">
+        <button class="btn btn-gold" onclick="runStep6()" id="btn6" disabled>Plan Italy Trip</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 7: Generate Itinerary -->
+  <div class="step" id="step7">
+    <div class="step-header" onclick="toggleStep(7)">
+      <div class="step-num">7</div>
+      <div>
+        <div class="step-title">Generate Day-by-Day Itinerary</div>
+        <div class="step-desc">RAG pipeline: retrieve, score, assemble</div>
+      </div>
+      <span class="step-tag tag-post">POST</span>
+    </div>
+    <div class="step-body">
+      <div class="explain">
+        <strong>The RAG pipeline:</strong> (1) <strong>Retriever</strong> generates query embedding from persona + vibes + city, runs pgvector cosine similarity. (2) <strong>Scorer</strong> re-ranks using 21-dimension persona multipliers. (3) <strong>Assembler</strong> builds the day respecting pacing, breaks, transit, and meal slots. All without an LLM.
+      </div>
+      <div class="api-box">
+        <div class="api-header">
+          <span class="api-method post">POST</span>
+          <span class="api-url">/api/v1/itinerary/generate</span>
+        </div>
+        <div class="api-body"><pre id="res7">Select an allocation first...</pre></div>
+      </div>
+      <div id="timelineView"></div>
+      <div class="btn-row">
+        <button class="btn btn-gold" onclick="runStep7()" id="btn7" disabled>Generate Itinerary</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 8: Reset -->
+  <div class="step" id="step8">
+    <div class="step-header" onclick="toggleStep(8)">
+      <div class="step-num">8</div>
+      <div>
+        <div class="step-title">Reset Demo</div>
+        <div class="step-desc">Clear all data and start fresh</div>
+      </div>
+      <span class="step-tag tag-post">POST</span>
+    </div>
+    <div class="step-body">
+      <div class="explain">
+        <strong>Reset</strong> deletes all drafts and wishlist items for this device. In the mobile app, this also clears the AsyncStorage seed flag so the next launch triggers a fresh demo seed.
+      </div>
+      <div class="api-box">
+        <div class="api-header">
+          <span class="api-method post">POST</span>
+          <span class="api-url">/api/v1/demo/reset</span>
+        </div>
+        <div class="api-body"><pre id="res8">Click to reset...</pre></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-red" onclick="runStep8()" id="btn8">Reset All Data</button>
+        <button class="btn btn-outline" onclick="location.reload()">Restart Demo</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ─── Config ───────────────────────────────────────────
+const BASE = window.location.origin;
+let DEVICE_ID = 'demo-' + crypto.randomUUID().slice(0, 12);
+let draftData = null;
+let allocData = null;
+
+document.getElementById('deviceId').textContent = DEVICE_ID;
+
+// ─── Helpers ──────────────────────────────────────────
+async function api(method, path, body) {
+  const opts = {
+    method,
+    headers: { 'X-Device-ID': DEVICE_ID, 'Content-Type': 'application/json' },
+  };
+  if (body) opts.body = JSON.stringify(body);
+  const r = await fetch(BASE + path, opts);
+  const text = await r.text();
+  let data;
+  try { data = JSON.parse(text); } catch { data = text; }
+  return { status: r.status, data, ok: r.ok };
+}
+
+function syntaxHL(json) {
+  const str = typeof json === 'string' ? json : JSON.stringify(json, null, 2);
+  return str
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/"([^"]+)":/g, '<span class="key">"$1"</span>:')
+    .replace(/: "([^"]*)"/g, ': <span class="str">"$1"</span>')
+    .replace(/: (\d+\.?\d*)/g, ': <span class="num">$1</span>')
+    .replace(/: (true|false)/g, ': <span class="bool">$1</span>')
+    .replace(/: (null)/g, ': <span class="null">$1</span>');
+}
+
+function setResult(id, data, ok) {
+  document.getElementById(id).innerHTML = syntaxHL(data);
+}
+
+function markStep(n, state) {
+  const el = document.getElementById('step' + n);
+  el.classList.remove('active', 'done');
+  if (state) el.classList.add(state);
+}
+
+function toggleStep(n) {
+  const el = document.getElementById('step' + n);
+  const body = el.querySelector('.step-body');
+  if (body.style.display === 'block') { body.style.display = 'none'; }
+  else { body.style.display = 'block'; }
+}
+
+function showLoading(id) {
+  document.getElementById(id).innerHTML = '<span class="spinner"></span> Calling API...';
+}
+
+// ─── Health Check ─────────────────────────────────────
+(async () => {
+  try {
+    const r = await api('GET', '/health');
+    document.getElementById('connStatus').textContent = r.ok ? 'Connected to Cloud Run' : 'Error';
+    markStep(1, 'active');
+    document.getElementById('step1').querySelector('.step-body').style.display = 'block';
+  } catch (e) {
+    document.getElementById('connStatus').textContent = 'Connection failed';
+  }
+})();
+
+// ─── Step 1: Register Session ─────────────────────────
+async function runStep1() {
+  document.getElementById('btn1').disabled = true;
+  showLoading('res1');
+  markStep(1, 'active');
+  const r = await api('POST', '/api/v1/sessions/register', { platform: 'web-demo' });
+  setResult('res1', r.data);
+  markStep(1, 'done');
+  markStep(2, 'active');
+  document.getElementById('step2').querySelector('.step-body').style.display = 'block';
+  document.getElementById('btn2').disabled = false;
+  document.getElementById('res2').textContent = 'Ready — click "Seed Demo Data"';
+}
+
+// ─── Step 2: Seed Demo ────────────────────────────────
+async function runStep2() {
+  document.getElementById('btn2').disabled = true;
+  showLoading('res2');
+  const r = await api('POST', '/api/v1/demo/seed');
+  setResult('res2', r.data);
+  markStep(2, 'done');
+  markStep(3, 'active');
+  document.getElementById('step3').querySelector('.step-body').style.display = 'block';
+  document.getElementById('btn3').disabled = false;
+  document.getElementById('btn4').disabled = false;
+  document.getElementById('btn6').disabled = false;
+  document.getElementById('res3').textContent = 'Ready — click "Get Active Draft"';
+  document.getElementById('res4').textContent = 'Ready — click "Load Wishlist"';
+}
+
+// ─── Step 3: Active Draft ─────────────────────────────
+async function runStep3() {
+  document.getElementById('btn3').disabled = true;
+  showLoading('res3');
+  const r = await api('GET', '/api/v1/drafts/active');
+  draftData = r.data;
+  setResult('res3', r.data);
+  markStep(3, 'done');
+  document.getElementById('res6').textContent = 'Ready — click "Plan Italy Trip"';
+}
+
+// ─── Step 4: Wishlist ─────────────────────────────────
+async function runStep4() {
+  document.getElementById('btn4').disabled = true;
+  showLoading('res4');
+  const r = await api('GET', '/api/v1/wishlist/');
+  setResult('res4', r.data);
+  markStep(4, 'done');
+
+  // Render cards
+  if (Array.isArray(r.data)) {
+    const html = r.data.map(item => `
+      <div class="result-card">
+        ${item.image_url ? `<img src="${item.image_url}" alt="${item.poi_name}" onerror="this.style.display='none'">` : ''}
+        <h4>${item.poi_name}</h4>
+        <p>${item.city || ''}${item.country ? ', ' + item.country : ''}</p>
+        <p style="margin-top:4px;color:var(--gold);font-size:11px">${item.category || ''}</p>
+      </div>
+    `).join('');
+    document.getElementById('wishlistCards').innerHTML = '<div class="result-cards">' + html + '</div>';
+  }
+}
+
+// ─── Step 5: Countries ────────────────────────────────
+async function runStep5() {
+  document.getElementById('btn5').disabled = true;
+  showLoading('res5');
+  const r = await api('GET', '/api/v1/countries');
+  setResult('res5', r.data);
+  markStep(5, 'done');
+}
+
+// ─── Step 6: Allocations ──────────────────────────────
+async function runStep6() {
+  document.getElementById('btn6').disabled = true;
+  showLoading('res6');
+  markStep(6, 'active');
+
+  const body = {
+    country_id: 'italy',
+    start_date: '2026-03-20',
+    end_date: '2026-03-29',
+    group_type: 'couple',
+    vibes: ['cultural', 'romantic', 'foodie'],
+    budget_level: 3,
+    pacing: 'moderate'
+  };
+
+  const r = await api('POST', '/api/v1/itinerary/plan-country', body);
+  setResult('res6', r.data);
+  markStep(6, 'done');
+
+  // Render allocation options
+  const options = r.data?.options || r.data?.allocations || [];
+  if (options.length > 0) {
+    allocData = options;
+    const html = options.map((opt, i) => {
+      const cities = opt.cities || opt.city_allocations || [];
+      const score = opt.match_score || opt.score || 0;
+      const name = opt.name || opt.title || ('Option ' + (i + 1));
+      const rec = i === 0;
+      return `
+        <div class="alloc-card ${i === 0 ? 'selected' : ''}" onclick="selectAlloc(${i})">
+          ${rec ? '<div class="alloc-rec">Recommended</div>' : ''}
+          <div class="match">${Math.round(score * 100 || score)}%</div>
+          <div class="alloc-name">${name}</div>
+          <div class="alloc-cities">
+            ${cities.map(c => `
+              <div class="alloc-city">
+                <span>${c.city || c.city_name || c.name || ''}</span>
+                <span class="alloc-days">${c.days || c.num_days || '?'} days</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }).join('');
+    document.getElementById('allocCards').innerHTML = '<div class="alloc-cards">' + html + '</div>';
+    markStep(7, 'active');
+    document.getElementById('step7').querySelector('.step-body').style.display = 'block';
+    document.getElementById('btn7').disabled = false;
+    document.getElementById('res7').textContent = 'Ready — click "Generate Itinerary"';
+  }
+}
+
+let selectedAlloc = 0;
+function selectAlloc(i) {
+  selectedAlloc = i;
+  document.querySelectorAll('.alloc-card').forEach((el, j) => {
+    el.classList.toggle('selected', j === i);
+  });
+}
+
+// ─── Step 7: Generate Itinerary ───────────────────────
+async function runStep7() {
+  document.getElementById('btn7').disabled = true;
+  showLoading('res7');
+  markStep(7, 'active');
+
+  const alloc = allocData?.[selectedAlloc];
+  const cities = alloc?.cities || alloc?.city_allocations || [];
+
+  const body = {
+    country_id: 'italy',
+    start_date: '2026-03-20',
+    end_date: '2026-03-29',
+    group_type: 'couple',
+    vibes: ['cultural', 'romantic', 'foodie'],
+    budget_level: 3,
+    pacing: 'moderate',
+    allocation: alloc
+  };
+
+  const r = await api('POST', '/api/v1/itinerary/generate', body);
+
+  // Show truncated JSON (can be huge)
+  const jsonStr = JSON.stringify(r.data, null, 2);
+  const truncated = jsonStr.length > 3000 ? jsonStr.slice(0, 3000) + '\n\n... (truncated — full response is ' + (jsonStr.length / 1024).toFixed(1) + ' KB)' : jsonStr;
+  document.getElementById('res7').innerHTML = syntaxHL(truncated);
+  markStep(7, 'done');
+
+  // Render timeline
+  const days = r.data?.days || r.data?.itinerary?.days || r.data?.itinerary || [];
+  if (Array.isArray(days) && days.length > 0) {
+    renderTimeline(days);
+  }
+}
+
+function renderTimeline(days) {
+  const typeIcons = {
+    sightseeing: '\u{1F3DB}', museum: '\u{1F3DB}', food: '\u{1F37D}', restaurant: '\u{1F37D}',
+    lunch: '\u{1F37D}', dinner: '\u{1F37D}', breakfast: '\u{2615}', cafe: '\u{2615}', coffee: '\u{2615}',
+    shopping: '\u{1F6CD}', park: '\u{1F333}', nature: '\u{1F333}', nightlife: '\u{1F378}',
+    bar: '\u{1F378}', transport: '\u{1F685}', transit: '\u{1F685}', travel: '\u{1F685}',
+    beach: '\u{1F3D6}', entertainment: '\u{1F3AD}', worship: '\u26EA', temple: '\u26E9',
+  };
+
+  const html = days.map((day, i) => {
+    const activities = day.activities || day.items || [];
+    const city = day.city || day.city_name || '';
+    const dateStr = day.date || '';
+
+    return `
+      <div class="timeline-day">
+        <div class="timeline-day-header">
+          \u{1F4C5} Day ${i + 1}${city ? ' — ' + city : ''}${dateStr ? ' <span style="color:var(--text3);font-weight:400;font-size:12px;margin-left:auto">' + dateStr + '</span>' : ''}
+        </div>
+        ${activities.map(act => {
+          const data = act.data || act;
+          const name = data.title || data.name || data.poi_name || 'Activity';
+          const type = data.type || data.category || '';
+          const time = data.start_time || data.time || '';
+          const img = data.image || data.image_url || '';
+          const icon = typeIcons[type.toLowerCase()] || '\u{1F4CD}';
+          return `
+            <div class="timeline-activity">
+              <div class="timeline-time">${time}</div>
+              <div class="timeline-icon">${icon}</div>
+              <div class="timeline-info">
+                <div class="timeline-name">${name}</div>
+                <div class="timeline-type">${type}</div>
+              </div>
+              ${img ? `<img class="timeline-img" src="${img}" alt="${name}" onerror="this.style.display='none'">` : ''}
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('timelineView').innerHTML = '<div class="timeline">' + html + '</div>';
+}
+
+// ─── Step 8: Reset ────────────────────────────────────
+async function runStep8() {
+  document.getElementById('btn8').disabled = true;
+  showLoading('res8');
+  const r = await api('POST', '/api/v1/demo/reset');
+  setResult('res8', r.data);
+  markStep(8, 'done');
+  // Disable all buttons
+  for (let i = 2; i <= 7; i++) {
+    const btn = document.getElementById('btn' + i);
+    if (btn) btn.disabled = true;
+  }
+}
+</script>
+
+</body>
+</html>
