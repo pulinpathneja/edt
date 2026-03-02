@@ -520,7 +520,7 @@ body {
       <div class="api-box">
         <div class="api-header">
           <span class="api-method get">GET</span>
-          <span class="api-url">/api/v1/countries</span>
+          <span class="api-url">/api/v1/country-itinerary/countries</span>
         </div>
         <div class="api-body"><pre id="res5">Click to load...</pre></div>
       </div>
@@ -547,7 +547,7 @@ body {
       <div class="api-box">
         <div class="api-header">
           <span class="api-method post">POST</span>
-          <span class="api-url">/api/v1/itinerary/plan-country</span>
+          <span class="api-url">/api/v1/country-itinerary/allocations</span>
         </div>
         <div class="api-body"><pre id="res6">Waiting for draft...</pre></div>
       </div>
@@ -575,7 +575,7 @@ body {
       <div class="api-box">
         <div class="api-header">
           <span class="api-method post">POST</span>
-          <span class="api-url">/api/v1/itinerary/generate</span>
+          <span class="api-url">/api/v1/country-itinerary/generate</span>
         </div>
         <div class="api-body"><pre id="res7">Select an allocation first...</pre></div>
       </div>
@@ -750,7 +750,7 @@ async function runStep4() {
 async function runStep5() {
   document.getElementById('btn5').disabled = true;
   showLoading('res5');
-  const r = await api('GET', '/api/v1/countries');
+  const r = await api('GET', '/api/v1/country-itinerary/countries');
   setResult('res5', r.data);
   markStep(5, 'done');
 }
@@ -762,7 +762,8 @@ async function runStep6() {
   markStep(6, 'active');
 
   const body = {
-    country_id: 'italy',
+    country: 'italy',
+    total_days: 10,
     start_date: '2026-03-20',
     end_date: '2026-03-29',
     group_type: 'couple',
@@ -771,7 +772,7 @@ async function runStep6() {
     pacing: 'moderate'
   };
 
-  const r = await api('POST', '/api/v1/itinerary/plan-country', body);
+  const r = await api('POST', '/api/v1/country-itinerary/allocations', body);
   setResult('res6', r.data);
   markStep(6, 'done');
 
@@ -782,7 +783,7 @@ async function runStep6() {
     const html = options.map((opt, i) => {
       const cities = opt.cities || opt.city_allocations || [];
       const score = opt.match_score || opt.score || 0;
-      const name = opt.name || opt.title || ('Option ' + (i + 1));
+      const name = opt.option_name || opt.name || opt.title || ('Option ' + (i + 1));
       const rec = i === 0;
       return `
         <div class="alloc-card ${i === 0 ? 'selected' : ''}" onclick="selectAlloc(${i})">
@@ -792,7 +793,7 @@ async function runStep6() {
           <div class="alloc-cities">
             ${cities.map(c => `
               <div class="alloc-city">
-                <span>${c.city || c.city_name || c.name || ''}</span>
+                <span>${c.city_name || c.city || c.name || ''}</span>
                 <span class="alloc-days">${c.days || c.num_days || '?'} days</span>
               </div>
             `).join('')}
@@ -826,17 +827,17 @@ async function runStep7() {
   const cities = alloc?.cities || alloc?.city_allocations || [];
 
   const body = {
-    country_id: 'italy',
+    country: 'italy',
     start_date: '2026-03-20',
     end_date: '2026-03-29',
     group_type: 'couple',
     vibes: ['cultural', 'romantic', 'foodie'],
     budget_level: 3,
     pacing: 'moderate',
-    allocation: alloc
+    selected_allocation: alloc
   };
 
-  const r = await api('POST', '/api/v1/itinerary/generate', body);
+  const r = await api('POST', '/api/v1/country-itinerary/generate', body);
 
   // Show truncated JSON (can be huge)
   const jsonStr = JSON.stringify(r.data, null, 2);
