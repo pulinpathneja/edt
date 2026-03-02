@@ -10,12 +10,17 @@ const DEMO_SEEDED_KEY = 'edt-demo-seeded';
 export async function seedDemoIfNeeded(): Promise<void> {
   try {
     const already = await AsyncStorage.getItem(DEMO_SEEDED_KEY);
-    if (already) return;
+    if (already) {
+      console.log('[DemoSeed] Already seeded, skipping');
+      return;
+    }
 
-    await api.post('/api/v1/demo/seed');
+    console.log('[DemoSeed] Seeding demo data...');
+    const res = await api.post('/api/v1/demo/seed');
+    console.log('[DemoSeed] Done:', res.data);
     await AsyncStorage.setItem(DEMO_SEEDED_KEY, 'true');
-  } catch {
-    // Silent fail — demo seed is best-effort
+  } catch (e: any) {
+    console.warn('[DemoSeed] Failed:', e?.message || e);
   }
 }
 

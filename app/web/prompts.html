@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDT - Demo Presentation Script</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #FAFAF9;
+  --surface: #FFFFFF;
+  --text: #1C1917;
+  --text2: #57534E;
+  --text3: #A8A29E;
+  --border: #E7E5E4;
+  --gold: #D97706;
+  --gold-bg: #FFFBEB;
+  --blue: #2563EB;
+  --blue-bg: #EFF6FF;
+  --green: #059669;
+  --green-bg: #ECFDF5;
+  --purple: #7C3AED;
+  --purple-bg: #F5F3FF;
+  --red: #DC2626;
+  --red-bg: #FEF2F2;
+  --radius: 12px;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Header ───────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, #1C1917 0%, #292524 100%);
+  color: white;
+  padding: 60px 32px 48px;
+  text-align: center;
+}
+.hero h1 { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; }
+.hero .gold { color: #F59E0B; }
+.hero .sub { color: #A8A29E; font-size: 18px; margin-top: 8px; font-family: -apple-system, sans-serif; }
+.hero .meta {
+  display: flex; justify-content: center; gap: 24px; margin-top: 20px;
+  font-family: -apple-system, sans-serif; font-size: 13px; color: #78716C;
+}
+.hero .meta span { display: flex; align-items: center; gap: 6px; }
+
+/* ─── Nav ──────────────────────────────────────── */
+.nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav a {
+  padding: 14px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: -apple-system, sans-serif;
+  color: var(--text3);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.nav a:hover { color: var(--text); }
+.nav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* ─── Container ────────────────────────────────── */
+.container { max-width: 800px; margin: 0 auto; padding: 40px 24px 100px; }
+
+/* ─── Act Sections ─────────────────────────────── */
+.act {
+  margin-bottom: 48px;
+  scroll-margin-top: 60px;
+}
+.act-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+.act-num {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+  font-family: -apple-system, sans-serif;
+  flex-shrink: 0;
+  background: var(--gold-bg);
+  color: var(--gold);
+  border: 2px solid #FDE68A;
+}
+.act-title { font-size: 24px; font-weight: 700; }
+.act-time {
+  margin-left: auto;
+  font-family: -apple-system, sans-serif;
+  font-size: 13px;
+  color: var(--text3);
+  background: var(--bg);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+/* ─── Screen indicator ─────────────────────────── */
+.screen {
+  background: var(--blue-bg);
+  border: 1px solid #BFDBFE;
+  border-radius: var(--radius);
+  padding: 12px 18px;
+  margin-bottom: 16px;
+  font-family: -apple-system, sans-serif;
+  font-size: 14px;
+  color: var(--blue);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ─── Script (what to say) ─────────────────────── */
+.script {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--text);
+}
+.script strong { color: var(--gold); font-weight: 700; }
+.script em { font-style: italic; color: var(--text2); }
+
+/* ─── Action (what to do) ──────────────────────── */
+.action {
+  background: var(--green-bg);
+  border: 1px solid #A7F3D0;
+  border-radius: var(--radius);
+  padding: 12px 18px;
+  margin-bottom: 16px;
+  font-family: -apple-system, sans-serif;
+  font-size: 14px;
+  color: #065F46;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ─── Point out ────────────────────────────────── */
+.point {
+  background: var(--purple-bg);
+  border: 1px solid #DDD6FE;
+  border-radius: var(--radius);
+  padding: 12px 18px;
+  margin-bottom: 16px;
+  font-family: -apple-system, sans-serif;
+  font-size: 14px;
+  color: #5B21B6;
+}
+
+/* ─── Technical note ───────────────────────────── */
+.tech {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+.tech code {
+  background: #E2E8F0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--text);
+}
+
+/* ─── API badge ────────────────────────────────── */
+.api-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'SF Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin: 4px 2px;
+}
+.api-post { background: var(--green-bg); color: var(--green); }
+.api-get { background: var(--blue-bg); color: var(--blue); }
+
+/* ─── Links section ────────────────────────────── */
+.links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+.link-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.link-card:hover { border-color: var(--gold); box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.link-card h4 { font-family: -apple-system, sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+.link-card p { font-size: 13px; color: var(--text2); font-family: -apple-system, sans-serif; }
+
+/* ─── Checklist ────────────────────────────────── */
+.checklist { list-style: none; margin: 12px 0; }
+.checklist li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-family: -apple-system, sans-serif;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.checklist li:last-child { border: none; }
+.check { width: 20px; height: 20px; border: 2px solid var(--border); border-radius: 4px; flex-shrink: 0; }
+
+/* ─── Sprint table ─────────────────────────────── */
+.sprint-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-family: -apple-system, sans-serif;
+  font-size: 13px;
+}
+.sprint-table th {
+  background: #1C1917;
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 700;
+}
+.sprint-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.sprint-table tr:nth-child(even) td { background: #FAFAF9; }
+.s1 { color: var(--blue); font-weight: 700; }
+.s2 { color: var(--purple); font-weight: 700; }
+.s3 { color: var(--gold); font-weight: 700; }
+.done { color: var(--green); }
+
+@media (max-width: 600px) {
+  .hero { padding: 40px 20px 32px; }
+  .hero h1 { font-size: 28px; }
+  .container { padding: 24px 16px 80px; }
+  .links-grid { grid-template-columns: 1fr; }
+  .act-time { display: none; }
+  .hero .meta { flex-wrap: wrap; gap: 12px; }
+}
+
+@media print {
+  .nav { display: none; }
+  .hero { padding: 30px 20px; }
+  .act { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ Hero ═══ -->
+<div class="hero">
+  <h1>EDT <span class="gold">Demo Script</span></h1>
+  <div class="sub">Presentation Walkthrough & Talking Points</div>
+  <div class="meta">
+    <span>~6 minutes</span>
+    <span>8 API endpoints</span>
+    <span>No LLM</span>
+    <span>Live on Cloud Run</span>
+  </div>
+</div>
+
+<!-- ═══ Nav ═══ -->
+<div class="nav">
+  <a href="#pre" class="active">Pre-Demo</a>
+  <a href="#act1">Act 1: Hook</a>
+  <a href="#act2">Act 2: Session</a>
+  <a href="#act3">Act 3: Persona</a>
+  <a href="#act4">Act 4: Itinerary</a>
+  <a href="#act5">Act 5: Wishlist</a>
+  <a href="#act6">Act 6: Closing</a>
+  <a href="#links">Links</a>
+  <a href="#tech">Tech</a>
+</div>
+
+<!-- ═══ Content ═══ -->
+<div class="container">
+
+<!-- ─── Pre-Demo Checklist ───── -->
+<div class="act" id="pre">
+  <div class="act-header">
+    <div class="act-num" style="background:#FEF2F2;color:#DC2626;border-color:#FECACA;">!</div>
+    <div class="act-title">Pre-Demo Checklist</div>
+  </div>
+
+  <ul class="checklist">
+    <li><div class="check"></div> Open the <strong>Interactive Demo</strong> in browser</li>
+    <li><div class="check"></div> Open <strong>Swagger Docs</strong> in a second tab</li>
+    <li><div class="check"></div> Mobile app running on iOS Simulator (optional)</li>
+    <li><div class="check"></div> Run Steps 1-2 on demo page (Register + Seed) to warm up Cloud Run</li>
+    <li><div class="check"></div> Verify: Wishlist shows 4 landmarks with images</li>
+  </ul>
+
+  <div class="links-grid">
+    <a class="link-card" href="/web/demo.html" target="_blank">
+      <h4>Interactive Demo</h4>
+      <p>Step-by-step live API calls</p>
+    </a>
+    <a class="link-card" href="/docs" target="_blank">
+      <h4>Swagger API Docs</h4>
+      <p>All endpoints documented</p>
+    </a>
+    <a class="link-card" href="/web/api_showcase.html" target="_blank">
+      <h4>API Showcase</h4>
+      <p>Detailed API reference</p>
+    </a>
+    <a class="link-card" href="/web/pipeline_dashboard.html" target="_blank">
+      <h4>Pipeline Dashboard</h4>
+      <p>City intelligence crawler</p>
+    </a>
+  </div>
+</div>
+
+<!-- ─── Act 1: The Hook ───── -->
+<div class="act" id="act1">
+  <div class="act-header">
+    <div class="act-num">1</div>
+    <div class="act-title">The Hook</div>
+    <div class="act-time">45 seconds</div>
+  </div>
+
+  <div class="screen">Screen: Splash page or Interactive Demo hero</div>
+
+  <div class="script">
+    EDT builds personalized day-by-day travel plans. What makes it different: <strong>no LLM</strong>. No GPT, no Claude, no Gemini. It runs a <strong>RAG pipeline</strong> backed by <strong>pgvector cosine similarity search</strong> to match travelers with the right places based on their persona.
+  </div>
+
+  <div class="script">
+    The entire system is <strong>retrieval + scoring + assembly</strong>. We retrieve POIs using vector search, score them against the traveler's persona, and assemble day-by-day itineraries algorithmically. All running on <strong>FastAPI + async PostgreSQL</strong>, deployed on <strong>Google Cloud Run</strong>.
+  </div>
+
+  <div class="point">Point out: Tech badges on the demo page &mdash; pgvector, 384-dim embeddings, FastAPI, Cloud Run</div>
+</div>
+
+<!-- ─── Act 2: Anonymous Session ───── -->
+<div class="act" id="act2">
+  <div class="act-header">
+    <div class="act-num">2</div>
+    <div class="act-title">Anonymous Session & Smart Resume</div>
+    <div class="act-time">60 seconds</div>
+  </div>
+
+  <div class="screen">Screen: Interactive Demo &rarr; Step 1 (Register Session)</div>
+
+  <div class="action">Click "Register Session" button on demo page</div>
+
+  <div class="script">
+    No signup needed. The app generates a <strong>random UUID</strong> on first launch, stores it locally, and sends it as an <strong>X-Device-ID header</strong> on every request. The server creates a DeviceSession record. Everything persists across app restarts without forcing login.
+  </div>
+
+  <div class="tech">
+    <code>POST /api/v1/sessions/register</code><br>
+    Header: <code>X-Device-ID: demo-abc123...</code><br>
+    Response: <code>{ "device_id": "...", "platform": "web-demo" }</code>
+  </div>
+
+  <div class="action">Click "Seed Demo Data" (Step 2) &mdash; creates a trip draft + 4 wishlist landmarks</div>
+
+  <div class="script">
+    The demo seed pre-populates a <strong>trip draft</strong> &mdash; Italy, 10 days, couple, with cultural, romantic, and foodie vibes selected. It also adds <strong>4 iconic landmarks</strong> to the wishlist: Colosseum, Eiffel Tower, Fushimi Inari Shrine, and Sagrada Familia. All with images.
+  </div>
+
+  <div class="tech">
+    <code>POST /api/v1/demo/seed</code><br>
+    Response: <code>{ "status": "seeded", "draft_id": "...", "wishlist_items_added": 4 }</code>
+  </div>
+
+  <div class="action">Click "Get Active Draft" (Step 3)</div>
+
+  <div class="script">
+    This is the <strong>auto-resume</strong> system. Every time the app launches, it checks for an active draft. If one exists, it shows a "Resume your trip" banner. The draft stores the wizard step, country, dates, vibes, budget &mdash; <strong>everything needed to pick up exactly where you left off</strong>.
+  </div>
+
+  <div class="point">Point out in the JSON: <code>current_step: 2</code>, <code>country_name: "Italy"</code>, <code>vibes: ["cultural", "romantic", "foodie"]</code>, <code>status: "active"</code></div>
+</div>
+
+<!-- ─── Act 3: Persona & Preferences ───── -->
+<div class="act" id="act3">
+  <div class="act-header">
+    <div class="act-num">3</div>
+    <div class="act-title">Persona Understanding</div>
+    <div class="act-time">90 seconds</div>
+  </div>
+
+  <div class="screen">Screen: Interactive Demo &rarr; Step 5 (Countries) + Step 6 (Allocations)</div>
+
+  <div class="action">Click "Load Countries" (Step 5)</div>
+
+  <div class="script">
+    The <strong>country config</strong> drives the entire planning pipeline. We have <strong>5 countries with 18 cities</strong>. Each city has min/max days, highlights, vibes, and a priority score. The country planner uses this metadata to allocate days across cities based on the traveler's persona.
+  </div>
+
+  <div class="point">Point out: Each city has <code>vibes</code>, <code>min_days</code>, <code>max_days</code>, <code>highlights</code> &mdash; this is the constraint graph</div>
+
+  <div class="action">Click "Plan Italy Trip" (Step 6)</div>
+
+  <div class="script">
+    The country planner takes the persona &mdash; couple, cultural, romantic, foodie &mdash; and runs <strong>constraint satisfaction</strong> to allocate days across Italian cities. It generates <strong>2 options</strong> with match scores. The score is computed from how well each city's POIs align with our vibes, using persona vectors stored in the pgvector database.
+  </div>
+
+  <div class="script">
+    <strong>No LLM is involved here.</strong> This is pure algorithmic planning: city metadata + persona multipliers + constraint satisfaction. The 87% match means 87% of the city's top POIs align with our cultural-romantic-foodie persona.
+  </div>
+
+  <div class="point">Point out: Two allocation options with different strategies. City names, day counts, match scores. "Recommended" badge on the higher-scoring option.</div>
+
+  <div class="tech">
+    <code>POST /api/v1/country-itinerary/allocations</code><br>
+    Request: <code>{ country: "italy", total_days: 10, group_type: "couple", vibes: [...], pacing: "moderate" }</code><br>
+    Response: Two options with <code>match_score</code>, <code>cities</code> array with <code>days</code> per city
+  </div>
+</div>
+
+<!-- ─── Act 4: Itinerary Generation ───── -->
+<div class="act" id="act4">
+  <div class="act-header">
+    <div class="act-num">4</div>
+    <div class="act-title">Day-by-Day Itinerary</div>
+    <div class="act-time">120 seconds</div>
+  </div>
+
+  <div class="screen">Screen: Interactive Demo &rarr; Step 7 (Generate Itinerary)</div>
+
+  <div class="action">Click "Generate Itinerary" (Step 7) &mdash; this is the big moment</div>
+
+  <div class="script">
+    <strong>This is the RAG pipeline in action.</strong> Three stages:
+  </div>
+
+  <div class="script">
+    <strong>Stage 1 &mdash; Retriever:</strong> For each city, we generate a query embedding from the persona + vibes + destination, then run <strong>pgvector cosine similarity</strong> search to find the top POIs. We use 384-dimensional embeddings from <strong>BAAI/bge-small-en-v1.5</strong>.
+  </div>
+
+  <div class="script">
+    <strong>Stage 2 &mdash; Scorer:</strong> The retrieved POIs are re-ranked using <strong>21-dimension persona multipliers</strong>. A "romantic foodie couple" will see Trattoria Luzzi ranked higher than a sports bar. Same city, completely different results based on who's traveling.
+  </div>
+
+  <div class="script">
+    <strong>Stage 3 &mdash; Assembler:</strong> The scored POIs are assembled into a day-by-day plan. The assembler respects <strong>pacing rules</strong> (how many activities per day), <strong>time-of-day preferences</strong> (morning sightseeing, afternoon museums, evening dining), <strong>transit times between venues</strong>, and <strong>meal break slots</strong>.
+  </div>
+
+  <div class="point">Point out in the timeline: Activity names with images, time slots, city headers, types (sightseeing, food, museum). Note the realistic scheduling &mdash; no overlapping times, proper meal breaks.</div>
+
+  <div class="script">
+    The same query with <strong>"adventure nightlife solo"</strong> would produce <em>completely different venues, different time slots, different pacing</em>. The persona isn't a filter &mdash; it reshapes the entire itinerary.
+  </div>
+
+  <div class="tech">
+    <code>POST /api/v1/country-itinerary/generate</code><br>
+    Pipeline: Embedding &rarr; pgvector search &rarr; Persona scoring &rarr; Day assembly<br>
+    Output: Array of days, each with activities (title, type, start_time, image, description)
+  </div>
+</div>
+
+<!-- ─── Act 5: Wishlist & Explore ───── -->
+<div class="act" id="act5">
+  <div class="act-header">
+    <div class="act-num">5</div>
+    <div class="act-title">Wishlist & Explore</div>
+    <div class="act-time">45 seconds</div>
+  </div>
+
+  <div class="screen">Screen: Interactive Demo &rarr; Step 4 (Wishlist)</div>
+
+  <div class="action">Click "Load Wishlist" (Step 4) if not done already</div>
+
+  <div class="script">
+    The wishlist stores places the user has saved across all trips. Data is <strong>denormalized</strong> for instant display &mdash; no joins needed. The mobile app uses <strong>optimistic UI</strong>: the heart icon toggles instantly, then syncs with the backend in the background.
+  </div>
+
+  <div class="point">Point out: 4 landmarks with images &mdash; Colosseum (Rome), Eiffel Tower (Paris), Fushimi Inari (Kyoto), Sagrada Familia (Barcelona). These span multiple countries.</div>
+
+  <div class="script">
+    On the mobile app, the <strong>Explore tab</strong> surfaces destination inspiration &mdash; trending cities with hero images, a travel-by-vibe grid, and popular multi-city routes. All powered by the same city metadata in our database.
+  </div>
+
+  <div class="tech">
+    <code>GET /api/v1/wishlist/</code> &mdash; returns array with <code>poi_name</code>, <code>city</code>, <code>country</code>, <code>image_url</code><br>
+    <code>POST /api/v1/wishlist/</code> &mdash; add item<br>
+    <code>DELETE /api/v1/wishlist/{id}</code> &mdash; remove item
+  </div>
+</div>
+
+<!-- ─── Act 6: Closing ───── -->
+<div class="act" id="act6">
+  <div class="act-header">
+    <div class="act-num">6</div>
+    <div class="act-title">Technical Closing</div>
+    <div class="act-time">30 seconds</div>
+  </div>
+
+  <div class="action">Show the Swagger docs tab briefly, then close with the summary</div>
+
+  <div class="script">
+    <strong>Tech summary:</strong> No LLM &mdash; pure retrieval + scoring + assembly. <strong>pgvector</strong> with 384-dim embeddings from BGE-small. <strong>21-dimension persona scoring</strong> per POI. Country planner with constraint satisfaction. Day assembler with pacing rules. Anonymous device sessions. Auto-saving drafts. <strong>FastAPI + async PostgreSQL</strong>, deployed on <strong>Google Cloud Run</strong>.
+  </div>
+
+  <div class="script">
+    <strong>What's next:</strong> Sprint 3 adds the timeline view and map integration on the mobile app, review ingestion from Reddit and TripAdvisor, knowledge graph sequencing for smarter ordering, and AI output validation tests.
+  </div>
+
+  <div class="action">Optional: Click "Reset All Data" (Step 8) to show clean teardown, then re-seed to show it's repeatable</div>
+</div>
+
+<!-- ─── Links ───── -->
+<div class="act" id="links">
+  <div class="act-header">
+    <div class="act-num" style="background:var(--blue-bg);color:var(--blue);border-color:#BFDBFE;">@</div>
+    <div class="act-title">Live Links</div>
+  </div>
+
+  <table class="sprint-table">
+    <tr>
+      <th>Resource</th>
+      <th>URL</th>
+    </tr>
+    <tr>
+      <td><strong>Interactive Demo</strong></td>
+      <td><a href="/web/demo.html" target="_blank">/web/demo.html</a></td>
+    </tr>
+    <tr>
+      <td>Swagger API Docs</td>
+      <td><a href="/docs" target="_blank">/docs</a></td>
+    </tr>
+    <tr>
+      <td>API Showcase</td>
+      <td><a href="/web/api_showcase.html" target="_blank">/web/api_showcase.html</a></td>
+    </tr>
+    <tr>
+      <td>Pipeline Dashboard</td>
+      <td><a href="/web/pipeline_dashboard.html" target="_blank">/web/pipeline_dashboard.html</a></td>
+    </tr>
+    <tr>
+      <td>Health Check</td>
+      <td><a href="/health" target="_blank">/health</a></td>
+    </tr>
+    <tr>
+      <td>API Root</td>
+      <td><a href="/" target="_blank">/</a></td>
+    </tr>
+  </table>
+
+  <h3 style="margin-top:32px;font-family:-apple-system,sans-serif;font-size:18px;">Key API Endpoints</h3>
+  <table class="sprint-table">
+    <tr><th>Endpoint</th><th>Method</th><th>Purpose</th></tr>
+    <tr><td><code>/api/v1/sessions/register</code></td><td><span class="api-badge api-post">POST</span></td><td>Anonymous device login</td></tr>
+    <tr><td><code>/api/v1/demo/seed</code></td><td><span class="api-badge api-post">POST</span></td><td>Seed demo draft + wishlist</td></tr>
+    <tr><td><code>/api/v1/demo/reset</code></td><td><span class="api-badge api-post">POST</span></td><td>Clear all demo data</td></tr>
+    <tr><td><code>/api/v1/drafts/active</code></td><td><span class="api-badge api-get">GET</span></td><td>Resume active trip draft</td></tr>
+    <tr><td><code>/api/v1/wishlist/</code></td><td><span class="api-badge api-get">GET</span></td><td>List saved landmarks</td></tr>
+    <tr><td><code>/api/v1/country-itinerary/countries</code></td><td><span class="api-badge api-get">GET</span></td><td>Country + city database</td></tr>
+    <tr><td><code>/api/v1/country-itinerary/allocations</code></td><td><span class="api-badge api-post">POST</span></td><td>Generate city day allocations</td></tr>
+    <tr><td><code>/api/v1/country-itinerary/generate</code></td><td><span class="api-badge api-post">POST</span></td><td>Full itinerary generation (RAG)</td></tr>
+    <tr><td><code>/api/v1/personas/config</code></td><td><span class="api-badge api-get">GET</span></td><td>Persona configuration options</td></tr>
+  </table>
+</div>
+
+<!-- ─── Tech Stack ───── -->
+<div class="act" id="tech">
+  <div class="act-header">
+    <div class="act-num" style="background:#F8FAFC;color:#475569;border-color:#E2E8F0;">&#9881;</div>
+    <div class="act-title">Tech Stack & Sprint Status</div>
+  </div>
+
+  <div class="tech" style="font-size:14px;line-height:2;">
+    <strong>Backend:</strong> Python 3.10, FastAPI, SQLAlchemy 2.0 (async), Alembic, pgvector, sentence-transformers<br>
+    <strong>Database:</strong> Cloud SQL PostgreSQL 15 + pgvector (384-dim, BAAI/bge-small-en-v1.5)<br>
+    <strong>Mobile:</strong> React Native (Expo SDK 54), Zustand, expo-router<br>
+    <strong>Infra:</strong> Google Cloud Run, Cloud SQL, Cloud Build, GitHub Actions<br>
+    <strong>No LLM:</strong> RAG = Retriever (pgvector) + Scorer (persona multipliers) + Assembler (pacing rules)
+  </div>
+
+  <h3 style="margin-top:24px;font-family:-apple-system,sans-serif;font-size:18px;">Sprint Progress</h3>
+  <table class="sprint-table">
+    <tr><th>Sprint</th><th>Goal</th><th>Tasks</th><th>Status</th></tr>
+    <tr>
+      <td class="s1">Sprint 1</td>
+      <td>User can explore & create a draft</td>
+      <td>15</td>
+      <td class="done">15/15 Done</td>
+    </tr>
+    <tr>
+      <td class="s2">Sprint 2</td>
+      <td>System understands the traveler</td>
+      <td>7</td>
+      <td>5/7 Done</td>
+    </tr>
+    <tr>
+      <td class="s3">Sprint 3</td>
+      <td>First AI itinerary (day-wise trip)</td>
+      <td>9</td>
+      <td>1/9 In Progress</td>
+    </tr>
+  </table>
+</div>
+
+</div>
+
+<script>
+// Highlight active nav on scroll
+const sections = document.querySelectorAll('.act');
+const navLinks = document.querySelectorAll('.nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 80) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+
+</body>
+</html>
