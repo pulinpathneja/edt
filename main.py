@@ -1,3 +1,5 @@
+import logging
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -5,6 +7,7 @@ from fastapi.staticfiles import StaticFiles
 from app.api.routes import api_router
 from app.core.config import get_settings
 
+logger = logging.getLogger(__name__)
 settings = get_settings()
 
 app = FastAPI(
@@ -29,6 +32,19 @@ app.include_router(api_router, prefix="/api/v1")
 
 # Serve web dashboard static files
 app.mount("/web", StaticFiles(directory="app/web", html=True), name="web")
+
+
+@app.on_event("startup")
+async def startup_create_tables():
+    """Create missing tables on startup (safe for existing DBs)."""
+    try:
+        from app.core.database import async_engine, Base
+        import app.models  # noqa: F401 — ensure all models are imported
+        async with async_engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
+        logger.info("Database tables verified/created")
+    except Exception as e:
+        logger.warning(f"Could not create tables on startup: {e}")
 
 
 @app.get("/")
