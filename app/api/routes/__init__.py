@@ -1,6 +1,7 @@
 from fastapi import APIRouter
 
 from app.api.routes import pois, personas, itinerary, recommendations, cities, landmarks, travel, country_itinerary, pipeline, itinerary_planner, query
+from app.api.routes import sessions, drafts, wishlist, demo
 
 api_router = APIRouter()
 
@@ -15,3 +16,7 @@ api_router.include_router(country_itinerary.router, prefix="/country-itinerary",
 api_router.include_router(pipeline.router, prefix="/pipeline", tags=["Pipeline"])
 api_router.include_router(itinerary_planner.router, prefix="/itinerary-planner", tags=["Itinerary Planner"])
 api_router.include_router(query.router, prefix="/query", tags=["Query"])
+api_router.include_router(sessions.router, prefix="/sessions", tags=["Sessions"])
+api_router.include_router(drafts.router, prefix="/drafts", tags=["Drafts"])
+api_router.include_router(wishlist.router, prefix="/wishlist", tags=["Wishlist"])
+api_router.include_router(demo.router, prefix="/demo", tags=["Demo"])

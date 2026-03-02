@@ -696,6 +696,9 @@ def build_sample_day_itineraries(
             }
             if "description" in act:
                 entry["data"]["description"] = act["description"]
+            # Lazy import to avoid circular dependency with itinerary_planner
+            from app.api.routes.itinerary_planner import _get_activity_image
+            entry["data"]["image"] = _get_activity_image(act["title"], act["type"], idx)
             if "transit" in act:
                 entry["transit"] = act["transit"]
 

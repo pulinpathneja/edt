@@ -39,6 +39,7 @@ async def root():
         "version": "1.0.0",
         "status": "running",
         "docs": "/docs",
+        "showcase": "/web/api_showcase.html",
     }
 
 

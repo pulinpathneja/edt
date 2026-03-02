@@ -12,6 +12,7 @@ from app.models.knowledge_graph import (
     POIAccessibility,
 )
 from app.models.city_insight import CityInsight
+from app.models.user import DeviceSession, TripDraft, WishlistItem
 
 __all__ = [
     # Core POI
@@ -36,4 +37,8 @@ __all__ = [
     "POIAccessibility",
     # City Intelligence
     "CityInsight",
+    # User / Session
+    "DeviceSession",
+    "TripDraft",
+    "WishlistItem",
 ]

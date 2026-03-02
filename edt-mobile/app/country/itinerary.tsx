@@ -138,7 +138,11 @@ export default function CountryItineraryScreen() {
                     isLast={index === activeDay.activities.length - 1}
                   />
                   <View style={styles.activityContent}>
-                    <ActivityCard data={entry.data} />
+                    <ActivityCard
+                      data={entry.data}
+                      cityName={activeDay.cityName}
+                      countryName={countryItinerary?.country_name}
+                    />
                   </View>
                 </View>
               </View>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -12,6 +12,7 @@ import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCountryStore } from '@/stores/countryStore';
+import { usePreferencesStore } from '@/stores/preferencesStore';
 import { GradientButton } from '@/components/GradientButton';
 import { StepIndicator } from '@/components/StepIndicator';
 import { ChipSelector } from '@/components/ChipSelector';
@@ -50,17 +51,31 @@ export default function TripPreferencesScreen() {
     fetchAllocations,
   } = store;
 
+  const savedPrefs = usePreferencesStore();
+
   // Local date state for simple date input (no native picker for simplicity)
   const [localStart, setLocalStart] = useState(startDate ?? '');
   const [localEnd, setLocalEnd] = useState(endDate ?? '');
+
+  // Pre-fill from saved preferences on mount (only if store fields are empty)
+  useEffect(() => {
+    if (!groupType && savedPrefs.groupType) setGroupType(savedPrefs.groupType);
+    if (vibes.length === 0 && savedPrefs.vibes.length > 0) {
+      savedPrefs.vibes.forEach((v) => toggleVibe(v));
+    }
+    if (budgetLevel === 3 && savedPrefs.budgetLevel !== 3) setBudgetLevel(savedPrefs.budgetLevel);
+    if (pacing === 'moderate' && savedPrefs.pacing !== 'moderate') setPacing(savedPrefs.pacing);
+    if (groupSize === 2 && savedPrefs.groupSize !== 2) setGroupSize(savedPrefs.groupSize);
+  }, []);
 
   const handleNext = async () => {
     if (currentStep === 0 && localStart && localEnd) {
       setDateRange(localStart, localEnd);
     }
     if (currentStep === 3) {
-      // Final step — fetch allocations and navigate
+      // Final step — save preferences, fetch allocations, and navigate
       if (localStart && localEnd) setDateRange(localStart, localEnd);
+      savedPrefs.setPreferences({ groupType, groupSize, vibes, budgetLevel, pacing });
       await fetchAllocations();
       router.push('/country/allocations');
     } else {

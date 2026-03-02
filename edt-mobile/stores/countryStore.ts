@@ -8,6 +8,7 @@ import type {
   ActivityEntry,
 } from '@/types';
 import * as countryApi from '@/services/countryApi';
+import { useDraftStore } from '@/stores/draftStore';
 
 // ============== Mock Data ==============
 
@@ -236,6 +237,18 @@ export interface CountryTripState {
   fetchAllocations: () => Promise<void>;
   selectAllocation: (index: number) => void;
   generateItinerary: () => Promise<void>;
+  restoreFromDraft: (draft: {
+    current_step?: number;
+    country_id?: string;
+    country_name?: string;
+    start_date?: string;
+    end_date?: string;
+    group_type?: string;
+    group_size?: number;
+    vibes?: string[];
+    budget_level?: number;
+    pacing?: string;
+  }) => void;
   reset: () => void;
 }
 
@@ -291,7 +304,14 @@ export const useCountryStore = create<CountryTripState>((set, get) => ({
     }
   },
 
-  selectCountry: (country) => set({ selectedCountry: country }),
+  selectCountry: (country) => {
+    set({ selectedCountry: country });
+    useDraftStore.getState().saveDraft({
+      country_id: country.id,
+      country_name: country.name,
+      current_step: get().currentStep,
+    });
+  },
 
   setDateRange: (start, end) => set({ startDate: start, endDate: end }),
 
@@ -312,7 +332,22 @@ export const useCountryStore = create<CountryTripState>((set, get) => ({
 
   setPacing: (pacing) => set({ pacing }),
 
-  nextStep: () => set((s) => ({ currentStep: Math.min(s.currentStep + 1, 3) })),
+  nextStep: () => {
+    set((s) => ({ currentStep: Math.min(s.currentStep + 1, 3) }));
+    const s = get();
+    useDraftStore.getState().saveDraft({
+      current_step: s.currentStep,
+      country_id: s.selectedCountry?.id,
+      country_name: s.selectedCountry?.name,
+      start_date: s.startDate ?? undefined,
+      end_date: s.endDate ?? undefined,
+      group_type: s.groupType || undefined,
+      group_size: s.groupSize,
+      vibes: s.vibes.length > 0 ? s.vibes : undefined,
+      budget_level: s.budgetLevel,
+      pacing: s.pacing,
+    });
+  },
 
   previousStep: () => set((s) => ({ currentStep: Math.max(s.currentStep - 1, 0) })),
 
@@ -340,6 +375,19 @@ export const useCountryStore = create<CountryTripState>((set, get) => ({
       const mock = buildMockAllocations(selectedCountry.id, totalDays);
       set({ allocationResponse: mock, isLoadingAllocations: false });
     }
+    // Save draft with all preferences
+    useDraftStore.getState().saveDraft({
+      current_step: get().currentStep,
+      country_id: selectedCountry.id,
+      country_name: selectedCountry.name,
+      start_date: startDate ?? undefined,
+      end_date: endDate ?? undefined,
+      group_type: groupType || undefined,
+      group_size: get().groupSize,
+      vibes: vibes.length > 0 ? vibes : undefined,
+      budget_level: budgetLevel,
+      pacing,
+    });
   },
 
   selectAllocation: (index) => set({ selectedAllocationIndex: index }),
@@ -377,6 +425,8 @@ export const useCountryStore = create<CountryTripState>((set, get) => ({
       }
 
       set({ countryItinerary: resp, dayItineraries: days, isGenerating: false });
+      // Mark draft as completed
+      useDraftStore.getState().markCompleted();
     } catch {
       // Build mock itinerary from allocation
       const days: DayItinerary[] = [];
@@ -417,6 +467,24 @@ export const useCountryStore = create<CountryTripState>((set, get) => ({
         isGenerating: false,
       });
     }
+  },
+
+  restoreFromDraft: (draft) => {
+    const { countries } = get();
+    const country = draft.country_id
+      ? countries.find((c) => c.id === draft.country_id) ?? null
+      : null;
+    set({
+      selectedCountry: country,
+      currentStep: draft.current_step ?? 0,
+      startDate: draft.start_date ?? null,
+      endDate: draft.end_date ?? null,
+      groupType: draft.group_type ?? '',
+      groupSize: draft.group_size ?? 2,
+      vibes: draft.vibes ?? [],
+      budgetLevel: draft.budget_level ?? 3,
+      pacing: draft.pacing ?? 'moderate',
+    });
   },
 
   reset: () => set({ ...initialState, countries: get().countries }),

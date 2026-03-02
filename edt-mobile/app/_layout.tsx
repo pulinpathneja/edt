@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Platform } from 'react-native';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useFonts } from 'expo-font';
@@ -11,6 +12,9 @@ import {
 } from '@expo-google-fonts/plus-jakarta-sans';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
+import { registerSession } from '@/services/api';
+import { seedDemoIfNeeded } from '@/services/demoSeed';
+import { useWishlistStore } from '@/stores/wishlistStore';
 
 export { ErrorBoundary } from 'expo-router';
 
@@ -36,6 +40,12 @@ export default function RootLayout() {
   useEffect(() => {
     if (fontsLoaded) {
       SplashScreen.hideAsync();
+      // Register session, seed demo data, and load wishlist on app launch
+      registerSession(Platform.OS).then(() => {
+        seedDemoIfNeeded().then(() => {
+          useWishlistStore.getState().loadWishlist();
+        });
+      });
     }
   }, [fontsLoaded]);
 

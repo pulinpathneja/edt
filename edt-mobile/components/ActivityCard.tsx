@@ -1,7 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { activityTypeColors, Colors, Typography, Spacing, Radius } from '@/theme';
+import { useWishlistStore } from '@/stores/wishlistStore';
 import type { ActivityData } from '@/types';
 
 const TYPE_ICONS: Record<string, keyof typeof Ionicons.glyphMap> = {
@@ -12,28 +13,40 @@ const TYPE_ICONS: Record<string, keyof typeof Ionicons.glyphMap> = {
   shopping: 'bag-outline',
 };
 
-const TYPE_EMOJI: Record<string, string> = {
-  hotel: '\u{1F3E8}',
-  meal: '\u{1F37D}',
-  transport: '\u{1F685}',
-  sightseeing: '\u{1F4F8}',
-  shopping: '\u{1F6CD}',
-};
-
 interface Props {
   data: ActivityData;
+  cityName?: string;
+  countryName?: string;
 }
 
-export function ActivityCard({ data }: Props) {
+export function ActivityCard({ data, cityName, countryName }: Props) {
   const colors = activityTypeColors(data.type);
   const icon = TYPE_ICONS[data.type] ?? 'ellipse-outline';
+  const { isWishlisted, toggleWishlist } = useWishlistStore();
+
+  const wishlisted = isWishlisted(data.title, cityName);
+
+  const handleToggleHeart = () => {
+    toggleWishlist({
+      poi_name: data.title,
+      city: cityName,
+      country: countryName,
+      category: data.type,
+      image_url: data.image,
+      description: data.description,
+    });
+  };
 
   return (
     <View style={[styles.card, { backgroundColor: colors.bg, borderColor: colors.border }]}>
       <View style={styles.row}>
-        <View style={[styles.iconBox, { backgroundColor: colors.border + '80' }]}>
-          <Ionicons name={icon} size={20} color={colors.fg} />
-        </View>
+        {data.image ? (
+          <Image source={{ uri: data.image }} style={styles.activityImage} />
+        ) : (
+          <View style={[styles.iconBox, { backgroundColor: colors.border + '80' }]}>
+            <Ionicons name={icon} size={20} color={colors.fg} />
+          </View>
+        )}
         <View style={styles.content}>
           <Text style={[Typography.labelLarge, { color: Colors.textPrimary }]} numberOfLines={1}>
             {data.title}
@@ -44,6 +57,13 @@ export function ActivityCard({ data }: Props) {
             </Text>
           ) : null}
         </View>
+        <Pressable onPress={handleToggleHeart} hitSlop={8}>
+          <Ionicons
+            name={wishlisted ? 'heart' : 'heart-outline'}
+            size={22}
+            color={wishlisted ? '#EF4444' : Colors.textTertiary}
+          />
+        </Pressable>
       </View>
     </View>
   );
@@ -59,6 +79,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: Spacing.sm,
+  },
+  activityImage: {
+    width: 44,
+    height: 44,
+    borderRadius: Radius.md,
   },
   iconBox: {
     width: 44,

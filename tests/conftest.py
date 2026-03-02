@@ -31,9 +31,14 @@ async def client() -> AsyncGenerator[AsyncClient, None]:
 
     # Create a mock session for DB-dependent routes
     mock_session = AsyncMock(spec=AsyncSession)
-    mock_session.execute = AsyncMock(return_value=MagicMock(scalars=MagicMock(return_value=MagicMock(all=MagicMock(return_value=[])))))
+    mock_result = MagicMock()
+    mock_result.scalars = MagicMock(return_value=MagicMock(all=MagicMock(return_value=[])))
+    mock_result.scalar_one_or_none = MagicMock(return_value=None)
+    mock_session.execute = AsyncMock(return_value=mock_result)
     mock_session.commit = AsyncMock()
     mock_session.rollback = AsyncMock()
+    mock_session.refresh = AsyncMock()
+    mock_session.delete = AsyncMock()
 
     async def override_get_db():
         yield mock_session

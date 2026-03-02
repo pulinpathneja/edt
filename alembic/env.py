@@ -28,6 +28,7 @@ from app.models.knowledge_graph import (
     POIAccessibility,
 )
 from app.models.city_insight import CityInsight
+from app.models.user import DeviceSession, TripDraft, WishlistItem
 
 # this is the Alembic Config object
 config = context.config

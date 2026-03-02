@@ -12,6 +12,7 @@ import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCountryStore } from '@/stores/countryStore';
+import { useDraftStore } from '@/stores/draftStore';
 import { Colors, Typography, Spacing, Radius } from '@/theme';
 
 const { width } = Dimensions.get('window');
@@ -28,11 +29,23 @@ const COUNTRY_GRADIENTS: Record<string, [string, string]> = {
 export default function HomeScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const { countries, isLoadingCountries, loadCountries, selectCountry } = useCountryStore();
+  const { countries, isLoadingCountries, loadCountries, selectCountry, restoreFromDraft } = useCountryStore();
+  const { activeDraft, loadActiveDraft, discardDraft } = useDraftStore();
 
   useEffect(() => {
     if (countries.length === 0) loadCountries();
+    loadActiveDraft();
   }, []);
+
+  const handleResumeDraft = () => {
+    if (!activeDraft) return;
+    restoreFromDraft(activeDraft);
+    router.push('/country/preferences');
+  };
+
+  const handleDiscardDraft = async () => {
+    await discardDraft();
+  };
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
@@ -47,6 +60,36 @@ export default function HomeScreen() {
             Plan your perfect multi-city adventure
           </Text>
         </LinearGradient>
+
+        {/* Resume Draft Banner */}
+        {activeDraft && (
+          <View style={styles.draftBanner}>
+            <LinearGradient
+              colors={['#FEF3C7', '#FDE68A']}
+              style={styles.draftGradient}
+            >
+              <View style={styles.draftContent}>
+                <Ionicons name="document-text-outline" size={24} color="#92400E" />
+                <View style={{ flex: 1 }}>
+                  <Text style={[Typography.labelLarge, { color: '#92400E' }]}>
+                    Resume your trip?
+                  </Text>
+                  <Text style={[Typography.caption, { color: '#A16207' }]}>
+                    {activeDraft.country_name ?? 'Trip'} — step {(activeDraft.current_step ?? 0) + 1} of 4
+                  </Text>
+                </View>
+              </View>
+              <View style={styles.draftActions}>
+                <Pressable onPress={handleDiscardDraft} style={styles.draftDismiss}>
+                  <Text style={[Typography.labelMedium, { color: '#A16207' }]}>Discard</Text>
+                </Pressable>
+                <Pressable onPress={handleResumeDraft} style={styles.draftResume}>
+                  <Text style={[Typography.labelMedium, { color: Colors.white }]}>Resume</Text>
+                </Pressable>
+              </View>
+            </LinearGradient>
+          </View>
+        )}
 
         {/* Multi-City CTA */}
         <Pressable
@@ -149,6 +192,39 @@ const styles = StyleSheet.create({
     paddingHorizontal: Spacing.lg,
     paddingTop: Spacing.lg,
     paddingBottom: Spacing.xl,
+  },
+  draftBanner: {
+    marginHorizontal: Spacing.md,
+    borderRadius: Radius.xl,
+    overflow: 'hidden',
+    marginBottom: Spacing.md,
+  },
+  draftGradient: {
+    padding: Spacing.md,
+  },
+  draftContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Spacing.sm,
+    marginBottom: Spacing.sm,
+  },
+  draftActions: {
+    flexDirection: 'row',
+    gap: Spacing.sm,
+    justifyContent: 'flex-end',
+  },
+  draftDismiss: {
+    paddingHorizontal: Spacing.md,
+    paddingVertical: Spacing.xs,
+    borderRadius: Radius.md,
+    borderWidth: 1,
+    borderColor: '#A16207',
+  },
+  draftResume: {
+    paddingHorizontal: Spacing.md,
+    paddingVertical: Spacing.xs,
+    borderRadius: Radius.md,
+    backgroundColor: '#92400E',
   },
   ctaCard: {
     marginHorizontal: Spacing.md,
