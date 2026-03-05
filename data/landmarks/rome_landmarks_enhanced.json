@@ -1,0 +1,632 @@
+[
+  {
+    "id": "rome_colosseum",
+    "name": "Colosseum",
+    "category": "monument",
+    "latitude": 41.8902,
+    "longitude": 12.4922,
+    "description": "Iconic ancient Roman amphitheater, symbol of Rome and the most visited monument in Italy.",
+    "must_see_rating": {
+      "is_must_see": true,
+      "tier": "iconic",
+      "reason": "UNESCO World Heritage Site, Symbol of Rome"
+    },
+    "vibe_scores": {
+      "romantic": 0.70,
+      "cultural": 0.95,
+      "adventure": 0.60,
+      "relaxation": 0.30,
+      "foodie": 0.20,
+      "nightlife": 0.40,
+      "nature": 0.20,
+      "shopping": 0.10,
+      "photography": 0.95,
+      "spiritual": 0.40
+    },
+    "group_scores": {
+      "family": 0.85,
+      "honeymoon": 0.80,
+      "solo": 0.90,
+      "friends": 0.85,
+      "seniors": 0.75,
+      "business": 0.60
+    },
+    "duration_by_persona": {
+      "default": 120,
+      "family": 90,
+      "honeymoon": 90,
+      "solo": 150,
+      "seniors": 120
+    },
+    "best_time": "morning",
+    "golden_hour_worthy": true
+  },
+  {
+    "id": "rome_vatican",
+    "name": "Vatican Museums",
+    "category": "museum",
+    "latitude": 41.9065,
+    "longitude": 12.4536,
+    "description": "World's greatest art collection including the Sistine Chapel, Raphael Rooms, and thousands of masterpieces.",
+    "must_see_rating": {
+      "is_must_see": true,
+      "tier": "iconic",
+      "reason": "One of the world's most important art collections"
+    },
+    "vibe_scores": {
+      "romantic": 0.65,
+      "cultural": 0.98,
+      "adventure": 0.30,
+      "relaxation": 0.40,
+      "foodie": 0.10,
+      "nightlife": 0.05,
+      "nature": 0.10,
+      "shopping": 0.20,
+      "photography": 0.85,
+      "spiritual": 0.90
+    },
+    "group_scores": {
+      "family": 0.70,
+      "honeymoon": 0.75,
+      "solo": 0.90,
+      "friends": 0.80,
+      "seniors": 0.80,
+      "business": 0.65
+    },
+    "duration_by_persona": {
+      "default": 240,
+      "family": 150,
+      "honeymoon": 180,
+      "solo": 300,
+      "seniors": 210
+    },
+    "best_time": "morning",
+    "golden_hour_worthy": false
+  },
+  {
+    "id": "rome_stpeters",
+    "name": "St. Peter's Basilica",
+    "category": "church",
+    "latitude": 41.9022,
+    "longitude": 12.4539,
+    "description": "Largest church in the world, masterpiece of Renaissance architecture with Michelangelo's dome.",
+    "must_see_rating": {
+      "is_must_see": true,
+      "tier": "iconic",
+      "reason": "Largest church in the world, center of Catholic faith"
+    },
+    "vibe_scores": {
+      "romantic": 0.60,
+      "cultural": 0.95,
+      "adventure": 0.30,
+      "relaxation": 0.50,
+      "foodie": 0.05,
+      "nightlife": 0.05,
+      "nature": 0.15,
+      "shopping": 0.10,
+      "photography": 0.90,
+      "spiritual": 0.98
+    },
+    "group_scores": {
+      "family": 0.75,
+      "honeymoon": 0.70,
+      "solo": 0.85,
+      "friends": 0.75,
+      "seniors": 0.85,
+      "business": 0.55
+    },
+    "duration_by_persona": {
+      "default": 120,
+      "family": 75,
+      "honeymoon": 90,
+      "solo": 150,
+      "seniors": 120
+    },
+    "best_time": "morning",
+    "golden_hour_worthy": true
+  },
+  {
+    "id": "rome_pantheon",
+    "name": "Pantheon",
+    "category": "monument",
+    "latitude": 41.8986,
+    "longitude": 12.4769,
+    "description": "Best-preserved ancient Roman building with iconic dome and oculus. Free entry.",
+    "must_see_rating": {
+      "is_must_see": true,
+      "tier": "iconic",
+      "reason": "Best-preserved ancient Roman building"
+    },
+    "vibe_scores": {
+      "romantic": 0.75,
+      "cultural": 0.95,
+      "adventure": 0.35,
+      "relaxation": 0.60,
+      "foodie": 0.30,
+      "nightlife": 0.30,
+      "nature": 0.10,
+      "shopping": 0.20,
+      "photography": 0.90,
+      "spiritual": 0.75
+    },
+    "group_scores": {
+      "family": 0.80,
+      "honeymoon": 0.85,
+      "solo": 0.90,
+      "friends": 0.85,
+      "seniors": 0.90,
+      "business": 0.70
+    },
+    "duration_by_persona": {
+      "default": 60,
+      "family": 40,
+      "honeymoon": 60,
+      "solo": 75,
+      "seniors": 60
+    },
+    "best_time": "any",
+    "golden_hour_worthy": false
+  },
+  {
+    "id": "rome_trevifountain",
+    "name": "Trevi Fountain",
+    "category": "monument",
+    "latitude": 41.9009,
+    "longitude": 12.4833,
+    "description": "Baroque masterpiece, throw a coin to return to Rome. Most romantic fountain in the world.",
+    "must_see_rating": {
+      "is_must_see": true,
+      "tier": "iconic",
+      "reason": "Most famous fountain in the world"
+    },
+    "vibe_scores": {
+      "romantic": 0.98,
+      "cultural": 0.85,
+      "adventure": 0.30,
+      "relaxation": 0.60,
+      "foodie": 0.40,
+      "nightlife": 0.70,
+      "nature": 0.20,
+      "shopping": 0.50,
+      "photography": 0.95,
+      "spiritual": 0.50
+    },
+    "group_scores": {
+      "family": 0.80,
+      "honeymoon": 0.98,
+      "solo": 0.85,
+      "friends": 0.90,
+      "seniors": 0.85,
+      "business": 0.70
+    },
+    "duration_by_persona": {
+      "default": 45,
+      "family": 30,
+      "honeymoon": 60,
+      "solo": 45,
+      "seniors": 45
+    },
+    "best_time": "evening",
+    "golden_hour_worthy": true
+  },
+  {
+    "id": "rome_romanforum",
+    "name": "Roman Forum",
+    "category": "monument",
+    "latitude": 41.8925,
+    "longitude": 12.4853,
+    "description": "Ancient ruins of Rome's political and commercial center spanning centuries.",
+    "must_see_rating": {
+      "is_must_see": true,
+      "tier": "iconic",
+      "reason": "Heart of ancient Roman civilization"
+    },
+    "vibe_scores": {
+      "romantic": 0.55,
+      "cultural": 0.95,
+      "adventure": 0.65,
+      "relaxation": 0.40,
+      "foodie": 0.10,
+      "nightlife": 0.10,
+      "nature": 0.30,
+      "shopping": 0.05,
+      "photography": 0.90,
+      "spiritual": 0.35
+    },
+    "group_scores": {
+      "family": 0.65,
+      "honeymoon": 0.60,
+      "solo": 0.90,
+      "friends": 0.75,
+      "seniors": 0.60,
+      "business": 0.50
+    },
+    "duration_by_persona": {
+      "default": 120,
+      "family": 75,
+      "honeymoon": 90,
+      "solo": 150,
+      "seniors": 90
+    },
+    "best_time": "morning",
+    "golden_hour_worthy": true
+  },
+  {
+    "id": "rome_spanishsteps",
+    "name": "Spanish Steps",
+    "category": "monument",
+    "latitude": 41.9060,
+    "longitude": 12.4828,
+    "description": "Iconic 135-step stairway, perfect for people watching and luxury shopping nearby.",
+    "must_see_rating": {
+      "is_must_see": true,
+      "tier": "recommended",
+      "reason": "Iconic Roman landmark and meeting point"
+    },
+    "vibe_scores": {
+      "romantic": 0.85,
+      "cultural": 0.70,
+      "adventure": 0.25,
+      "relaxation": 0.65,
+      "foodie": 0.50,
+      "nightlife": 0.55,
+      "nature": 0.15,
+      "shopping": 0.90,
+      "photography": 0.85,
+      "spiritual": 0.20
+    },
+    "group_scores": {
+      "family": 0.70,
+      "honeymoon": 0.90,
+      "solo": 0.80,
+      "friends": 0.85,
+      "seniors": 0.65,
+      "business": 0.70
+    },
+    "duration_by_persona": {
+      "default": 45,
+      "family": 30,
+      "honeymoon": 60,
+      "solo": 30,
+      "seniors": 45
+    },
+    "best_time": "afternoon",
+    "golden_hour_worthy": true
+  },
+  {
+    "id": "rome_borghese",
+    "name": "Borghese Gallery",
+    "category": "museum",
+    "latitude": 41.9142,
+    "longitude": 12.4921,
+    "description": "Bernini sculptures and Caravaggio paintings in a stunning villa. Reservation required.",
+    "must_see_rating": {
+      "is_must_see": true,
+      "tier": "recommended",
+      "reason": "World-class Bernini and Caravaggio collection"
+    },
+    "vibe_scores": {
+      "romantic": 0.80,
+      "cultural": 0.95,
+      "adventure": 0.20,
+      "relaxation": 0.70,
+      "foodie": 0.10,
+      "nightlife": 0.05,
+      "nature": 0.30,
+      "shopping": 0.15,
+      "photography": 0.75,
+      "spiritual": 0.50
+    },
+    "group_scores": {
+      "family": 0.55,
+      "honeymoon": 0.90,
+      "solo": 0.90,
+      "friends": 0.70,
+      "seniors": 0.85,
+      "business": 0.60
+    },
+    "duration_by_persona": {
+      "default": 120,
+      "family": 75,
+      "honeymoon": 120,
+      "solo": 150,
+      "seniors": 120
+    },
+    "best_time": "any",
+    "golden_hour_worthy": false
+  },
+  {
+    "id": "rome_villaborghese",
+    "name": "Villa Borghese Gardens",
+    "category": "park",
+    "latitude": 41.9145,
+    "longitude": 12.4852,
+    "description": "Rome's Central Park - beautiful gardens, lake with rowboats, and panoramic terraces.",
+    "must_see_rating": {
+      "is_must_see": false,
+      "tier": "recommended",
+      "reason": "Best green space in Rome"
+    },
+    "vibe_scores": {
+      "romantic": 0.90,
+      "cultural": 0.40,
+      "adventure": 0.50,
+      "relaxation": 0.95,
+      "foodie": 0.30,
+      "nightlife": 0.10,
+      "nature": 0.95,
+      "shopping": 0.10,
+      "photography": 0.80,
+      "spiritual": 0.30
+    },
+    "group_scores": {
+      "family": 0.95,
+      "honeymoon": 0.90,
+      "solo": 0.80,
+      "friends": 0.85,
+      "seniors": 0.80,
+      "business": 0.40
+    },
+    "duration_by_persona": {
+      "default": 90,
+      "family": 120,
+      "honeymoon": 90,
+      "solo": 60,
+      "seniors": 75
+    },
+    "best_time": "afternoon",
+    "golden_hour_worthy": true
+  },
+  {
+    "id": "rome_piazzanavona",
+    "name": "Piazza Navona",
+    "category": "attraction",
+    "latitude": 41.8992,
+    "longitude": 12.4731,
+    "description": "Baroque square with Bernini's Fountain of Four Rivers, street artists, and cafes.",
+    "must_see_rating": {
+      "is_must_see": true,
+      "tier": "recommended",
+      "reason": "Rome's most beautiful baroque square"
+    },
+    "vibe_scores": {
+      "romantic": 0.85,
+      "cultural": 0.80,
+      "adventure": 0.25,
+      "relaxation": 0.75,
+      "foodie": 0.65,
+      "nightlife": 0.60,
+      "nature": 0.15,
+      "shopping": 0.45,
+      "photography": 0.90,
+      "spiritual": 0.25
+    },
+    "group_scores": {
+      "family": 0.85,
+      "honeymoon": 0.90,
+      "solo": 0.80,
+      "friends": 0.90,
+      "seniors": 0.85,
+      "business": 0.65
+    },
+    "duration_by_persona": {
+      "default": 45,
+      "family": 45,
+      "honeymoon": 60,
+      "solo": 30,
+      "seniors": 45
+    },
+    "best_time": "evening",
+    "golden_hour_worthy": true
+  },
+  {
+    "id": "rome_trastevere",
+    "name": "Trastevere Neighborhood",
+    "category": "attraction",
+    "latitude": 41.8894,
+    "longitude": 12.4700,
+    "description": "Charming cobblestone streets with the best trattorias, wine bars, and authentic Roman atmosphere.",
+    "must_see_rating": {
+      "is_must_see": true,
+      "tier": "recommended",
+      "reason": "Most authentic neighborhood for Roman food and nightlife"
+    },
+    "vibe_scores": {
+      "romantic": 0.90,
+      "cultural": 0.70,
+      "adventure": 0.40,
+      "relaxation": 0.65,
+      "foodie": 0.98,
+      "nightlife": 0.90,
+      "nature": 0.15,
+      "shopping": 0.55,
+      "photography": 0.85,
+      "spiritual": 0.25
+    },
+    "group_scores": {
+      "family": 0.70,
+      "honeymoon": 0.95,
+      "solo": 0.90,
+      "friends": 0.95,
+      "seniors": 0.70,
+      "business": 0.55
+    },
+    "duration_by_persona": {
+      "default": 120,
+      "family": 90,
+      "honeymoon": 180,
+      "solo": 120,
+      "seniors": 90
+    },
+    "best_time": "evening",
+    "golden_hour_worthy": true
+  },
+  {
+    "id": "rome_campofiori",
+    "name": "Campo de' Fiori",
+    "category": "attraction",
+    "latitude": 41.8956,
+    "longitude": 12.4722,
+    "description": "Lively market square by day, vibrant nightlife by night. Great for fresh produce and street food.",
+    "must_see_rating": {
+      "is_must_see": false,
+      "tier": "recommended",
+      "reason": "Best morning market and evening hangout"
+    },
+    "vibe_scores": {
+      "romantic": 0.60,
+      "cultural": 0.60,
+      "adventure": 0.35,
+      "relaxation": 0.50,
+      "foodie": 0.95,
+      "nightlife": 0.85,
+      "nature": 0.10,
+      "shopping": 0.80,
+      "photography": 0.70,
+      "spiritual": 0.10
+    },
+    "group_scores": {
+      "family": 0.70,
+      "honeymoon": 0.65,
+      "solo": 0.85,
+      "friends": 0.90,
+      "seniors": 0.65,
+      "business": 0.50
+    },
+    "duration_by_persona": {
+      "default": 60,
+      "family": 45,
+      "honeymoon": 60,
+      "solo": 45,
+      "seniors": 45
+    },
+    "best_time": "morning",
+    "golden_hour_worthy": false
+  },
+  {
+    "id": "rome_castelsantangelo",
+    "name": "Castel Sant'Angelo",
+    "category": "monument",
+    "latitude": 41.9031,
+    "longitude": 12.4663,
+    "description": "Former papal fortress with panoramic rooftop views of Rome and the Tiber.",
+    "must_see_rating": {
+      "is_must_see": true,
+      "tier": "recommended",
+      "reason": "Stunning panoramic views and rich history"
+    },
+    "vibe_scores": {
+      "romantic": 0.80,
+      "cultural": 0.80,
+      "adventure": 0.55,
+      "relaxation": 0.50,
+      "foodie": 0.15,
+      "nightlife": 0.40,
+      "nature": 0.20,
+      "shopping": 0.10,
+      "photography": 0.90,
+      "spiritual": 0.40
+    },
+    "group_scores": {
+      "family": 0.75,
+      "honeymoon": 0.85,
+      "solo": 0.85,
+      "friends": 0.80,
+      "seniors": 0.65,
+      "business": 0.55
+    },
+    "duration_by_persona": {
+      "default": 90,
+      "family": 60,
+      "honeymoon": 90,
+      "solo": 120,
+      "seniors": 75
+    },
+    "best_time": "afternoon",
+    "golden_hour_worthy": true
+  },
+  {
+    "id": "rome_palatinehill",
+    "name": "Palatine Hill",
+    "category": "monument",
+    "latitude": 41.8892,
+    "longitude": 12.4875,
+    "description": "Legendary birthplace of Rome with imperial palace ruins and garden views over the Forum.",
+    "must_see_rating": {
+      "is_must_see": true,
+      "tier": "recommended",
+      "reason": "Combined ticket with Colosseum and Forum"
+    },
+    "vibe_scores": {
+      "romantic": 0.60,
+      "cultural": 0.90,
+      "adventure": 0.60,
+      "relaxation": 0.55,
+      "foodie": 0.05,
+      "nightlife": 0.05,
+      "nature": 0.50,
+      "shopping": 0.05,
+      "photography": 0.85,
+      "spiritual": 0.30
+    },
+    "group_scores": {
+      "family": 0.55,
+      "honeymoon": 0.60,
+      "solo": 0.85,
+      "friends": 0.70,
+      "seniors": 0.50,
+      "business": 0.40
+    },
+    "duration_by_persona": {
+      "default": 90,
+      "family": 60,
+      "honeymoon": 75,
+      "solo": 120,
+      "seniors": 75
+    },
+    "best_time": "morning",
+    "golden_hour_worthy": true
+  },
+  {
+    "id": "rome_sistinechapel",
+    "name": "Sistine Chapel",
+    "category": "church",
+    "latitude": 41.9029,
+    "longitude": 12.4545,
+    "description": "Michelangelo's ceiling masterpiece - included in Vatican Museums visit.",
+    "must_see_rating": {
+      "is_must_see": true,
+      "tier": "iconic",
+      "reason": "Michelangelo's greatest masterpiece"
+    },
+    "vibe_scores": {
+      "romantic": 0.65,
+      "cultural": 0.98,
+      "adventure": 0.20,
+      "relaxation": 0.45,
+      "foodie": 0.05,
+      "nightlife": 0.05,
+      "nature": 0.05,
+      "shopping": 0.05,
+      "photography": 0.70,
+      "spiritual": 0.95
+    },
+    "group_scores": {
+      "family": 0.65,
+      "honeymoon": 0.70,
+      "solo": 0.90,
+      "friends": 0.75,
+      "seniors": 0.80,
+      "business": 0.60
+    },
+    "duration_by_persona": {
+      "default": 60,
+      "family": 40,
+      "honeymoon": 45,
+      "solo": 75,
+      "seniors": 60
+    },
+    "best_time": "morning",
+    "golden_hour_worthy": false
+  }
+]

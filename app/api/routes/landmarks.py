@@ -10,7 +10,11 @@ from app.schemas.landmark import (
     LandmarkGenerateRequest,
     LandmarkGenerateResponse,
     LandmarkCreate,
+    LandmarkEnhanced,
+    ScoredLandmarkResponse,
+    ScoredLandmarkListResponse,
 )
+from app.services.landmark_scorer import LandmarkScorer
 
 router = APIRouter()
 
@@ -106,6 +110,81 @@ def fetch_landmarks_from_wikidata(city_name: str, country: str, limit: int = 20)
         return landmarks, "wikidata"
     except Exception as e:
         return [], f"wikidata_error: {str(e)}"
+
+
+def load_enhanced_landmarks(city: str) -> List[LandmarkEnhanced]:
+    """Load enhanced landmarks from JSON file."""
+    file_path = LANDMARKS_DIR / f"{city.lower()}_landmarks_enhanced.json"
+
+    if not file_path.exists():
+        return []
+
+    with open(file_path, 'r') as f:
+        raw = json.load(f)
+
+    return [LandmarkEnhanced(**lm) for lm in raw]
+
+
+@router.get("/{city_id}/scored", response_model=ScoredLandmarkListResponse)
+async def get_scored_landmarks(
+    city_id: str,
+    vibes: List[str] = Query(default=["cultural"]),
+    group_type: str = Query(default="solo"),
+    include_must_see: bool = Query(default=True),
+    min_score: float = Query(default=0.0, ge=0, le=1),
+    limit: int = Query(default=20, ge=1, le=50),
+):
+    """
+    Get landmarks with persona-based scoring.
+
+    Must-see landmarks (tier=iconic) are ALWAYS included
+    regardless of min_score filter.
+    """
+    landmarks = load_enhanced_landmarks(city_id)
+
+    if not landmarks:
+        raise HTTPException(
+            status_code=404,
+            detail=f"No enhanced landmarks found for '{city_id}'. "
+                   f"Create data/landmarks/{city_id.lower()}_landmarks_enhanced.json"
+        )
+
+    scorer = LandmarkScorer()
+    scored = scorer.score_and_rank(
+        landmarks=landmarks,
+        vibes=vibes,
+        group_type=group_type,
+        min_score=min_score,
+        include_must_see=include_must_see,
+    )
+
+    results = []
+    for lm in scored[:limit]:
+        results.append(ScoredLandmarkResponse(
+            id=lm.id,
+            name=lm.name,
+            category=lm.category,
+            latitude=lm.latitude,
+            longitude=lm.longitude,
+            description=lm.description,
+            address=lm.address,
+            must_see_rating=lm.must_see_rating,
+            vibe_scores=lm.vibe_scores,
+            group_scores=lm.group_scores,
+            duration_by_persona=lm.duration_by_persona,
+            best_time=lm.best_time,
+            golden_hour_worthy=lm.golden_hour_worthy,
+            match_score=lm.match_score,
+            selection_reason=lm.selection_reason,
+        ))
+
+    return ScoredLandmarkListResponse(
+        city=city_id,
+        vibes=vibes,
+        group_type=group_type,
+        landmarks=results,
+        total=len(results),
+    )
 
 
 @router.get("/{city_id}", response_model=LandmarkListResponse)
