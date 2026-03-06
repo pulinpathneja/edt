@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDT API Showcase</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #FEF9F2;
+  color: #2C1810;
+  min-height: 100vh;
+}
+
+/* ─── Header ───────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, #2C1810 0%, #4A3228 60%, #5D3A2A 100%);
+  color: #FEF9F2;
+  padding: 48px 32px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at 30% 70%, rgba(200,169,81,0.08) 0%, transparent 50%),
+              radial-gradient(circle at 70% 30%, rgba(200,169,81,0.05) 0%, transparent 50%);
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  position: relative;
+}
+.hero .gold { color: #C8A951; }
+.hero .tagline {
+  color: #C8A951;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 6px;
+  position: relative;
+}
+.hero .desc {
+  color: rgba(254,249,242,0.7);
+  font-size: 14px;
+  margin-top: 12px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+  position: relative;
+}
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  position: relative;
+}
+.hero-badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid rgba(200,169,81,0.3);
+  color: #C8A951;
+  background: rgba(200,169,81,0.1);
+}
+
+/* ─── Nav ──────────────────────────────────────────────── */
+.nav {
+  background: #fff;
+  border-bottom: 1px solid #E8E0D8;
+  padding: 0 32px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav a {
+  padding: 14px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7A6B5D;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.nav a:hover { color: #2C1810; }
+.nav a.active { color: #8B6914; border-bottom-color: #C8A951; }
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0;
+}
+.nav-link-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid #E8E0D8;
+  color: #7A6B5D;
+  transition: all 0.2s;
+}
+.nav-link-btn:hover { border-color: #C8A951; color: #8B6914; }
+
+/* ─── Content ──────────────────────────────────────────── */
+.content { max-width: 1200px; margin: 0 auto; padding: 24px 32px 60px; }
+
+.section { margin-bottom: 32px; scroll-margin-top: 60px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2C1810;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title .icon {
+  width: 32px; height: 32px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.section-desc { font-size: 13px; color: #7A6B5D; margin-bottom: 16px; }
+
+/* ─── Endpoint cards ───────────────────────────────────── */
+.endpoints-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 14px;
+}
+.ep-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #E8E0D8;
+  padding: 16px 18px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+.ep-card:hover { box-shadow: 0 4px 16px rgba(44,24,16,0.08); border-color: #D8CFC4; }
+.ep-card.expanded { grid-column: 1 / -1; }
+
+.ep-header { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.method-badge {
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  font-family: 'SF Mono', Monaco, Consolas, monospace;
+}
+.method-badge.get { background: #E8F5E9; color: #2E7D32; }
+.method-badge.post { background: #E3F2FD; color: #1565C0; }
+.method-badge.put, .method-badge.patch { background: #FFF3E0; color: #E65100; }
+.method-badge.delete { background: #FFEBEE; color: #C62828; }
+
+.ep-path {
+  font-family: 'SF Mono', Monaco, Consolas, monospace;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2C1810;
+}
+.ep-desc { font-size: 12px; color: #7A6B5D; line-height: 1.4; }
+
+.ep-actions { display: flex; gap: 8px; margin-top: 10px; }
+.try-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: linear-gradient(135deg, #C8A951, #8B6914);
+  color: #fff;
+}
+.try-btn:hover { opacity: 0.9; }
+.try-btn.outline {
+  background: transparent;
+  border: 1.5px solid #E8E0D8;
+  color: #7A6B5D;
+}
+.try-btn.outline:hover { border-color: #C8A951; color: #8B6914; }
+
+/* ─── Demo panel ───────────────────────────────────────── */
+.demo-panel {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #F0E8E0;
+  display: none;
+}
+.demo-panel.open { display: block; }
+
+.demo-row { display: flex; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+.demo-field { flex: 1; min-width: 180px; }
+.demo-field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #7A6B5D;
+  margin-bottom: 4px;
+}
+.demo-field input, .demo-field select, .demo-field textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1.5px solid #E8E0D8;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #2C1810;
+  background: #FEF9F2;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+.demo-field input:focus, .demo-field select:focus, .demo-field textarea:focus { border-color: #C8A951; }
+.demo-field textarea { resize: vertical; min-height: 60px; font-family: 'SF Mono', Monaco, Consolas, monospace; font-size: 12px; }
+
+.demo-response {
+  background: #1E1E1E;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 10px;
+  position: relative;
+  max-height: 400px;
+  overflow: auto;
+}
+.demo-response pre {
+  color: #D4D4D4;
+  font-family: 'SF Mono', Monaco, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.demo-response .json-key { color: #9CDCFE; }
+.demo-response .json-string { color: #CE9178; }
+.demo-response .json-number { color: #B5CEA8; }
+.demo-response .json-bool { color: #569CD6; }
+.demo-response .json-null { color: #569CD6; }
+
+.demo-status {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.demo-status.ok { background: #E8F5E9; color: #2E7D32; }
+.demo-status.err { background: #FFEBEE; color: #C62828; }
+.demo-status.loading { background: #FFF3E0; color: #E65100; }
+
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 80px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #888;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.copy-btn:hover { color: #fff; background: rgba(255,255,255,0.2); }
+
+/* ─── Stats row ────────────────────────────────────────── */
+.stats-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.stat-chip {
+  background: #fff;
+  border: 1px solid #E8E0D8;
+  border-radius: 12px;
+  padding: 14px 20px;
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+}
+.stat-chip .num { font-size: 28px; font-weight: 800; color: #8B6914; }
+.stat-chip .lbl { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: #7A6B5D; margin-top: 2px; }
+
+/* ─── Responsive ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero { padding: 32px 20px; }
+  .hero h1 { font-size: 24px; }
+  .content { padding: 16px 16px 40px; }
+  .endpoints-grid { grid-template-columns: 1fr; }
+  .nav { padding: 0 16px; }
+  .stats-row { gap: 8px; }
+  .stat-chip { min-width: 100px; padding: 10px 14px; }
+  .stat-chip .num { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <h1>EDT <span class="gold">API</span> Showcase</h1>
+  <div class="tagline">Explore, Discover, Travel &mdash; RAG-Based Persona-Driven Itinerary System</div>
+  <div class="desc">
+    A retrieval-augmented generation pipeline that assembles personalized travel itineraries using pgvector similarity search, persona scoring, and knowledge graph relationships &mdash; no LLM required.
+  </div>
+  <div class="hero-badges">
+    <span class="hero-badge">FastAPI</span>
+    <span class="hero-badge">pgvector</span>
+    <span class="hero-badge">RAG Pipeline</span>
+    <span class="hero-badge">Knowledge Graph</span>
+    <span class="hero-badge">Cloud Run</span>
+  </div>
+</div>
+
+<!-- Navigation -->
+<div class="nav" id="nav">
+  <a href="#core" class="active" data-section="core">Core APIs</a>
+  <a href="#itinerary" data-section="itinerary">Itinerary</a>
+  <a href="#search" data-section="search">Search</a>
+  <a href="#country" data-section="country">Multi-City</a>
+  <a href="#pipeline" data-section="pipeline">Pipeline</a>
+  <a href="#travel" data-section="travel">Travel</a>
+  <div class="nav-right">
+    <a href="/docs" class="nav-link-btn" target="_blank">Swagger Docs</a>
+    <a href="/web/query.html" class="nav-link-btn">Query Explorer</a>
+    <a href="/web/pipeline_dashboard.html" class="nav-link-btn">Pipeline Dashboard</a>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- Stats -->
+<div class="stats-row" id="stats-row">
+  <div class="stat-chip"><div class="num" id="stat-endpoints">50+</div><div class="lbl">API Endpoints</div></div>
+  <div class="stat-chip"><div class="num" id="stat-cities">-</div><div class="lbl">Cities</div></div>
+  <div class="stat-chip"><div class="num" id="stat-pois">-</div><div class="lbl">POIs</div></div>
+  <div class="stat-chip"><div class="num" id="stat-countries">-</div><div class="lbl">Countries</div></div>
+</div>
+
+<!-- ═══════════════ CORE APIs ═══════════════ -->
+<div class="section" id="core">
+  <div class="section-title"><span class="icon" style="background:#FEF3E0;color:#8B6914">&#9733;</span> Core APIs</div>
+  <div class="section-desc">Cities, POIs, Landmarks, and Personas &mdash; the building blocks of the itinerary system.</div>
+  <div class="endpoints-grid">
+
+    <!-- List Cities -->
+    <div class="ep-card" id="ep-cities">
+      <div class="ep-header">
+        <span class="method-badge get">GET</span>
+        <span class="ep-path">/api/v1/cities</span>
+      </div>
+      <div class="ep-desc">List all available cities with neighborhood and landmark counts.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('cities')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-cities">
+        <div class="demo-response" id="resp-cities"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+    <!-- Get City -->
+    <div class="ep-card" id="ep-city-detail">
+      <div class="ep-header">
+        <span class="method-badge get">GET</span>
+        <span class="ep-path">/api/v1/cities/{city_id}</span>
+      </div>
+      <div class="ep-desc">Get detailed info for a specific city including neighborhoods and highlights.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('city-detail')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-city-detail">
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>City ID</label>
+            <select id="input-city-detail-id">
+              <option value="rome">rome</option>
+              <option value="paris">paris</option>
+              <option value="tokyo">tokyo</option>
+              <option value="florence">florence</option>
+              <option value="barcelona">barcelona</option>
+            </select>
+          </div>
+        </div>
+        <div class="demo-response" id="resp-city-detail"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+    <!-- List POIs -->
+    <div class="ep-card" id="ep-pois">
+      <div class="ep-header">
+        <span class="method-badge get">GET</span>
+        <span class="ep-path">/api/v1/pois</span>
+      </div>
+      <div class="ep-desc">List POIs with optional filtering by city, category, and neighborhood.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('pois')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-pois">
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>City</label>
+            <input type="text" id="input-pois-city" placeholder="e.g. rome" value="rome">
+          </div>
+          <div class="demo-field">
+            <label>Category</label>
+            <input type="text" id="input-pois-category" placeholder="e.g. restaurant, museum">
+          </div>
+          <div class="demo-field">
+            <label>Limit</label>
+            <input type="number" id="input-pois-limit" value="5" min="1" max="50">
+          </div>
+        </div>
+        <div class="demo-response" id="resp-pois"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+    <!-- Persona Config -->
+    <div class="ep-card" id="ep-personas">
+      <div class="ep-header">
+        <span class="method-badge get">GET</span>
+        <span class="ep-path">/api/v1/personas/config</span>
+      </div>
+      <div class="ep-desc">Get available persona configuration: group types, vibes, pacing, and budget levels.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('personas')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-personas">
+        <div class="demo-response" id="resp-personas"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+    <!-- Landmarks -->
+    <div class="ep-card" id="ep-landmarks">
+      <div class="ep-header">
+        <span class="method-badge get">GET</span>
+        <span class="ep-path">/api/v1/landmarks/{city_id}</span>
+      </div>
+      <div class="ep-desc">Get landmarks for a city. Supports methods: auto, file, wikidata.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('landmarks')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-landmarks">
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>City</label>
+            <input type="text" id="input-landmarks-city" value="rome">
+          </div>
+          <div class="demo-field">
+            <label>Method</label>
+            <select id="input-landmarks-method">
+              <option value="auto">auto</option>
+              <option value="file">file</option>
+              <option value="wikidata">wikidata</option>
+            </select>
+          </div>
+        </div>
+        <div class="demo-response" id="resp-landmarks"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+    <!-- Neighborhood Recommendations -->
+    <div class="ep-card" id="ep-neighborhoods">
+      <div class="ep-header">
+        <span class="method-badge post">POST</span>
+        <span class="ep-path">/api/v1/cities/neighborhoods/recommend</span>
+      </div>
+      <div class="ep-desc">Get persona-matched neighborhood recommendations for a city.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('neighborhoods')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-neighborhoods">
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>City</label>
+            <input type="text" id="input-neighborhoods-city" value="rome">
+          </div>
+          <div class="demo-field">
+            <label>Group Type</label>
+            <select id="input-neighborhoods-group">
+              <option value="couple">couple</option>
+              <option value="family">family</option>
+              <option value="friends">friends</option>
+              <option value="solo">solo</option>
+            </select>
+          </div>
+        </div>
+        <div class="demo-response" id="resp-neighborhoods"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ ITINERARY ═══════════════ -->
+<div class="section" id="itinerary">
+  <div class="section-title"><span class="icon" style="background:#E3F2FD;color:#1565C0">&#9992;</span> Itinerary Generation</div>
+  <div class="section-desc">Generate personalized day-by-day itineraries using the RAG pipeline &mdash; retrieval, persona scoring, and smart assembly.</div>
+  <div class="endpoints-grid">
+
+    <!-- Generate Itinerary -->
+    <div class="ep-card" id="ep-generate">
+      <div class="ep-header">
+        <span class="method-badge post">POST</span>
+        <span class="ep-path">/api/v1/itinerary/generate</span>
+      </div>
+      <div class="ep-desc">Generate a full personalized itinerary using the RAG pipeline (retrieval &rarr; scoring &rarr; assembly).</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('generate')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-generate">
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>City</label>
+            <input type="text" id="input-generate-city" value="rome">
+          </div>
+          <div class="demo-field">
+            <label>Days</label>
+            <input type="number" id="input-generate-days" value="2" min="1" max="7">
+          </div>
+          <div class="demo-field">
+            <label>Group Type</label>
+            <select id="input-generate-group">
+              <option value="couple">couple</option>
+              <option value="family">family</option>
+              <option value="friends">friends</option>
+              <option value="solo">solo</option>
+            </select>
+          </div>
+        </div>
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>Vibes (comma-separated)</label>
+            <input type="text" id="input-generate-vibes" value="cultural, foodie" placeholder="cultural, romantic, adventure">
+          </div>
+          <div class="demo-field">
+            <label>Pacing</label>
+            <select id="input-generate-pacing">
+              <option value="moderate">moderate</option>
+              <option value="relaxed">relaxed</option>
+              <option value="packed">packed</option>
+            </select>
+          </div>
+          <div class="demo-field">
+            <label>Budget</label>
+            <select id="input-generate-budget">
+              <option value="moderate">moderate</option>
+              <option value="budget">budget</option>
+              <option value="luxury">luxury</option>
+            </select>
+          </div>
+        </div>
+        <div class="demo-response" id="resp-generate"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+    <!-- Itinerary Planner (Frontend-shaped) -->
+    <div class="ep-card" id="ep-planner">
+      <div class="ep-header">
+        <span class="method-badge post">POST</span>
+        <span class="ep-path">/api/v1/itinerary-planner/generate</span>
+      </div>
+      <div class="ep-desc">Generate itinerary shaped for the React Native frontend &mdash; with activity cards, 12h time format, tips, checklists, and images.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('planner')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-planner">
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>Country</label>
+            <input type="text" id="input-planner-country" value="italy">
+          </div>
+          <div class="demo-field">
+            <label>Group Type</label>
+            <select id="input-planner-group">
+              <option value="couple">couple</option>
+              <option value="family">family</option>
+              <option value="friends">friends</option>
+              <option value="solo">solo</option>
+            </select>
+          </div>
+          <div class="demo-field">
+            <label>Pacing</label>
+            <select id="input-planner-pacing">
+              <option value="moderate">moderate</option>
+              <option value="relaxed">relaxed</option>
+              <option value="packed">packed</option>
+            </select>
+          </div>
+        </div>
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>Vibes (comma-separated)</label>
+            <input type="text" id="input-planner-vibes" value="cultural, foodie">
+          </div>
+          <div class="demo-field">
+            <label>Budget</label>
+            <select id="input-planner-budget">
+              <option value="moderate">moderate</option>
+              <option value="budget">budget</option>
+              <option value="luxury">luxury</option>
+            </select>
+          </div>
+        </div>
+        <div class="demo-field" style="margin-bottom:12px">
+          <label>Cities Allocation (JSON)</label>
+          <textarea id="input-planner-allocation" rows="3">[{"name": "Rome", "days": 2}, {"name": "Florence", "days": 2}]</textarea>
+        </div>
+        <div class="demo-response" id="resp-planner"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+    <!-- First Level Recommendations -->
+    <div class="ep-card" id="ep-first-level">
+      <div class="ep-header">
+        <span class="method-badge post">POST</span>
+        <span class="ep-path">/api/v1/recommendations/first-level</span>
+      </div>
+      <div class="ep-desc">Get first-level itinerary recommendations: scored neighborhoods and top POIs.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('first-level')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-first-level">
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>City</label>
+            <input type="text" id="input-first-level-city" value="rome">
+          </div>
+          <div class="demo-field">
+            <label>Group Type</label>
+            <select id="input-first-level-group">
+              <option value="couple">couple</option>
+              <option value="family">family</option>
+              <option value="friends">friends</option>
+              <option value="solo">solo</option>
+            </select>
+          </div>
+          <div class="demo-field">
+            <label>Vibes</label>
+            <input type="text" id="input-first-level-vibes" value="romantic, cultural">
+          </div>
+        </div>
+        <div class="demo-response" id="resp-first-level"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ SEARCH ═══════════════ -->
+<div class="section" id="search">
+  <div class="section-title"><span class="icon" style="background:#E8F5E9;color:#2E7D32">&#128269;</span> Semantic Search</div>
+  <div class="section-desc">Vector similarity search over POIs using pgvector, with natural language query parsing and persona scoring.</div>
+  <div class="endpoints-grid">
+
+    <!-- Vector Search -->
+    <div class="ep-card" id="ep-vector-search">
+      <div class="ep-header">
+        <span class="method-badge post">POST</span>
+        <span class="ep-path">/api/v1/pois/search</span>
+      </div>
+      <div class="ep-desc">Semantic vector search for POIs using natural language queries and cosine similarity.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('vector-search')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-vector-search">
+        <div class="demo-row">
+          <div class="demo-field" style="flex:2">
+            <label>Query</label>
+            <input type="text" id="input-vector-search-q" value="romantic restaurants near colosseum" placeholder="Natural language query...">
+          </div>
+          <div class="demo-field">
+            <label>Limit</label>
+            <input type="number" id="input-vector-search-limit" value="5" min="1" max="20">
+          </div>
+        </div>
+        <div class="demo-response" id="resp-vector-search"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+    <!-- NL Query -->
+    <div class="ep-card" id="ep-nl-query">
+      <div class="ep-header">
+        <span class="method-badge post">POST</span>
+        <span class="ep-path">/api/v1/query/search</span>
+      </div>
+      <div class="ep-desc">Advanced natural language query with intent parsing, query decomposition, vector search, and persona scoring.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('nl-query')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-nl-query">
+        <div class="demo-row">
+          <div class="demo-field" style="flex:2">
+            <label>Natural Language Query</label>
+            <input type="text" id="input-nl-query-q" value="hidden gems for food lovers in tokyo" placeholder="Ask anything about travel...">
+          </div>
+          <div class="demo-field">
+            <label>Limit</label>
+            <input type="number" id="input-nl-query-limit" value="5" min="1" max="20">
+          </div>
+        </div>
+        <div class="demo-response" id="resp-nl-query"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ COUNTRY / MULTI-CITY ═══════════════ -->
+<div class="section" id="country">
+  <div class="section-title"><span class="icon" style="background:#F3E5F5;color:#7B1FA2">&#127758;</span> Multi-City Planning</div>
+  <div class="section-desc">Country-level trip planning with smart day allocation across cities, then per-city itinerary generation.</div>
+  <div class="endpoints-grid">
+
+    <!-- List Countries -->
+    <div class="ep-card" id="ep-countries">
+      <div class="ep-header">
+        <span class="method-badge get">GET</span>
+        <span class="ep-path">/api/v1/country-itinerary/countries</span>
+      </div>
+      <div class="ep-desc">List all available countries with their cities, highlights, and metadata.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('countries')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-countries">
+        <div class="demo-response" id="resp-countries"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+    <!-- Allocations -->
+    <div class="ep-card" id="ep-allocations">
+      <div class="ep-header">
+        <span class="method-badge post">POST</span>
+        <span class="ep-path">/api/v1/country-itinerary/allocations</span>
+      </div>
+      <div class="ep-desc">Generate 2 city allocation options for a multi-city trip with persona-based scoring.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('allocations')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-allocations">
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>Country</label>
+            <select id="input-allocations-country">
+              <option value="italy">Italy</option>
+              <option value="france">France</option>
+              <option value="japan">Japan</option>
+              <option value="spain">Spain</option>
+              <option value="uk">United Kingdom</option>
+            </select>
+          </div>
+          <div class="demo-field">
+            <label>Total Days</label>
+            <input type="number" id="input-allocations-days" value="7" min="3" max="14">
+          </div>
+          <div class="demo-field">
+            <label>Group Type</label>
+            <select id="input-allocations-group">
+              <option value="couple">couple</option>
+              <option value="family">family</option>
+              <option value="friends">friends</option>
+              <option value="solo">solo</option>
+            </select>
+          </div>
+        </div>
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>Vibes</label>
+            <input type="text" id="input-allocations-vibes" value="cultural, foodie">
+          </div>
+          <div class="demo-field">
+            <label>Budget</label>
+            <select id="input-allocations-budget">
+              <option value="moderate">moderate</option>
+              <option value="budget">budget</option>
+              <option value="luxury">luxury</option>
+            </select>
+          </div>
+        </div>
+        <div class="demo-response" id="resp-allocations"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+    <!-- Country Generate -->
+    <div class="ep-card" id="ep-country-gen">
+      <div class="ep-header">
+        <span class="method-badge post">POST</span>
+        <span class="ep-path">/api/v1/country-itinerary/generate</span>
+      </div>
+      <div class="ep-desc">Generate a full multi-city country itinerary based on a selected allocation plan.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('country-gen')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-country-gen">
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>Country</label>
+            <input type="text" id="input-country-gen-country" value="italy">
+          </div>
+          <div class="demo-field">
+            <label>Group Type</label>
+            <select id="input-country-gen-group">
+              <option value="couple">couple</option>
+              <option value="family">family</option>
+              <option value="friends">friends</option>
+              <option value="solo">solo</option>
+            </select>
+          </div>
+          <div class="demo-field">
+            <label>Pacing</label>
+            <select id="input-country-gen-pacing">
+              <option value="moderate">moderate</option>
+              <option value="relaxed">relaxed</option>
+              <option value="packed">packed</option>
+            </select>
+          </div>
+        </div>
+        <div class="demo-field" style="margin-bottom:12px">
+          <label>Cities Allocation (JSON)</label>
+          <textarea id="input-country-gen-allocation" rows="3">[{"city_name": "Rome", "days": 3}, {"city_name": "Florence", "days": 2}]</textarea>
+        </div>
+        <div class="demo-response" id="resp-country-gen"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ PIPELINE ═══════════════ -->
+<div class="section" id="pipeline">
+  <div class="section-title"><span class="icon" style="background:#FFF3E0;color:#E65100">&#9881;</span> Data Pipeline</div>
+  <div class="section-desc">Web crawling, POI extraction, city intelligence, and database seeding pipelines.</div>
+  <div class="endpoints-grid">
+
+    <!-- Pipeline Stats -->
+    <div class="ep-card" id="ep-pipeline-stats">
+      <div class="ep-header">
+        <span class="method-badge get">GET</span>
+        <span class="ep-path">/api/v1/pipeline/stats</span>
+      </div>
+      <div class="ep-desc">Get POI counts per city from the database.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('pipeline-stats')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-pipeline-stats">
+        <div class="demo-response" id="resp-pipeline-stats"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+    <!-- Intel Cities -->
+    <div class="ep-card" id="ep-intel-cities">
+      <div class="ep-header">
+        <span class="method-badge get">GET</span>
+        <span class="ep-path">/api/v1/pipeline/intel/cities</span>
+      </div>
+      <div class="ep-desc">List all cities with completed intelligence reports (Reddit, blogs, TripAdvisor).</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('intel-cities')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-intel-cities">
+        <div class="demo-response" id="resp-intel-cities"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+    <!-- Intel Report -->
+    <div class="ep-card" id="ep-intel-report">
+      <div class="ep-header">
+        <span class="method-badge get">GET</span>
+        <span class="ep-path">/api/v1/pipeline/intel/summary/{city}</span>
+      </div>
+      <div class="ep-desc">Get a simplified summary of a city's intelligence report.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('intel-report')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-intel-report">
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>City Slug</label>
+            <input type="text" id="input-intel-report-city" value="rome" placeholder="e.g. rome, tokyo">
+          </div>
+        </div>
+        <div class="demo-response" id="resp-intel-report"><pre>Click "Try It" to see results...</pre></div>
+      </div>
+    </div>
+
+    <!-- Seed DB -->
+    <div class="ep-card" id="ep-seed-db">
+      <div class="ep-header">
+        <span class="method-badge post">POST</span>
+        <span class="ep-path">/api/v1/pipeline/seed-db</span>
+      </div>
+      <div class="ep-desc">Seed the vector database from seed JSONs and sample itinerary data (background task).</div>
+      <div class="ep-actions">
+        <button class="try-btn outline" onclick="runDemo('seed-db')">Try It (Triggers Task)</button>
+      </div>
+      <div class="demo-panel" id="demo-seed-db">
+        <div class="demo-response" id="resp-seed-db"><pre>Click "Try It" to trigger the background task...</pre></div>
+      </div>
+    </div>
+
+    <!-- Crawl -->
+    <div class="ep-card" id="ep-crawl">
+      <div class="ep-header">
+        <span class="method-badge post">POST</span>
+        <span class="ep-path">/api/v1/pipeline/crawl</span>
+      </div>
+      <div class="ep-desc">Trigger Overture Maps POI crawl for a city (background task).</div>
+      <div class="ep-actions">
+        <button class="try-btn outline" onclick="runDemo('crawl')">Try It (Triggers Task)</button>
+      </div>
+      <div class="demo-panel" id="demo-crawl">
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>City</label>
+            <input type="text" id="input-crawl-city" value="rome">
+          </div>
+        </div>
+        <div class="demo-response" id="resp-crawl"><pre>Click "Try It" to trigger the crawl...</pre></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════ TRAVEL ═══════════════ -->
+<div class="section" id="travel">
+  <div class="section-title"><span class="icon" style="background:#E8F5E9;color:#2E7D32">&#128663;</span> Travel & Distance</div>
+  <div class="section-desc">Travel time estimation, route optimization, and distance calculation between points.</div>
+  <div class="endpoints-grid">
+
+    <!-- Travel Estimate -->
+    <div class="ep-card" id="ep-travel-estimate">
+      <div class="ep-header">
+        <span class="method-badge post">POST</span>
+        <span class="ep-path">/api/v1/travel/estimate</span>
+      </div>
+      <div class="ep-desc">Calculate walking and transit travel time between two coordinates.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('travel-estimate')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-travel-estimate">
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>Origin Lat</label>
+            <input type="number" step="any" id="input-travel-lat1" value="41.8902">
+          </div>
+          <div class="demo-field">
+            <label>Origin Lng</label>
+            <input type="number" step="any" id="input-travel-lon1" value="12.4922">
+          </div>
+          <div class="demo-field">
+            <label>Dest Lat</label>
+            <input type="number" step="any" id="input-travel-lat2" value="41.9029">
+          </div>
+          <div class="demo-field">
+            <label>Dest Lng</label>
+            <input type="number" step="any" id="input-travel-lon2" value="12.4534">
+          </div>
+        </div>
+        <div class="demo-response" id="resp-travel-estimate"><pre>Click "Try It" &mdash; Colosseum to Trevi Fountain</pre></div>
+      </div>
+    </div>
+
+    <!-- Quick Distance -->
+    <div class="ep-card" id="ep-distance">
+      <div class="ep-header">
+        <span class="method-badge get">GET</span>
+        <span class="ep-path">/api/v1/travel/distance</span>
+      </div>
+      <div class="ep-desc">Quick Haversine distance calculation between two coordinates.</div>
+      <div class="ep-actions">
+        <button class="try-btn" onclick="runDemo('distance')">Try It</button>
+      </div>
+      <div class="demo-panel" id="demo-distance">
+        <div class="demo-row">
+          <div class="demo-field">
+            <label>Lat 1</label>
+            <input type="number" step="any" id="input-dist-lat1" value="48.8584">
+          </div>
+          <div class="demo-field">
+            <label>Lon 1</label>
+            <input type="number" step="any" id="input-dist-lon1" value="2.2945">
+          </div>
+          <div class="demo-field">
+            <label>Lat 2</label>
+            <input type="number" step="any" id="input-dist-lat2" value="48.8606">
+          </div>
+          <div class="demo-field">
+            <label>Lon 2</label>
+            <input type="number" step="any" id="input-dist-lon2" value="2.3376">
+          </div>
+        </div>
+        <div class="demo-response" id="resp-distance"><pre>Click "Try It" &mdash; Eiffel Tower to Louvre</pre></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<script>
+const BASE = '';
+
+/* ─── Load live stats ──────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', () => {
+  loadStats();
+  initNavScroll();
+});
+
+async function loadStats() {
+  try {
+    const [citiesRes, countriesRes] = await Promise.all([
+      fetch(BASE + '/api/v1/cities').then(r => r.json()).catch(() => []),
+      fetch(BASE + '/api/v1/country-itinerary/countries').then(r => r.json()).catch(() => ({ countries: [] })),
+    ]);
+    const cities = Array.isArray(citiesRes) ? citiesRes : [];
+    const countries = countriesRes.countries || [];
+    const totalPois = cities.reduce((s, c) => s + (c.poi_count || c.landmark_count || 0), 0);
+    if (cities.length) document.getElementById('stat-cities').textContent = cities.length;
+    if (totalPois) document.getElementById('stat-pois').textContent = totalPois.toLocaleString();
+    if (countries.length) document.getElementById('stat-countries').textContent = countries.length;
+  } catch(e) {}
+}
+
+/* ─── Nav scroll spy ───────────────────────────────────── */
+function initNavScroll() {
+  const links = document.querySelectorAll('.nav a[data-section]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`.nav a[data-section="${entry.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-80px 0px -70% 0px' });
+  document.querySelectorAll('.section').forEach(s => observer.observe(s));
+}
+
+/* ─── Run demo ─────────────────────────────────────────── */
+async function runDemo(name) {
+  const panel = document.getElementById('demo-' + name);
+  const resp = document.getElementById('resp-' + name);
+  panel.classList.add('open');
+
+  resp.innerHTML = '<span class="demo-status loading">Loading...</span><pre style="color:#888">Fetching...</pre>';
+
+  try {
+    const { url, options } = buildRequest(name);
+    const t0 = performance.now();
+    const res = await fetch(url, options);
+    const elapsed = Math.round(performance.now() - t0);
+    const data = await res.json();
+
+    const statusCls = res.ok ? 'ok' : 'err';
+    const statusText = `${res.status} ${res.statusText} &middot; ${elapsed}ms`;
+    const json = syntaxHighlight(JSON.stringify(data, null, 2));
+    resp.innerHTML = `<span class="demo-status ${statusCls}">${statusText}</span><button class="copy-btn" onclick="copyResult('${name}')">Copy</button><pre id="json-${name}">${json}</pre>`;
+  } catch (e) {
+    resp.innerHTML = `<span class="demo-status err">Error</span><pre style="color:#E53935">${esc(e.message)}</pre>`;
+  }
+}
+
+function buildRequest(name) {
+  switch (name) {
+    case 'cities':
+      return { url: BASE + '/api/v1/cities', options: {} };
+
+    case 'city-detail':
+      return { url: BASE + '/api/v1/cities/' + val('input-city-detail-id'), options: {} };
+
+    case 'pois': {
+      const params = new URLSearchParams();
+      const city = val('input-pois-city');
+      const cat = val('input-pois-category');
+      if (city) params.set('city', city);
+      if (cat) params.set('category', cat);
+      params.set('limit', val('input-pois-limit') || '5');
+      return { url: BASE + '/api/v1/pois?' + params, options: {} };
+    }
+
+    case 'personas':
+      return { url: BASE + '/api/v1/personas/config', options: {} };
+
+    case 'landmarks': {
+      const city = val('input-landmarks-city') || 'rome';
+      const method = val('input-landmarks-method') || 'auto';
+      return { url: BASE + `/api/v1/landmarks/${city}?method=${method}`, options: {} };
+    }
+
+    case 'neighborhoods':
+      return {
+        url: BASE + '/api/v1/cities/neighborhoods/recommend',
+        options: jsonPost({ city: val('input-neighborhoods-city'), group_type: val('input-neighborhoods-group'), vibes: ['cultural'] }),
+      };
+
+    case 'generate':
+      return {
+        url: BASE + '/api/v1/itinerary/generate',
+        options: jsonPost({
+          city: val('input-generate-city'),
+          days: parseInt(val('input-generate-days')),
+          group_type: val('input-generate-group'),
+          vibes: val('input-generate-vibes').split(',').map(s => s.trim()).filter(Boolean),
+          pacing: val('input-generate-pacing'),
+          budget_level: val('input-generate-budget'),
+        }),
+      };
+
+    case 'planner': {
+      let allocation;
+      try { allocation = JSON.parse(val('input-planner-allocation')); } catch(e) { allocation = []; }
+      return {
+        url: BASE + '/api/v1/itinerary-planner/generate',
+        options: jsonPost({
+          country: val('input-planner-country'),
+          group_type: val('input-planner-group'),
+          vibes: val('input-planner-vibes').split(',').map(s => s.trim()).filter(Boolean),
+          budget_level: val('input-planner-budget'),
+          pacing: val('input-planner-pacing'),
+          allocation: allocation,
+        }),
+      };
+    }
+
+    case 'first-level':
+      return {
+        url: BASE + '/api/v1/recommendations/first-level',
+        options: jsonPost({
+          city: val('input-first-level-city'),
+          group_type: val('input-first-level-group'),
+          vibes: val('input-first-level-vibes').split(',').map(s => s.trim()).filter(Boolean),
+        }),
+      };
+
+    case 'vector-search':
+      return {
+        url: BASE + '/api/v1/pois/search',
+        options: jsonPost({ query: val('input-vector-search-q'), limit: parseInt(val('input-vector-search-limit')) }),
+      };
+
+    case 'nl-query':
+      return {
+        url: BASE + '/api/v1/query/search',
+        options: jsonPost({ query: val('input-nl-query-q'), limit: parseInt(val('input-nl-query-limit')) }),
+      };
+
+    case 'countries':
+      return { url: BASE + '/api/v1/country-itinerary/countries', options: {} };
+
+    case 'allocations':
+      return {
+        url: BASE + '/api/v1/country-itinerary/allocations',
+        options: jsonPost({
+          country: val('input-allocations-country'),
+          total_days: parseInt(val('input-allocations-days')),
+          group_type: val('input-allocations-group'),
+          vibes: val('input-allocations-vibes').split(',').map(s => s.trim()).filter(Boolean),
+          budget_level: val('input-allocations-budget'),
+        }),
+      };
+
+    case 'country-gen': {
+      let alloc;
+      try { alloc = JSON.parse(val('input-country-gen-allocation')); } catch(e) { alloc = []; }
+      return {
+        url: BASE + '/api/v1/country-itinerary/generate',
+        options: jsonPost({
+          country: val('input-country-gen-country'),
+          group_type: val('input-country-gen-group'),
+          pacing: val('input-country-gen-pacing'),
+          vibes: ['cultural'],
+          budget_level: 'moderate',
+          cities: alloc,
+        }),
+      };
+    }
+
+    case 'pipeline-stats':
+      return { url: BASE + '/api/v1/pipeline/stats', options: {} };
+
+    case 'intel-cities':
+      return { url: BASE + '/api/v1/pipeline/intel/cities', options: {} };
+
+    case 'intel-report':
+      return { url: BASE + '/api/v1/pipeline/intel/summary/' + (val('input-intel-report-city') || 'rome'), options: {} };
+
+    case 'seed-db':
+      return { url: BASE + '/api/v1/pipeline/seed-db', options: jsonPost({}) };
+
+    case 'crawl':
+      return { url: BASE + '/api/v1/pipeline/crawl', options: jsonPost({ city: val('input-crawl-city') || 'rome' }) };
+
+    case 'travel-estimate':
+      return {
+        url: BASE + '/api/v1/travel/estimate',
+        options: jsonPost({
+          origin: { lat: parseFloat(val('input-travel-lat1')), lng: parseFloat(val('input-travel-lon1')) },
+          destination: { lat: parseFloat(val('input-travel-lat2')), lng: parseFloat(val('input-travel-lon2')) },
+        }),
+      };
+
+    case 'distance': {
+      const p = new URLSearchParams({
+        lat1: val('input-dist-lat1'), lon1: val('input-dist-lon1'),
+        lat2: val('input-dist-lat2'), lon2: val('input-dist-lon2'),
+      });
+      return { url: BASE + '/api/v1/travel/distance?' + p, options: {} };
+    }
+
+    default:
+      return { url: BASE + '/health', options: {} };
+  }
+}
+
+/* ─── Helpers ──────────────────────────────────────────── */
+function val(id) {
+  const el = document.getElementById(id);
+  return el ? el.value : '';
+}
+
+function jsonPost(body) {
+  return { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) };
+}
+
+function copyResult(name) {
+  const el = document.getElementById('json-' + name);
+  if (el) navigator.clipboard.writeText(el.textContent);
+}
+
+function syntaxHighlight(json) {
+  return json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"(\\u[a-fA-F0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?/g, (match) => {
+      let cls = 'json-string';
+      if (match.endsWith(':')) {
+        cls = 'json-key';
+        return `<span class="${cls}">${match.slice(0, -1)}</span>:`;
+      }
+      return `<span class="${cls}">${match}</span>`;
+    })
+    .replace(/\b(-?\d+(\.\d+)?([eE][+-]?\d+)?)\b/g, '<span class="json-number">$1</span>')
+    .replace(/\b(true|false)\b/g, '<span class="json-bool">$1</span>')
+    .replace(/\bnull\b/g, '<span class="json-null">null</span>');
+}
+
+function esc(s) {
+  if (!s) return '';
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+</script>
+
+</body>
+</html>
