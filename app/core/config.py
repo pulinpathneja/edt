@@ -16,6 +16,11 @@ class Settings(BaseSettings):
     google_search_api_key: str = ""
     google_search_cx: str = ""
 
+    # Trello integration
+    trello_api_key: str = ""
+    trello_token: str = ""
+    trello_board_id: str = ""
+
     # Application
     app_name: str = "EDT Itinerary System"
     debug: bool = True
